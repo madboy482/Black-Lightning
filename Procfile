@@ -1,1 +1,0 @@
-thunder: python -m thunder
