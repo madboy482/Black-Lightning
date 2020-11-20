@@ -15,7 +15,7 @@ from traceback import format_exc
 
 from telethon import events
 
-from fridaybot import LOGSPAMMER, PRIVATE_GROUP_ID, bot
+from userbot import LOGSPAMMER, PRIVATE_GROUP_ID, bot
 
 
 def register(**args):

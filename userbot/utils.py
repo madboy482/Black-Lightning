@@ -9,7 +9,7 @@ from pathlib import Path
 
 from telethon import events
 
-from ..userbot.modules import CMD_LIST, load_unload, sudo_help, bot
+from userbot.plugins import CMD_LIST, load_unload, sudo_help, bot
 from userbot.Configs import Config
 from var import Var
 
