@@ -3,24 +3,26 @@
 # UserBot Plugin To Send Fresh Proxies From Proxyscrape.com
 # Banned For Sensible Userbot And Users.
 # Usage : For Http Proxy : .proxyhttp , For Socks4 : .proxysocks4 , For socks5 : .proxysocks5
+thunder = "thunder"
+Config = "Config"
 
 import os
 
 from pySmartDL import SmartDL
 
-from fridaybot.utils import friday_on_cmd, sudo_cmd
+from userbot.utils import thunder_on_cmd, sudo_cmd
 
 STARK_HTTP = "https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=all"
-HTTP_TXT = "**Proxy Info** \nType: __HTTPS__ \nTimeOut: __10000__ \nCountry: __All__ \nSsl: All \nAnonymity: __All__ \n[Click Here To View Or Download File Manually](https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=all) \nUploaded By [Friday](https://github.com/starkgang/FridayUserBot) \n**Here Is Your Proxy** 👇"
+HTTP_TXT = "**Proxy Info** \nType: __HTTPS__ \nTimeOut: __10000__ \nCountry: __All__ \nSsl: All \nAnonymity: __All__ \n[Click Here To View Or Download File Manually](https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=all) \nUploaded By [thunder](https://github.com/starkgang/thunderUserBot) \n**Here Is Your Proxy** 👇"
 STARK_SOCKS4 = "https://api.proxyscrape.com/?request=getproxies&proxytype=socks4&timeout=10000&country=all"
-SOCKS4_TXT = "**Proxy Info** \nType: __SOCKS4__ \nTimeOut: __10000__ \nCountry: __All__ \nSsl: __Only For Http Proxy__ \nAnonymity: __Only For Http__ \n[Click Here To View Or Download File Manually](https://api.proxyscrape.com/?request=getproxies&proxytype=socks4&timeout=10000&country=all) \nUploaded By [Friday](https://github.com/starkgang/FridayUserBot) \n**Here Is Your Proxy** 👇"
+SOCKS4_TXT = "**Proxy Info** \nType: __SOCKS4__ \nTimeOut: __10000__ \nCountry: __All__ \nSsl: __Only For Http Proxy__ \nAnonymity: __Only For Http__ \n[Click Here To View Or Download File Manually](https://api.proxyscrape.com/?request=getproxies&proxytype=socks4&timeout=10000&country=all) \nUploaded By [thunder](https://github.com/starkgang/thunderUserBot) \n**Here Is Your Proxy** 👇"
 STARK_SOCKS5 = "https://api.proxyscrape.com/?request=getproxies&proxytype=socks5&timeout=10000&country=all"
-SOCKS5_TXT = "**Proxy Info** \nType: __SOCKS4__ \nTimeOut: __10000__ \nCountry: __All__ \nSsl: __Only For Http Proxy__ \nAnonymity: __Only For Http__ \n[Click Here To View Or Download File Manually](https://api.proxyscrape.com/?request=getproxies&proxytype=socks5&timeout=10000&country=all) \nUploaded By [Friday](https://github.com/starkgang/FridayUserBot) \n**Here Is Your Proxy** 👇"
+SOCKS5_TXT = "**Proxy Info** \nType: __SOCKS4__ \nTimeOut: __10000__ \nCountry: __All__ \nSsl: __Only For Http Proxy__ \nAnonymity: __Only For Http__ \n[Click Here To View Or Download File Manually](https://api.proxyscrape.com/?request=getproxies&proxytype=socks5&timeout=10000&country=all) \nUploaded By [thunder](https://github.com/starkgang/thunderUserBot) \n**Here Is Your Proxy** 👇"
 sedpng = "https://soon.proxyscrape.com/asset/img/service/downloadicon.svg"
 
 
-@friday.on(friday_on_cmd(pattern="http$"))
-@friday.on(sudo_cmd(pattern="http$", allow_sudo=True))
+@thunder.on(thunder_on_cmd(pattern="http$"))
+@thunder.on(sudo_cmd(pattern="http$", allow_sudo=True))
 async def starkxD(event):
     await event.get_chat()
     file_name = "proxy_http.txt"
@@ -36,8 +38,8 @@ async def starkxD(event):
     )
 
 
-@friday.on(friday_on_cmd(pattern="socks4$"))
-@friday.on(friday_on_cmd(pattern="socks4$", allow_sudo=True))
+@thunder.on(thunder_on_cmd(pattern="socks4$"))
+@thunder.on(thunder_on_cmd(pattern="socks4$", allow_sudo=True))
 async def starkgang(event):
     await event.get_chat()
     file_name = "proxy_socks4.txt"
@@ -55,9 +57,9 @@ async def starkgang(event):
     )
 
 
-@friday.on(friday_on_cmd(pattern="socks5$"))
-@friday.on(friday_on_cmd(pattern="socks5$", allow_sudo=True))
-async def friday(event):
+@thunder.on(thunder_on_cmd(pattern="socks5$"))
+@thunder.on(thunder_on_cmd(pattern="socks5$", allow_sudo=True))
+async def thunder(event):
     await event.get_chat()
     file_name = "proxy_socks5.txt"
     downloaded_file_name = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, file_name)

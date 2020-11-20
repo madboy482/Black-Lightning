@@ -1,4 +1,4 @@
-<p align="center"><a href="https://t.me/fridayot"><img src="https://telegra.ph/file/22535f8051a58af113586.jpg" width="5000"></a></p> 
+<p align="center"><a href="https://t.me/blackthundersupport"><img src="https://telegra.ph/file/22535f8051a58af113586.jpg" width="5000"></a></p> 
 <h1 align="center"><b>FRIDAY-USERBOT 🇮🇳 </b></h1>
 <h4 align="center">A Powerful, Smart And Simple Userbot In Telethon.</h4>
 
@@ -19,7 +19,7 @@
 
 <a href="https://youtu.be/xfHcm_e92eQ"><img src="https://img.shields.io/badge/How%20To-Deploy-red.svg?logo=Youtube"></a>
 
-<a href="https://app.gitbook.com/@starkgangz/s/fridayuserbot/"><img src="https://img.shields.io/badge/Read%20More-GitBook-red.svg"></a>
+<a href="https://app.gitbook.com/@poxsisofficial/s/blackthunder/"><img src="https://img.shields.io/badge/Read%20More-GitBook-red.svg"></a>
 
 
 
@@ -27,14 +27,14 @@
 
 # Deploy
 
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/StarkGang/FridayUserbot)
+[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Anmol-dot283/Thunder)
 
 
 
 
 # String
 
-[![Run on Repl.it](https://repl.it/badge/github/STARKGANG/friday)](https://friday.midhunkm1294.repl.run)
+[![Run on Repl.it](https://repl.it/badge/github/Anmol-dot2833/thunder)](https://repl.it/@Anmol10H/thunder#string_session.py)
 
 
 
@@ -43,8 +43,8 @@
 
 Simply clone the repository and run the main file:
 ```sh
-git clone https://github.com/starkGang/Fridayfridaybot
-cd FridayUserbot
+git clone https://github/Anmol-dot2833/thunder
+cd thunder
 virtualenv -p /usr/bin/python3 venv
 . ./venv/bin/activate
 pip install -r requirements.txt
@@ -64,7 +64,7 @@ python3 -m fridaybot
     [-] APP_ID:   You can get this value from https://my.telegram.org
     [-] API_HASH :   You can get this value from https://my.telegram.org
     
-[+] The fridaybot will not work without setting the mandatory vars.
+[+] The ThunderBot will not work without setting the mandatory vars.
 ```
 
 
@@ -79,7 +79,7 @@ python3 -m fridaybot
 # Licence
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)  
 
-FridayUserbot is Free Software: You can use, study share and improve it at your
+ThunderUserbot is Free Software: You can use, study share and improve it at your
 will. Specifically you can redistribute and/or modify it under the terms of the
 [GNU General Public License](https://www.gnu.org/licenses/gpl.html) as
 published by the Free Software Foundation, either version 3 of the License, or

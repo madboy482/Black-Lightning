@@ -1,12 +1,16 @@
-"""Check if fridaybot alive. If you change these, you become the gayest gay such that even the gay world will disown you."""
+thunder = "thunder"
+Thunder = "thunder"
+borg = "borg"
+
+"""Check if thundert alive"""
 # CREDITS: @WhySooSerious, @Sur_vivor
 import time
 
-from uniborg.util import friday_on_cmd, sudo_cmd
+from uniborg.util import thunder_on_cmd, sudo_cmd
 
-from fridaybot import ALIVE_NAME, Lastupdate
-from fridaybot.Configs import Config
-from fridaybot.modules import currentversion
+from userbot import ALIVE_NAME, Lastupdate
+from userbot.Configs import Config
+from userbot.modules import currentversion
 
 
 # Functions
@@ -41,25 +45,25 @@ def get_readable_time(seconds: int) -> str:
 uptime = get_readable_time((time.time() - Lastupdate))
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
 PM_IMG = Config.ALIVE_IMAGE
-pm_caption = "➥ **FRIDAY IS:** `ONLINE`\n\n"
+pm_caption = "➥ **𝕿𝖍𝖚𝖓𝖉𝖊𝖗 IS:** `ONLINE`\n\n"
 pm_caption += "➥ **SYSTEMS STATS**\n"
 pm_caption += "➥ **Telethon Version:** `1.15.0` \n"
-pm_caption += "➥ **Python:** `3.7.4` \n"
+pm_caption += "➥ **Python:** `3.9.0` \n"
 pm_caption += f"➥ **Uptime** : `{uptime}` \n"
 pm_caption += "➥ **Database Status:**  `Functional`\n"
 pm_caption += "➥ **Current Branch** : `master`\n"
 pm_caption += f"➥ **Version** : `{currentversion}`\n"
 pm_caption += f"➥ **My Boss** : {DEFAULTUSER} \n"
 pm_caption += "➥ **Heroku Database** : `AWS - Working Properly`\n\n"
-pm_caption += "➥ **License** : [GNU General Public License v3.0](github.com/StarkGang/FridayUserbot/blob/master/LICENSE)\n"
-pm_caption += "➥ **Copyright** : By [StarkGang@Github](GitHub.com/StarkGang)\n"
+pm_caption += "➥ **License** : [GNU General Public License v3.0](github.com/Anmol-dot283/Thunder/blob/master/LICENSE)\n"
+pm_caption += "➥ **Copyright** : By [Anmol-dot283@Github](GitHub.com/Anmol-dot283)\n"
 pm_caption += "➥ **Check Stats By Doing** `.stat`. \n\n"
-pm_caption += "[🇮🇳 Deploy FridayUserbot 🇮🇳](https://telegra.ph/FRIDAY-06-15)"
+pm_caption += "[🇮🇳 Deploy 𝕿𝖍𝖚𝖓𝖉𝖊𝖗Userbot 🇮🇳](https://telegra.ph/Thunder-06-15)"
 
 
-@friday.on(friday_on_cmd(pattern=r"alive"))
-@friday.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
-async def friday(alive):
+@Thunder.on(thunder_on_cmd(pattern=r"alive"))
+@Thunder.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
+async def Thunder(alive):
     await alive.get_chat()
     """ For .alive command, check if the bot is running.  """
     await borg.send_file(alive.chat_id, PM_IMG, caption=pm_caption)

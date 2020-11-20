@@ -1,3 +1,11 @@
+from userbot.modules.alive import Thunder
+
+
+borg = "borg"
+Thunder = "thunderbot"
+errors = "errors"
+retun = "retun"
+
 from userbot import CMD_HELP
 from telethon import events
 import asyncio

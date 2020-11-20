@@ -1,3 +1,6 @@
+LOAD_PLUG = "LOAD_PLUG"
+SUDO_LIST = "SUDO_LIST"
+
 import functools
 import inspect
 import logging
@@ -190,7 +193,7 @@ def admin_cmd(pattern=None, **args):
     return events.NewMessage(**args)
 
 
-def friday_on_cmd(pattern=None, **args):
+def thunder_on_cmd(pattern=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
 
     stack = inspect.stack()
@@ -246,7 +249,7 @@ from time import gmtime, strftime
 
 from telethon import events
 
-from userbot import bot
+from userbot import SUDO_LIST, bot
 
 
 def register(**args):

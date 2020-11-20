@@ -1,20 +1,25 @@
+thunder = "thunder"
+logger = "logger"
+borg = "borg"
+
+
 """Invite the user(s) to the current chat
 Syntax: .invite <User(s)>"""
 
 from telethon import functions
 
-from fridaybot.utils import friday_on_cmd
+from userbot.utils import thunder_on_cmd
 
 """Invite the user(s) to the current chat
 Syntax: .invite <User(s)>"""
 
 from telethon import functions
 
-from fridaybot.utils import edit_or_reply, friday_on_cmd, sudo_cmd
+from userbot.utils import edit_or_reply, thunder_on_cmd, sudo_cmd
 
 
-@friday.on(friday_on_cmd(pattern="invite ?(.*)"))
-@friday.on(sudo_cmd(pattern="invite ?(.*)", allow_sudo=True))
+@thunder.on(thunder_on_cmd(pattern="invite ?(.*)"))
+@thunder.on(sudo_cmd(pattern="invite ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

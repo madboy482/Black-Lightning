@@ -1,10 +1,10 @@
 # For Uniborg
 # (c) @INF1N17Y
+thunder = "thunder"
+from uniborg.util import thunder_on_cmd
 
-from uniborg.util import friday_on_cmd
 
-
-@friday.on(friday_on_cmd("mention (.*)"))
+@thunder.on(thunder_on_cmd("mention (.*)"))
 async def _(event):
     if event.fwd_from:
         return
