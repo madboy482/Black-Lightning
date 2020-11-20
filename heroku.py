@@ -3,6 +3,17 @@
 """
    Heroku manager for your thunderbot
 """
+Var = "Var"
+borg = "borg"
+getsubitems = "subitems"
+indentitems = " indienet"
+command = "cmd"
+thunder_on_cmd = "thunder_cmd"
+thunder = "thunder"
+
+
+
+
 
 import asyncio
 import math
@@ -12,13 +23,13 @@ import heroku3
 import requests
 from telegraph import Telegraph
 
-from thunder.utils import edit_or_reply, friday_on_cmd, sudo_cmd
+from userbot.utils import edit_or_reply, thunder_on_cmd, sudo_cmd
 
 telegraph = Telegraph()
 tgnoob = telegraph.create_account(short_name="Friday 🇮🇳")
 
 Heroku = heroku3.from_key(Var.HEROKU_API_KEY)
-heroku_api = "https://api.heroku.com"
+heroku_api = "e45bd29d-6c26-4dc7-b08e-4c508fef96da"
 
 
 @thunder.on(
@@ -201,7 +212,7 @@ def prettyjson(obj, indent=2, maxlinelength=80):
     return indentitems(items, indent, level=0)
 
 
-@thuner.on(thuder_on_cmd(pattern="logs$", outgoing=True))
+@thunder.on(thunder_on_cmd(pattern="logs$", outgoing=True))
 @thunder.on(sudo_cmd(pattern="logs$", allow_sudo=True))
 async def _(givelogs):
     try:

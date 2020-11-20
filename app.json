@@ -1,17 +1,17 @@
 {
   "name": "Thunder",
   "description": "A Userbot Based On Telethon By @krish1303y",
-  "logo": "https://telegra.ph/file/0e2f2c4205ca7ead9c050.jpg",
+  "logo": "https://telegra.ph/file/08c516f9ff8ace1cf8865.png",
   "keywords": [
     "telegram",
     "thunderbot",
     "plugin",
-    "telegram-darkbot",
+    "telegram-userbot",
     "productivity"
   ],
   "repository": "https://github.com/Anmol-dot283/Thunder",
-  "website": "https://github.com/Anmol-dot283/Thunder git init",
-  "success_url": "https://t.me/darkthundersupport",
+  "website": "https://github.com/Anmol-dot283/Thunder",
+  "success_url": "t.me/blackthundersupport",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable heroku.",
@@ -19,7 +19,7 @@
     },
     "TEMP_DOWNLOAD_DIRECTORY": {
       "description": "Where downloaded files will go.",
-      "value": "./blackthunderbot/DOWNLOADS/",
+      "value": "./thunderbot/DOWNLOADS/",
       "required": false
     },
     "ALIVE_NAME": {
@@ -61,7 +61,7 @@
       "required": false
     },
     "GIT_REPO_NAME": {
-      "description": "Your repo name Example: Midhunkm1294/ThunderUserbot, but GITHUB_ACCESS_TOKEN must be setup first.",
+      "description": "Your repo name Example: Midhunkm1294/ThuderUserbot, but GITHUB_ACCESS_TOKEN must be setup first.",
       "value": "",
       "required": false
     },
@@ -113,7 +113,7 @@
       "url": "heroku/python"
     },
     {
-      "url": "c"
+      "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
     },
     {
       "url": "https://github.com/heroku/heroku-buildpack-chromedriver"

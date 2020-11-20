@@ -1,2 +1,4 @@
-pv
-jq
+mediainfo
+tesseract-ocr
+tesseract-ocr-eng
+imagemagick

@@ -1,0 +1,10 @@
+{
+    "python.testing.pytestArgs": [
+        "telethon"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": false,
+    "C_Cpp.errorSquiggles": "Disabled",
+    "python.testing.promptToConfigure": false
+}

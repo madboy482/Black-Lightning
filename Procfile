@@ -1,1 +1,1 @@
-thunder: python -m thunder
+userbot: python -m userbot

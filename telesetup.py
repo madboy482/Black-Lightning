@@ -15,7 +15,9 @@ except BaseException:
     from telethon.sessions import StringSession
     from telethon.sync import TelegramClient
 ok = """ ____  ____  __  ____   __   _  _
-
+(  __)(  _ \(  )(    \ / o\ ( \/ )
+ ) _)  )   / )(  ) D (/    \ )  /
+(__)  (__\_)(__)(____/\_/\_/(__/
 """
 print(ok)
 APP_ID = int(input("Enter APP ID here: \n"))
@@ -26,6 +28,6 @@ with client:
     session_str = client.session.save()
     client.send_message("me", f"`{session_str}`")
     client.send_message(
-        "THIS IS YOUR STRING SESSION \nJoin @blackthundersupprt For More Support."
+        "THIS IS YOUR STRING SESSION \nJoin @FRIDAYOT For More Support."
     )
     print("⬆ Please Check Your Telegram Saved Message For Your String.")
