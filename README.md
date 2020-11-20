@@ -1,4 +1,4 @@
-<p align="center"><a href="https://t.me/blackthundersupport"><img src=" https://telegra.ph/file/46374b4c4da3a5dc1aa98.jpg " width="5000"></a></p> 
+<p align="center"><a href="https://t.me/blackthundersupport"><img src=" https://telegra.ph/file/46374b4c4da3a5dc1aa98.jpg" width="5000"></a></p> 
 <h1 align="center"><b>Thunder-USERBOT 🇮🇳 </b></h1>
 <h4 align="center">A Powerful, Smart And Simple Userbot In Telethon.</h4>
 
