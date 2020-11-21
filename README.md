@@ -1,5 +1,5 @@
-<p align="center"><a href="https://t.me/blackthundersupport"><img src="https://telegra.ph/file/22535f8051a58af113586.jpg" width="5000"></a></p> 
-<h1 align="center"><b>FRIDAY-USERBOT 🇮🇳 </b></h1>
+<p align="center"><a href="https://t.me/blackthundersupport"><img src="https://telegra.ph/file/19c86eb1c1397f5af53b9.jpg" width="5000"></a></p> 
+<h1 align="center"><b>Thunder-USERBOT 🇮🇳 </b></h1>
 <h4 align="center">A Powerful, Smart And Simple Userbot In Telethon.</h4>
 
 
@@ -43,13 +43,13 @@
 
 Simply clone the repository and run the main file:
 ```sh
-git clone https://github/Anmol-dot2833/thunder
+git clone https://github/Anmol-dot2833/Thunder
 cd thunder
 virtualenv -p /usr/bin/python3 venv
 . ./venv/bin/activate
 pip install -r requirements.txt
 # <Create local_config.py with variables as given below>
-python3 -m fridaybot
+python3 -m thunder
 ```
 
 
