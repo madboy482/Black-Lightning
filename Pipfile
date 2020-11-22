@@ -8,6 +8,7 @@ requests = "*"
 pylast = "*"
 pytube = "*"
 python-dotenv = "*"
+blob = "*"
 
 [dev-packages]
 

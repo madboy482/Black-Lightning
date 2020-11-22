@@ -1,3 +1,4 @@
+telethon
 python-dotenv==0.15.0
 Pillow>=5.3.0
 PyGithub
@@ -45,7 +46,6 @@ pyfiglet
 pylast
 pymongo
 python-barcode
-python-dotenv
 python-magic
 pytz
 qrcode
@@ -65,3 +65,4 @@ validators
 youtube-search
 youtube-search-python
 wget
+Telethon

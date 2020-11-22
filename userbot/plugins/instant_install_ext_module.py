@@ -1,4 +1,7 @@
+borg = "borg"
+
 #   Copyright 2019 - 2020 DarkPrinc3
+
 
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -17,7 +20,7 @@ from pathlib import Path
 
 from telethon.tl.types import InputMessagesFilterDocument
 
-from fridaybot.utils import command, load_module
+from userbot.utils import command, load_module
 from var import Var
 
 
@@ -33,7 +36,7 @@ async def install(event):
     for ixo in total_doxx:
         mxo = documentss[ixo].id
         downloaded_file_name = await event.client.download_media(
-            await borg.get_messages(chat, ids=mxo), "fridaybot/modules/"
+            await borg.get_messages(chat, ids=mxo), "userbot/plugins/"
         )
         if "(" not in downloaded_file_name:
             path1 = Path(downloaded_file_name)
