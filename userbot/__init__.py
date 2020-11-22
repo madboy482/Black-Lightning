@@ -1,3 +1,5 @@
+STRING_SESSION = "STRING"
+
 import asyncio
 import os
 import sys
@@ -6,7 +8,6 @@ from distutils.util import strtobool as sb
 from logging import DEBUG, INFO, basicConfig, getLogger
 
 import pylast
-import dotenv
 from dotenv import load_dotenv
 from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
@@ -16,15 +17,17 @@ from telethon.sessions import StringSession
 
 from var import Var
 
-from .function import fridayfunction as topfunc
+from userbot.function import thunderfunction as topfunc
 
 Lastupdate = time.time()
 
 from var import Var
 
 os.system("pip install --upgrade pip")
+
+
 if Var.STRING_SESSION:
-    session_name = str(Var.STRING_SESSION)
+    session_name = str[Var.STRING_SESSION]
     bot = TelegramClient(StringSession(session_name), Var.APP_ID, Var.API_HASH)
 else:
     session_name = "startup"
