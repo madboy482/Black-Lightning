@@ -1,5 +1,6 @@
 {
-  "name": "Thunder",
+  "name": "
+Black-Lightning",
   "description": "A Userbot Based On Telethon By @krish1303y",
   "logo": " https://telegra.ph/file/d8d194c18562472a7c1f1.jpg",
   "keywords": [
@@ -9,7 +10,7 @@
     "telegram-userbot",
     "productivity"
   ],
-  "repository": "https://github.com/Anmol-dot283/Thunder",
+  "repository": "https://github.com/Anmol-dot283/Black-Lightning",
   "website": "https://github.com/Anmol-dot283/Thunder",
   "success_url": "t.me/blackthundersupport",
   "env": {
@@ -19,7 +20,7 @@
     },
     "TEMP_DOWNLOAD_DIRECTORY": {
       "description": "Where downloaded files will go.",
-      "value": "./thunderbot/DOWNLOADS/",
+      "value": "./blackthunder/DOWNLOADS/",
       "required": false
     },
     "ALIVE_NAME": {
