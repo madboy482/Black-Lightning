@@ -5,7 +5,7 @@ import telethon.utils
 from telethon import TelegramClient
 
 from userbot import bot
-from userbot.Configs import Config
+from userbot.Config import Config
 from userbot.utils import load_module, start_assistant
 from var import Var
 
@@ -35,7 +35,7 @@ else:
 
 import glob
 
-path = "fridaybot/modules/*.py"
+path = "userbot/plugins/*.py"
 files = glob.glob(path)
 for name in files:
     with open(name) as f:
@@ -44,17 +44,17 @@ for name in files:
         load_module(shortname.replace(".py", ""))
 
 if Config.ENABLE_ASSISTANTBOT == "ENABLE":
-    path = "fridaybot/modules/assistant/*.py"
+    path = "userbot/plugins/assistant/*.py"
     files = glob.glob(path)
     for name in files:
         with open(name) as f:
             path1 = Path(f.name)
             shortname = path1.stem
             start_assistant(shortname.replace(".py", ""))
-    print("Friday And Assistant Bot Have Been Installed Successfully !")
+    print("Black Lightning  And Assistant Bot Have Been Installed Successfully !")
 else:
-    print("Friday Has Been Installed Sucessfully !")
-    print("You Can Visit @FridayOT For Any Support Or Doubts")
+    print("Black Lightning  Has Been Installed Sucessfully !")
+    print("You Can Visit @blacktlightningot For Any Support Or Doubts")
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()

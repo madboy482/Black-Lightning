@@ -1,3 +1,9 @@
+command = "command"
+bot = "bot"
+Var = "var"
+
+
+
 # credits: SNAPDRAGON (@s_n_a_p_s)
 from telethon import events
 import subprocess

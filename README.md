@@ -1,6 +1,6 @@
 # Logo
 <p align="center"><a href="https://t.me/blackthundersupport"><img src="https://telegra.ph/file/19c86eb1c1397f5af53b9.jpg" width="5000"></a></p> 
-<h1 align="center"><b>Black Lightning-USERBOT 🇮🇳 </b></h1>
+<h1 align="center"><b>Thunder-USERBOT 🇮🇳 </b></h1>
 <h4 align="center">A Powerful, Smart And Simple Userbot In Telethon.</h4>
 
 
@@ -44,8 +44,8 @@
 
 Simply clone the repository and run the main file:
 ```sh
-git clone https://github/Anmol-dot2833/Black-Lightning
-cd Black-Lightning
+git clone https://github/Anmol-dot2833/Thunder
+cd thunder
 virtualenv -p /usr/bin/python3 venv
 . ./venv/bin/activate
 pip install -r requirements.txt
@@ -65,7 +65,7 @@ python3 -m thunder
     [-] APP_ID:   You can get this value from https://my.telegram.org
     [-] API_HASH :   You can get this value from https://my.telegram.org
     
-[+] The LightningBot will not work without setting the mandatory vars.
+[+] The ThunderBot will not work without setting the mandatory vars.
 ```
 
 

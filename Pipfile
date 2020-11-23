@@ -9,6 +9,8 @@ pylast = "*"
 pytube = "*"
 python-dotenv = "*"
 blob = "*"
+telethon = "*"
+pysmartdl = "*"
 
 [dev-packages]
 

@@ -23,7 +23,7 @@ Lastupdate = time.time()
 
 from var import Var
 
-os.system("pip install --upgrade pip")
+os.system("pip3 install --upgrade pip")
 
 
 if Var.STRING_SESSION:

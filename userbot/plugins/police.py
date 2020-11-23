@@ -1,3 +1,5 @@
+borg = "borg"
+
 
 from telethon import events
 
@@ -37,7 +39,7 @@ async def _(event):
             "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
             "🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴",
             "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
-            "[DARK COBRA](https://www.github.com/hellboi-atul/hellboi-atul) **Police Service Here**"
+            "[Thunder ](https://www.github.com/hellboi-atul/hellboi-atul) **Police Service Here**"
  ]
 
     for i in animation_ttl:

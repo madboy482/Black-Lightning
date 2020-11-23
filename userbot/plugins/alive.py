@@ -1,12 +1,12 @@
-thunder = "thunder"
-Thunder = "thunder"
+black = "black"
+black = "black"
 borg = "borg"
 
-"""Check if Thunder alive"""
+"""Check if Black-Lightning alive"""
 # CREDITS: @WhySooSerious, @Sur_vivor
 import time
 
-from uniborg.util import thunder_on_cmd, sudo_cmd
+from uniborg.util import admin_cmd, sudo_cmd
 
 from userbot import ALIVE_NAME, Lastupdate
 from userbot.Configs import Config
@@ -45,7 +45,7 @@ def get_readable_time(seconds: int) -> str:
 uptime = get_readable_time((time.time() - Lastupdate))
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
 PM_IMG = Config.ALIVE_IMAGE
-pm_caption = "➥ **𝕿𝖍𝖚𝖓𝖉𝖊𝖗 IS:** `ONLINE`\n\n"
+pm_caption = "➥ **𝔅𝔩𝔞𝔠𝔨 𝔗𝔥𝔲𝔫𝔡𝔢𝔯  IS:** `ONLINE`\n\n"
 pm_caption += "➥ **SYSTEMS STATS**\n"
 pm_caption += "➥ **Telethon Version:** `1.15.0` \n"
 pm_caption += "➥ **Python:** `3.9.0` \n"
@@ -55,15 +55,15 @@ pm_caption += "➥ **Current Branch** : `master`\n"
 pm_caption += f"➥ **Version** : `{currentversion}`\n"
 pm_caption += f"➥ **My Boss** : {DEFAULTUSER} \n"
 pm_caption += "➥ **Heroku Database** : `AWS - Working Properly`\n\n"
-pm_caption += "➥ **License** : [GNU General Public License v3.0](github.com/Anmol-dot283/Thunder/blob/master/LICENSE)\n"
+pm_caption += "➥ **License** : [GNU General Public License v3.0](github.com/Anmol-dot283/black/blob/master/LICENSE)\n"
 pm_caption += "➥ **Copyright** : By [Anmol-dot283@Github](GitHub.com/Anmol-dot283)\n"
 pm_caption += "➥ **Check Stats By Doing** `.stat`. \n\n"
-pm_caption += "[🇮🇳 Deploy 𝕿𝖍𝖚𝖓𝖉𝖊𝖗Userbot 🇮🇳](https://telegra.ph/file/c3683ea84426c1046faef.mp4)"
+pm_caption += "[🇮🇳 Deploy 𝔅𝔩𝔞𝔠𝔨 𝔗𝔥𝔲𝔫𝔡𝔢𝔯 Userbot 🇮🇳](https://telegra.ph/file/c3683ea84426c1046faef.mp4)"
 
 
-@Thunder.on(thunder_on_cmd(pattern=r"alive"))
-@Thunder.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
-async def Thunder(alive):
+@black.on(admin_cmd(pattern=r"alive"))
+@black.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
+async def black(alive):
     await alive.get_chat()
     """ For .alive command, check if the bot is running.  """
     await borg.send_file(alive.chat_id, PM_IMG, caption=pm_caption)

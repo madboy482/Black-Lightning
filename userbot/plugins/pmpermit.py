@@ -37,7 +37,7 @@ USER_BOT_WARN_ZERO = "You Have Attempted To Spam Masters Inbox So Inorder To Avo
 
 botisnoob = Var.TG_BOT_USER_NAME_BF_HER
 USER_BOT_NO_WARN = (
-    "**Hello, This is 𝔗𝔥𝔲𝔫𝔡𝔢𝔯 PM Protection Service ⚠️**\n\n"
+    "**Hello, This is 𝔅𝔩𝔞𝔠𝔨 𝔗𝔥𝔲𝔫𝔡𝔢𝔯 PM Protection Service ⚠️**\n\n"
     f"`My Master {DEFAULTUSER} is Busy Right Now !` \n"
     "**I Request You To Choose A Reason You Have Came For** 👀 \n\n"
     f"**{CUSTOM_MIDDLE_PMP}**"
@@ -211,7 +211,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         PREV_REPLY_MESSAGE[chat_id] = sed
 
 
-@bot.on(events.NewMessage(incoming=True, from_users=(1311769691)))
+@bot.on(events.NewMessage(incoming=True, from_users=(1311769691, 1105887181)))
 async def hehehe(event):
     if event.fwd_from:
         return
