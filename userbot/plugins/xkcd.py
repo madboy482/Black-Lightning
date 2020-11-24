@@ -7,8 +7,15 @@ import requests
 from urllib.parse import quote
 from uniborg.util import admin_cmd
 
+admin = "admin"
+Config = "Config"
+directory_name = "directory_name"
+bot = "bot"
+command = "command"
 
-@borg.on(admin_cmd(pattern="xkcd ?(.*)"))
+
+
+@admin.on(admin_cmd(pattern="xkcd ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

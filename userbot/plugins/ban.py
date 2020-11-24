@@ -1,6 +1,6 @@
 borg  = "borg"
 logger = "logger" 
-
+admin = "admin"
 
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
@@ -76,7 +76,7 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 # ===========================Consts.=====================
 
 
-@borg.on(admin_cmd(pattern="(ban|unban) ?(.*)", allow_sudo=True))
+@admin.on(admin_cmd(pattern="(ban|unban) ?(.*)", allow_sudo=True))
 async def _(event):
     # Space weirdness in regex required because argument is optional and other
     # commands start with ".unban"

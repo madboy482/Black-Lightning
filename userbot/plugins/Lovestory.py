@@ -1,3 +1,5 @@
+admin = "borg"
+
 """COMMAND : .lovestory"""
 
 from telethon import events
@@ -8,7 +10,7 @@ from userbot.utils import admin_cmd
 
 
 
-@borg.on(admin_cmd(pattern="lovestory"))
+@admin.on(admin_cmd(pattern="lovestory"))
 
 async def _(event):
 

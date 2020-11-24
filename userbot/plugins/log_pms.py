@@ -4,12 +4,16 @@ Check https://t.me/tgbeta/3505"""
 
 import asyncio
 
-from uniborg.util import friday_on_cmd
+from userbot.utils import admin_cmd
 
 NO_PM_LOG_USERS = []
 
+admin = "admin"
+Config = "Config"
+borg = "borg"
+logger = "logger"
 
-@friday.on(friday_on_cmd(incoming=True, func=lambda e: e.is_private))
+@admin.on(admin_cmd(incoming=True, func=lambda e: e.is_private))
 async def monito_p_m_s(event):
     sender = await event.get_sender()
     if Config.NC_LOG_P_M_S and not sender.bot:
@@ -22,7 +26,7 @@ async def monito_p_m_s(event):
                 logger.warn(str(e))
 
 
-@friday.on(friday_on_cmd(pattern="nolog ?(.*)"))
+@admin.on(admin_cmd(pattern="nolog ?(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return

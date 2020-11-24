@@ -1,3 +1,9 @@
+assistant_cmd = "cmd"
+peru_only = "peru_only"
+tgboborg = "borg"
+t = "tgbot"
+
+
 #    Copyright (C) Midhun KM 2020
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published by
@@ -15,7 +21,7 @@
 import time
 from datetime import datetime
 
-from fridaybot import Lastupdate
+from userbot import Lastupdate
 
 
 def get_readable_time(seconds: int) -> str:

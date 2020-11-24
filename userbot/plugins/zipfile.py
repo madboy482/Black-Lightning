@@ -13,10 +13,11 @@ import os
 from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 
 
+borg = "borg"
+Config = "Config"
 
-
-
-@borg.on(admin_cmd(pattern="compress ?(.*)"))
+admin = "admin"
+@admin.on(admin_cmd(pattern="compress ?(.*)"))
 
 async def _(event):
 

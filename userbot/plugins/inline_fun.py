@@ -1,8 +1,11 @@
-from fridaybot.utils import friday_on_cmd
+borg  = "borg"
+bot = "bot"
+
+from userbot.utils import admin_cmd
 from var import Var
 
 
-@friday.on(friday_on_cmd(pattern="stat$"))
+@borg.on(admin_cmd(pattern="stat$"))
 async def stats(event):
     if event.fwd_from:
         return
@@ -15,7 +18,7 @@ async def stats(event):
     await event.delete()
 
 
-@friday.on(friday_on_cmd(pattern="xogame$"))
+@borg.on(admin_cmd(pattern="xogame$"))
 async def gamez(event):
     if event.fwd_from:
         return
@@ -28,7 +31,7 @@ async def gamez(event):
     await event.delete()
 
 
-@friday.on(friday_on_cmd(pattern="wspr ?(.*)"))
+@borg.on(admin_cmd(pattern="wspr ?(.*)"))
 async def wspr(event):
     if event.fwd_from:
         return
@@ -41,7 +44,7 @@ async def wspr(event):
     await event.delete()
 
 
-@friday.on(friday_on_cmd(pattern="mod ?(.*)"))
+@borg.on(admin_cmd(pattern="mod ?(.*)"))
 async def mod(event):
     if event.fwd_from:
         return

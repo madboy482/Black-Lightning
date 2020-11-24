@@ -1,3 +1,5 @@
+borg = "borg"
+
 """Get Telegram Profile Picture and other information
 Syntax: .info @username"""
 

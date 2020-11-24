@@ -1,14 +1,17 @@
+borg = "borg"
+
+
 """QuotLy: Avaible commands: .qbot
 """
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from fridaybot import bot
-from fridaybot.utils import friday_on_cmd
+from userbot import bot
+from userbot.utils import admin_cmd
 
 
 # @register(outgoing=True, pattern="^.q(?: |$)(.*)")
-@friday.on(friday_on_cmd(pattern=r"qbot(?: |$)(.*)"))
+@borg.on(admin_cmd(pattern=r"qbot(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return

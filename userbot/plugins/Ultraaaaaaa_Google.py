@@ -4,6 +4,14 @@ Available Commands:
 .google image <query>
 .google reverse search"""
 
+logger = "logger"
+admin = "admin"
+Config = "Config"
+directory_name = "directory_name"
+bot = "bot"
+command = "command"
+
+
 import asyncio
 import os
 import requests
@@ -17,7 +25,7 @@ def progress(current, total):
     logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
 
 
-@borg.on(admin_cmd(pattern="google search (.*)"))
+@admin.on(admin_cmd(pattern="google search (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -26,7 +34,7 @@ async def _(event):
     # SHOW_DESCRIPTION = False
     input_str = event.pattern_match.group(1) # + " -inurl:(htm|html|php|pls|txt) intitle:index.of \"last modified\" (mkv|mp4|avi|epub|pdf|mp3)"
     input_url = "https://bots.shrimadhavuk.me/search/?q={}".format(input_str)
-    headers = {"USER-AGENT": "UniBorg"}
+    headers = {"USER-AGENT": "Uniadmin"}
     response = requests.get(input_url, headers=headers).json()
     output_str = " "
     for result in response["results"]:
@@ -42,7 +50,7 @@ async def _(event):
     await event.edit("Google: {}\n{}".format(input_str, output_str), link_preview=False)
 
 
-@borg.on(admin_cmd(pattern="google image (.*)"))
+@admin.on(admin_cmd(pattern="google image (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -66,7 +74,7 @@ async def _(event):
     if len(lst) == 0:
         await event.delete()
         return
-    await borg.send_file(
+    await admin.send_file(
         event.chat_id,
         lst,
         caption=input_str,
@@ -83,7 +91,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern="google reverse search"))
+@admin.on(admin_cmd(pattern="google reverse search"))
 async def _(event):
     if event.fwd_from:
         return
@@ -95,7 +103,7 @@ async def _(event):
         previous_message = await event.get_reply_message()
         previous_message_text = previous_message.message
         if previous_message.media:
-            downloaded_file_name = await borg.download_media(
+            downloaded_file_name = await admin.download_media(
                 previous_message,
                 Config.TMP_DOWNLOAD_DIRECTORY
             )

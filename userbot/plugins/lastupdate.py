@@ -2,8 +2,8 @@
 import time
 from datetime import datetime
 
-from fridaybot.__init__ import Lastupdate
-from fridaybot.utils import friday_on_cmd
+from userbot.__init__ import Lastupdate
+from userbot.utils import admin_cmd
 
 
 def get_readable_time(seconds: int) -> str:
@@ -34,8 +34,10 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
+admin = "admincmd"
+
 # @command(pattern="^.latestupdate")
-@friday.on(friday_on_cmd(pattern="latestupdate"))
+@admin.on(admin_cmd(pattern="latestupdate"))
 async def _(event):
     if event.fwd_from:
         return
@@ -44,4 +46,4 @@ async def _(event):
     end = datetime.now()
     (end - start).microseconds / 1000
     uptime = get_readable_time((time.time() - Lastupdate))
-    await event.edit(f"🔰 Friday Userbot Has Been Restarted Or Updated {uptime} Ago !")
+    await event.edit(f"🔰   Black Lightning Userbot Has Been Restarted Or Updated {uptime} Ago !")

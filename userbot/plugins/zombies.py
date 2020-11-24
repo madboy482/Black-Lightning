@@ -1,3 +1,9 @@
+
+borg = "borg"
+Config = "Config"
+
+
+
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -58,8 +64,9 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
 
 
-@borg.on(admin_cmd(pattern=f"zombies", allow_sudo=True))
-@borg.on(events.NewMessage(pattern="^.zombies(?: |$)(.*)", outgoing=True))
+admin = "admin"
+@admin.on(admin_cmd(pattern=f"zombies", allow_sudo=True))
+@admin.on(events.NewMessage(pattern="^.zombies(?: |$)(.*)", outgoing=True))
 async def rm_deletedacc(show):
     """ For .zombies command, list all the ghost/deleted/zombie accounts in a chat. """
 

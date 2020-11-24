@@ -5,7 +5,7 @@ import telethon.utils
 from telethon import TelegramClient
 
 from userbot import bot
-from userbot.Config import Config
+from userbot.Configs import Config
 from userbot.utils import load_module, start_assistant
 from var import Var
 

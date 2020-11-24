@@ -1,3 +1,6 @@
+borg = "borg"
+patoolib = "patoolib"
+
 """
 usage: reply with file : .rar , .7z  create archived file
 
@@ -19,11 +22,11 @@ import shutil
 import subprocess
 import time
 from pySmartDL import SmartDL
-from userbot.uniborgConfig import Config
+from userbot.thunderconfig import Config
 from telethon import events
 from userbot.utils import admin_cmd, humanbytes, progress, time_formatter
 import subprocess
-import patoolib
+import pathlib
 import tarfile
 from userbot import CMD_HELP
 

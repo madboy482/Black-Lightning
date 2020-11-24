@@ -10,7 +10,14 @@ import asyncio
 
 from userbot.utils import admin_cmd
 
-@borg.on(admin_cmd("wtf"))
+admin = "admin"
+Config = "Config"
+directory_name = "directory_name"
+bot = "bot"
+command = "command"
+
+
+@admin.on(admin_cmd("wtf"))
 async def _(event):
     if event.fwd_from:
         return
@@ -19,10 +26,10 @@ async def _(event):
     await event.edit("wtf")
     animation_chars = [
             "What",
-            "What The",
             "What The F",
-            "What The F Brah",
-            "[What The F Brah](https://telegra.ph//file/f3b760e4a99340d331f9b.jpg)"
+            "What The Fa",
+            "What The Fak Brah",
+            "[What The Fakk Brah](https://telegra.ph//file/f3b760e4a99340d331f9b.jpg)"
         ]
 
     for i in animation_ttl:

@@ -27,13 +27,13 @@ from telethon import custom
 from telethon.tl.functions.users import GetFullUserRequest
 
 from userbot import bot
-from userbot.modules.sql_helper.blacklist_assistant import (
+from userbot.plugins.sql_helper.blacklist_assistant import (
     add_nibba_in_db,
     is_he_added,
     removenibba,
 )
-from userbot.modules.sql_helper.botusers_sql import add_me_in_db, his_userid
-from userbot.modules.sql_helper.idadder_sql import (
+from userbot.plugins.sql_helper.botusers_sql import add_me_in_db, his_userid
+from userbot.plugins.sql_helper.idadder_sql import (
     add_usersid_in_db,
     already_added,
     get_all_users,
@@ -74,8 +74,8 @@ async def start(event):
             message=starttext,
             link_preview=False,
             buttons=[
-                [custom.Button.inline("Deploy your Friday 🇮🇳", data="deploy")],
-                [Button.url("Help Me ❓", "t.me/Fridayot")],
+                [custom.Button.inline("Deploy your 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 🇮🇳", data="deploy")],
+                [Button.url("Help Me ❓", "t.me/blacklightningsupport")],
             ],
         )
 
@@ -89,10 +89,10 @@ async def help(event):
     if event.query.user_id is not bot.uid:
         await tgbot.send_message(
             event.chat_id,
-            message="You Can Deploy Friday In Heroku By Following Steps Bellow, You Can See Some Quick Guides On Support Channel Or On Your Own Assistant Bot. \nThank You For Contacting Me.",
+            message="You Can Deploy 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 In Heroku By Following Steps Bellow, You Can See Some Quick Guides On Support Channel Or On Your Own Assistant Bot. \nThank You For Contacting Me.",
             buttons=[
-                [Button.url("Deploy Tutorial 📺", "https://youtu.be/xfHcm_e92eQ")],
-                [Button.url("Need Help ❓", "t.me/FridaySupportOfficial")],
+                [Button.url("Deploy Tutorial 📺", "s")],
+                [Button.url("Need Help ❓", "t.me/blacklightningsupport")],
             ],
         )
 

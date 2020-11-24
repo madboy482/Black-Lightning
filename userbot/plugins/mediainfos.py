@@ -1,6 +1,10 @@
 # Originally By @DeletedUser420
 # Ported - @StarkxD
 
+
+admin = "admin"
+borg = "borg"
+
 import asyncio
 import os
 import shlex
@@ -8,8 +12,8 @@ from typing import Tuple
 
 from telegraph import Telegraph
 
-from fridaybot.Configs import Config
-from fridaybot.utils import friday_on_cmd
+from userbot.Configs import Config
+from userbot.utils import admin_cmd
 
 telegraph = Telegraph()
 tgnoob = telegraph.create_account(short_name="Friday 🇮🇳")
@@ -30,7 +34,7 @@ async def runcmd(cmd: str) -> Tuple[str, str, int, int]:
     )
 
 
-@friday.on(friday_on_cmd(pattern="mediainfo$"))  # pylint:disable=E0602
+@admin.on(admin_cmd(pattern="mediainfo$"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return

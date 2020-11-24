@@ -1,3 +1,11 @@
+admin = "admin"
+Config = "Config"
+directory_name = "directory_name"
+bot = "bot"
+command = "command"
+
+
+
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -8,7 +16,7 @@ import requests
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("xtools (.*)"))
+@admin.on(admin_cmd("xtools (.*)"))
 async def _(event):
     if event.fwd_from:
         return

@@ -1,22 +1,27 @@
-from telethon import events
-import subprocess
-from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
-import io
 import asyncio
+import io
 import time
 
 
-@command(pattern="^.bash ?(.*)")
+
+admin = "admin"
+bot = "bot"
+eor = "eor"
+
+from userbot import CMD_HELP
+from userbot.utils import admin_cmd, sudo_cmd
+
+@admin.on(admin_cmd(pattern="bash ?(.*)"))
+@admin.on(sudo_cmd(pattern="bash ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
-    DELAY_BETWEEN_EDITS = 0.3
     PROCESS_RUN_TIME = 100
     cmd = event.pattern_match.group(1)
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
-    start_time = time.time() + PROCESS_RUN_TIME
+    time.time() + PROCESS_RUN_TIME
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
@@ -30,7 +35,7 @@ async def _(event):
     else:
         _o = o.split("\n")
         o = "`\n".join(_o)
-    OUTPUT = f"**QUERY:**\n__Command:__\n`{cmd}` \n__PID:__\n`{process.pid}`\n\n**stderr:** \n`{e}`\n**Output:**\n{o}"
+    OUTPUT = f"**QUERY**\n\n__►__ **Command**\n`{cmd}`\n\n__►__ **PID**\n`{process.pid}`\n\n**__►__ **stderr** \n`{e}`\n\n**__►__** Output:**\n`{o}`"
     if len(OUTPUT) > 4095:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "exec.text"
@@ -40,7 +45,10 @@ async def _(event):
                 force_document=True,
                 allow_cache=False,
                 caption=cmd,
-                reply_to=reply_to_id
+                reply_to=reply_to_id,
             )
             await event.delete()
-    await event.edit(OUTPUT)
+    await eor(event, OUTPUT)
+
+
+CMD_HELP.update({"bash": ".bash <code>\nUse - Run a code."})

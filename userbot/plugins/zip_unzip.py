@@ -1,3 +1,10 @@
+admin = "admin"
+Config = "Config"
+directory_name = "directory_name"
+bot = "bot"
+command = "command"
+
+
 """ command: .unzip
 coded by @By_Azade
 code rewritten my SnapDragon7410
@@ -21,7 +28,7 @@ import zipfile
 extracted = Config.TMP_DOWNLOAD_DIRECTORY + "extracted/"
 thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
 
-@borg.on(admin_cmd("zip"))
+@admin.on(admin_cmd("zip"))
 async def _(event):
     if event.fwd_from:
         return
@@ -34,7 +41,7 @@ async def _(event):
     if event.reply_to_msg_id:
         reply_message = await event.get_reply_message()
         try:
-            downloaded_file_name = await borg.download_media(
+            downloaded_file_name = await admin.download_media(
                 reply_message,
                 Config.TMP_DOWNLOAD_DIRECTORY,
             )
@@ -43,7 +50,7 @@ async def _(event):
         except Exception as e:  # pylint:disable=C0103,W0703
             await mone.edit(str(e))
     zipfile.ZipFile(directory_name + '.zip', 'w', zipfile.ZIP_DEFLATED).write(directory_name)
-    await borg.send_file(
+    await admin.send_file(
         event.chat_id,
         directory_name + ".zip",
         caption="**Zipped!**",

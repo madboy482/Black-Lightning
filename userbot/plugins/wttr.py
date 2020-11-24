@@ -18,9 +18,14 @@ from userbot.utils import admin_cmd
 
 
 
+admin = "admin"
+Config = "Config"
+directory_name = "directory_name"
+bot = "bot"
+command = "command"
 
 
-@borg.on(admin_cmd(pattern="weather (.*)"))
+@admin.on(admin_cmd(pattern="weather (.*)"))
 
 async def _(event):
 
@@ -102,9 +107,14 @@ async def _(event):
 
 
 
+admin = "admin"
+Config = "Config"
+directory_name = "directory_name"
+bot = "bot"
+command = "command"
 
 
-@borg.on(admin_cmd(pattern="wttr (.*)"))
+@admin.on(admin_cmd(pattern="wttr (.*)"))
 
 async def _(event):
 

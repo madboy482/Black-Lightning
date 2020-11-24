@@ -7,13 +7,15 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 
-from userbot.__init__ import ALIVE_NAME, bot, Uptime
+from userbot import ALIVE_NAME, bot, telever
 from userbot.__init__ import StartTime
 from userbot.thunderconfig import Config, Var
 from userbot.utils import admin_cmd, sudo_cmd
 
+currentversion = "3.0"
+
 # stats
-if Config.PRIVATE_GROUP_BOT_API_ID:
+if Var.PRIVATE_GROUP_ID:
     log = "Enabled"
 else:
     log = "Disabled"
@@ -38,16 +40,17 @@ if Var.PMSECURITY.lower() == "off":
 else:
     pm = "Enabled"
 
-TELEUSER = str(ALIVE_NAME) if ALIVE_NAME else "Thunder"
+TELEUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
 
-tele = f"Thunder Version: {Uptime}\n"
+tele = f"Lightning Version: {telever}\n"
 tele += f"Log Group: {log}\n"
 tele += f"Assistant Bot: {bots}\n"
 tele += f"Lydia: {lyd}\n"
 tele += f"Sudo: {sudo}\n"
 tele += f"PMSecurity: {pm}\n"
-tele += f"\nVisit @blackthundersupport for assistance.\n"
+tele += f"\nVisit @blacklightningot for assistance.\n"
 telestats = f"{tele}"
 
 TELE_NAME = bot.me.first_name
 OWNER_ID = bot.me.id
+

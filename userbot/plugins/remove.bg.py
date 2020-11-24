@@ -1,18 +1,18 @@
 # (c) Shrimadhav U K
 #
-# This file is part of @UniBorg
+# This file is part of @Uniadmin
 #
-# @UniBorg is free software; you cannot redistribute it and/or modify
+# @Uniadmin is free software; you cannot redistribute it and/or modify
 # it under the terms of the GNU General Public License as published
 # by the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# @UniBorg is not distributed in the hope that it will be useful,
+# @Uniadmin is not distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
-"""Remove.BG Plugin for @UniBorg
+"""Remove.BG Plugin for @Uniadmin
 Syntax: .rmbg https://link.to/image.extension
 Syntax: .rmbg as reply to a media"""
 import io
@@ -21,10 +21,12 @@ from datetime import datetime
 
 import requests
 
-from fridaybot.utils import friday_on_cmd
+from  userbot.utils import admin_cmd
 
+admin = "admin"
+Config = "Config"
 
-@friday.on(friday_on_cmd("rmbg ?(.*)"))
+@admin.on(admin_cmd("rmbg ?(.*)"))
 async def _(event):
     HELP_STR = (
         "`.rmbg` as reply to a media, or give a link as an argument to this command"
@@ -43,7 +45,7 @@ async def _(event):
         # check if media message
         await event.edit("`Parsing the image.`")
         try:
-            downloaded_file_name = await borg.download_media(
+            downloaded_file_name = await admin.download_media(
                 reply_message, Config.TMP_DOWNLOAD_DIRECTORY
             )
         except Exception as e:
@@ -63,7 +65,7 @@ async def _(event):
     if "image" in contentType:
         with io.BytesIO(output_file_name.content) as remove_bg_image:
             remove_bg_image.name = "BG_less.png"
-            await borg.send_file(
+            await admin.send_file(
                 event.chat_id,
                 remove_bg_image,
                 force_document=True,

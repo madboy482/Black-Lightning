@@ -10,7 +10,7 @@ import os
 
 from pySmartDL import SmartDL
 
-from userbot.utils import thunder_on_cmd, sudo_cmd
+from userbot.utils import admin_cmd, sudo_cmd
 
 STARK_HTTP = "https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=all"
 HTTP_TXT = "**Proxy Info** \nType: __HTTPS__ \nTimeOut: __10000__ \nCountry: __All__ \nSsl: All \nAnonymity: __All__ \n[Click Here To View Or Download File Manually](https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=all) \nUploaded By [thunder](https://github.com/starkgang/thunderUserBot) \n**Here Is Your Proxy** 👇"
@@ -21,8 +21,11 @@ SOCKS5_TXT = "**Proxy Info** \nType: __SOCKS4__ \nTimeOut: __10000__ \nCountry: 
 sedpng = "https://soon.proxyscrape.com/asset/img/service/downloadicon.svg"
 
 
-@thunder.on(thunder_on_cmd(pattern="http$"))
-@thunder.on(sudo_cmd(pattern="http$", allow_sudo=True))
+admin = "admin"
+
+
+@admin.on(admin_cmd(pattern="http$"))
+@admin.on(sudo_cmd(pattern="http$", allow_sudo=True))
 async def starkxD(event):
     await event.get_chat()
     file_name = "proxy_http.txt"
@@ -38,8 +41,8 @@ async def starkxD(event):
     )
 
 
-@thunder.on(thunder_on_cmd(pattern="socks4$"))
-@thunder.on(thunder_on_cmd(pattern="socks4$", allow_sudo=True))
+@admin.on(admin_cmd(pattern="socks4$"))
+@admin.on(admin_cmd(pattern="socks4$", allow_sudo=True))
 async def starkgang(event):
     await event.get_chat()
     file_name = "proxy_socks4.txt"
@@ -57,8 +60,8 @@ async def starkgang(event):
     )
 
 
-@thunder.on(thunder_on_cmd(pattern="socks5$"))
-@thunder.on(thunder_on_cmd(pattern="socks5$", allow_sudo=True))
+@admin.on(admin_cmd(pattern="socks5$"))
+@admin.on(admin_cmd(pattern="socks5$", allow_sudo=True))
 async def thunder(event):
     await event.get_chat()
     file_name = "proxy_socks5.txt"

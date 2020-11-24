@@ -1,3 +1,6 @@
+borg = "borg"
+logger =  "logger"
+
 """ 
 Credit :- Unknown 
 Just Kidding Credit To X-Tra Telegram For Base 
@@ -8,10 +11,10 @@ from pathlib import Path
 
 from telethon.tl.types import InputMessagesFilterDocument
 
-from fridaybot.utils import friday_on_cmd, load_module
+from userbot.utils import admin_cmd, load_module
 
 
-@friday.on(friday_on_cmd("ipa (.*)"))
+@borg.on(admin_cmd("ipa (.*)"))
 async def install(event):
     if event.fwd_from:
         return

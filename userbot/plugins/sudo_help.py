@@ -1,8 +1,10 @@
+from uniborg.util import admin_cmd
 from userbot import SUDO_LIST
 from userbot.utils import sudo_cmd
 
+admin = "admin"
 
-@thunder.on(sudo_cmd(pattern="help ?(.*)", allow_sudo=True))
+@admin.on(sudo_cmd(pattern="help ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
