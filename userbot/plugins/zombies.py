@@ -1,6 +1,5 @@
 
-borg = "borg"
-Config = "Config"
+
 
 
 
@@ -64,9 +63,9 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
 
 
-admin = "admin"
-@admin.on(admin_cmd(pattern=f"zombies", allow_sudo=True))
-@admin.on(events.NewMessage(pattern="^.zombies(?: |$)(.*)", outgoing=True))
+
+@borg.on(admin_cmd(pattern=f"zombies", allow_sudo=True))
+@borg.on(events.NewMessage(pattern="^.zombies(?: |$)(.*)", outgoing=True))
 async def rm_deletedacc(show):
     """ For .zombies command, list all the ghost/deleted/zombie accounts in a chat. """
 

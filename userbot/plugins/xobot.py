@@ -29,8 +29,7 @@ def deEmojify(inputString: str) -> str:
 
 
 
-admin = "admin"
-admin.on(admin_cmd(pattern="playxo(?: |$)(.*)"))
+@borg.on(admin_cmd(pattern="playxo(?: |$)(.*)"))
 
 async def nope(doit):
     ok = doit.pattern_match.group(1)

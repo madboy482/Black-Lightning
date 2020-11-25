@@ -1,6 +1,3 @@
-command = "command"
-bot = "bot"
-Var = "var"
 
 
 
@@ -12,9 +9,11 @@ from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotMo
 import io
 import asyncio
 import time
+from userbot.utils import admin_cmd
 
 
-@command(pattern="^.webupload ?(.+?|) (?:--)(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)")
+
+@borg.on(admin_cmd(pattern="^.webupload ?(.+?|) (?:--)(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)"))
 async def _(event):
     if event.fwd_from:
         return

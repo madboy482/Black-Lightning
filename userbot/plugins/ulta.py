@@ -1,4 +1,3 @@
-borg = "borg"
 
 
 import asyncio
@@ -10,14 +9,10 @@ from ..utils import admin_cmd, edit_or_reply, sudo_cmd
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Hell User"
 
 
-admin = "admin"
-Config = "Config"
-directory_name = "directory_name"
-bot = "bot"
-command = "command"
 
 
-@admin.on(admin_cmd(pattern=f"hbping$", outgoing=True))
+
+@borg.on(admin_cmd(pattern=f"hbping$", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return

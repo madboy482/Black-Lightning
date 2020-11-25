@@ -3,14 +3,9 @@ Syntax: .wikimedia Query"""
 from telethon import events
 import requests
 from uniborg.util import admin_cmd
-admin = "admin"
-Config = "Config"
-directory_name = "directory_name"
-bot = "bot"
-command = "command"
 
 
-@admin.on(admin_cmd(pattern="wikimedia (.*)"))
+@borg.on(admin_cmd(pattern="wikimedia (.*)"))
 async def _(event):
     if event.fwd_from:
         return

@@ -18,7 +18,7 @@ import os
 import sys
 from telethon.tl import functions, types
 from telethon.tl.types import Channel, Chat, User
-from userbot.uniborgConfig import Config
+from userbot.thunderconfig import Config
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.WARN)
@@ -28,6 +28,8 @@ NO_PM_LOG_USERS = []
 BOTLOG = True
 BOTLOG_CHATID = Config.PM_LOGGR_BOT_API_ID
 
+
+borg = "admin_cmd"
 
 @register(outgoing=True, pattern=r"^.save(?: |$)([\s\S]*)")
 async def log(log_text):

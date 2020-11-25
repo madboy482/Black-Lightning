@@ -1,8 +1,3 @@
-admin = "admin"
-Config = "Config"
-directory_name = "directory_name"
-bot = "bot"
-command = "command"
 
 
 
@@ -16,7 +11,7 @@ import requests
 from uniborg.util import admin_cmd
 
 
-@admin.on(admin_cmd("xtools (.*)"))
+@borg.on(admin_cmd("xtools (.*)"))
 async def _(event):
     if event.fwd_from:
         return

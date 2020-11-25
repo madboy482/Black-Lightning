@@ -9,7 +9,7 @@ NOT_FOUND_STRING = "<code>Sorry !I am unable to find any results to your query</
 SENDING_STRING = "<code>Ok I found something related to that.....</code>"
 BOT_BLOCKED_STRING = "<code>Please unblock @utubebot and try again</code>"
 
-@bot.on(admin_cmd(pattern="yt (.*)"))
+@borg.on(admin_cmd(pattern="yt (.*)"))
 async def fetcher(event):
     if event.fwd_from:
         return

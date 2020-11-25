@@ -1,5 +1,3 @@
-thunder = "thunder"
-borg = "borg"
 
 import asyncio
 import os
@@ -8,11 +6,11 @@ import wget
 from youtubesearchpython import SearchVideos
 
 from userbot.Configs import Config
-from userbot.utils import edit_or_reply, thunder_on_cmd, sudo_cmd
+from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
 
 
-@thunder.on(thunder_on_cmd(pattern="ytmusic ?(.*)"))
-@thunder.on(sudo_cmd(pattern="ytmusic ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="ytmusic ?(.*)"))
+@borg.on(sudo_cmd(pattern="ytmusic ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

@@ -7,13 +7,9 @@ from telethon import events
 import wikipedia
 from uniborg.util import admin_cmd
 
-admin = "admin"
-Config = "Config"
-directory_name = "directory_name"
-bot = "bot"
-command = "command"
 
-@admin.on(admin_cmd(pattern="wikipedia (.*)"))
+
+@borg.on(admin_cmd(pattern="wikipedia (.*)"))
 async def _(event):
     if event.fwd_from:
         return

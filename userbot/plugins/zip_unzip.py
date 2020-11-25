@@ -1,8 +1,3 @@
-admin = "admin"
-Config = "Config"
-directory_name = "directory_name"
-bot = "bot"
-command = "command"
 
 
 """ command: .unzip
@@ -28,7 +23,7 @@ import zipfile
 extracted = Config.TMP_DOWNLOAD_DIRECTORY + "extracted/"
 thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
 
-@admin.on(admin_cmd("zip"))
+@borg.on(admin_cmd("zip"))
 async def _(event):
     if event.fwd_from:
         return

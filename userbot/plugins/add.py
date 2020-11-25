@@ -1,6 +1,4 @@
-thunder = "thunder"
-logger = "logger"
-borg = "borg"
+
 
 
 """Invite the user(s) to the current chat

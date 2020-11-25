@@ -4,12 +4,7 @@ Available Commands:
 .google image <query>
 .google reverse search"""
 
-logger = "logger"
-admin = "admin"
-Config = "Config"
-directory_name = "directory_name"
-bot = "bot"
-command = "command"
+\
 
 
 import asyncio
@@ -25,7 +20,7 @@ def progress(current, total):
     logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
 
 
-@admin.on(admin_cmd(pattern="google search (.*)"))
+@borg.on(admin_cmd(pattern="google search (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -50,7 +45,7 @@ async def _(event):
     await event.edit("Google: {}\n{}".format(input_str, output_str), link_preview=False)
 
 
-@admin.on(admin_cmd(pattern="google image (.*)"))
+@borg.on(admin_cmd(pattern="google image (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -91,7 +86,7 @@ async def _(event):
     await event.delete()
 
 
-@admin.on(admin_cmd(pattern="google reverse search"))
+@borg.on(admin_cmd(pattern="google reverse search"))
 async def _(event):
     if event.fwd_from:
         return

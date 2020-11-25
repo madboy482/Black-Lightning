@@ -1,4 +1,3 @@
-forward = "forward"
 
 
 # Copyright (C) 2019 The Raphielscape Company LLC.

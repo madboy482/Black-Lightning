@@ -1,7 +1,4 @@
-borg  = "borg"
-bot = "bot"
-Config  = "Config"
-tgbot = "bot"
+
 
 
 """Create Button Posts , Fix By @MrConfused

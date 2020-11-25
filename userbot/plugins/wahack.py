@@ -5,7 +5,7 @@ by © Thunder God Raiden
 
 """
 
-borg = 'borg'
+
 
 from telethon import events
 import asyncio

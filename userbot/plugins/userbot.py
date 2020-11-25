@@ -6,10 +6,10 @@ Available Commands:
 
 import asyncio
 
-from userbot.utils import thunder_on_cmd
+from userbot.utils import admin_cmd
 
-thunder = "botname"
-@thunder.on(thunder_on_cmd("userbot"))
+
+@borg.on(admin_cmd("userbot"))
 async def _(event):
     if event.fwd_from:
         return
@@ -20,7 +20,7 @@ async def _(event):
     await event.edit("Thanks")
     animation_chars = [
         "Click here to Go to Telegraph",
-        "[Click Here For Guide](https://telegra.ph/FRIDAY-06-15)",
+        "[Click Here For Guide]https://telegra.ph/file/2f2b8d40e3f2fa4acdc8f.mp4)",
     ]
 
     for i in animation_ttl:

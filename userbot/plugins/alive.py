@@ -1,6 +1,6 @@
 black = "black"
 black = "black"
-borg = "borg"
+
 
 """Check if 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 alive"""
 # CREDITS: @WhySooSerious, @Sur_vivor
@@ -61,8 +61,8 @@ pm_caption += "➥ **Check Stats By Doing** `.stat`. \n\n"
 pm_caption += "[🇮🇳 Deploy 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 Userbot 🇮🇳](https://telegra.ph/file/c3683ea84426c1046faef.mp4)"
 
 
-@black.on(admin_cmd(pattern=r"alive"))
-@black.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
+@borg.on(admin_cmd(pattern=r"alive"))
+@borg.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
 async def black(alive):
     await alive.get_chat()
     """ For .alive command, check if the bot is running.  """

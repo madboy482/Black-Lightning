@@ -1,8 +1,3 @@
-Var = "Var"
-command = "command"
-borg = "borg"
-bot = "bot"
-
 
 
 import asyncio

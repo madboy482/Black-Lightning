@@ -12,23 +12,19 @@ RUNSREACTS = [
     "`Fuck You And Congo.`",
     "`Mere Ladke Lavde te lashan Akhir  Karliya Tune.`",
     "`Very Good.`",
-    "`Veryy Good Nhi Bulanga Bass Tu Chutiya H!”`",
+    "`Veryy Good Nhi Bulanga Bass Tu Chutiya Hai!”`",
     "`So pleased to see you accomplishing great things.`",
     "`Feeling so much joy for you today. What an impressive achievement!`",
 ]
 
 
-
-admin = "admin"
-
-@admin.on(admin_cmd(pattern="congo"))
-@admin.on(sudo_cmd(pattern="congo", allow_sudo=True))
+@borg.on(admin_cmd(pattern="congo"))
 async def _(event):
     if event.fwd_from:
-        return
-    bro = random.randint(0, len(RUNSREACTS) - 1)
+         return
+    bro = random.randint(0, len(RUNSREACTS) - 1)    
     reply_text = RUNSREACTS[bro]
-    await edit_or_reply(event, reply_text)
+    await event.edit(reply_text)
 
 
 CMD_HELP.update(

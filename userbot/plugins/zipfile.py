@@ -13,11 +13,8 @@ import os
 from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 
 
-borg = "borg"
-Config = "Config"
 
-admin = "admin"
-@admin.on(admin_cmd(pattern="compress ?(.*)"))
+@borg.on(admin_cmd(pattern="compress ?(.*)"))
 
 async def _(event):
 
@@ -63,7 +60,7 @@ async def _(event):
 
                 directory_name + ".zip",
 
-                caption="Zipped By [𝔻𝔸ℝ𝕂ℂ𝕆𝔹ℝ𝔸](https://github.com/hellboi-atul/hellboi-atul)",
+                caption="Zipped By [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/Anmol-dot283/Black-Lightning)",
 
                 force_document=True,
 

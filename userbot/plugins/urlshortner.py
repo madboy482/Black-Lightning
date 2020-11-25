@@ -1,10 +1,10 @@
 import pyshorteners
 
-from fridaybot.utils import friday_on_cmd, sudo_cmd
+from userbot.utils import admin_cmd, sudo_cmd
 
 
-@friday.on(friday_on_cmd(pattern="urlshort (.*)"))
-@friday.on(sudo_cmd(pattern="urlshort (.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="urlshort (.*)"))
+@borg.on(sudo_cmd(pattern="urlshort (.*)", allow_sudo=True))
 async def vom(event):
     try:
         link = event.pattern_match.group(1)

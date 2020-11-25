@@ -7,7 +7,6 @@ import requests
 from telethon import events
 
 
-admin = "admin"
 
 async def download_file_from_google_drive(id):
     URL = "https://docs.google.com/uc?export=download"
@@ -82,7 +81,7 @@ async def get_file_name(content):
     return file_name
 
 
-@admin.on(events.NewMessage(pattern=r"\.gdl", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.gdl", outgoing=True))
 async def g_download(event):
     if event.fwd_from:
         return

@@ -13,7 +13,7 @@ TYPE_TEXT = 0
 TYPE_PHOTO = 1
 TYPE_DOCUMENT = 2
 
-tgbot = "tg"
+
 @tgbot.on(events.NewMessage(pattern=r"\?(\S+)"))
 async def on_snip(event):
     name = event.pattern_match.group(1)
@@ -39,8 +39,7 @@ async def on_snip(event):
         await tgbot.send_message(
             event.chat_id, snip.reply, reply_to=message_id, file=media
         )
-pro_only = "pro"
-assistant_cmd = "cmd"
+
 @assistant_cmd("addnote", is_args=True)
 @pro_only
 async def _(event):
@@ -73,8 +72,7 @@ async def _(event):
         )
     else:
         await event.reply("Reply to a message with `snips keyword` to save the snip")
-borg = "borg"
-io = "io"
+
 @assistant_cmd("notes", is_args=True)
 @pro_only
 async def on_snip_list(event):

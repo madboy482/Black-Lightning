@@ -7,10 +7,10 @@ Credits to noone
 
 import asyncio
 
-from fridaybot.utils import friday_on_cmd
+from userbot.utils import admin_cmd
 
 
-@friday.on(friday_on_cmd("Friday"))
+@borg.on(admin_cmd("Lightning"))
 async def _(event):
     if event.fwd_from:
         return
@@ -21,7 +21,7 @@ async def _(event):
     await event.edit("for our support group")
     animation_chars = [
         "Click here",
-        "[Support Group](https://t.me/FRIDAYSUPPORTOFFICIAL)",
+        "[Support Group](https://t.me/blackthunderot)",
     ]
 
     for i in animation_ttl:

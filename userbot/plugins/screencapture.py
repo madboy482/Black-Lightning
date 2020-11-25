@@ -5,10 +5,10 @@ import io
 
 import requests
 
-from fridaybot.utils import friday_on_cmd
+from userbot.utils import admin_cmd
 
 
-@friday.on(friday_on_cmd("screencapture (.*)"))
+@borg.on(admin_cmd("screencapture (.*)"))
 async def _(event):
     if event.fwd_from:
         return

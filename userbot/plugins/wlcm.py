@@ -1,10 +1,7 @@
-bot = "bot"
-logger = "logger"
-command = "command"
 
 from telethon import events
 from telethon.utils import pack_bot_file_id
-from userbot.modules.sql_helper.welcome_sql import get_current_welcome_settings, \
+from userbot.plugins.sql_helper.welcome_sql import get_current_welcome_settings, \
     add_welcome_setting, rm_welcome_setting, update_previous_welcome
 
 

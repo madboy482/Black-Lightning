@@ -7,18 +7,15 @@ from telethon.tl.functions.users import GetFullUserRequest
 swapi = os.environ.get("SPAMWATCH_API_KEY", None)
 
 
-admin = "on"
-get= "get"
-check_user = "user"
-MessageEntityMentionName = "MessgaeEntityName"
+
 
 
 from userbot.utils import admin_cmd, sudo_cmd
 
 
 
-@admin.on(admin_cmd(pattern=f"ustat(?: |$)(.*)"))
-@admin.on(sudo_cmd(pattern=f"ustat(?: |$)(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern=f"ustat(?: |$)(.*)"))
+@borg.on(sudo_cmd(pattern=f"ustat(?: |$)(.*)", allow_sudo=True))
 async def _(event):
     sender = await event.get_sender()
     me = await event.client.get_me()

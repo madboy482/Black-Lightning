@@ -1,7 +1,5 @@
 """Get weather data using OpenWeatherMap
-
 Syntax: .weather <Location>
-
 .wttr <location> """
 
 
@@ -18,14 +16,9 @@ from userbot.utils import admin_cmd
 
 
 
-admin = "admin"
-Config = "Config"
-directory_name = "directory_name"
-bot = "bot"
-command = "command"
 
 
-@admin.on(admin_cmd(pattern="weather (.*)"))
+@borg.on(admin_cmd(pattern="weather (.*)"))
 
 async def _(event):
 
@@ -56,21 +49,13 @@ async def _(event):
         await event.edit(
 
             """{}
-
 **Temperature**: {}Â°Ð¡
-
     __minimium__: {}Â°Ð¡
-
     __maximum__ : {}Â°Ð¡
-
 **Humidity**: {}%
-
 **wind**: {}m/s
-
 **clouds**: {}hpa
-
 **Sunrise**: {} {}
-
 **Sunset**: {} {}""".format(
 
                 input_str,
@@ -107,14 +92,9 @@ async def _(event):
 
 
 
-admin = "admin"
-Config = "Config"
-directory_name = "directory_name"
-bot = "bot"
-command = "command"
 
 
-@admin.on(admin_cmd(pattern="wttr (.*)"))
+@borg.on(admin_cmd(pattern="wttr (.*)"))
 
 async def _(event):
 

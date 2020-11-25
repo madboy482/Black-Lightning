@@ -35,6 +35,14 @@ telegraph = "*"
 spamwatch = "*"
 pytz = "*"
 pylyrics = "*"
+pygments = "*"
+borg = "*"
+tgbot = "*"
+python-barcode = "*"
+google-api-python-client = "*"
+aria2p = "*"
+justwatch = "*"
+command = "*"
 
 [dev-packages]
 

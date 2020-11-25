@@ -11,10 +11,6 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-chat_id = "id"
-chat = "chat"
-peru_only = "peru"
-user_id = "id"
 
 
 import asyncio
@@ -39,8 +35,7 @@ from userbot.plugins.sql_helper.idadder_sql import (
     get_all_users,
 )
 
-assistant_cmd = "cmd"
-tgbot = "bot"
+
 @assistant_cmd("start", is_args=False)
 async def start(event):
     starkbot = await tgbot.get_me()

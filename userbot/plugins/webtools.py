@@ -5,11 +5,11 @@ from iplookup import iplookup
 from selenium import webdriver
 from youtube_search import YoutubeSearch
 
-from fridaybot.utils import edit_or_reply, friday_on_cmd, sudo_cmd
+from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
 
 
-@friday.on(friday_on_cmd(pattern="wshot ?(.*)"))
-@friday.on(sudo_cmd(pattern="wshot ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="wshot ?(.*)"))
+@borg.on(sudo_cmd(pattern="wshot ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -27,8 +27,8 @@ async def _(event):
     )
 
 
-@friday.on(friday_on_cmd(pattern="lp ?(.*)"))
-@friday.on(sudo_cmd(pattern="lp ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="lp ?(.*)"))
+@borg.on(sudo_cmd(pattern="lp ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -55,8 +55,8 @@ async def _(event):
         await tfbro.edit(f"Something Went Wrong. MayBe Website Wrong.")
 
 
-@friday.on(friday_on_cmd(pattern="bin ?(.*)"))
-@friday.on(sudo_cmd(pattern="bin ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="bin ?(.*)"))
+@borg.on(sudo_cmd(pattern="bin ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -78,8 +78,8 @@ async def _(event):
         await tfsir.edit("Not a Valid Bin Or Don't Have Enough Info.")
 
 
-@friday.on(friday_on_cmd(pattern="iban ?(.*)"))
-@friday.on(sudo_cmd(pattern="iban ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="iban ?(.*)"))
+@borg.on(sudo_cmd(pattern="iban ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -103,8 +103,8 @@ async def _(event):
         await tfhm.edit(f"Invalid IBAN Or Doesn't Have Enough Info")
 
 
-@friday.on(friday_on_cmd(pattern="gitdl ?(.*)"))
-@friday.on(sudo_cmd(pattern="gitdl ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="gitdl ?(.*)"))
+@borg.on(sudo_cmd(pattern="gitdl ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -128,8 +128,8 @@ async def _(event):
         )
 
 
-@friday.on(friday_on_cmd(pattern="yts ?(.*)"))
-@friday.on(sudo_cmd(pattern="yts ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="yts ?(.*)"))
+@borg.on(sudo_cmd(pattern="yts ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

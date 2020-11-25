@@ -1,7 +1,5 @@
-assistant_cmd = "cmd"
+
 peru_only = "peru_only"
-tgboborg = "borg"
-t = "tgbot"
 
 
 #    Copyright (C) Midhun KM 2020

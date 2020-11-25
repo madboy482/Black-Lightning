@@ -3,7 +3,6 @@ Available Commands:
 .hack"""
 
 
-borg = "borg"
 
 import asyncio
 
