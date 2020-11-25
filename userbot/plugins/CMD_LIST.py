@@ -1,10 +1,10 @@
 import asyncio
 
-from userbot.utils import thunder_on_cmd
+from userbot.utils import admin_cmd
 
 
 # @command(pattern="^.cmds", outgoing=True)
-@thunder.on(thunder_on_cmd(pattern=r"cmds"))
+@borg.on(admin_cmd(pattern=r"cmds"))
 async def install(event):
     if event.fwd_from:
         return
