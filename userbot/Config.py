@@ -53,6 +53,8 @@ if ENV:
     GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", "root")
     AUTH_TOKEN_DATA = os.environ.get("AUTH_TOKEN_DATA", None)
     PMSECURITY = os.environ.get("PMSECURITY", "ON")
+    OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", None)
+    OPEN_LOAD_KEY = os.environ.get("OPEN_LOAD_KEY", None)
     # for autopic
     AUTOPIC_TEXT = os.environ.get(
         "AUTOPIC_TEXT",
@@ -208,6 +210,8 @@ if ENV:
         TAG_LOG = os.environ.get("TAG_LOG", None)
         # PMSECURITY
         MAX_SPAM = int(os.environ.get("MAX_SPAM", 3))
+       #pm
+        PM_DATA = os.environ.get("PM_DATA", "ENABLE")
         # Lydia API
         LYDIA_API = os.environ.get("LYDIA_API", None)
         FBAN_GROUP_ID = os.environ.get("FBAN_GROUP_ID", None)

@@ -61,6 +61,7 @@ pytesseract = "*"
 pyshorteners = "*"
 iplookup = "*"
 pyfiglet = "*"
+tswift = "*"
 
 [dev-packages]
 
