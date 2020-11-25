@@ -1,4 +1,3 @@
-borg = "borg"
 
 
 from telethon import events
@@ -10,7 +9,7 @@ from uniborg.util import admin_cmd
 from userbot import ALIVE_NAME
 
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "DARK COBRA"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
 
 @borg.on(admin_cmd(pattern=r"police"))
 
@@ -39,7 +38,7 @@ async def _(event):
             "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
             "🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴",
             "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
-            "[Thunder ](https://www.github.com/hellboi-atul/hellboi-atul) **Police Service Here**"
+            "[Lightning ](https://www.github.com/hellboi-atul/hellboi-atul) **Police Service Here**"
  ]
 
     for i in animation_ttl:
