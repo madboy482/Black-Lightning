@@ -49,6 +49,9 @@ python-magic = "*"
 spotdl = "*"
 youtube-search-python = "*"
 glitch-this = "*"
+youtube-dl = "*"
+regex = "*"
+lyricsgenius = "*"
 
 [dev-packages]
 

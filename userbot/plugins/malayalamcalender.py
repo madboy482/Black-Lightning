@@ -4,10 +4,10 @@ import json
 from datetime import datetime
 
 import requests
-from uniborg.util import friday_on_cmd
+from  userbot.utils import admin_cmd
 
 
-@friday.on(friday_on_cmd(pattern="calendar (.*)"))
+@borg.on(admin_cmd(pattern="calendar (.*)"))
 async def _(event):
     if event.fwd_from:
         return

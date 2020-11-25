@@ -8,7 +8,7 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import CMD_HELP
-from userbot.uniborgConfig import Config
+from userbot.Config import Config
 from userbot.utils import admin_cmd, sudo_cmd
 
 logging.basicConfig(

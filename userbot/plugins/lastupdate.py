@@ -34,10 +34,10 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-admin = "admincmd"
+
 
 # @command(pattern="^.latestupdate")
-@admin.on(admin_cmd(pattern="latestupdate"))
+@borg.on(admin_cmd(pattern="latestupdate"))
 async def _(event):
     if event.fwd_from:
         return

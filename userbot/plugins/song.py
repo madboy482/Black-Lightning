@@ -4,8 +4,8 @@ import os
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from fridaybot import bot
-from fridaybot.utils import friday_on_cmd
+from userbot import bot
+from userbot.utils import admin_cmd
 
 try:
     pass
@@ -21,7 +21,7 @@ def bruh(name):
     os.system("instantmusic -q -s " + name)
 
 
-@friday.on(friday_on_cmd(pattern="spd ?(.*)"))
+@borg.on(admin_cmd(pattern="spd ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -46,7 +46,7 @@ async def _(event):
         await bot.forward_messages(event.chat_id, respond.message)
 
 
-@friday.on(friday_on_cmd(pattern="netease ?(.*)"))
+@borg.on(admin_cmd(pattern="netease ?(.*)"))
 async def WooMai(netase):
     if netase.fwd_from:
         return
@@ -73,7 +73,7 @@ async def WooMai(netase):
     await netase.delete()
 
 
-@friday.on(friday_on_cmd(pattern="dzd ?(.*)"))
+@borg.on(admin_cmd(pattern="dzd ?(.*)"))
 async def DeezLoader(Deezlod):
     if Deezlod.fwd_from:
         return
