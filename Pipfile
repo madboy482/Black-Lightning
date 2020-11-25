@@ -45,6 +45,7 @@ justwatch = "*"
 command = "*"
 aiofiles = "*"
 python-git = "*"
+python-magic = "*"
 
 [dev-packages]
 

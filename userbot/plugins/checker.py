@@ -263,7 +263,7 @@ csclist = [
 csclist = sorted(csclist)
 
 
-@friday.on(events.NewMessage(pattern=r"\.check", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.check", outgoing=True))
 async def checker(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("Fetching Information, Wait!")
@@ -366,7 +366,7 @@ async def checker(e):
         await e.delete()
 
 
-@friday.on(events.NewMessage(pattern=r"\.otaup", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.otaup", outgoing=True))
 async def checker(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("Fetching Information, Wait!")

@@ -16,10 +16,10 @@ from telethon import custom, events
 from telethon.tl.types import Chat
 from telethon.utils import get_display_name
 
-from fridaybot.Configs import Config
+from userbot.Configs import Config
 
 
-@friday.on(
+@borg.on(
     events.NewMessage(
         incoming=True,
         blacklist_chats=Config.UB_BLACK_LIST_CHAT,

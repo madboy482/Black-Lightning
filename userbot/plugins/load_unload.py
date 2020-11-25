@@ -1,8 +1,8 @@
-from userbot.utils import thunder_on_cmd, load_module, remove_plugin
+from userbot.utils import admin_cmd, load_module, remove_plugin
 
-thunder = "thudner"
 
-@thunder.on(thunder_on_cmd(pattern="load ?(.*)", outgoing=True))
+
+@borg.on(admin_cmd(pattern="load ?(.*)", outgoing=True))
 async def load(event):
     if event.fwd_from:
         return
@@ -20,7 +20,7 @@ async def load(event):
         )
 
 
-@thunder.on(thunder_on_cmd(pattern="unload ?(.*)", outgoing=True))
+@borg.on(admin_cmd(pattern="unload ?(.*)", outgoing=True))
 async def unload(event):
     if event.fwd_from:
         return
