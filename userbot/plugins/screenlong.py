@@ -7,10 +7,10 @@ from datetime import datetime
 
 from selenium import webdriver
 
-from fridaybot.utils import friday_on_cmd
+from userbot.utils import admin_cmd
 
 
-@friday.on(friday_on_cmd("screenlong (.*)"))
+@borg.on(admin_cmd("screenlong (.*)"))
 async def _(event):
     if event.fwd_from:
         return
