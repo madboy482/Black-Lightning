@@ -1,4 +1,4 @@
-admin = "borg"
+
 
 """COMMAND : .lovestory"""
 
@@ -10,7 +10,7 @@ from userbot.utils import admin_cmd
 
 
 
-@admin.on(admin_cmd(pattern="lovestory"))
+@borg.on(admin_cmd(pattern="lovestory"))
 
 async def _(event):
 

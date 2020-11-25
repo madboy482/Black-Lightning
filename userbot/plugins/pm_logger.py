@@ -29,7 +29,6 @@ BOTLOG = True
 BOTLOG_CHATID = Config.PM_LOGGR_BOT_API_ID
 
 
-borg = "admin_cmd"
 
 @register(outgoing=True, pattern=r"^.save(?: |$)([\s\S]*)")
 async def log(log_text):

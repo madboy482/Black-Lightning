@@ -43,6 +43,7 @@ google-api-python-client = "*"
 aria2p = "*"
 justwatch = "*"
 command = "*"
+aiofiles = "*"
 
 [dev-packages]
 

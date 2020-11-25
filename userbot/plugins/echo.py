@@ -28,7 +28,7 @@ from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
 from .. import CMD_HELP
 from ..utils import admin_cmd, edit_or_reply
-from .sql_helper.echo_sql import addecho, get_all_echos, is_echo, remove_echo
+from userbot.plugins.sql_helper.echo_sql import addecho, get_all_echos, is_echo, remove_echo
 
 
 @borg.on(admin_cmd(pattern="enableecho$"))
