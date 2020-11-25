@@ -59,6 +59,7 @@ lottie = "*"
 python-github = "*"
 pytesseract = "*"
 pyshorteners = "*"
+iplookup = "*"
 
 [dev-packages]
 

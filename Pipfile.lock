@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f6b47dd9442a5edcf8e9fb40befff12fd84348c69200bd89359ade7c50b3d15d"
+            "sha256": "af61798ebf3efda4478ce5e4ca334e047b01cc1869881eb48c9ec02d3504ccf9"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -250,6 +250,14 @@
             "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==0.29.21"
         },
+        "dnspython": {
+            "hashes": [
+                "sha256:044af09374469c3a39eeea1a146e8cac27daec951f1f1f157b1962fc7cb9d1b7",
+                "sha256:40bb3c24b9d4ec12500f0124288a65df232a3aa749bb0c39734b782873a2544d"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==2.0.0"
+        },
         "emoji": {
             "hashes": [
                 "sha256:e42da4f8d648f8ef10691bc246f682a1ec6b18373abfd9be10ec0b398823bd11"
@@ -425,6 +433,13 @@
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==2.10"
         },
+        "iplookup": {
+            "hashes": [
+                "sha256:6492754d8882794c77000d0445e6971a0c8576f3ac82738b73b3894edbda8ed6"
+            ],
+            "index": "pypi",
+            "version": "==1.0.5"
+        },
         "justwatch": {
             "hashes": [
                 "sha256:5072aeb320c4066292e94667d758c5c39bb8dbc059d68e536391d7c62804ab18"
@@ -503,7 +518,7 @@
                 "sha256:6397602efb3c2d7baebd2166ed85731ae1c1d475abca22090b7141ff5034b3e1",
                 "sha256:9c9f243fcec7f410f138cb12c21c84c64fde4195481a30c9bfb05b5f003adfed"
             ],
-            "markers": "python_version >= '3.5' and python_version < '4'",
+            "markers": "python_version >= '3.5' and python_version < '4.0'",
             "version": "==1.45.1"
         },
         "numpy": {
@@ -1209,7 +1224,7 @@
                 "sha256:19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08",
                 "sha256:d8ff90d979214d7b4f8ce956e80f4028fc6860e4431f731ea4a8c08f23f99473"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4.0'",
             "version": "==1.26.2"
         },
         "uwsgidecorators": {

@@ -2,9 +2,6 @@
 # Ported - @StarkxD
 
 
-admin = "admin"
-borg = "borg"
-
 import asyncio
 import os
 import shlex
@@ -34,7 +31,7 @@ async def runcmd(cmd: str) -> Tuple[str, str, int, int]:
     )
 
 
-@admin.on(admin_cmd(pattern="mediainfo$"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="mediainfo$"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return

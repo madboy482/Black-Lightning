@@ -9,14 +9,14 @@ from telethon import Button, custom, events, functions
 from youtubesearchpython import SearchVideos
 
 from userbot import ALIVE_NAME, CMD_LIST
-from userbot.plugins import inlinestats
+from userbot.plugins import telestats
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
     WARN_PIC = "https://telegra.ph/file/274a1a5bc4c3e488965ee.mp4"
 else:
     WARN_PIC = PMPERMIT_PIC
-LOG_CHAT = Configs.PRIVATE_GROUP_ID
+LOG_CHAT = Config.PRIVATE_GROUP_ID
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
 
 
@@ -141,7 +141,7 @@ async def on_plug_in_callback_query_handler(event):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"terminator")))
 async def rip(event):
     if event.query.user_id == bot.uid:
-        text = inlinestats
+        text = telestats
         await event.answer(text, alert=True)
     else:
         txt = "You Can't View My Masters Stats"
