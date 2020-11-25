@@ -1,5 +1,4 @@
-borg = "borg"
-patoolib = "patoolib"
+
 
 """
 usage: reply with file : .rar , .7z  create archived file
