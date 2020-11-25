@@ -184,7 +184,7 @@ if ENV:
             "GROUP_REG_SED_EX_BOT_S",
             r"(regex|moku|BananaButler_|rgx|l4mR)bot")
         TEMP_DIR = os.environ.get("TEMP_DIR", None)
-        CHANNEL_ID = int(os.environ.get("CHANNEL_ID", -100))
+        PRIVATE_GROUP_ID = int(os.environ.get("CHANNEL_ID", -100))
         # Google Chrome Stuff
         CHROME_BIN = os.environ.get("CHROME_BIN", "/usr/bin/google-chrome")
         CHROME_DRIVER = os.environ.get(

@@ -13,8 +13,8 @@ from userbot import CMD_HELP, bot
 from userbot.utils import admin_cmd
 
 UPSTREAM_REPO_URL = "https://github.com/DARK-COBRA/DARKCOBRA"
-HEROKU_API_KEY = Var.HEROKU_API_KEY
-HEROKU_APP_NAME = Var.HEROKU_APP_NAME
+HEROKU_API_KEY = Config.HEROKU_API_KEY
+HEROKU_APP_NAME = Config.HEROKU_APP_NAME
 
 requirements_path = path.join(
     path.dirname(path.dirname(path.dirname(__file__))), 'requirements.txt')
@@ -60,7 +60,7 @@ async def upstream(ups):
     except InvalidGitRepositoryError as error:
         if conf != "now":
             await ups.edit(f"Hey, did you type update🤔.....Okie..My dear sweet master..🤗\
-            \nPlease do type |.update now| to update your DARK-COBRA😎.")
+            \nPlease do type |.update now| to update your Black Lightning😎.")
             return
         repo = Repo.init()
         origin = repo.create_remote('upstream', off_repo)

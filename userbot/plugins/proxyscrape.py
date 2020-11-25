@@ -3,8 +3,7 @@
 # UserBot Plugin To Send Fresh Proxies From Proxyscrape.com
 # Banned For Sensible Userbot And Users.
 # Usage : For Http Proxy : .proxyhttp , For Socks4 : .proxysocks4 , For socks5 : .proxysocks5
-thunder = "thunder"
-Config = "Config"
+
 
 import os
 
@@ -21,11 +20,10 @@ SOCKS5_TXT = "**Proxy Info** \nType: __SOCKS4__ \nTimeOut: __10000__ \nCountry: 
 sedpng = "https://soon.proxyscrape.com/asset/img/service/downloadicon.svg"
 
 
-admin = "admin"
 
 
-@admin.on(admin_cmd(pattern="http$"))
-@admin.on(sudo_cmd(pattern="http$", allow_sudo=True))
+@borg.on(admin_cmd(pattern="http$"))
+@borg.on(sudo_cmd(pattern="http$", allow_sudo=True))
 async def starkxD(event):
     await event.get_chat()
     file_name = "proxy_http.txt"
@@ -41,8 +39,8 @@ async def starkxD(event):
     )
 
 
-@admin.on(admin_cmd(pattern="socks4$"))
-@admin.on(admin_cmd(pattern="socks4$", allow_sudo=True))
+@borg.on(admin_cmd(pattern="socks4$"))
+@borg.on(admin_cmd(pattern="socks4$", allow_sudo=True))
 async def starkgang(event):
     await event.get_chat()
     file_name = "proxy_socks4.txt"
@@ -60,8 +58,8 @@ async def starkgang(event):
     )
 
 
-@admin.on(admin_cmd(pattern="socks5$"))
-@admin.on(admin_cmd(pattern="socks5$", allow_sudo=True))
+@borg.on(admin_cmd(pattern="socks5$"))
+@borg.on(admin_cmd(pattern="socks5$", allow_sudo=True))
 async def thunder(event):
     await event.get_chat()
     file_name = "proxy_socks5.txt"
