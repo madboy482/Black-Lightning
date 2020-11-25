@@ -8,8 +8,8 @@ from telethon import events, functions
 from telethon.tl.functions.users import GetFullUserRequest
 
 import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
-from userbot import ALIVE_NAME, CUSTOM_PMPERMIT
-from userbot.Config import Config
+from userbot import ALIVE_NAME, CMD_HELP, CUSTOM_PMPERMIT, bot
+from userbot.Config import Var
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
@@ -20,10 +20,10 @@ else:
 PM_WARNS = {}
 PREV_REPLY_MESSAGE = {}
 
-PM_ON_OFF = Config.PM_DATA
+PM_ON_OFF = Var.PM_DATA
 
 DEFAULTUSER = (
-    str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
+    str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in Var vars in Heroku"
 )
 CUSTOM_MIDDLE_PMP = (
     str(CUSTOM_PMPERMIT) if CUSTOM_PMPERMIT else "Protection By Lightning 🇮🇳"

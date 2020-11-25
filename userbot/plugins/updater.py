@@ -11,10 +11,12 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from userbot import CMD_HELP, bot
 from userbot.utils import admin_cmd
+from userbot.Config import Var
+
 
 UPSTREAM_REPO_URL = "https://github.com/DARK-COBRA/DARKCOBRA"
-HEROKU_API_KEY = Config.HEROKU_API_KEY
-HEROKU_APP_NAME = Config.HEROKU_APP_NAME
+HEROKU_API_KEY = Var.HEROKU_API_KEY
+HEROKU_APP_NAME = Var.HEROKU_APP_NAME
 
 requirements_path = path.join(
     path.dirname(path.dirname(path.dirname(__file__))), 'requirements.txt')

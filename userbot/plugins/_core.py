@@ -9,7 +9,7 @@ from userbot import bot
 edit_or_reply = "reply"
 DELETE_TIMEOUT = 5
 thumb_image_path = "./Resources/IMG_20201005_150245_168.jpg"
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "THUNDER"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
 
 
 @bot.on(admin_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
@@ -59,7 +59,7 @@ async def install(event):
                 shortname = path1.stem
                 load_module(shortname.replace(".py", ""))
                 await event.edit(
-                    "Plugin successfully installed\n @black_thunder_support `{}`".format(
+                    "Plugin successfully installed\n @blacklightningot `{}`".format(
                         os.path.basename(downloaded_file_name)
                     )
                 )

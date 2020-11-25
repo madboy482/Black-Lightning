@@ -10,13 +10,13 @@ from youtubesearchpython import SearchVideos
 
 from userbot import ALIVE_NAME, CMD_LIST
 from userbot.plugins import telestats
-
+from userbot.Config import Var
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
     WARN_PIC = "https://telegra.ph/file/274a1a5bc4c3e488965ee.mp4"
 else:
     WARN_PIC = PMPERMIT_PIC
-LOG_CHAT = Config.PRIVATE_GROUP_ID
+LOG_CHAT = Var._PRIVATE_GROUP_ID
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
 
 
@@ -322,11 +322,11 @@ async def inline_id_handler(event: events.InlineQuery.Event):
     for mio in moi:
         mo = mio["link"]
         thum = mio["title"]
-        fridayz = mio["id"]
+        Lightning= mio["id"]
         thums = mio["channel"]
         td = mio["duration"]
         tw = mio["views"]
-        kekme = f"https://img.youtube.com/vi/{fridayz}/hqdefault.jpg"
+        kekme = f"https://img.youtube.com/vi/{Lightning}/hqdefault.jpg"
         okayz = f"**Title :** `{thum}` \n**Link :** `{mo}` \n**Channel :** `{thums}` \n**Views :** `{tw}` \n**Duration :** `{td}`"
         hmmkek = f"Channel : {thums} \nDuration : {td} \nViews : {tw}"
         results.append(
