@@ -33,13 +33,13 @@ async def _(event):
         
             "`Connecting To Hacked Private Server...`",
             "`Target Selected.`",
-            "`Hacking... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `\n`Looking for telegram data...`\nETA: 0m, 20s",
-            "`Hacking... 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `\n`Found folder sd/telegram...`\n`Looking for telegram data : ✅`\nETA: 0m, 10s",
-            "`Hacking... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `\n`Searching for databases....`\n`Looking for telegram data : ✅`\n`Found folder sd/telegram : ✅ `\nETA: 0m, 15s",    
-            "`Hacking... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒`\n`Found msgstore.db.crypt12...`\n`Looking for telegram data : ✅`\n`Found folder sd/telegram : ✅ `\n`Searching for databases : ✅ `\nETA: 0m, 09s",
-            "`Hacking... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `\n`Trying to Decrypt...`\n`Looking for telegram data : ✅`\n`Found folder sd/telegram : ✅\n`Searching for databases : ✅`\n`Found msgstore.db.crypt12 :  ✅`\n`⚠️ error occurred ..`\nETA: 0m, 25s",
-            "`Hacking... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `\n`Decryption successful!`\n`Looking for telegram data : ✅`\n`⚠️ error occurred ..`\n`Found folder sd/telegram : ✅`\n`⚠️ error occurred ..`\n`Searching for databases : ✅`\n`Found msgstore.db.crypt12 :  ✅`\nETA: 0m, 25s",
-            "`Hacking... 84%\n█████████████████████▒▒▒▒ `\n`Scanning file...`\n`Looking for telegram data : ✅`\n`⚠️ error occurred ..`\n`Found folder sd/telegram : ✅`\n`⚠️ error occurred ..`\n`⚠️ error occurred ..`\n`Searching for databases : ✅`\n`Found msgstore.db.crypt12 :  ✅`\n`Scanning file :  ✅`\nETA: 0m, 16s",
+            "`Hacking... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `\n`Looking for Facebook data...`\nETA: 0m, 20s",
+            "`Hacking... 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `\n`Found folder sd/Facebook...`\n`Looking for Facebook data : ✅`\nETA: 0m, 10s",
+            "`Hacking... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `\n`Searching for databases....`\n`Looking for Facebook data : ✅`\n`Found folder sd/Facebook : ✅ `\nETA: 0m, 15s",    
+            "`Hacking... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒`\n`Found msgstore.db.crypt12...`\n`Looking for Facebook data : ✅`\n`Found folder sd/Facebook : ✅ `\n`Searching for databases : ✅ `\nETA: 0m, 09s",
+            "`Hacking... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `\n`Trying to Decrypt...`\n`Looking for Facebook data : ✅`\n`Found folder sd/Facebook : ✅\n`Searching for databases : ✅`\n`Found msgstore.db.crypt12 :  ✅`\n`⚠️ error occurred ..`\nETA: 0m, 25s",
+            "`Hacking... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `\n`Decryption successful!`\n`Looking for Facebook data : ✅`\n`⚠️ error occurred ..`\n`Found folder sd/Facebook : ✅`\n`⚠️ error occurred ..`\n`Searching for databases : ✅`\n`Found msgstore.db.crypt12 :  ✅`\nETA: 0m, 25s",
+            "`Hacking... 84%\n█████████████████████▒▒▒▒ `\n`Scanning file...`\n`Looking for Facebook data : ✅`\n`⚠️ error occurred ..`\n`Found folder sd/Facebook : ✅`\n`⚠️ error occurred ..`\n`⚠️ error occurred ..`\n`Searching for databases : ✅`\n`Found msgstore.db.crypt12 :  ✅`\n`Scanning file :  ✅`\nETA: 0m, 16s",
             "`Hacking... 100%\n` 98% HACKED`",
             "`Targeted Account Hacked...`\n\n`_______________________`\n`result ... :)`\n\n`Chatlist : ✅`\n`Calls : ✅`\n`groups : ✅`\n `Contacts : ✅`\n`Channel : ✅`\n`Deleted Messages : ❌`\n`Edited Messages : ❌`\n`All API Tokens : ✅`\n\n`Pay 99999$ to my boss.... `Or send your girlfriend's number To Remove This Hack`"
            

@@ -7,14 +7,14 @@ import textwrap
 
 from PIL import Image, ImageDraw, ImageFont
 
-from fridaybot.utils import friday_on_cmd
+from userbot.utils import admin_cmd
 from var import Var
 
 # how a lazy guy ports.
 client = borg
 
 
-@friday.on(friday_on_cmd("memify ?(.*)"))
+@borg.on(admin_cmd("memify ?(.*)"))
 async def handler(event):
     if event.fwd_from:
         return
