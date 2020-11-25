@@ -1,5 +1,3 @@
-borg = "borg"
-Config = "Config"
 
 from telethon.tl.types import MessageMediaPhoto
 import os, urllib, requests, asyncio

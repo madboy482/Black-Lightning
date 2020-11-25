@@ -44,6 +44,7 @@ aria2p = "*"
 justwatch = "*"
 command = "*"
 aiofiles = "*"
+python-git = "*"
 
 [dev-packages]
 

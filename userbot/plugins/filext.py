@@ -1,13 +1,11 @@
-thunder = "botname"
-
 """Get info about a File Extension
 Syntax: .filext EXTENSION"""
 import requests
 from bs4 import BeautifulSoup
-from uniborg.util import thunder_on_cmd
+from userbot.utils import admin_cmd
 
 
-@thunder.on(thunder_on_cmd(pattern="filext (.*)"))
+@borg.on(admin_cmd(pattern="filext (.*)"))
 async def _(event):
     if event.fwd_from:
         return

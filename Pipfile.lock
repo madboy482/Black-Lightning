@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2bc56d853ac008507f4ebee30b4649018cb2431284f63ee8003d8784eddce559"
+            "sha256": "cc460bce1c9958574cec6f446c1c1fd7b12bd392176b6313a4789f9c92dd0958"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -729,6 +729,14 @@
             "index": "pypi",
             "version": "==0.15.0"
         },
+        "python-git": {
+            "hashes": [
+                "sha256:2da0a75b562bc966d8a3bc1d6a2f8fd9f0fb3a3d3f2eff2239213bcc400bde82",
+                "sha256:87ef4aef32a65f44e301cff42e5d5f660a2ba8d6b9d7c021faedbb9028a57ba9"
+            ],
+            "index": "pypi",
+            "version": "==2018.2.1"
+        },
         "pytube": {
             "hashes": [
                 "sha256:85cefc2b6f8b47eb94f9a9d86ad7eccd1b32b147d3e2e307f56f7dab70bc42e9",
@@ -814,6 +822,13 @@
             ],
             "index": "pypi",
             "version": "==3.141.0"
+        },
+        "send2trash": {
+            "hashes": [
+                "sha256:60001cc07d707fe247c94f74ca6ac0d3255aabcb930529690897ca2a39db28b2",
+                "sha256:f1691922577b6fa12821234aeb57599d887c4900b9ca537948d2dac34aea888b"
+            ],
+            "version": "==1.5.0"
         },
         "sgmllib3k": {
             "hashes": [
