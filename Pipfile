@@ -60,6 +60,7 @@ python-github = "*"
 pytesseract = "*"
 pyshorteners = "*"
 iplookup = "*"
+pyfiglet = "*"
 
 [dev-packages]
 
