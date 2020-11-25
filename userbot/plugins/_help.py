@@ -10,15 +10,9 @@ CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "⚡")
 if CMD_HNDLR is None:
     CMD_HNDLR = "."
 
-admin = "admin"
-Var = "Var"
-io = "io"
-tgbot = "tgbot"
-reply_to_id = "reply_to_id"
-bot = "bot"
 
-admin_cmd = "admin_cmd"
-@admin.on(admin_cmd(pattern="help ?(.*)"))
+
+@borg.on(admin_cmd(pattern="help ?(.*)"))
 async def cmd_list(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         tgbotusername = Var.TG_BOT_USER_NAME_BF_HER

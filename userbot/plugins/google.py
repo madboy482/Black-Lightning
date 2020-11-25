@@ -2,7 +2,7 @@ from re import findall
 
 from search_engine_parser import GoogleSearch
 
-from fridaybot.utils import register
+from userbot.utils import register
 
 
 @register(outgoing=True, pattern=r"^\.gs (.*)")

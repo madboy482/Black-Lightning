@@ -1,4 +1,4 @@
-borg = "borg"
+
 
 import random
 

@@ -6,7 +6,7 @@ import datetime
 from telethon import events
 from uniborg.util import admin_cmd
 from telethon.tl.types import (
-    DocumentAttributeFilename,
+    Config, DocumentAttributeFilename,
     DocumentAttributeSticker,
     InputMediaUploadedDocument,
     InputMediaUploadedPhoto,

@@ -46,6 +46,9 @@ command = "*"
 aiofiles = "*"
 python-git = "*"
 python-magic = "*"
+spotdl = "*"
+youtube-search-python = "*"
+glitch-this = "*"
 
 [dev-packages]
 

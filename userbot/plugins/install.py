@@ -2,12 +2,12 @@ import asyncio
 import os
 from pathlib import Path
 
-from fridaybot.utils import friday_on_cmd, load_module
+from userbot.utils import admin_cmd, load_module
 
 DELETE_TIMEOUT = 5
 
 
-@friday.on(friday_on_cmd(pattern="install", outgoing=True))
+@borg.on(admin_cmd(pattern="install", outgoing=True))
 async def install(event):
     if event.fwd_from:
         return

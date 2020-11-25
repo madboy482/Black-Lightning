@@ -9,7 +9,6 @@ import asyncio
 
 from userbot.utils import admin_cmd
 
-borg = "on"
 
 @borg.on(admin_cmd("gulli"))
 async def _(event):

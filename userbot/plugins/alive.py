@@ -1,5 +1,3 @@
-black = "black"
-black = "black"
 
 
 """Check if 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 alive"""
@@ -9,7 +7,7 @@ import time
 from userbot.utils import admin_cmd, sudo_cmd
 
 from userbot import ALIVE_NAME, Lastupdate
-from userbot.Configs import Config
+from userbot.Config import Config
 from userbot.plugins import currentversion
 
 

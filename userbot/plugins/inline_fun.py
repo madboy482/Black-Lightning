@@ -1,5 +1,3 @@
-borg  = "borg"
-bot = "bot"
 
 from userbot.utils import admin_cmd
 from var import Var

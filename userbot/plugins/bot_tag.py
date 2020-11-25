@@ -16,7 +16,7 @@ from telethon import custom, events
 from telethon.tl.types import Chat
 from telethon.utils import get_display_name
 
-from userbot.Configs import Config
+from userbot.Config import Config
 
 
 @borg.on(

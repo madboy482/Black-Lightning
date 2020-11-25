@@ -4,15 +4,11 @@ import time
 
 
 
-admin = "admin"
-bot = "bot"
-eor = "eor"
-
 from userbot import CMD_HELP
 from userbot.utils import admin_cmd, sudo_cmd
 
-@admin.on(admin_cmd(pattern="bash ?(.*)"))
-@admin.on(sudo_cmd(pattern="bash ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="bash ?(.*)"))
+@borg.on(sudo_cmd(pattern="bash ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

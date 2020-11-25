@@ -8,14 +8,15 @@
 
 import asyncio
 import time
+from userbot import Configs
 from telethon.tl import functions
 from telethon.errors import FloodWaitError
 from userbot.utils import admin_cmd
 from userbot import ALIVE_NAME
 
-BIO_MSG = Config.BIO_MSG
+BIO_MSG = Configs.BIO_MSG
 if BIO_MSG is None:
-  BIO_MSG = "I am a pro @Dark_cobra_support"
+  BIO_MSG = "If Don't Wann A Lightning Strike's You Then Stay Away"
 
 DEL_TIME_OUT = 60
 
@@ -39,7 +40,7 @@ async def _(event):
         # else:
             # logger.info(r.stringify())
             # await borg.send_message(  # pylint:disable=E0602
-            #     Config.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
+            #     Configs.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
             #     "Successfully Changed Profile Bio"
             # )
         await asyncio.sleep(DEL_TIME_OUT)

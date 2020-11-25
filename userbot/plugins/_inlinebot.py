@@ -3,10 +3,6 @@ import re
 import urllib
 from math import ceil
 
-Configs = "Configs"
-bot = "bot"
-tgbot = "tgbot"
-borg = "borg"
 
 import requests
 from telethon import Button, custom, events, functions
