@@ -7,21 +7,21 @@ import os
 
 import pytesseract
 
-from fridaybot.Configs import Config
-from fridaybot.utils import friday_on_cmd
+from userbot.Config import Var
+from userbot.utils import admin_cmd
 
 
-@friday.on(friday_on_cmd(pattern="read$"))
+@borg.on(admin_cmd(pattern="read$"))
 async def _(event):
     global images
     if event.fwd_from:
         return
     await event.edit("`Reading..`")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Var.TMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.TMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
         imagez = await borg.download_media(
-            await event.get_reply_message(), Config.TMP_DOWNLOAD_DIRECTORY
+            await event.get_reply_message(), Var.TMP_DOWNLOAD_DIRECTORY
         )
     pytesseract.pytesseract.tesseract_cmd = "/app/.apt/usr/bin/tesseract"
     results = pytesseract.image_to_string(Image.open(imagez))

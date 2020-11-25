@@ -7,7 +7,7 @@ import time
 from userbot.utils import admin_cmd, sudo_cmd
 
 from userbot import ALIVE_NAME, Lastupdate
-from userbot.Config import Config
+from userbot.Config import Var
 from userbot.plugins import currentversion
 
 
@@ -42,7 +42,7 @@ def get_readable_time(seconds: int) -> str:
 
 uptime = get_readable_time((time.time() - Lastupdate))
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
-PM_IMG = Config.ALIVE_IMAGE
+PM_IMG = Var.ALIVE_IMAGE
 pm_caption = "➥ **𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤  IS:** `ONLINE`\n\n"
 pm_caption += "➥ **SYSTEMS STATS**\n"
 pm_caption += "➥ **Telethon Version:** `1.15.0` \n"
@@ -54,7 +54,7 @@ pm_caption += f"➥ **Version** : `{currentversion}`\n"
 pm_caption += f"➥ **My Boss** : {DEFAULTUSER} \n"
 pm_caption += "➥ **Heroku Database** : `AWS - Working Properly`\n\n"
 pm_caption += "➥ **License** : [GNU General Public License v3.0](github.com/Anmol-dot283/black/blob/master/LICENSE)\n"
-pm_caption += "➥ **Copyright** : By [Anmol-dot283@Github](GitHub.com/Anmol-dot283)\n"
+pm_caption += "➥ **Copyright** : By [Krish@Github](GitHub.com/Anmol-dot283)\n"
 pm_caption += "➥ **Check Stats By Doing** `.stat`. \n\n"
 pm_caption += "[🇮🇳 Deploy 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 Userbot 🇮🇳](https://telegra.ph/file/c3683ea84426c1046faef.mp4)"
 
