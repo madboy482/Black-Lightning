@@ -44,6 +44,7 @@ if ENV:
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     TG_BOT_TOKEN_BF_HER = os.environ.get("TG_BOT_TOKEN_BF_HER", None)
     TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
+    PM_DATA = os.environ.get("PM_DATA", "ENABLE")
     NO_SONGS = bool(os.environ.get("NO_SONGS", False))
     DOWNLOAD_PFP_URL_CLOCK = os.environ.get("DOWNLOAD_PFP_URL_CLOCK", None)
     MAX_FLOOD_IN_P_M_s = os.environ.get("MAX_FLOOD_IN_P_M_s", "3")
@@ -198,6 +199,9 @@ if ENV:
             t_file.close()
         YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
         GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", None)
+        #load
+        OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", None)
+        OPEN_LOAD_KEY = os.environ.get("OPEN_LOAD_KEY", None)
         # MongoDB
         MONGO_URI = os.environ.get("MONGO_URI", None)
         # TAG LOG GROUP

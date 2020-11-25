@@ -22,7 +22,6 @@ import asyncio
 
 
 
-borg = "borg"
 
 
 

@@ -52,6 +52,13 @@ glitch-this = "*"
 youtube-dl = "*"
 regex = "*"
 lyricsgenius = "*"
+heroku3 = "*"
+cowpy = "*"
+cfscrape = "*"
+lottie = "*"
+python-github = "*"
+pytesseract = "*"
+pyshorteners = "*"
 
 [dev-packages]
 

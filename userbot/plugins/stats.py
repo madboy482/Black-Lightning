@@ -3,7 +3,7 @@ from datetime import datetime
 from telethon.tl.types import Channel, Chat, User
 from uniborg.util import friday_on_cmd
 
-from fridaybot import bot
+from userbot import bot
 
 
 @bot.on(friday_on_cmd(pattern=r"stats"))

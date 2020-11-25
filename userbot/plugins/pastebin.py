@@ -26,7 +26,7 @@ def progress(current, total):
 
 DOGBIN_URL = "https://del.dog/"
 
-BOTLOG_CHATID = Config.PRIVATE_GROUP_BOT_API_ID
+BOTLOG_CHATID = Config.PRIVATE_GROUP_ID
 BOTLOG = True
 
 
@@ -35,8 +35,8 @@ async def _(event):
     if event.fwd_from:
         return
     start = datetime.now()
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Config.TEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Config.TEMP_DOWNLOAD_DIRECTORY)
     input_str = event.pattern_match.group(1)
     message = "SYNTAX: `.paste <long text to include>`"
     if input_str:
@@ -46,7 +46,7 @@ async def _(event):
         if previous_message.media:
             downloaded_file_name = await borg.download_media(
                 previous_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
+                Config.TEMP_DOWNLOAD_DIRECTORY,
                 progress_callback=progress,
             )
             m_list = None
@@ -133,8 +133,8 @@ async def _(event):
     if event.fwd_from:
         return
     datetime.now()
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Config.TEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Config.TEMP_DOWNLOAD_DIRECTORY)
     input_str = event.pattern_match.group(1)
     message = "SYNTAX: `.neko <long text to include>`"
     if input_str:
@@ -144,7 +144,7 @@ async def _(event):
         if previous_message.media:
             downloaded_file_name = await borg.download_media(
                 previous_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
+                Config.TEMP_DOWNLOAD_DIRECTORY,
                 progress_callback=progress,
             )
             m_list = None
