@@ -16,7 +16,7 @@ from telethon import TelegramClient
 from pySmartDL import SmartDL
 from telethon.sessions import StringSession
 
-from var import Var
+from userbot.Config import Var
 
 from userbot.function import thunderfunction as topfunc
 
