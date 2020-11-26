@@ -3,10 +3,10 @@ command: .singer singer name - song name
 by @quiec
 """
 from PyLyrics import *
-from uniborg.util import friday_on_cmd
+from uniborg.util import admin_cmd
 
 
-@friday.on(friday_on_cmd(pattern="singer (.*)"))
+@borg.on(admin_cmd_cmd(pattern="singer (.*)"))
 async def _(event):
     if event.fwd_from:
         return
