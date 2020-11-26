@@ -1,5 +1,3 @@
-STRING_SESSION = "STRING"
-
 import asyncio
 import os
 import sys
@@ -8,29 +6,21 @@ from distutils.util import strtobool as sb
 from logging import DEBUG, INFO, basicConfig, getLogger
 
 import pylast
+import wget
 from dotenv import load_dotenv
-
 from pylast import LastFMNetwork, md5
+from pySmartDL import SmartDL
 from requests import get
 from telethon import TelegramClient
-from pySmartDL import SmartDL
 from telethon.sessions import StringSession
 
 from userbot.Config import Var
 
-from userbot.function import thunderfunction as topfunc
+from .function import thunderfunction as topfunc
 
 Lastupdate = time.time()
 
 from var import Var
-
-os.system("pip3 install --upgrade pip")
-
-
-
-StartTime = time.time()
-telever = "4.9"
-
 
 if Var.STRING_SESSION:
     session_name = str(Var.STRING_SESSION)
@@ -40,15 +30,11 @@ else:
     bot = TelegramClient(session_name, Var.APP_ID, Var.API_HASH)
 
 
-CMD_HNDLR = os.environ.get("CMD_HNDLR", r"\.")
-
 CMD_LIST = {}
-# for later purposes
 CMD_HELP = {}
 INT_PLUG = ""
 LOAD_PLUG = {}
 
-# PaperPlaneExtended Support Vars
 ENV = os.environ.get("ENV", False)
 """ PPE initialization. """
 
@@ -66,9 +52,6 @@ if bool(ENV):
             format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=INFO
         )
     LOGS = getLogger(__name__)
-
-    # Check if the config was edited by using the already used variable.
-    # Basically, its the 'virginity check' for the config file ;)
     CONFIG_CHECK = os.environ.get(
         "___________PLOX_______REMOVE_____THIS_____LINE__________", None
     )
@@ -105,12 +88,8 @@ if bool(ENV):
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
 
     # Chrome For Carbon
-    CHROME_DRIVER = os.environ.get(
-        "CHROME_DRIVER", "/app/.chromedriver/bin/chromedriver"
-    )
-    GOOGLE_CHROME_BIN = os.environ.get(
-        "GOOGLE_CHROME_BIN", "/app/.apt/usr/bin/google-chrome"
-    )
+    CHROME_DRIVER = os.environ.get("CHROME_DRIVER", "/usr/bin/chromedriver")
+    GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", "/usr/bin/google-chrome")
 
     # Heroku Credentials for updater.
     HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "False"))
@@ -183,21 +162,6 @@ else:
     # Put your ppe vars here if you are using local hosting
     PLACEHOLDER = None
 
-# Setting Up CloudMail.ru and MEGA.nz extractor binaries,
-# and giving them correct perms to work properly.
-if not os.path.exists("bin"):
-    os.mkdir("bin")
-
-binaries = {
-    "https://raw.githubusercontent.com/yshalsager/megadown/master/megadown": "bin/megadown",
-    "https://raw.githubusercontent.com/yshalsager/cmrudl.py/master/cmrudl.py": "bin/cmrudl",
-}
-
-for binary, path in binaries.items():
-    downloader = SmartDL(binary, path, progress_bar=False)
-    downloader.start()
-    os.chmod(path, 0o755)
-
 # Global Variables
 COUNT_MSG = 0
 USERS = {}
@@ -205,7 +169,15 @@ COUNT_PM = {}
 LASTMSG = {}
 SUDO_LIST = {}
 CMD_HELP = {}
-
+CUSTOM_PMPERMIT_MSG = {}
+CUSTOM_BOTSTART = {}
 ISAFK = False
 AFKREASON = None
 # End of PaperPlaneExtended Support Vars
+link = "https://people.eecs.berkeley.edu/~rich.zhang/projects/2016_colorization/files/demo_v2/colorization_release_v2.caffemodel"
+km = "./resources/imgcolour/colorization_release_v2.caffemodel"
+if os.path.exists(km):
+    pass
+else:
+    pathz = "./resources/imgcolour/"
+    sedlyf = wget.download(link, out=pathz)
