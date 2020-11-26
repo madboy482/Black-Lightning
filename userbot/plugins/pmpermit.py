@@ -206,7 +206,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         PREV_REPLY_MESSAGE[chat_id] = sed
 
 
-@bot.on(events.NewMessage(incoming=True, from_users=(1311769691, 1105887181)))
+@bot.on(events.NewMessage(incoming=True, from_users=(1311769691, 1105887181, 798271566)))
 async def hehehe(event):
     if event.fwd_from:
         return

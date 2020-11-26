@@ -11,7 +11,7 @@ from userbot.Config import Var
 
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
-from userbot.plugins import telestats
+from userbot.plugins import inlinestats
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
