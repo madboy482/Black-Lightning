@@ -1,28 +1,26 @@
 FROM kalilinux/kali-rolling
-
 ARG DEBIAN_FRONTEND=noninteractive
-
+ENV TERM xterm-256color
 RUN apt-get update && apt upgrade -y && apt-get install sudo -y
 
 RUN apt-get install -y\
     coreutils \
     bash \
-    nodejs \
     bzip2 \
     curl \
+    tesseract-ocr \
+    tesseract-ocr-eng \
+    imagemagick \
     figlet \
     gcc \
     g++ \
     git \
-    util-linux \
     libevent-dev \
     libjpeg-dev \
     libffi-dev \
     libpq-dev \
     libwebp-dev \
-    libxml2 \
-    libxml2-dev \
-    libxslt-dev \
+    libgl1 \
     musl \
     neofetch \
     libcurl4-openssl-dev \
@@ -40,20 +38,19 @@ RUN apt-get install -y\
     sqlite \
     ffmpeg \
     libsqlite3-dev \
+    axel \
     zlib1g-dev \
     recoverjpeg \
     zip \
-    unrar \
     megatools \
     libfreetype6-dev \
     procps \
-    policykit-1 \
-    p7zip-full \
-    tree
+    policykit-1
+
 
 RUN apt-get autoremove --purge
-
 RUN pip3 install --upgrade pip setuptools 
+RUN pip3 install --upgrade pip
 RUN if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi 
 RUN if [ ! -e /usr/bin/python ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi 
 RUN rm -r /root/.cache
