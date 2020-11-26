@@ -11,7 +11,7 @@ except BaseException:
     print("Telethon Not Found. Installing Now.")
     import os
 
-    os.system("pip install telethon")
+    os.system("pip3 install telethon")
     from telethon.sessions import StringSession
     from telethon.sync import TelegramClient
 ok = """ ____  ____  __  ____   __   _  _
