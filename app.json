@@ -1,12 +1,12 @@
 {
-  "name": "Friday-Userbot",
-  "description": "A Userbot Based On Telethon By @StarkXD",
+  "name": "Black Lightning",
+  "description": "A Userbot Based On Telethon By @krish1303y",
   "logo": "https://telegra.ph/file/d8d194c18562472a7c1f1.jpg",
   "keywords": [
     "telegram",
     "fridaybot",
     "plugin",
-    "telegram-fridaybot",
+    "telegram-userbot",
     "productivity"
   ],
   "repository": "https://github.com/Anmol-dot283/Black-Lightning",
@@ -20,7 +20,7 @@
     },
     "TEMP_DOWNLOAD_DIRECTORY": {
       "description": "Where downloaded files will go.",
-      "value": "./fridaybot/DOWNLOADS/",
+      "value": "./userbot/DOWNLOADS/",
       "required": false
     },
     "ALIVE_NAME": {
