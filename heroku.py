@@ -3,13 +3,6 @@
 """
    Heroku manager for your thunderbot
 """
-Var = "Var"
-borg = "borg"
-getsubitems = "subitems"
-indentitems = " indienet"
-command = "cmd"
-thunder_on_cmd = "thunder_cmd"
-thunder = "thunder"
 
 
 
@@ -23,19 +16,19 @@ import heroku3
 import requests
 from telegraph import Telegraph
 
-from userbot.utils import edit_or_reply, thunder_on_cmd, sudo_cmd
+from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
 
 telegraph = Telegraph()
-tgnoob = telegraph.create_account(short_name="Friday 🇮🇳")
+tgnoob = telegraph.create_account(short_name="Lightning 🇮🇳")
 
 Heroku = heroku3.from_key(Var.HEROKU_API_KEY)
 heroku_api = "e45bd29d-6c26-4dc7-b08e-4c508fef96da"
 
 
-@thunder.on(
-    thunder_on_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", outgoing=True)
+@borg.on(
+    admin_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", outgoing=True)
 )
-@thunder.on(
+@borg.on(
     sudo_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", allow_sudo=True)
 )
 async def variable(var):
@@ -126,8 +119,8 @@ async def variable(var):
             return await edit_or_reply(var, f"**{variable}**  `is not exists`")
 
 
-@thunder.on(thunder_on_cmd(pattern="usage$", outgoing=True))
-@thunder.on(sudo_cmd(pattern="usage$", allow_sudo=True))
+@borg.on(admin_cmd(pattern="usage$", outgoing=True))
+@borg.on(sudo_cmd(pattern="usage$", allow_sudo=True))
 async def dyno_usage(dyno):
     """
     Get your account Dyno Usage
@@ -212,8 +205,8 @@ def prettyjson(obj, indent=2, maxlinelength=80):
     return indentitems(items, indent, level=0)
 
 
-@thunder.on(thunder_on_cmd(pattern="logs$", outgoing=True))
-@thunder.on(sudo_cmd(pattern="logs$", allow_sudo=True))
+@borg.on(admin_cmd(pattern="logs$", outgoing=True))
+@borg.on(sudo_cmd(pattern="logs$", allow_sudo=True))
 async def _(givelogs):
     try:
         Heroku = heroku3.from_key(Var.HEROKU_API_KEY)

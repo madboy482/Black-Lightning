@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 image = "*"
 oauth2client = "*"
+pip = "*"
 
 [dev-packages]
 
