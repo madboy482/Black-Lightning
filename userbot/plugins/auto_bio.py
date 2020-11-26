@@ -8,13 +8,13 @@
 
 import asyncio
 import time
-from userbot import Configs
+from userbot.Config import  Var
 from telethon.tl import functions
 from telethon.errors import FloodWaitError
 from userbot.utils import admin_cmd
 from userbot import ALIVE_NAME
 
-BIO_MSG = Configs.BIO_MSG
+BIO_MSG = Var.BIO_MSG
 if BIO_MSG is None:
   BIO_MSG = "If Don't Wann A Lightning Strike's You Then Stay Away"
 

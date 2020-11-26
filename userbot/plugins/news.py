@@ -5,14 +5,14 @@
 
 import requests
 
-from fridaybot.utils import edit_or_reply, friday_on_cmd, sudo_cmd
+from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
 from var import Var
 
 newslog = Var.NEWS_CHANNEL_ID
 
 
-@friday.on(friday_on_cmd("news (.*)"))
-@friday.on(sudo_cmd("news (.*)", allow_sudo=True))
+@borg.on(admin_cmd("news (.*)"))
+@borg.on(sudo_cmd("news (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

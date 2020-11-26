@@ -7,6 +7,7 @@ name = "pypi"
 image = "*"
 oauth2client = "*"
 pip = "*"
+justwatch = "*"
 
 [dev-packages]
 

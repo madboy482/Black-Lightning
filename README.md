@@ -1,5 +1,5 @@
 # Logo
-<p align="center"><a href="https://t.me/blackthundersupport"><img src="https://telegra.ph/file/19c86eb1c1397f5af53b9.jpg" width="5000"></a></p> 
+<p align="center"><a href="https://t.me/blackBlack Lightning support"><img src="https://telegra.ph/file/19c86eb1c1397f5af53b9.jpg" width="5000"></a></p> 
 <h1 align="center"><b>Black Lightning-USERBOT 🇮🇳 </b></h1>
 <h4 align="center">A Powerful, Smart And Simple Userbot In Telethon.</h4>
 
@@ -9,9 +9,9 @@
 
 # Support
 
-<a href="https://t.me/blackthundersupport"><img src="https://img.shields.io/badge/Join-Telegram%20Channel-red.svg?logo=Telegram"></a>
+<a href="https://t.me/blackBlack Lightning support"><img src="https://img.shields.io/badge/Join-Telegram%20Channel-red.svg?logo=Telegram"></a>
 
-<a href="https://t.me/blackthundersupport"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram"></a>
+<a href="https://t.me/blackBlack Lightning support"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram"></a>
 
 
 
@@ -20,7 +20,7 @@
 
 <a href="https://youtu.be/xfHcm_e92eQ"><img src="https://img.shields.io/badge/How%20To-Deploy-red.svg?logo=Youtube"></a>
 
-<a href="https://app.gitbook.com/@poxsisofficial/s/blackthunder/"><img src="https://img.shields.io/badge/Read%20More-GitBook-red.svg"></a>
+<a href="https://app.gitbook.com/@poxsisofficial/s/blackBlack Lightning /"><img src="https://img.shields.io/badge/Read%20More-GitBook-red.svg"></a>
 
 
 
@@ -28,14 +28,14 @@
 
 # Deploy
 
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Anmol-dot283/Thunder)
+[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Anmol-dot283/Black-Lightning)
 
 
 
 
 # String
 
-[![Run on Repl.it](https://repl.it/badge/github/Anmol-dot2833/thunder)](https://repl.it/@Anmol10H/thunder#string_session.py)
+[![Run on Repl.it](https://repl.it/badge/github/STARKGANG/friday)](https://repl.it/@Anmol10H/Lightning-Userbot#main.py)
 
 
 
@@ -45,7 +45,7 @@
 Simply clone the repository and run the main file:
 ```sh
 git clone https://github/Anmol-dot2833/Black-Lightning
-cd thunder
+cd Black Lightning 
 virtualenv -p /usr/bin/python3 venv
 . ./venv/bin/activate
 pip install -r requirements.txt
@@ -80,14 +80,14 @@ python3 -m Black-Lightning
 # Licence
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)  
 
-ThunderUserbot is Free Software: You can use, study share and improve it at your
+Black Lightning Userbot is Free Software: You can use, study share and improve it at your
 will. Specifically you can redistribute and/or modify it under the terms of the
 [GNU General Public License](https://www.gnu.org/licenses/gpl.html) as
 published by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version. 
 =======
-<p align="center"><a href="https://t.me/blackthundersupport"><img src=" https://telegra.ph/file/46374b4c4da3a5dc1aa98.jpg" width="5000"></a></p> 
-<h1 align="center"><b>Thunder-USERBOT 🇮🇳 </b></h1>
+<p align="center"><a href="https://t.me/blacklightningsupport"><img src=" https://telegra.ph/file/46374b4c4da3a5dc1aa98.jpg" width="5000"></a></p> 
+<h1 align="center"><b>Black Lightning -USERBOT 🇮🇳 </b></h1>
 <h4 align="center">A Powerful, Smart And Simple Userbot In Telethon.</h4>
 
 

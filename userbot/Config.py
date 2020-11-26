@@ -43,6 +43,7 @@ if ENV:
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     TG_BOT_TOKEN_BF_HER = os.environ.get("TG_BOT_TOKEN_BF_HER", None)
+    CMD_HNDLR = os.environ.get("CMD_HNDLR", r"\.")
     TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
     PM_DATA = os.environ.get("PM_DATA", "ENABLE")
     NO_SONGS = bool(os.environ.get("NO_SONGS", False))
