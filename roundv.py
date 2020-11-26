@@ -7,7 +7,6 @@ from userbot.utils import admin_cmd
 #===================================================================================
 
 
-borg = "borg"
 @borg.on(admin_cmd(r"roundv$"))
 async def _(event):
     if event.fwd_from:
