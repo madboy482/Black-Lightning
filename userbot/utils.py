@@ -6,9 +6,9 @@ from pathlib import Path
 
 from telethon import events
 
-from userbot import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot
-from userbot.Config import Var
-from userbot.wraptools import (
+from fridaybot import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot
+from fridaybot.Configs import Config
+from fridaybot.wraptools import (
     am_i_admin,
     ignore_bot,
     ignore_fwd,
@@ -18,8 +18,8 @@ from userbot.wraptools import (
 from var import Var
 
 sedprint = logging.getLogger("PLUGINS")
-cmdhandler = Var.CMD_HNDLR
-bothandler = Var.BOT_HANDLER
+cmdhandler = Config.COMMAND_HAND_LER
+bothandler = Config.BOT_HANDLER
 
 
 def command(**args):
@@ -65,7 +65,7 @@ def command(**args):
                 pass
 
         if allow_sudo:
-            args["from_users"] = list(Var.SUDO_USERS)
+            args["from_users"] = list(Config.SUDO_USERS)
             # Mutually exclusive with outgoing (can only set one of either).
             args["incoming"] = True
         del allow_sudo
@@ -98,11 +98,11 @@ def load_module(shortname):
         import sys
         from pathlib import Path
 
-        import userbot.plugins
-        import userbot.utils
+        import fridaybot.modules
+        import fridaybot.utils
 
-        path = Path(f"userbot/pluins/{shortname}.py")
-        name = "userbot.plugins.{}".format(shortname)
+        path = Path(f"fridaybot/modules/{shortname}.py")
+        name = "fridaybot.modules.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
@@ -112,11 +112,11 @@ def load_module(shortname):
         import sys
         from pathlib import Path
 
-        import userbot.plugins
-        import userbot.utils
+        import fridaybot.modules
+        import fridaybot.utils
 
-        path = Path(f"userbot/pluins/{shortname}.py")
-        name = "userbot.plugins.{}".format(shortname)
+        path = Path(f"fridaybot/modules/{shortname}.py")
+        name = "fridaybot.modules.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = bot
@@ -125,11 +125,11 @@ def load_module(shortname):
         mod.command = command
         mod.logger = logging.getLogger(shortname)
         # support for uniborg
-        sys.pluins["uniborg.util"] = userbot.utils
-        sys.pluins["userbot.utils"] = userbot.utils
-        sys.pluins["userbot.utils"] = userbot.utils
-        sys.pluins["userbot.plugins"] = userbot.plugins
-        mod.Var = Var
+        sys.modules["uniborg.util"] = fridaybot.utils
+        sys.modules["friday.util"] = fridaybot.utils
+        sys.modules["userbot.utils"] = fridaybot.utils
+        sys.modules["userbot.plugins"] = fridaybot.modules
+        mod.Config = Config
         mod.ignore_grp = ignore_grp()
         mod.ignore_pm = ignore_pm()
         mod.ignore_bot = ignore_bot()
@@ -138,10 +138,10 @@ def load_module(shortname):
         mod.borg = bot
         mod.friday = bot
         # support for paperplaneextended
-        sys.pluins["userbot.events"] = userbot.utils
+        sys.modules["fridaybot.events"] = fridaybot.utils
         spec.loader.exec_module(mod)
         # for imports
-        sys.pluins["userbot.plugins." + shortname] = mod
+        sys.modules["fridaybot.modules." + shortname] = mod
         sedprint.info("Successfully imported " + shortname)
 
 
@@ -153,7 +153,7 @@ def remove_plugin(shortname):
             del LOAD_PLUG[shortname]
 
         except:
-            name = f"userbot.plugins.{shortname}"
+            name = f"fridaybot.modules.{shortname}"
 
             for i in reversed(range(len(bot._event_builders))):
                 ev, cb = bot._event_builders[i]
@@ -188,7 +188,7 @@ def admin_cmd(pattern=None, **args):
     args["outgoing"] = True
     # should this command be available for other users?
     if allow_sudo:
-        args["from_users"] = list(Var.SUDO_USERS)
+        args["from_users"] = list(Config.SUDO_USERS)
         # Mutually exclusive with outgoing (can only set one of either).
         args["incoming"] = True
         del args["allow_sudo"]
@@ -207,7 +207,7 @@ def admin_cmd(pattern=None, **args):
     return events.NewMessage(**args)
 
 
-def admin_cmd(pattern=None, **args):
+def friday_on_cmd(pattern=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
 
     stack = inspect.stack()
@@ -232,7 +232,7 @@ def admin_cmd(pattern=None, **args):
     args["outgoing"] = True
     # should this command be available for other users?
     if allow_sudo:
-        args["from_users"] = list(Var.SUDO_USERS)
+        args["from_users"] = list(Config.SUDO_USERS)
         # Mutually exclusive with outgoing (can only set one of either).
         args["incoming"] = True
         del args["allow_sudo"]
@@ -252,7 +252,7 @@ def admin_cmd(pattern=None, **args):
 
 
 """ Userbot module for managing events.
- One of the main components of the userbot. """
+ One of the main components of the fridaybot. """
 
 import asyncio
 import datetime
@@ -263,7 +263,7 @@ from time import gmtime, strftime
 
 from telethon import events
 
-from userbot import bot
+from userbot import bot 
 
 
 def register(**args):
@@ -324,7 +324,7 @@ def errors_handler(func):
 
             text = "**USERBOT CRASH REPORT**\n\n"
 
-            link = "[Here](https://t.me/FridayOT)"
+            link = "[Here](https://t.me/blackthunderot)"
             text += "If you wanna you can report it"
             text += f"- just forward this message {link}.\n"
             text += "Nothing is logged except the fact of error and date\n"
@@ -335,7 +335,7 @@ def errors_handler(func):
             ftext += "\nyou may not report this error if you've"
             ftext += "\nany confidential data here, no one will see your data\n\n"
 
-            ftext += "--------BEGIN FRIDAY USERBOT TRACEBACK LOG--------"
+            ftext += "--------BEGIN  Black Lightning USERBOT TRACEBACK LOG--------"
             ftext += "\nDate: " + date
             ftext += "\nGroup ID: " + str(errors.chat_id)
             ftext += "\nSender ID: " + str(errors.sender_id)
@@ -441,8 +441,8 @@ def sudo_cmd(pattern=None, **args):
             # special fix for snip.py
             args["pattern"] = re.compile(pattern)
         else:
-            args["pattern"] = re.compile(Var.SUDO_COMMAND_HAND_LER + pattern)
-            reg = Var.SUDO_COMMAND_HAND_LER[1]
+            args["pattern"] = re.compile(Config.SUDO_COMMAND_HAND_LER + pattern)
+            reg = Config.SUDO_COMMAND_HAND_LER[1]
             cmd = (reg + pattern).replace("$", "").replace("\\", "").replace("^", "")
             try:
                 SUDO_LIST[file_test].append(cmd)
@@ -451,7 +451,7 @@ def sudo_cmd(pattern=None, **args):
     args["outgoing"] = True
     # should this command be available for other users?
     if allow_sudo:
-        args["from_users"] = list(Var.SUDO_USERS)
+        args["from_users"] = list(Config.SUDO_USERS)
         # Mutually exclusive with outgoing (can only set one of either).
         args["incoming"] = True
         del args["allow_sudo"]
@@ -460,7 +460,7 @@ def sudo_cmd(pattern=None, **args):
         args["outgoing"] = True
     # add blacklist chats, UB should not respond in these chats
     args["blacklist_chats"] = True
-    black_list_chats = list(Var.UB_BLACK_LIST_CHAT)
+    black_list_chats = list(Config.UB_BLACK_LIST_CHAT)
     if len(black_list_chats) > 0:
         args["chats"] = black_list_chats
     # add blacklist chats, UB should not respond in these chats
@@ -472,7 +472,7 @@ def sudo_cmd(pattern=None, **args):
 
 
 async def edit_or_reply(event, text):
-    if event.sender_id in Var.SUDO_USERS:
+    if event.sender_id in Config.SUDO_USERS:
         reply_to = await event.get_reply_message()
         if reply_to:
             return await reply_to.reply(text)
@@ -555,7 +555,7 @@ def only_pro():
     def decorator(func):
         @functools.wraps(func)
         async def wrapper(event):
-            kek = list(Var.SUDO_USERS)
+            kek = list(Config.SUDO_USERS)
             mm = bot.uid
             if event.sender_id == mm:
                 await func(event)
@@ -616,7 +616,7 @@ def peru_only():
     def decorator(func):
         @functools.wraps(func)
         async def wrapper(event):
-            kek = list(Var.SUDO_USERS)
+            kek = list(Config.SUDO_USERS)
             mm = bot.uid
             if event.sender_id == mm:
                 await func(event)
@@ -681,5 +681,5 @@ def start_assistant(shortname):
         mod.peru_only = peru_only()
         mod.only_pvt = only_pvt()
         spec.loader.exec_module(mod)
-        sys.pluins["userbot.plugins.assistant" + shortname] = mod
+        sys.modules["userbot.plugins.assistant" + shortname] = mod
         sedprint.info("Assistant Has imported " + shortname)

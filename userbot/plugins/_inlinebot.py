@@ -56,11 +56,11 @@ async def inline_handler(event):
                 [custom.Button.inline("Spamming", data="dontspamnigga")],
                 [
                     custom.Button.inline(
-                        "Casual Talk",
+                        "Hmm Casual Talk",
                         data="whattalk",
                     )
                 ],
-                [custom.Button.inline("Requesting", data="askme")],
+                [custom.Button.inline("Need Help Pls ", data="askme")],
             ],
         )
         await event.answer([result])
@@ -78,7 +78,7 @@ async def on_plug_in_callback_query_handler(event):
         # https://t.me/TelethonChat/115200
         await event.edit(buttons=buttons)
     else:
-        reply_popp_up_alert = "Who The Fuck Are You?, Fuck Off and don't use mine!"
+        reply_popp_up_alert = "Who The Fuck Are You?,Get The  Fuck Off and don't use mine!"
         await event.answer(reply_popp_up_alert, cache_time=0, alert=True)
 
 
@@ -96,7 +96,7 @@ async def on_plug_in_callback_query_handler(event):
         # https://t.me/TelethonChat/115200
         await event.edit(buttons=buttons)
     else:
-        reply_pop_up_alert = "Who The Fuck Are You?, Fuck Off and don't use mine!"
+        reply_pop_up_alert = "Who The Fuck Are You?, Get The Fuck Off and don't use mine!"
         await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 

@@ -1,5 +1,5 @@
 from userbot import topfunc
-from userbot.Config import Var
+from userbot.Config import Var, Config
 from userbot.utils import admin_cmd
 
 

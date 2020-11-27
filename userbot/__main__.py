@@ -10,7 +10,7 @@ from userbot.Config import Config
 from userbot.utils import load_module, start_assistant
 from var import Var
 
-sed = logging.getLogger("B;ack Lightning")
+sed = logging.getLogger("Black Lightning")
 
 
 async def add_bot(bot_token):

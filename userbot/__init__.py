@@ -1,4 +1,3 @@
-
 import asyncio
 import os
 import sys
@@ -185,5 +184,5 @@ else:
     sedlyf = wget.download(link, out=pathz)
 
 telegraph = Telegraph()
-r = telegraph.create_account(short_name="Black Lightning UserBot Inc.")
+r = telegraph.create_account(short_name="Friday UserBot Inc.")
 auth_url = r["auth_url"]
