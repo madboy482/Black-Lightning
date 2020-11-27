@@ -1,4 +1,4 @@
-borg = "borg"
+
 
 
 """QuotLy: Avaible commands: .qbot
