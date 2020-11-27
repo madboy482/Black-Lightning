@@ -15,7 +15,6 @@ from userbot.wraptools import (
     ignore_grp,
     ignore_pm,
 )
-from var import Var
 
 sedprint = logging.getLogger("PLUGINS")
 cmdhandler = Var.CMD_HNDLR
