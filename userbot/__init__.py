@@ -1,3 +1,4 @@
+
 import asyncio
 import os
 import sys
@@ -11,10 +12,11 @@ from dotenv import load_dotenv
 from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
 from requests import get
+from telegraph import Telegraph, exceptions, upload_file
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
-from userbot.Config import Var
+from var import Var
 
 from .function import thunderfunction as topfunc
 
@@ -181,3 +183,7 @@ if os.path.exists(km):
 else:
     pathz = "./resources/imgcolour/"
     sedlyf = wget.download(link, out=pathz)
+
+telegraph = Telegraph()
+r = telegraph.create_account(short_name="Black Lightning UserBot Inc.")
+auth_url = r["auth_url"]

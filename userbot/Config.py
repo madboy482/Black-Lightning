@@ -77,10 +77,6 @@ if ENV:
                 "Invalid Private Group ID. Make sure your ID is starts with -100 and make sure that it is only numbers.")
 
 
-class Development(Var):
-    LOGGER = True
-    # Here for later purposes
-
 
 if ENV:
     class Config(object):
