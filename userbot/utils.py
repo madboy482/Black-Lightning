@@ -388,7 +388,7 @@ async def eor(event, text):
 # TGBot
 
 
-def start_mybot(shortname):
+def start_assistant(shortname):
     if shortname.startswith("__"):
         pass
     elif shortname.endswith("_"):
@@ -418,7 +418,7 @@ def start_mybot(shortname):
         print("TGBot Has imported " + shortname)
 
 
-def load_pmbot(shortname):
+def load_assistant(shortname):
     if shortname.startswith("__"):
         pass
     elif shortname.endswith("_"):
@@ -427,22 +427,22 @@ def load_pmbot(shortname):
         from pathlib import Path
 
         path = Path(f"userbot/plugins/assistant/{shortname}.py")
-        name = "userbot.plugins.assistant.pmbot.{}".format(shortname)
+        name = "userbot.plugins.assistant.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        print("Initialising PMBot.")
-        print("PMBot - Imported " + shortname)
+        print("Initialising Thunder.")
+        print("Thunder  - Imported " + shortname)
     else:
         import importlib
         import sys
         from pathlib import Path
 
         path = Path(f"userbot/plugins/assistant/{shortname}.py")
-        name = "userbot.plugins.assistant.pmbot.{}".format(shortname)
+        name = "userbot.plugins.assistant.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.tgbot = bot.tgbot
         spec.loader.exec_module(mod)
-        sys.modules["userbot.plugins.assistant.pmbot." + shortname] = mod
-        print("PMBot Has imported " + shortname)
+        sys.modules["userbot.plugins.assistant." + shortname] = mod
+        print("Thunder and Lightning  Has imported " + shortname)
