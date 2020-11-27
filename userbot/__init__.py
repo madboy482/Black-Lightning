@@ -20,6 +20,8 @@ from var import Var
 from .function import thunderfunction as topfunc
 
 Lastupdate = time.time()
+StartTime = time.time()
+telever = "4.9"
 
 from var import Var
 

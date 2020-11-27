@@ -1,65 +1,54 @@
-from userbot import topfunc
-from userbot.Config import Var, Config
-from userbot.utils import admin_cmd
+import html
+import time
+from datetime import datetime
 
+from telethon.tl.functions.photos import GetUserPhotosRequest
+from telethon.tl.functions.users import GetFullUserRequest
+from telethon.tl.types import MessageEntityMentionName
+from telethon.utils import get_input_location
 
-idgen = topfunc.id_generator
-findnemo = topfunc.stark_finder
-issudousing = Var.SUDO_USERS
-islogokay = Var.PRIVATE_GROUP_ID
-isdbfine = Var.DB_URI
-isherokuokay = Var.HEROKU_APP_NAME
-gdriveisshit = Var.AUTH_TOKEN_DATA
-wttrapi = Var.OPEN_WEATHER_MAP_APPID
-rmbg = Var.REM_BG_API_KEY
-hmmok = Var.LYDIA_API
-currentversion = "3.0"
-if issudousing:
-    amiusingsudo = "Active ✅"
+from userbot import ALIVE_NAME, bot, StartTime
+from userbot.__init__ import UpTime
+from userbot.Config import Config, Var
+from userbot.utils import admin_cmd, sudo_cmd
+
+# stats
+if Var.PRIVATE_GROUP_ID:
+    log = "Enabled"
 else:
-    amiusingsudo = "Inactive ❌"
+    log = "Disabled"
 
-if islogokay:
-    logchat = "Connected ✅"
+if Config.TG_BOT_USER_NAME_BF_HER:
+    bots = "Enabled"
 else:
-    logchat = "Dis-Connected ❌"
+    bots = "Disabled"
 
-if isherokuokay:
-    riplife = "Connected ✅"
+if Var.LYDIA_API_KEY:
+    lyd = "Enabled"
 else:
-    riplife = "Not Connected ❌"
+    lyd = "Disabled"
 
-if gdriveisshit:
-    wearenoob = "Active ✅"
+if Config.SUDO_USERS:
+    sudo = "Disabled"
 else:
-    wearenoob = "Inactive ❌"
+    sudo = "Enabled"
 
-if rmbg:
-    gendu = "Added ✅"
+if Var.PMSECURITY.lower() == "off":
+    pm = "Disabled"
 else:
-    gendu = "Not Added ❌"
+    pm = "Enabled"
 
-if wttrapi:
-    starknoobs = "Added ✅"
-else:
-    starknoobs = "Not Added ❌"
+TELEUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
+telever = "4.9"
 
-if hmmok:
-    meiko = "Added ✅"
-else:
-    meiko = "Not Added ❌"
+tele = f"TeleBot Version: {telever}\n"
+tele += f"Log Group: {log}\n"
+tele += f"Assistant Bot: {bots}\n"
+tele += f"Lydia: {lyd}\n"
+tele += f"Sudo: {sudo}\n"
+tele += f"PMSecurity: {pm}\n"
+tele += f"\nVisit @blacklightningot for assistance.\n"
+telestats = f"{tele}"
 
-if isdbfine:
-    dbstats = "Fine ✅"
-else:
-    dbstats = "Not Fine ❌"
-
-inlinestats = (
-    f"✘ SHOWING Lightning STATS ✘\n"
-    f"VERSION = {currentversion} \n"
-    f"DATABASE = {dbstats} \n"
-    f"SUDO = {amiusingsudo} \n"
-    f"LOG-CHAT = {logchat} \n"
-    f"HEROKU = {riplife} \n"
-    f"G-DRIVE = {wearenoob}"
-)
+TELE_NAME = bot.me.first_name
+OWNER_ID = bot.me.id
