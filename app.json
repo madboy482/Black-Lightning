@@ -32,7 +32,7 @@
    "value": ""
   },
   "STRING_SESSION": {
-   "description": "Get this value by running python3 telesetup.py locally or https://telebot-sessionstring-generator.xditya.repl.run online.",
+   "description": "Get this value by running python3 telesetup.py locally or https://repl.it/@Anmol10H/Lightning-Userbot#main.py.",
    "value": ""
   },  
   "CUSTOM_PMPERMIT": {
@@ -55,7 +55,7 @@
    "required": false
   },  
   "GIT_REPO_NAME": {
-   "description": "Your repo name Example: xditya/TeleBot, but GITHUB_ACCESS_TOKEN must be setup first.",
+   "description": "Your repo name Example: Anmol-dot283/Black-Lightning, but GITHUB_ACCESS_TOKEN must be setup first.",
    "value": "",
    "required": false
   },
