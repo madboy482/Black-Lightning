@@ -144,7 +144,6 @@
       "plan": "heroku-postgresql",
       "options": {
         "version": "12"
-      }
-    }
-  ]
+  }
+ }]
 }
