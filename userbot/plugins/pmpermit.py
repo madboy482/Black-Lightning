@@ -9,7 +9,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 
 import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
 from userbot import ALIVE_NAME, CMD_HELP, CUSTOM_PMPERMIT, bot
-from userbot.Config import Var
+from userbot.Config import Var, Config
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
