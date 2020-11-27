@@ -7,7 +7,7 @@ from pathlib import Path
 from telethon import events
 
 from userbot import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot
-from userbot.Config import Var
+from userbot.Config import Var, Config
 from userbot.wraptools import (
     am_i_admin,
     ignore_bot,
@@ -15,6 +15,7 @@ from userbot.wraptools import (
     ignore_grp,
     ignore_pm,
 )
+
 
 sedprint = logging.getLogger("PLUGINS")
 cmdhandler = Var.CMD_HNDLR
