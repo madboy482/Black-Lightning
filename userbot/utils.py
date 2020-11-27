@@ -18,8 +18,8 @@ from userbot.wraptools import (
 from var import Var
 
 sedprint = logging.getLogger("PLUGINS")
-cmdhandler = Config.CMND_HNDLR
-bothandler = Config.BOT_HANDLR
+cmdhandler = Config.COMMAND_HAND_LER
+bothandler = Config.BOT_HANDLER 
 
 
 def command(**args):

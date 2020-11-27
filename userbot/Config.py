@@ -6,7 +6,7 @@ ENV = bool(os.environ.get("ENV", False))
 if ENV:
     import os
 
-    
+
     class Var(object):
         APP_ID = int(os.environ.get("APP_ID", 6))
     # 6 is a placeholder
@@ -46,10 +46,11 @@ if ENV:
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     TG_BOT_TOKEN_BF_HER = os.environ.get("TG_BOT_TOKEN_BF_HER", None)
-    CMD_HNDLR = os.environ.get("CMD_HNDLR", r"\.")
+    COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", "\.")
     TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
     PM_DATA = os.environ.get("PM_DATA", "ENABLE")
     NO_SONGS = bool(os.environ.get("NO_SONGS", False))
+    BOT_HANDLER = os.environ.get("BOT_HANDLER", "^/")
     DOWNLOAD_PFP_URL_CLOCK = os.environ.get("DOWNLOAD_PFP_URL_CLOCK", None)
     MAX_FLOOD_IN_P_M_s = os.environ.get("MAX_FLOOD_IN_P_M_s", "3")
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
@@ -88,8 +89,6 @@ class Development(Var):
 if ENV:
     class Config(object):
         LOGGER = True
-    APP_ID = int(os.environ.get("APP_ID", 6))
-    # 6 is a placeholder
     API_HASH = os.environ.get("API_HASH", "eb06d4abfb49dc3eeb1aeb98ae0f581e")
     STRING_SESSION = os.environ.get("STRING_SESSION", None)
     DB_URI = os.environ.get("DATABASE_URL", None)
@@ -126,10 +125,11 @@ if ENV:
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     TG_BOT_TOKEN_BF_HER = os.environ.get("TG_BOT_TOKEN_BF_HER", None)
-    CMD_HNDLR = os.environ.get("CMD_HNDLR", r"\.")
+    COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", "\.")
     TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
     PM_DATA = os.environ.get("PM_DATA", "ENABLE")
     NO_SONGS = bool(os.environ.get("NO_SONGS", False))
+    BOT_HANDLER = os.environ.get("BOT_HANDLER", "^/")
     DOWNLOAD_PFP_URL_CLOCK = os.environ.get("DOWNLOAD_PFP_URL_CLOCK", None)
     MAX_FLOOD_IN_P_M_s = os.environ.get("MAX_FLOOD_IN_P_M_s", "3")
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
@@ -158,6 +158,7 @@ if ENV:
         except ValueError:
             raise ValueError(
                 "Invalid Private Group ID. Make sure your ID is starts with -100 and make sure that it is only numbers.")
+
 else:
     class Config(object):
         DB_URI = None
