@@ -1,26 +1,26 @@
 {
-  "name": "Black-Lightning-Userbot",
-  "description": "A Userbot Based On Telethon By @krish1303y",
-  "logo": "https://telegra.ph/file/d8d194c18562472a7c1f1.jpg",
-  "keywords": [
-    "telegram",
-    "userbot",
-    "plugin",
-    "telegram-userbot",
-    "productivity"
-  ],
-  "repository": "https://github.com/Anmol-dot283/Black-Lightning",
-  "website": "https://github.com/Anmol-dot283/Black-Lightning",
-  "success_url": "t.me/blacklightningot",
-  "stack": "container",
-  "env": {
+ "name": "Black Lightning - UserBot",
+ "description": "An advanced Telethon Userbot, from @krish1303y",
+ "logo": "https://telegra.ph/file/d8d194c18562472a7c1f1.jpg",
+ "keywords": [
+  "telegram",
+  "userbot",
+  "LightningBot",
+  "modular",
+  "productivity"
+ ],
+ "repository": "https://github.com/Anmol-dot283/Black-Lightning",
+ "website": "https://github.com/Anmol-dot283/Black-Lightning",
+ "success_url": "t.me/blacklightningot",
+ "stack": "container",
+ "env": {
   "ENV": {
    "description": "Setting this to ANYTHING will enable heroku.",
    "value": "ANYTHING"
   },
   "TEMP_DOWNLOAD_DIRECTORY": {
    "description": "Where downloaded files will go.",
-   "value": "./telebot/DOWNLOADS/",
+   "value": "./userbot/DOWNLOADS/",
    "required": false
   },
   "APP_ID": {
@@ -139,11 +139,11 @@
    "value": "",
    "required": false
   }
-  "addons": [
-    {
-      "plan": "heroku-postgresql",
-      "options": {
-        "version": "12"
+ },
+ "addons": [{
+  "plan": "heroku-postgresql",
+  "options": {
+   "version": "12"
   }
  }]
 }
