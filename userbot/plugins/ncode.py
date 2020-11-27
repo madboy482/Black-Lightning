@@ -1,7 +1,3 @@
-# Credits @buddhhu
-#This software is a part of https://github.com/buddhhu/Plus
-# Ported to DC by @hellboi_atul
-
 import pygments, os, asyncio
 from pygments.lexers import Python3Lexer
 from pygments.formatters import ImageFormatter
