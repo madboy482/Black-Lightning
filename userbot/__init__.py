@@ -107,7 +107,7 @@ if bool(ENV):
 
     # OpenWeatherMap API Key
     OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
-
+    CMD_HNDLR = os.environ.get("CMD_HNDLR", "\.")
     # Anti Spambot Config
     ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT", "False"))
     # Log It
