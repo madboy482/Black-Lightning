@@ -7,7 +7,7 @@ from pathlib import Path
 from telethon import events
 
 from userbot import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot
-from userbot.Config import Config
+from userbot.Config import Var
 from userbot.wraptools import (
     am_i_admin,
     ignore_bot,
@@ -18,8 +18,8 @@ from userbot.wraptools import (
 from var import Var
 
 sedprint = logging.getLogger("PLUGINS")
-cmdhandler = Config.COMMAND_HAND_LER
-bothandler = Config.BOT_HANDLER
+cmdhandler = Var.CMD_HNDLR
+bothandler = Var.BOT_HANDLER
 
 
 def command(**args):
@@ -65,7 +65,7 @@ def command(**args):
                 pass
 
         if allow_sudo:
-            args["from_users"] = list(Config.SUDO_USERS)
+            args["from_users"] = list(Var.SUDO_USERS)
             # Mutually exclusive with outgoing (can only set one of either).
             args["incoming"] = True
         del allow_sudo
@@ -129,7 +129,7 @@ def load_module(shortname):
         sys.pluins["userbot.utils"] = userbot.utils
         sys.pluins["userbot.utils"] = userbot.utils
         sys.pluins["userbot.plugins"] = userbot.plugins
-        mod.Config = Config
+        mod.Var = Var
         mod.ignore_grp = ignore_grp()
         mod.ignore_pm = ignore_pm()
         mod.ignore_bot = ignore_bot()
@@ -188,7 +188,7 @@ def admin_cmd(pattern=None, **args):
     args["outgoing"] = True
     # should this command be available for other users?
     if allow_sudo:
-        args["from_users"] = list(Config.SUDO_USERS)
+        args["from_users"] = list(Var.SUDO_USERS)
         # Mutually exclusive with outgoing (can only set one of either).
         args["incoming"] = True
         del args["allow_sudo"]
@@ -232,7 +232,7 @@ def admin_cmd(pattern=None, **args):
     args["outgoing"] = True
     # should this command be available for other users?
     if allow_sudo:
-        args["from_users"] = list(Config.SUDO_USERS)
+        args["from_users"] = list(Var.SUDO_USERS)
         # Mutually exclusive with outgoing (can only set one of either).
         args["incoming"] = True
         del args["allow_sudo"]
@@ -441,8 +441,8 @@ def sudo_cmd(pattern=None, **args):
             # special fix for snip.py
             args["pattern"] = re.compile(pattern)
         else:
-            args["pattern"] = re.compile(Config.SUDO_COMMAND_HAND_LER + pattern)
-            reg = Config.SUDO_COMMAND_HAND_LER[1]
+            args["pattern"] = re.compile(Var.SUDO_COMMAND_HAND_LER + pattern)
+            reg = Var.SUDO_COMMAND_HAND_LER[1]
             cmd = (reg + pattern).replace("$", "").replace("\\", "").replace("^", "")
             try:
                 SUDO_LIST[file_test].append(cmd)
@@ -451,7 +451,7 @@ def sudo_cmd(pattern=None, **args):
     args["outgoing"] = True
     # should this command be available for other users?
     if allow_sudo:
-        args["from_users"] = list(Config.SUDO_USERS)
+        args["from_users"] = list(Var.SUDO_USERS)
         # Mutually exclusive with outgoing (can only set one of either).
         args["incoming"] = True
         del args["allow_sudo"]
@@ -460,7 +460,7 @@ def sudo_cmd(pattern=None, **args):
         args["outgoing"] = True
     # add blacklist chats, UB should not respond in these chats
     args["blacklist_chats"] = True
-    black_list_chats = list(Config.UB_BLACK_LIST_CHAT)
+    black_list_chats = list(Var.UB_BLACK_LIST_CHAT)
     if len(black_list_chats) > 0:
         args["chats"] = black_list_chats
     # add blacklist chats, UB should not respond in these chats
@@ -472,7 +472,7 @@ def sudo_cmd(pattern=None, **args):
 
 
 async def edit_or_reply(event, text):
-    if event.sender_id in Config.SUDO_USERS:
+    if event.sender_id in Var.SUDO_USERS:
         reply_to = await event.get_reply_message()
         if reply_to:
             return await reply_to.reply(text)
@@ -555,7 +555,7 @@ def only_pro():
     def decorator(func):
         @functools.wraps(func)
         async def wrapper(event):
-            kek = list(Config.SUDO_USERS)
+            kek = list(Var.SUDO_USERS)
             mm = bot.uid
             if event.sender_id == mm:
                 await func(event)
@@ -616,7 +616,7 @@ def peru_only():
     def decorator(func):
         @functools.wraps(func)
         async def wrapper(event):
-            kek = list(Config.SUDO_USERS)
+            kek = list(Var.SUDO_USERS)
             mm = bot.uid
             if event.sender_id == mm:
                 await func(event)
