@@ -6,9 +6,9 @@ from pathlib import Path
 
 from telethon import events
 
-from fridaybot import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot
-from fridaybot.Configs import Config
-from fridaybot.wraptools import (
+from userbot import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot
+from userbot.Config import Config,
+from userbot.wraptools import (
     am_i_admin,
     ignore_bot,
     ignore_fwd,
@@ -18,8 +18,8 @@ from fridaybot.wraptools import (
 from var import Var
 
 sedprint = logging.getLogger("PLUGINS")
-cmdhandler = Config.COMMAND_HAND_LER
-bothandler = Config.BOT_HANDLER
+cmdhandler = Config.CMND_HNDLR
+bothandler = Config.BOT_HANDLR
 
 
 def command(**args):
@@ -98,11 +98,11 @@ def load_module(shortname):
         import sys
         from pathlib import Path
 
-        import fridaybot.modules
-        import fridaybot.utils
+        import userbot.plugins
+        import userbot.utils
 
-        path = Path(f"fridaybot/modules/{shortname}.py")
-        name = "fridaybot.modules.{}".format(shortname)
+        path = Path(f"userbot/plugins/{shortname}.py")
+        name = "userbot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
@@ -112,11 +112,11 @@ def load_module(shortname):
         import sys
         from pathlib import Path
 
-        import fridaybot.modules
-        import fridaybot.utils
+        import userbot.plugins
+        import userbot.utils
 
-        path = Path(f"fridaybot/modules/{shortname}.py")
-        name = "fridaybot.modules.{}".format(shortname)
+        path = Path(f"userbot/plugins/{shortname}.py")
+        name = "userbot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = bot
@@ -125,10 +125,10 @@ def load_module(shortname):
         mod.command = command
         mod.logger = logging.getLogger(shortname)
         # support for uniborg
-        sys.modules["uniborg.util"] = fridaybot.utils
-        sys.modules["friday.util"] = fridaybot.utils
-        sys.modules["userbot.utils"] = fridaybot.utils
-        sys.modules["userbot.plugins"] = fridaybot.modules
+        sys.plugins["uniborg.util"] = userbot.utils
+        sys.plugins["userbot.utils"] = userbot.utils
+        sys.plugins["userbot.utils"] = userbot.utils
+        sys.plugins["userbot.plugins"] = userbot.plugins
         mod.Config = Config
         mod.ignore_grp = ignore_grp()
         mod.ignore_pm = ignore_pm()
@@ -138,10 +138,10 @@ def load_module(shortname):
         mod.borg = bot
         mod.friday = bot
         # support for paperplaneextended
-        sys.modules["fridaybot.events"] = fridaybot.utils
+        sys.plugins["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
         # for imports
-        sys.modules["fridaybot.modules." + shortname] = mod
+        sys.plugins["userbot.plugins." + shortname] = mod
         sedprint.info("Successfully imported " + shortname)
 
 
@@ -153,7 +153,7 @@ def remove_plugin(shortname):
             del LOAD_PLUG[shortname]
 
         except:
-            name = f"fridaybot.modules.{shortname}"
+            name = f"userbot.plugins.{shortname}"
 
             for i in reversed(range(len(bot._event_builders))):
                 ev, cb = bot._event_builders[i]
@@ -252,7 +252,7 @@ def friday_on_cmd(pattern=None, **args):
 
 
 """ Userbot module for managing events.
- One of the main components of the fridaybot. """
+ One of the main components of the userbot. """
 
 import asyncio
 import datetime
@@ -657,7 +657,7 @@ def start_assistant(shortname):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        sedprint.info("Starting Your Assistant Bot.")
+        sedprint.info("Starting Your Thunder  Assistant Bot.")
         sedprint.info("Assistant Sucessfully imported " + shortname)
     else:
         import importlib
@@ -681,5 +681,5 @@ def start_assistant(shortname):
         mod.peru_only = peru_only()
         mod.only_pvt = only_pvt()
         spec.loader.exec_module(mod)
-        sys.modules["userbot.plugins.assistant" + shortname] = mod
+        sys.plugins["userbot.plugins.assistant" + shortname] = mod
         sedprint.info("Assistant Has imported " + shortname)

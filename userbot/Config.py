@@ -4,6 +4,9 @@ from telethon.tl.types import ChatBannedRights
 
 ENV = bool(os.environ.get("ENV", False))
 if ENV:
+    import os
+
+    
     class Var(object):
         APP_ID = int(os.environ.get("APP_ID", 6))
     # 6 is a placeholder
