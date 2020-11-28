@@ -1,6 +1,3 @@
-borg = "borg"
-logger =  "logger"
-
 """ 
 Credit :- Unknown 
 Just Kidding Credit To X-Tra Telegram For Base 
@@ -28,7 +25,7 @@ async def install(event):
     for ixo in total_doxx:
         mxo = documentss[ixo].id
         downloaded_file_name = await event.client.download_media(
-            await borg.get_messages(chat, ids=mxo), "fridaybot/modules/"
+            await borg.get_messages(chat, ids=mxo), "userbot/plugins/"
         )
         if "(" not in downloaded_file_name:
             path1 = Path(downloaded_file_name)
