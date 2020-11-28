@@ -7,8 +7,8 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 
-from userbot import ALIVE_NAME, bot, telever
-from userbot.__init__ import StartTime
+from userbot import ALIVE_NAME, bot, StartTime
+from userbot.__init__ import UpTime
 from userbot.Config import Config, Var
 from userbot.utils import admin_cmd, sudo_cmd
 
