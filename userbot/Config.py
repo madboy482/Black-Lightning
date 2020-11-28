@@ -58,16 +58,19 @@ class Var(object):
     GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", "root")
     CMD_HNDLR = os.environ.get("CMD_HNDLR", r"\.")
     TAG_FEATURE = os.environ.get("TAG_FEATURE", "DISABLE")
+    SPOTIFY_USERNAME = os.environ.get("SPOTIFY_USERNAME", None)
+    SPOTIFY_PASS = os.environ.get("SPOTIFY_PASS", None)
+    SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX", None)
     ASSISTANT_LOG = int(os.environ.get("ASSISTANT_LOG", False))
     UPSTREAM_REPO = os.environ.get(
-            "UPSTREAM_REPO", "https://github.com/Starkgang/FridayUserbot"
+            "UPSTREAM_REPO", "https://github.com/Anmol-dot283/Black-Lightning"
         )
-    ALIVE_IMAGE = os.environ.get(
-            "ALIVE_IMAGE", "https://telegra.ph/file/22535f8051a58af113586.jpg"
+    ALIVE_PIC = os.environ.get(
+            "ALIVE_IMAGE", "https://telegra.ph/file/c3683ea84426c1046faef.mp4"
         )
     ASSISTANT_START_PIC = os.environ.get(
             "ASSISTANT_START_PIC",
-            "https://www.logolynx.com/images/logolynx/72/7257d2ac93b97c8a2c7308266052df13.png",
+            "https://telegra.ph/file/b233f8b6332fbeb3f61dc.mp4",
         )
     TESSDATA_PREFIX = os.environ.get(
             "TESSDATA_PREFIX", "/usr/share/tesseract-ocr/4.00/tessdata"

@@ -2,7 +2,7 @@
 #Syntax: .update
 #\nAll Credits goes to © @hellboi_atul
 #\nFor this awasome plugin.\nPorted from PpaperPlane Extended"""
-
+from telethon import events
 from os import remove, execle, path, makedirs, getenv, environ, execl
 from shutil import rmtree
 import asyncio
@@ -11,10 +11,8 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from userbot import CMD_HELP, bot
 from userbot.utils import admin_cmd
-from userbot.Config import Var
-
-
-UPSTREAM_REPO_URL = "https://github.com/DARK-COBRA/DARKCOBRA"
+from userbot.utils import Var
+UPSTREAM_REPO_URL = "github.com/Anmol-dot283/Black-Lightning"
 HEROKU_API_KEY = Var.HEROKU_API_KEY
 HEROKU_APP_NAME = Var.HEROKU_APP_NAME
 
@@ -32,7 +30,7 @@ async def update_requirements():
     reqs = str(requirements_path)
     try:
         process = await asyncio.create_subprocess_shell(
-            ' '.join([sys.executable, "-m", "pip", "install", "-r", reqs]),
+            ' '.join([sys.executable, "-m", "pip3", "install", "-r", reqs]),
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE)
         await process.communicate()
@@ -61,8 +59,7 @@ async def upstream(ups):
         return
     except InvalidGitRepositoryError as error:
         if conf != "now":
-            await ups.edit(f"Hey, did you type update🤔.....Okie..My dear sweet master..🤗\
-            \nPlease do type |.update now| to update your Black Lightning😎.")
+            await ups.edit(f"**Hey ßoss!!!**😁😁\n__To get the Latest update of__ \n©blacklightning\n\n do |`.update now`| 😎😎 ")
             return
         repo = Repo.init()
         origin = repo.create_remote('upstream', off_repo)
@@ -112,7 +109,7 @@ async def upstream(ups):
     if force_update:
         await ups.edit('Force-Syncing to latest stable userbot code, please wait master...😅😅')
     else:
-        await ups.edit('Updating userbot, please wait....you arey best boss🤗😇')
+        await ups.edit('`Updating userbot, please wait....you arey best boss🤗😇')
     if HEROKU_API_KEY is not None:
         import heroku3
         heroku = heroku3.from_key(HEROKU_API_KEY)
@@ -141,7 +138,17 @@ async def upstream(ups):
             remote.set_url(heroku_git_url)
         else:
             remote = repo.create_remote("heroku", heroku_git_url)
-        await ups.edit("Updating and Deploying New Update. Please wait for 5 minutes then use `.alive` to check if i'm working or not, you are my best boss...🤗🤗😎.. Just after this update a restart will take place..that's all- your DARK COBRA by @hellboi_atul ")
+            await ups.edit("`⬛⬛⬛⬛ \n⬛✳️✳️⬛ \n⬛✳️✳️⬛ \n⬛⬛⬛⬛`")
+            await asyncio.sleep(1)
+            await ups.edit("`⬛⬛⬛⬛ \n⬛🔴🔴⬛ \n⬛🔴🔴⬛ \n⬛⬛⬛⬛`")
+            await asyncio.sleep(1)
+            await ups.edit("`⬛⬛⬛⬛ \n⬛🌕🌕⬛ \n⬛🌕🌕⬛ \n⬛⬛⬛⬛`")
+            await asyncio.sleep(1)
+            await ups.edit("`⬛⬛⬛⬛ \n⬛🔵🔵⬛ \n⬛🔵🔵⬛ \n⬛⬛⬛⬛`")
+            await asyncio.sleep(1)
+            await ups.edit("`⬛⬛⬛⬛ \n⬛❇️❇️⬛ \n⬛❇️❇️⬛ \n⬛⬛⬛⬛`")
+            await asyncio.sleep(1)
+        await ups.edit("`⚜️Updating BlackLightning⚜️\n\nYou are the 👑KING👑 Boss!!\n\nPlease wait 5min😁😁\nThen try .alive to check` 😎😎\n\n**Powered by :-**\n©blacklightningsupport")
         remote.push(refspec="HEAD:refs/heads/master", force=True)
     else:
         try:
@@ -158,7 +165,7 @@ async def upstream(ups):
     
 
 CMD_HELP.update({
-    'update':
+    'updater':
     ".update\
 \nUsage: Checks if the main userbot repository has any updates and shows a changelog if so.\
 \n\n.update now\

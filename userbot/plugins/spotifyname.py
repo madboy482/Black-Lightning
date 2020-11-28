@@ -19,7 +19,7 @@ from telethon.tl.functions.account import UpdateProfileRequest
 
 
 import spotify_token as st
-from userbot.uniborgConfig import Config
+from userbot.Config import Var
 
 # =================== CONSTANT ===================
 SPO_BIO_ENABLED = "```Spotify Current Music to Name enabled.```"
@@ -28,13 +28,13 @@ SPO_BIO_RUNNING = "```Spotify Current Music to Name already running.```"
 SPO_BIO_CONFIG_ERROR = "```Error.```"
 ERROR_MSG = "```Module halted, Unexpected error.```"
 
-USERNAME = Config.SPOTIFY_USERNAME
-PASSWORD = Config.SPOTIFY_PASS
+USERNAME = Var.SPOTIFY_USERNAME
+PASSWORD = Var.SPOTIFY_PASS
 
 ARTIST = 0
 SONG = 0
 
-BIOPREFIX = Config.SPOTIFY_BIO_PREFIX
+BIOPREFIX = Var.SPOTIFY_BIO_PREFIX
 
 SPOTIFYCHECK = False
 RUNNING = False
@@ -81,16 +81,16 @@ async def update_spotify_info():
                 await update_token()
             elif errorcheck == 1:
                 SPOTIFYCHECK = False
-                await borg(UpdateProfileRequest(first_name=Config.DEFAULT_NAME))
+                await borg(UpdateProfileRequest(first_name=Var.DEFAULT_NAME))
                 print(ERROR_MSG)
-                if Config.LOGGER:
+                if Var.LOGGER:
                     await borg.send_message(
-                        Config.PM_LOGGR_BOT_API_ID,
+                        Var.PM_LOGGR_BOT_API_ID,
                         ERROR_MSG)
         except JSONDecodeError:
             OLDEXCEPT = True
             await sleep(6)
-            await borg(UpdateProfileRequest(first_name=Config.DEFAULT_NAME))
+            await borg(UpdateProfileRequest(first_name=Var.DEFAULT_NAME))
         except TypeError:
             await dirtyfix()
         SPOTIFYCHECK = False
@@ -136,5 +136,5 @@ async def set_biodgraph(setdbio):
     global RUNNING
     SPOTIFYCHECK = False
     RUNNING = False
-    await borg(UpdateProfileRequest(first_name=Config.DEFAULT_NAME))
+    await borg(UpdateProfileRequest(first_name=Var.DEFAULT_NAME))
     await setdbio.edit(SPO_BIO_DISABLED)
