@@ -7,6 +7,12 @@ from os import remove, execle, path, makedirs, getenv, environ, execl
 from shutil import rmtree
 import asyncio
 import sys
+import git
+import asyncio
+import random
+import re
+import time
+
 
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from userbot import CMD_HELP, bot
