@@ -4,7 +4,7 @@ Syntax: .lsroot , .lslocal"""
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
-from userbot import Config
+from userbot.Config import Var
 from telethon import events
 import subprocess
 from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
@@ -15,8 +15,8 @@ import os
 
 if not os.path.isdir("./SAVED"):
      os.makedirs("./SAVED")
-if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY ):
-     os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY )
+if not os.path.isdir(Var.TEMP_DOWNLOAD_DIRECTORY):
+     os.makedirs(Var.TEMP_DOWNLOAD_DIRECTORY)
 
 @borg.on(events.NewMessage(pattern=r"\.lslocal", outgoing=True))
 async def _(event):
@@ -38,7 +38,7 @@ async def _(event):
     )
     OUTPUT = f"**Files in [userbot](tg://leobrownlee/) DOWNLOADS Folder:**\n"
     stdout, stderr = await process.communicate()
-    if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(stdout) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:
             out_file.name = "exec.text"
             await borg.send_file(
@@ -76,7 +76,7 @@ async def _(event):
     )
     OUTPUT = f"**Files in root directory:**\n"
     stdout, stderr = await process.communicate()
-    if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(stdout) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:
             out_file.name = "exec.text"
             await borg.send_file(
@@ -110,7 +110,7 @@ async def _(event):
     )
     OUTPUT = f"**Files in SAVED directory:**\n"
     stdout, stderr = await process.communicate()
-    if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(stdout) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:
             out_file.name = "exec.text"
             await borg.send_file(
@@ -147,7 +147,7 @@ async def _(event):
     )
     OUTPUT = f"**Files in root directory:**\n"
     stdout, stderr = await process.communicate()
-    if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(stdout) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:
             out_file.name = "exec.text"
             await borg.send_file(
@@ -185,7 +185,7 @@ async def _(event):
     )
     OUTPUT = f"**Files in root directory:**\n"
     stdout, stderr = await process.communicate()
-    if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(stdout) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:
             out_file.name = "exec.text"
             await borg.send_file(

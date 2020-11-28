@@ -53,9 +53,28 @@ class Var(object):
     DOWNLOAD_PFP_URL_CLOCK = os.environ.get("DOWNLOAD_PFP_URL_CLOCK", None)
     MAX_FLOOD_IN_P_M_s = os.environ.get("MAX_FLOOD_IN_P_M_s", "3")
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
+    MAX_MESSAGE_SIZE_LIMIT = 4095
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
     GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", "root")
     CMD_HNDLR = os.environ.get("CMD_HNDLR", r"\.")
+    TAG_FEATURE = os.environ.get("TAG_FEATURE", "DISABLE")
+    ASSISTANT_LOG = int(os.environ.get("ASSISTANT_LOG", False))
+    UPSTREAM_REPO = os.environ.get(
+            "UPSTREAM_REPO", "https://github.com/Starkgang/FridayUserbot"
+        )
+    ALIVE_IMAGE = os.environ.get(
+            "ALIVE_IMAGE", "https://telegra.ph/file/22535f8051a58af113586.jpg"
+        )
+    ASSISTANT_START_PIC = os.environ.get(
+            "ASSISTANT_START_PIC",
+            "https://www.logolynx.com/images/logolynx/72/7257d2ac93b97c8a2c7308266052df13.png",
+        )
+    TESSDATA_PREFIX = os.environ.get(
+            "TESSDATA_PREFIX", "/usr/share/tesseract-ocr/4.00/tessdata"
+        )
+    OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", None)
+    OPEN_LOAD_KEY = os.environ.get("OPEN_LOAD_KEY", None)
+    NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", False))
     AUTH_TOKEN_DATA = os.environ.get("AUTH_TOKEN_DATA", None)
     PMSECURITY = os.environ.get("PMSECURITY", "ON")
     # for autopic
@@ -77,7 +96,10 @@ class Var(object):
         except ValueError:
             raise ValueError(
                 "Invalid Private Group ID. Make sure your ID is starts with -100 and make sure that it is only numbers.")
-
+        
+    PM_LOGGR_BOT_API_ID = os.environ.get("PM_LOGGR_BOT_API_ID", None)
+    if PM_LOGGR_BOT_API_ID:
+            PM_LOGGR_BOT_API_ID = int(PM_LOGGR_BOT_API_ID)        
 
 class Development(Var):
     LOGGER = True

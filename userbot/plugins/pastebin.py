@@ -8,7 +8,7 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import CMD_HELP
-from userbot.Config import Config
+from userbot.Config import Var
 from userbot.utils import admin_cmd, sudo_cmd
 
 logging.basicConfig(
@@ -26,7 +26,7 @@ def progress(current, total):
 
 DOGBIN_URL = "https://del.dog/"
 
-BOTLOG_CHATID = Config.PRIVATE_GROUP_ID
+BOTLOG_CHATID = Var.PRIVATE_GROUP_ID
 BOTLOG = True
 
 
@@ -35,8 +35,8 @@ async def _(event):
     if event.fwd_from:
         return
     start = datetime.now()
-    if not os.path.isdir(Config.TEMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TEMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Var.TEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.TEMP_DOWNLOAD_DIRECTORY)
     input_str = event.pattern_match.group(1)
     message = "SYNTAX: `.paste <long text to include>`"
     if input_str:
@@ -46,7 +46,7 @@ async def _(event):
         if previous_message.media:
             downloaded_file_name = await borg.download_media(
                 previous_message,
-                Config.TEMP_DOWNLOAD_DIRECTORY,
+                Var.TEMP_DOWNLOAD_DIRECTORY,
                 progress_callback=progress,
             )
             m_list = None
@@ -113,7 +113,7 @@ async def get_dogbin_content(dog_url):
         return
     except exceptions.TooManyRedirects as RedirectsErr:
         await dog_url.edit(
-            "Request exceeded the configured number of maximum redirections."
+            "Request exceeded the Varured number of maximum redirections."
             + str(RedirectsErr)
         )
         return
@@ -133,8 +133,8 @@ async def _(event):
     if event.fwd_from:
         return
     datetime.now()
-    if not os.path.isdir(Config.TEMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TEMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Var.TEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.TEMP_DOWNLOAD_DIRECTORY)
     input_str = event.pattern_match.group(1)
     message = "SYNTAX: `.neko <long text to include>`"
     if input_str:
@@ -144,7 +144,7 @@ async def _(event):
         if previous_message.media:
             downloaded_file_name = await borg.download_media(
                 previous_message,
-                Config.TEMP_DOWNLOAD_DIRECTORY,
+                Var.TEMP_DOWNLOAD_DIRECTORY,
                 progress_callback=progress,
             )
             m_list = None

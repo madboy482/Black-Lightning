@@ -18,7 +18,7 @@ import os
 import sys
 from telethon.tl import functions, types
 from telethon.tl.types import Channel, Chat, User
-from userbot.thunderconfig import Config
+from userbot.Config import Var
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.WARN)
@@ -26,7 +26,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 NO_PM_LOG_USERS = []
 
 BOTLOG = True
-BOTLOG_CHATID = Config.PM_LOGGR_BOT_API_ID
+BOTLOG_CHATID = Var.PM_LOGGR_BOT_API_ID
 
 
 
@@ -54,11 +54,11 @@ async def log(log_text):
 @borg.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
 async def monito_p_m_s(event):
     sender = await event.get_sender()
-    if Config.NC_LOG_P_M_S and not sender.bot:
+    if Var.NC_LOG_P_M_S and not sender.bot:
         chat = await event.get_chat()
         if chat.id not in NO_PM_LOG_USERS and chat.id != borg.uid:
             try:
-                e = await borg.get_entity(int(Config.PM_LOGGR_BOT_API_ID))             
+                e = await borg.get_entity(int(Var.PM_LOGGR_BOT_API_ID))             
                 fwd_message = await borg.forward_messages(
                     e,
                     event.message,
@@ -73,7 +73,7 @@ async def monito_p_m_s(event):
 
 @borg.on(admin_cmd(pattern="elog ?(.*)"))
 async def set_no_log_p_m(event):
-    if Config.PM_LOGGR_BOT_API_ID is not None:
+    if Var.PM_LOGGR_BOT_API_ID is not None:
         reason = event.pattern_match.group(1)
         chat = await event.get_chat()
         if event.is_private:
@@ -86,7 +86,7 @@ async def set_no_log_p_m(event):
                 
 @borg.on(admin_cmd(pattern="nlog ?(.*)"))
 async def set_no_log_p_m(event):
-    if Config.PM_LOGGR_BOT_API_ID is not None:
+    if Var.PM_LOGGR_BOT_API_ID is not None:
         reason = event.pattern_match.group(1)
         chat = await event.get_chat()
         if event.is_private:

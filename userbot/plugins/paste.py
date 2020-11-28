@@ -4,11 +4,12 @@ From Pornhub"""
 import logging
 import os
 from datetime import datetime
+from userbot.Config import Var
 
 import requests
-from uniborg.util import admin_cmd, sudo_cmd
+from userbot.utils import admin_cmd, sudo_cmd
 
-logging.basicConfig(
+logging.basicVar(
     format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s", level=logging.WARNING
 )
 
@@ -27,8 +28,8 @@ async def _(event):
     if event.fwd_from:
         return
     datetime.now()
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Var.TEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.TEMP_DOWNLOAD_DIRECTORY)
     input_str = event.pattern_match.group(1)
     if input_str:
         message = input_str
@@ -37,7 +38,7 @@ async def _(event):
         if previous_message.media:
             downloaded_file_name = await borg.download_media(
                 previous_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
+                Var.TEMP_DOWNLOAD_DIRECTORY,
                 progress_callback=progress,
             )
             m_list = None
@@ -56,7 +57,7 @@ async def _(event):
     name = "ok"
     if previous_message.media:
         name = await borg.download_media(
-            previous_message, Config.TMP_DOWNLOAD_DIRECTORY, progress_callback=progress
+            previous_message, Var.TEMP_DOWNLOAD_DIRECTORY, progress_callback=progress
         )
     downloaded_file_name = name
     if downloaded_file_name.endswith(".py"):

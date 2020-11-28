@@ -1,4 +1,4 @@
- """
+"""
 command: .singer singer name - song name 
 by @quiec
 """

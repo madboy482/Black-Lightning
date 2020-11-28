@@ -15,8 +15,8 @@ import time
 from datetime import datetime
 from telethon import events
 from telethon.tl.types import DocumentAttributeVideo
-from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
-
+from userbot.utils import admin_cmd, humanbytes, progress, time_formatter
+from userbot.Config import Var
 
 GIT_TEMP_DIR = "./temp/"
 BRANCH = "test"
@@ -24,10 +24,10 @@ BRANCH = "test"
 async def download(event):
 	if event.fwd_from:
 		return	
-	if Config.GITHUB_ACCESS_TOKEN is None:
+	if Var.GITHUB_ACCESS_TOKEN is None:
 		await event.edit("`Please ADD Proper Access Token from github.com`") 
 		return   
-	if Config.GIT_REPO_NAME is None:
+	if Var.GIT_REPO_NAME is None:
 		await event.edit("`Please ADD Proper Github Repo Name of your userbot`")
 		return 
 	mone = await event.reply("Processing ...")
@@ -57,11 +57,11 @@ async def download(event):
 
 async def git_commit(file_name,mone):        
 	content_list = []
-	access_token = Config.GITHUB_ACCESS_TOKEN
+	access_token = Var.GITHUB_ACCESS_TOKEN
 	g = Github(access_token)
 	file = open(file_name,"r",encoding='utf-8')
 	commit_data = file.read()
-	repo = g.get_repo(Config.GIT_REPO_NAME)
+	repo = g.get_repo(Var.GIT_REPO_NAME)
 	print(repo.name)
 	create_file = True
 	contents = repo.get_contents("")
