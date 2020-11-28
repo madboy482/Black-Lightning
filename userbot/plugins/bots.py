@@ -3,7 +3,7 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import CMD_HELP
-from userbot.Config import Var, 
+from userbot.Config import Var
 from userbot.utils import admin_cmd, sudo_cmd
 
 telegraph = Telegraph()

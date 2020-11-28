@@ -9,7 +9,7 @@ from userbot.Config import Var
 import requests
 from userbot.utils import admin_cmd, sudo_cmd
 
-logging.basicVar(
+logging.basicConfig(
     format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s", level=logging.WARNING
 )
 

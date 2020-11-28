@@ -18,22 +18,21 @@ Syntax: .rmbg as reply to a media"""
 import io
 import os
 from datetime import datetime
-
+from userbot.Config import Var
 import requests
 
 from  userbot.utils import admin_cmd
 
-admin = "admin"
-Config = "Config"
 
-@admin.on(admin_cmd("rmbg ?(.*)"))
+
+@borg.on(admin_cmd("rmbg ?(.*)"))
 async def _(event):
     HELP_STR = (
         "`.rmbg` as reply to a media, or give a link as an argument to this command"
     )
     if event.fwd_from:
         return
-    if Config.REM_BG_API_KEY is None:
+    if Var.REM_BG_API_KEY is None:
         await event.edit("You need API token from remove.bg to use this plugin.")
         return False
     input_str = event.pattern_match.group(1)
@@ -46,7 +45,7 @@ async def _(event):
         await event.edit("`Parsing the image.`")
         try:
             downloaded_file_name = await admin.download_media(
-                reply_message, Config.TMP_DOWNLOAD_DIRECTORY
+                reply_message, Var.TEMP_DOWNLOAD_DIRECTORY
             )
         except Exception as e:
             await event.edit(str(e))
@@ -90,7 +89,7 @@ async def _(event):
 # with the name provided.
 def ReTrieveFile(input_file_name):
     headers = {
-        "X-API-Key": Config.REM_BG_API_KEY,
+        "X-API-Key": Var.REM_BG_API_KEY,
     }
     files = {
         "image_file": (input_file_name, open(input_file_name, "rb")),
@@ -107,7 +106,7 @@ def ReTrieveFile(input_file_name):
 
 def ReTrieveURL(input_url):
     headers = {
-        "X-API-Key": Config.REM_BG_API_KEY,
+        "X-API-Key": Var.REM_BG_API_KEY,
     }
     data = {"image_url": input_url}
     r = requests.post(
