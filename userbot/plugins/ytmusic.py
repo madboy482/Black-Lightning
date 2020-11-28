@@ -5,7 +5,7 @@ import os
 import wget
 from youtubesearchpython import SearchVideos
 
-from userbot.Configs import Config
+from userbot.Config import Var
 from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
 
 
@@ -29,7 +29,7 @@ async def _(event):
     await asyncio.sleep(0.6)
     if not os.path.isdir("./music/"):
         os.makedirs("./music/")
-    path = Config.TMP_DOWNLOAD_DIRECTORY
+    path = Var.TEMP_DOWNLOAD_DIRECTORY
     sedlyf = wget.download(kekme, out=path)
     stark = (
         f'youtube-dl --force-ipv4 -q -o "./music/%(title)s.%(ext)s" --extract-audio --audio-format mp3 --audio-quality 128k '

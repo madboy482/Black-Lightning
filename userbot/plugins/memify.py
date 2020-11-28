@@ -26,7 +26,7 @@ from telethon.tl.types import DocumentAttributeFilename
 
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
 from userbot.events import register
-from userbot.helpers import progress
+from userbot.helper import progress
 THUMB_IMAGE_PATH = "./thumb_image.jpg"
 
 

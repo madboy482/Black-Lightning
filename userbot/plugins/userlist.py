@@ -1,12 +1,10 @@
-borg  = "borg"
-ChatAdminRequireError = "Chat"
-remove = "remove"
+
 
 """Get Administrators of any Chat*
 Syntax: .userlist"""
 from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins, ChannelParticipantAdmin, ChannelParticipantCreator
-from uniborg.util import admin_cmd
+from userbot.utils import admin_cmd
 from telethon.errors.rpcerrorlist import (ChatAdminRequiredError, UserIdInvalidError,
                                           MessageTooLongError)
                                           
