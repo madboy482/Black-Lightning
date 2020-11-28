@@ -18,7 +18,7 @@ if Var.PRIVATE_GROUP_ID:
 else:
     log = "Disabled"
 
-if Config.TG_BOT_USER_NAME_BF_HER:
+if Var.TG_BOT_USER_NAME_BF_HER:
     bots = "Enabled"
 else:
     bots = "Disabled"
@@ -28,7 +28,7 @@ if Var.LYDIA_API_KEY:
 else:
     lyd = "Disabled"
 
-if Config.SUDO_USERS:
+if Var.SUDO_USERS:
     sudo = "Disabled"
 else:
     sudo = "Enabled"

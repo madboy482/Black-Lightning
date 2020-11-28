@@ -54,6 +54,7 @@ class Var(object):
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
     GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", "root")
+    CMD_HNDLR = os.environ.get("CMD_HNDLR", r"\.")
     AUTH_TOKEN_DATA = os.environ.get("AUTH_TOKEN_DATA", None)
     PMSECURITY = os.environ.get("PMSECURITY", "ON")
     # for autopic
