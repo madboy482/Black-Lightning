@@ -3,7 +3,6 @@ GITHUB File Uploader Plugin for userbot. Heroku Automation should be Enabled. El
 Instructions:- Set GITHUB_ACCESS_TOKEN and GIT_REPO_NAME Variables in Heroku vars First
 usage:- .commit reply_to_any_plugin //can be any type of file too. but for plugin must be in .py 
 By:- @Zero_cool7870 
-
 """
 
 
@@ -15,7 +14,7 @@ import time
 from datetime import datetime
 from telethon import events
 from telethon.tl.types import DocumentAttributeVideo
-from userbot.utils import admin_cmd, humanbytes, progress, time_formatter
+from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 from userbot.Config import Var
 
 GIT_TEMP_DIR = "./temp/"
