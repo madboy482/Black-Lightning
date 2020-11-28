@@ -9,7 +9,7 @@ from typing import Tuple
 
 from telegraph import Telegraph
 
-from userbot.Configs import Config
+from userbot.Config import Config
 from userbot.utils import admin_cmd
 
 telegraph = Telegraph()

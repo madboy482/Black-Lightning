@@ -3,9 +3,11 @@ import math
 from userbot import bot
 from telethon import events
 from pathlib import Path
-from userbot.Config import Var, Config
+from userbot.Config import  Var
+from userbot.Config import Config
 from userbot import LOAD_PLUG
 from userbot import CMD_LIST
+
 import re
 import logging
 import inspect
