@@ -7,7 +7,7 @@ from os import remove, execle, path, makedirs, getenv, environ, execl
 from shutil import rmtree
 import asyncio
 import sys
-from git import Repo
+from git.exc import GitCommandError, InvalidGitRepositoryError, 
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from userbot import CMD_HELP, bot
 from userbot.utils import admin_cmd
