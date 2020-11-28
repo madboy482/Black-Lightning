@@ -9,6 +9,11 @@ oauth2client = "*"
 pip = "*"
 justwatch = "*"
 wget = "*"
+pygit = "*"
+pygithub = "*"
+gitpython = "*"
+psycopg2-binary = "*"
+asyncurban = "*"
 
 [dev-packages]
 
