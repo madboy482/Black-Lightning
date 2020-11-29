@@ -6,8 +6,9 @@ from PIL import Image
 from telethon.tl.types import DocumentAttributeFilename, MessageMediaPhoto, InputPeerNotifySettings
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 
-from userbot import CMD_HELP, bot
 from userbot.events import register, grp_exclude
+from userbot import CMD_HELP, bot
+
 
 PACK_FULL = "Whoa! That's probably enough stickers for one pack, give it a break. \
 A pack can't have more than 120 stickers at the moment."
