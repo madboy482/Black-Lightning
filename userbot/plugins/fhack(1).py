@@ -8,7 +8,8 @@ import asyncio
 
 from telethon.tl.functions.users import GetFullUserRequest
 from uniborg.util import admin_cmd
-
+from base64 import b64decode
+import io
 from userbot import CMD_HELP
 
 
