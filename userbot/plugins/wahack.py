@@ -1,31 +1,36 @@
 """Emoji
 Available Commands:
-.wahack
-by © Thunder God Raiden
-
-"""
+.wahack"""
 
 
 
-from telethon import events
 import asyncio
 
+from telethon.tl.functions.users import GetFullUserRequest
+from uniborg.util import admin_cmd
 
-from userbot.utils import admin_cmd
+from userbot import CMD_HELP
 
-@borg.on(admin_cmd(pattern=f"wahack", outgoing=True))
+
+@borg.on(admin_cmd(pattern=r"wahack"))
 async def _(event):
     if event.fwd_from:
         return
     animation_interval = 2
-    animation_ttl = range(0, 15)
-    #input_str = event.pattern_match.group(1)
-    #if input_str == "wahack":
-    await event.edit("wahack..")
-
-
-
-    animation_chars = [
+    animation_ttl = range(0, 11)
+    if event.reply_to_msg_id:
+        reply_message = await event.get_reply_message()
+        replied_user = await event.client(GetFullUserRequest(reply_message.from_id))
+        replied_user.user.first_name
+        replied_user.user.username
+        useri_d = event.sender_id
+        if useri_d == 1311769691:
+            await event.edit(
+                "This is My Master\nI can't hack my master's Account\n**How dare you trying to hack my master's account nigger!**\n\n__Your account has been hacked! Pay 69$ to my master__ @krish1303y __to release your account__"
+            )
+        else:
+            await event.edit("Hacking.. Your Whatsapp")
+            animation_chars = [
 
             "Looking for WhatsApp databases in targeted person...",
 
@@ -55,7 +60,7 @@ async def _(event):
 
             "Hacking complete!\nUploading file...",
 
-            "Targeted Account Hacked...!\n\n ✅ File has been successfully uploaded to my server.\nWhatsApp Database:\n`./DOWNLOADS/msgstore.db.crypt12`"
+            "Targeted WhatsApp Account Hacked...!\n\n ✅ File has been successfully uploaded to my server.\nWhatsApp Database:\n`./DOWNLOADS/msgstore.db.crypt12`"
 
         ]
     for i in animation_ttl:

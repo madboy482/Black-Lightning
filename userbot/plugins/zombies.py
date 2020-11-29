@@ -13,6 +13,7 @@ Use .zombies clean to remove deleted accounts from the groups and channels.
 \nPorted by ©[NIKITA](t.me/kirito6969) and ©[EYEPATCH](t.me/NeoMatrix90)"""
 
 from telethon import events
+from userbot.Config import Var
 from userbot.utils import admin_cmd
 #
 from asyncio import sleep
@@ -71,7 +72,7 @@ async def rm_deletedacc(show):
 
     con = show.pattern_match.group(1).lower()
     del_u = 0
-    del_status = "`No deleted accounts found, Group is clean`"
+    del_status = "`Damn!!! No deleted accounts found, Group is clean.\n Noice`"
 
     if con != "clean":
         await show.edit("`Searching for ghost/deleted/zombie accounts...`")
@@ -82,7 +83,7 @@ async def rm_deletedacc(show):
                 await sleep(1)
         if del_u > 0:
             del_status = f"`Found` **{del_u}** `ghost/deleted/zombie account(s) in this group,\
-            \nclean them by using .zombies clean`"
+            \nclean them by using cmd .zombies clean`"
         await show.edit(del_status)
         return
 
@@ -93,7 +94,7 @@ async def rm_deletedacc(show):
 
     # Well
     if not admin and not creator:
-        await show.edit("`I am not an admin here!`")
+        await show.edit("`Oops...\nI am not an admin here!`")
         return
 
     await show.edit("`Deleting deleted accounts...\nOh I can do that?!?!`")
@@ -106,7 +107,7 @@ async def rm_deletedacc(show):
                 await show.client(
                     EditBannedRequest(show.chat_id, user.id, BANNED_RIGHTS))
             except ChatAdminRequiredError:
-                await show.edit("`I don't have ban rights in this group`")
+                await show.edit("`WTF..\nI don't have ban rights in this group`")
                 return
             except UserAdminInvalidError:
                 del_u -= 1
@@ -129,8 +130,8 @@ async def rm_deletedacc(show):
     await show.delete()
 
 
-    if Config.G_BAN_LOGGER_GROUP is not None:
+    if Var.G_BAN_LOGGER_GROUP is not None:
         await show.client.send_message(
-            Config.G_BAN_LOGGER_GROUP, "#CLEANUP\n"
+            Var.G_BAN_LOGGER_GROUP, "#CLEANUP\n"
             f"Cleaned **{del_u}** deleted account(s) !!\
             \nCHAT: {show.chat.title}(`{show.chat_id}`)")

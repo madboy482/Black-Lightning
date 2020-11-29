@@ -17,6 +17,8 @@ asyncurban = "*"
 qrcode = "*"
 glitch-this = "*"
 githubpy = "*"
+gitpy = "*"
+gcg = "*"
 
 [dev-packages]
 

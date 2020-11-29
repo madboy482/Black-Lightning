@@ -59,7 +59,10 @@ class Var(object):
     CMD_HNDLR = os.environ.get("CMD_HNDLR", r"\.")
     TAG_FEATURE = os.environ.get("TAG_FEATURE", "DISABLE")
     SPOTIFY_USERNAME = os.environ.get("SPOTIFY_USERNAME", None)
+    NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD = int(os.environ.get("NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD", 7))
+    EMOJI_TO_DISPLAY_IN_HELP = os.environ.get("EMOJI_TO_DISPLAY_IN_HELP", "〄𝕭〄")
     SPOTIFY_PASS = os.environ.get("SPOTIFY_PASS", None)
+    G_BAN_LOGGER_GROUP = int(os.environ.get("G_BAN_LOGGER_GROUP", -1001291663564))
     SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX", None)
     ASSISTANT_LOG = int(os.environ.get("ASSISTANT_LOG", False))
     UPSTREAM_REPO = os.environ.get(
