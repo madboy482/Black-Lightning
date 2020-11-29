@@ -3,10 +3,11 @@ import math
 import urllib.request
 from PIL import Image
 
+from userbot.events import register, grp_exclude
 from telethon.tl.types import DocumentAttributeFilename, MessageMediaPhoto, InputPeerNotifySettings
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 
-from userbot.events import register, grp_exclude
+
 from userbot import CMD_HELP, bot
 
 
