@@ -13,7 +13,7 @@ import random
 import re
 import time
 
-from git import Repo 
+from git import repo 
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from userbot import CMD_HELP, bot
 from userbot.utils import admin_cmd
@@ -54,7 +54,7 @@ async def upstream(ups):
     try:
         txt = "Oops.. Updater cannot continue due to "
         txt += "some problems occured`\n\n**LOGTRACE:**\n"
-        repo = Repo()
+        repo = repo()
     except NoSuchPathError as error:
         await ups.edit(f'{txt}\ndirectory {error} is not found')
         repo.__del__()
@@ -67,7 +67,7 @@ async def upstream(ups):
         if conf != "now":
             await ups.edit(f"**Hey ßoss!!!**😁😁\n__To get the Latest update of__ \n©blacklightning\n\n do |`.update now`| 😎😎 ")
             return
-        repo = Repo.init()
+        repo = repo.init()
         origin = repo.create_remote('upstream', off_repo)
         origin.fetch()
         force_update = True
