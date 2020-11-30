@@ -83,8 +83,7 @@ python3 -m Black-Lightning
 
 
 
-# Credits 
-`[+] Check Contribution At https://github.com/StarkGang/FridayUserbot/graphs/contributors`
+
 
 
 
