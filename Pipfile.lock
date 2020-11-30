@@ -167,7 +167,7 @@
             "index": "pypi",
             "version": "==3.1.11"
         },
-        "glitch-this": {
+        "glitch_this": {
             "hashes": [
                 "sha256:642dfd083b2dac0d9d62e8adc046f6653ab9d35a9680a177d4f1aeaee2d9cf41",
                 "sha256:9acf8c845d3720cc600f45576977ae7cc83e816206b1e98213cef2c8bcf0e1be"
