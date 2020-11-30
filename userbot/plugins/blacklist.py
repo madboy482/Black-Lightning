@@ -12,7 +12,8 @@ import userbot.plugins.sql_helper.blacklist_sql as sql
 from telethon import events, utils
 from telethon.tl import types, functions
 from userbot.utils import admin_cmd
-
+from userbot.Config import Var
+import io
 
 @borg.on(events.NewMessage(incoming=True))
 async def on_new_message(event):
@@ -48,7 +49,7 @@ async def on_view_blacklist(event):
             OUT_STR += f"👉 {trigger} \n"
     else:
         OUT_STR = "No BlackLists. Start Saving using `.addblacklist`"
-    if len(OUT_STR) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(OUT_STR) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(OUT_STR)) as out_file:
             out_file.name = "blacklist.text"
             await borg.send_file(
