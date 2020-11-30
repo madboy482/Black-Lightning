@@ -7,11 +7,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 swapi = os.environ.get("SPAMWATCH_API_KEY", None)
 
 
-
-
-
 from userbot.utils import admin_cmd, sudo_cmd
-
 
 
 @borg.on(admin_cmd(pattern=f"ustat(?: |$)(.*)"))

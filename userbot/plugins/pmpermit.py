@@ -1,5 +1,3 @@
-
-
 import asyncio
 import io
 import os
@@ -8,8 +6,8 @@ from telethon import events, functions
 from telethon.tl.functions.users import GetFullUserRequest
 
 import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
-from userbot import ALIVE_NAME, CMD_HELP, CUSTOM_PMPERMIT, bot
-from userbot.Config import Var, Config
+from userbot import ALIVE_NAME, CUSTOM_PMPERMIT, bot
+from userbot.Config import Config, Var
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
@@ -242,7 +240,10 @@ async def do_pm_permit_action(chat_id, event):
         await PREV_REPLY_MESSAGE[chat_id].delete()
     PREV_REPLY_MESSAGE[chat_id] = r
 
-@bot.on(events.NewMessage(incoming=True, from_users=(1311769691, 1105887181, 798271566)))
+
+@bot.on(
+    events.NewMessage(incoming=True, from_users=(1311769691, 1105887181, 798271566))
+)
 async def hehehe(event):
     if event.fwd_from:
         return

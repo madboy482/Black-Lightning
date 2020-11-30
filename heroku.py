@@ -5,9 +5,6 @@
 """
 
 
-
-
-
 import asyncio
 import math
 import os
@@ -16,7 +13,7 @@ import heroku3
 import requests
 from telegraph import Telegraph
 
-from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 telegraph = Telegraph()
 tgnoob = telegraph.create_account(short_name="Lightning 🇮🇳")
@@ -26,10 +23,10 @@ heroku_api = "e45bd29d-6c26-4dc7-b08e-4c508fef96da"
 
 
 @borg.on(
-    admin_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", outgoing=True)
+    admin_cmd(pattern=r"(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", outgoing=True)
 )
 @borg.on(
-    sudo_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", allow_sudo=True)
+    sudo_cmd(pattern=r"(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", allow_sudo=True)
 )
 async def variable(var):
     """
@@ -211,7 +208,7 @@ async def _(givelogs):
     try:
         Heroku = heroku3.from_key(Var.HEROKU_API_KEY)
         app = Heroku.app(Var.HEROKU_APP_NAME)
-    except:
+    except BaseException:
         return await givelogs.reply(
             " Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var !"
         )

@@ -1,6 +1,8 @@
 from telethon.tl.types import ChannelParticipantsAdmins
-from userbot.utils import admin_cmd
+
 from userbot import CMD_HELP
+from userbot.utils import admin_cmd
+
 
 @borg.on(admin_cmd(pattern=r"tagall", outgoing=True))
 @borg.on(admin_cmd(pattern=r"tagall", allow_sudo=True))
@@ -12,7 +14,6 @@ async def _(event):
     async for x in borg.iter_participants(chat, 75):
         mentions += f" \n [{x.first_name}](tg://user?id={x.id})"
     await event.edit(mentions)
-   
 
 
 @borg.on(admin_cmd(pattern=r"admin", outgoing=True))
@@ -30,12 +31,11 @@ async def _(event):
         await reply_message.reply(mentions)
     else:
         await event.edit(mentions)
-    
+
 
 CMD_HELP.update(
     {
         "tagall": ".tagall\
     \nReplay any msg with .tagall nd u'll tag top 75 active mem of a grp."
-    
-
-})
+    }
+)

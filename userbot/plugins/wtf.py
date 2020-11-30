@@ -4,7 +4,6 @@ Available Commands:
 
 .wtf"""
 
-from telethon import events
 
 import asyncio
 
@@ -19,14 +18,14 @@ async def _(event):
     animation_ttl = range(0, 5)
     await event.edit("wtf")
     animation_chars = [
-            "What",
-            "What The F",
-            "What The Fa",
-            "What The Fak Brah",
-            "[What The Fakk Brah](https://telegra.ph//file/f3b760e4a99340d331f9b.jpg)"
-        ]
+        "What",
+        "What The F",
+        "What The Fa",
+        "What The Fak Brah",
+        "[What The Fakk Brah](https://telegra.ph//file/f3b760e4a99340d331f9b.jpg)",
+    ]
 
     for i in animation_ttl:
-        	
+
         await asyncio.sleep(animation_interval)
-        await event.edit(animation_chars[i %5 ])
+        await event.edit(animation_chars[i % 5])

@@ -1,7 +1,7 @@
 from telethon import events
 
-
 from userbot import ALIVE_NAME, bot
+
 currentversion = "4.9"
 
 
@@ -19,6 +19,7 @@ pm_caption += "➥ **Heroku Database** : `AWS - Working Properly`\n\n"
 pm_caption += "➥ **License** : [GNU General Public License v3.0](github.com/Anmol-dot283/Black-Lightning/blob/master/LICENSE)\n"
 pm_caption += "➥ **Copyright** : By [@krih1303y](GitHub.com/Anmol-dot283)\n"
 pm_caption += "[Assistant By Black Lightning 🇮🇳](hhttps://telegra.ph/file/b233f8b6332fbeb3f61dc.mp4)"
+
 
 @tgbot.on(events.NewMessage(pattern="^/alive", func=lambda e: e.sender_id == bot.uid))
 async def _(event):

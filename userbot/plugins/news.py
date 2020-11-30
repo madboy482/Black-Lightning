@@ -5,7 +5,7 @@
 
 import requests
 
-from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 from var import Var
 
 newslog = Var.NEWS_CHANNEL_ID
