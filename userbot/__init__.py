@@ -186,5 +186,5 @@ else:
     sedlyf = wget.download(link, out=pathz)
 
 telegraph = Telegraph()
-r = telegraph.create_account(short_name="Friday UserBot Inc.")
+r = telegraph.create_account(short_name="Lightning The UserBot Inc.")
 auth_url = r["auth_url"]
