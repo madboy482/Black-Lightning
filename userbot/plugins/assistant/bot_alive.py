@@ -14,9 +14,9 @@
 
 from userbot import ALIVE_NAME
 from userbot.plugins import currentversion
-tgbot = "tgbot",peru_only = "peru"
+
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
-PM_IMG = "https://telegra.ph/file/2f2b8d40e3f2fa4acdc8f.mp4"
+PM_IMG = "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
 pm_caption = "➥ **ASSISTANT IS:** `ONLINE`\n\n"
 pm_caption += "➥ **SYSTEMS STATS**\n"
 pm_caption += "➥ **Telethon Version:** `1.15.0` \n"
@@ -26,12 +26,12 @@ pm_caption += "➥ **Current Branch** : `master`\n"
 pm_caption += f"➥ **Version** : `{currentversion}`\n"
 pm_caption += f"➥ **My Boss** : {DEFAULTUSER} \n"
 pm_caption += "➥ **Heroku Database** : `AWS - Working Properly`\n\n"
-pm_caption += "➥ **License** : [GNU General Public License v3.0](github.com/Anmol-dot283/thunder/blob/master/LICENSE)\n"
-pm_caption += "➥ **Copyright** : By [krish](GitHub.com/Anmol-dot283)\n"
-pm_caption += "[Assistant By Thunder 🇮🇳](https://telegra.ph/file/2f2b8d40e3f2fa4acdc8f.mp4)"
-assistant_cmd = "cmd"
+pm_caption += "➥ **License** : [GNU General Public License v3.0](github.com/Anmol-dot283/Black-Lightning/blob/master/LICENSE)\n"
+pm_caption += "➥ **Copyright** : By [@krih1303y](GitHub.com/Anmol-dot283)\n"
+pm_caption += "[Assistant By Black Lightning 🇮🇳](hhttps://telegra.ph/file/b233f8b6332fbeb3f61dc.mp4)"
+
 # only Owner Can Use it
-@assistant_cmd("alive", is_args=False)
+@assistant_cmd.on("alive", is_args=False)
 @peru_only
-async def thunder(event):
+async def admin(event):
     await tgbot.send_file(event.chat_id, PM_IMG, caption=pm_caption)

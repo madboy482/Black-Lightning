@@ -16,7 +16,7 @@ import emoji
 from googletrans import Translator
 
 
-@assistant_cmd("tr", is_args=True)
+@assistant_cmd.on("tr", is_args=True)
 async def _(event):
     input_str = event.pattern_match.group(1)
     if event.reply_to_msg_id:

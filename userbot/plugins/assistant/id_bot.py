@@ -15,7 +15,7 @@
 from telethon.utils import pack_bot_file_id
 
 
-@assistant_cmd("id", is_args=True)
+@assistant_cmd.on("id", is_args=True)
 async def _(event):
     if event.reply_to_msg_id:
         await event.get_input_chat()

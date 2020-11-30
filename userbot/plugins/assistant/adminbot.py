@@ -26,7 +26,7 @@ PP_TOO_SMOL = "`The image is too small`"
 PP_ERROR = "`Failure while processing the image`"
 NO_ADMIN = "`I am not an admin nub nibba!`"
 NO_PERM = (
-    "`I don't have sufficient permissions! This is so sed. Alexa play Tera Baap Aaya`"
+    "`I don't have sufficient permissions! This is so sed. Alexa play Tera Chacha Aya`\nIdiot If Ihave Not Any Persion\nHow I Could Play Tera Chacha Aaya?"
 )
 NO_SQL = "`Running on Non-SQL mode!`"
 
@@ -66,7 +66,7 @@ serena = tgbot
 UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
 
-@assistant_cmd("ban", is_args=True)
+@assistant_cmd.on("ban", is_args=True)
 @only_groups
 @is_bot_admin
 @is_admin
@@ -91,12 +91,12 @@ async def ban(event):
         await event.reply("I Could't Ban That User Probably Due To Less Permissions.")
         return
     if reason:
-        await event.reply(f"Banned {momoz} For \nReason: {reason}")
+        await event.reply(f"Ooo Yeah He His Banned Baby {momoz} For \nReason: {reason}")
     else:
-        await event.reply(f"Banned {momoz} !")
+        await event.reply(f"Ooo Yeah He His Banned Baby  {momoz} !")
 
 
-@assistant_cmd("unban", is_args=True)
+@assistant_cmd.on("unban", is_args=True)
 @only_groups
 @is_bot_admin
 @is_admin
@@ -112,13 +112,13 @@ async def nothanos(event):
         return
     try:
         await event.client(EditBannedRequest(event.chat_id, user.id, UNBAN_RIGHTS))
-        await event.reply("`Unbanned Successfully. Granting another chance.🚶`")
+        await event.reply("`Unbanned Successfully. Ok Then \nGranting another chance.🚶`")
     except BadRequestError:
-        await event.reply("I Could't UnBan That User Probably Due To Less Permissions.")
+        await event.reply("Opps\nI Could't UnBan That User Probably Due To Less Permissions.")
         return
 
 
-@assistant_cmd("promote", is_args=True)
+@assistant_cmd.on("promote", is_args=True)
 @only_groups
 @is_bot_admin
 @is_admin
@@ -155,7 +155,7 @@ async def promote(event):
         return
 
 
-@assistant_cmd("demote", is_args=True)
+@assistant_cmd.on("demote", is_args=True)
 @only_groups
 @is_bot_admin
 @is_admin
@@ -189,7 +189,7 @@ async def demote(event):
     await event.reply("Demoted This User Sucessfully.")
 
 
-@assistant_cmd("pin", is_args=True)
+@assistant_cmd.on("pin", is_args=True)
 @only_groups
 @is_bot_admin
 @is_admin
@@ -214,7 +214,7 @@ async def pin(event):
     await get_user_from_id(event.from_id, event)
 
 
-@assistant_cmd("kick", is_args=True)
+@assistant_cmd.on("kick", is_args=True)
 @only_groups
 @is_bot_admin
 @is_admin
@@ -245,7 +245,7 @@ async def kick(event):
         await event.reply(f"`Kicked` [{user.first_name}](tg://user?id={user.id})`!`")
 
 
-@assistant_cmd("mute", is_args=True)
+@assistant_cmd.on("mute", is_args=True)
 @only_groups
 @is_bot_admin
 @is_admin
@@ -276,7 +276,7 @@ async def mute(event):
         await event.reply(f"`Kicked` [{user.first_name}](tg://user?id={user.id})`!`")
 
 
-@assistant_cmd("unmute", is_args=True)
+@assistant_cmd.on("unmute", is_args=True)
 @only_groups
 @is_bot_admin
 @is_admin

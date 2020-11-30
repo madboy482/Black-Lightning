@@ -11,18 +11,16 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
-
 import asyncio
 import io
+import os
 import re
 
-from telethon.tl.custom import Button
-from telethon import  events
-from telethon import custom
+from telethon import Button, custom, events
 from telethon.tl.functions.users import GetFullUserRequest
 
 from userbot import bot
+from userbot.Config import Var
 from userbot.plugins.sql_helper.blacklist_assistant import (
     add_nibba_in_db,
     is_he_added,
@@ -36,15 +34,18 @@ from userbot.plugins.sql_helper.idadder_sql import (
 )
 
 
-@assistant_cmd("start", is_args=False)
+@assistant_cmd.on("start", is_args=False)
 async def start(event):
     starkbot = await tgbot.get_me()
     bot_id = starkbot.first_name
     bot_username = starkbot.username
     replied_user = await event.client(GetFullUserRequest(event.sender_id))
     firstname = replied_user.user.first_name
+    devlop = await bot.get_me()
+    hmmwow = devlop.first_name
     vent = event.chat_id
-    starttext = f"Hello, {firstname} ! Nice To Meet You, Well I Am {bot_id}, An Powerfull Assistant Bot. \n\nMy [➤ Master](tg://user?id={bot.uid}) \nYou Can Talk/Contact My Master Using This Bot. \n\nIf You Want Your Own Assistant You Can Deploy From Button Below. \n\nPowered By [Thunder Userbot](t.me/blackthundersupport)"
+    mypic = Var.ASSISTANT_START_PIC
+    starttext = f"Hello, {firstname} ! Nice To Meet You, Well I Am {bot_id}, An Powerfull Assistant Bot. \n\nMy Master [{hmmwow}](tg://user?id={bot.uid}) \nYou Can Talk/Contact My Master Using This Bot. \n\nIf You Want Your Own Assistant You Can Deploy From Button Below. \n\nPowered By [Lightning Userbot](t.me/blacklightningot)"
     if event.sender_id == bot.uid:
         await tgbot.send_message(
             vent,
@@ -64,15 +65,18 @@ async def start(event):
             pass
         elif not already_added(event.sender_id):
             add_usersid_in_db(event.sender_id)
-        await tgbot.send_message(
+        await tgbot.send_file(
             event.chat_id,
-            message=starttext,
+            file=mypic,
+            caption=starttext,
             link_preview=False,
             buttons=[
-                [custom.Button.inline("Deploy your 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 🇮🇳", data="deploy")],
-                [Button.url("Help Me ❓", "t.me/blacklightningsupport")],
+                [custom.Button.inline("Deploy your Lightning 🇮🇳", data="deploy")],
+                [Button.url("Help Me ❓", "t.me/blacklightningot")],
             ],
         )
+        if os.path.exists(mypic):
+            os.remove(mypic)
 
 
 # Data's
@@ -84,10 +88,10 @@ async def help(event):
     if event.query.user_id is not bot.uid:
         await tgbot.send_message(
             event.chat_id,
-            message="You Can Deploy 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 In Heroku By Following Steps Bellow, You Can See Some Quick Guides On Support Channel Or On Your Own Assistant Bot. \nThank You For Contacting Me.",
+            message="You Can Deploy Lightning In Heroku By Following Steps Bellow, You Can See Some Quick Guides On Support Channel Or On Your Own Assistant Bot. \nThank You For Contacting Me.",
             buttons=[
-                [Button.url("Deploy Tutorial 📺", "s")],
-                [Button.url("Need Help ❓", "t.me/blacklightningsupport")],
+                [Button.url("Deploy Tutorial 📺", "d")],
+                [Button.url("Need Help ❓", "t.me/blcklightningot")],
             ],
         )
 
@@ -146,37 +150,59 @@ async def sed(event):
     msg.id
     msg_s = event.raw_text
     user_id, reply_message_id = his_userid(msg.id)
-    if event.sender_id == bot.uid:
+    if event.sender_id == Var.OWNER_ID:
         if event.raw_text.startswith("/"):
-            pass
+            return
+        if event.text is not None and event.media:
+            bot_api_file_id = pack_bot_file_id(event.media)
+            await tgbot.send_file(
+                user_id,
+                file=bot_api_file_id,
+                caption=event.text,
+                reply_to=reply_message_id,
+            )
         else:
-            await tgbot.send_message(user_id, msg_s)
-logger = "logger"
-god_only = "god"
-@assistant_cmd("broadcast", is_args=True)
+            msg_s = event.raw_text
+            await tgbot.send_message(
+                user_id,
+                msg_s,
+                reply_to=reply_message_id,
+            )
+
+
+@assistant_cmd.on("broadcast", is_args=True)
 @god_only
 async def sedlyfsir(event):
     msgtobroadcast = event.pattern_match.group(1)
     userstobc = get_all_users()
     error_count = 0
     sent_count = 0
+    hmmok = ""
+    if msgtobroadcast == None:
+        await event.reply("`Wait. What? Broadcast None?`")
+        return
+    elif msgtobroadcast == " ":
+        await event.reply("`Wait. What? Broadcast None?`")
+        return
     for starkcast in userstobc:
         try:
             sent_count += 1
+            await tgbot.send_message(
+                int(starkcast.chat_id),
+                "**Hey, You Have Received A New Broadcast Message**",
+            )
             await tgbot.send_message(int(starkcast.chat_id), msgtobroadcast)
             await asyncio.sleep(0.2)
         except Exception as e:
-            try:
-                logger.info(f"Error : {error_count}\nError : {e} \nUsers : {chat_id}")
-            except:
-                pass
+            hmmok += f"Errors : {e} \n"
+            error_count += 1
     await tgbot.send_message(
         event.chat_id,
         f"Broadcast Done in {sent_count} Group/Users and I got {error_count} Error and Total Number Was {len(userstobc)}",
     )
 
 
-@assistant_cmd("stats", is_args=False)
+@assistant_cmd.on("stats", is_args=False)
 @peru_only
 async def starkisnoob(event):
     starkisnoob = get_all_users()
@@ -185,16 +211,14 @@ async def starkisnoob(event):
     )
 
 
-@assistant_cmd("help", is_args=False)
+@assistant_cmd.on.on("help", is_args=False)
 @peru_only
 async def starkislub(event):
     grabonx = "Hello Here Are Some Commands \n➤ /start - Check if I am Alive \n➤ /ping - Pong! \n➤ /tr <lang-code> \n➤ /broadcast - Sends Message To all Users In Bot \n➤ /id - Shows ID of User And Media. \n➤ /addnote - Add Note \n➤ /notes - Shows Notes \n➤ /rmnote - Remove Note \n➤ /alive - Am I Alive? \n➤ /bun - Works In Group , Bans A User. \n➤ /unbun - Unbans A User in Group \n➤ /prumote - Promotes A User \n➤ /demute - Demotes A User \n➤ /pin - Pins A Message \n➤ /stats - Shows Total Users In Bot"
     await event.reply(grabonx)
 
 
-
-
-@assistant_cmd("block", is_args=False)
+@assistant_cmd.on("block", is_args=False)
 @god_only
 async def starkisnoob(event):
     if event.sender_id == bot.uid:
@@ -212,7 +236,7 @@ async def starkisnoob(event):
         )
 
 
-@assistant_cmd("unblock", is_args=False)
+@assistant_cmd.on("unblock", is_args=False)
 @god_only
 async def starkisnoob(event):
     if event.sender_id == bot.uid:

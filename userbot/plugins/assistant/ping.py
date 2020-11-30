@@ -1,7 +1,3 @@
-
-peru_only = "peru_only"
-
-
 #    Copyright (C) Midhun KM 2020
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published by
@@ -50,7 +46,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-@assistant_cmd("ping", is_args=False)
+@assistant_cmd.on("ping", is_args=False)
 @peru_only
 async def _(event):
     start = datetime.now()
