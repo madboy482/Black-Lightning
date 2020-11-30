@@ -1,5 +1,3 @@
-
-
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
@@ -395,7 +393,7 @@ CMD_HELP.update(
         "`.mention`: Inline mention the user"
         "`.forward`: Follow forwarded message"
     }
-)# Copyright (C) 2019 The Raphielscape Company LLC.
+)  # Copyright (C) 2019 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.

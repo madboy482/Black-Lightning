@@ -1,9 +1,6 @@
-
-
 import random
 
-from uniborg.util import edit_or_reply, admin_cmd, sudo_cmd
-
+from uniborg.util import admin_cmd, edit_or_reply, sudo_cmd
 from userbot import CMD_HELP
 
 RUNSREACTS = [

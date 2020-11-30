@@ -1,16 +1,12 @@
-  
 import os
 import re
-import urllib
 from math import ceil
 
-import requests
 from telethon import Button, custom, events, functions
-from youtubesearchpython import SearchVideos
-from userbot.Config import Var
-from userbot.plugins import  telestats
-from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST,  CUSTOM_PMPERMIT
 
+from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, CUSTOM_PMPERMIT
+from userbot.Config import Var
+from userbot.plugins import telestats
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
@@ -84,7 +80,11 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 text=f"**вℓα¢к ℓιgнтиιиg Stats For [{DEFAULTUSER}](tg://user?id={myid})**\n\n__Bot is functioning normally, master!__\n\n(c) @krish1303y",
                 buttons=[
                     [custom.Button.inline("Stats", data="statcheck")],
-                    [Button.url("Repo", "https://github.com/Anmol-dot283/Black-Lightning")],
+                    [
+                        Button.url(
+                            "Repo", "https://github.com/Anmol-dot283/Black-Lightning"
+                        )
+                    ],
                     [
                         Button.url(
                             "Deploy Now!",
@@ -113,7 +113,9 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 text=f"вℓα¢к ℓιgнтиιиg - Telegram Userbot.",
                 buttons=[
                     [
-                        Button.url("Repo", "https://github.com/Anmol-dot283/Black-Lightning"),
+                        Button.url(
+                            "Repo", "https://github.com/Anmol-dot283/Black-Lightning"
+                        ),
                         Button.url(
                             "Deploy",
                             "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FAnmol-dot283%2FBlack-Lightning&template=https%3A%2F%2Fgithub.com%2FAnmol-dot283%2FBlack-Lightning",
@@ -130,7 +132,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     [custom.Button.url("Creator👨‍🦱", "https://t.me/krish1303y")],
                     [
                         custom.Button.url(
-                            "👨‍💻Source Code‍💻", "https://github.com/Anmol-dot283/Black-Lightning"
+                            "👨‍💻Source Code‍💻",
+                            "https://github.com/Anmol-dot283/Black-Lightning",
                         ),
                         custom.Button.url(
                             "Deploy 🌀",
@@ -139,7 +142,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     ],
                     [
                         custom.Button.url(
-                            "Updates and Support Group↗️", "https://t.me/blacklightningot"
+                            "Updates and Support Group↗️",
+                            "https://t.me/blacklightningot",
                         )
                     ],
                 ],
@@ -159,9 +163,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = (
-                "Who The Fuck You Are, Fuck Off Dont Touch Me!!!!"
-            )
+            reply_pop_up_alert = "Who The Fuck You Are, Fuck Off Dont Touch Me!!!!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pmclick")))

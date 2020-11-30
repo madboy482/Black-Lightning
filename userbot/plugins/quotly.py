@@ -1,6 +1,3 @@
-
-
-
 """QuotLy: Avaible commands: .qbot
 """
 from telethon import events

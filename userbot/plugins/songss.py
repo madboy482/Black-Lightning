@@ -1,18 +1,16 @@
-# plugin made by @hellboi_atul bug fixes by @Mrconfused 
+# plugin made by @hellboi_atul bug fixes by @Mrconfused
 # Copyright (C) DARK COBRA 2020.
 # if you change these lines you are gay...bc fuck off!
 # leechers stay away😑...if you use this code without credit...u gay bitch fuck off...!
+
+import asyncio
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot.utils import admin_cmd
 
-import asyncio
-
- 
 
 @borg.on(admin_cmd(pattern="gaana ?(.*)"))
-
 async def FindMusicPleaseBot(gaana):
 
     song = gaana.pattern_match.group(1)
@@ -33,7 +31,7 @@ async def FindMusicPleaseBot(gaana):
 
         try:
 
-            msg = await conv.send_message(song)
+            await conv.send_message(song)
 
             response = await conv.get_response()
 
@@ -43,13 +41,15 @@ async def FindMusicPleaseBot(gaana):
 
                 return await gaana.edit(f"Sorry, can't find {song}")
 
-            respond = await conv.get_response()
+            await conv.get_response()
 
             cobra = await conv.get_response()
 
         except YouBlockedUserError:
 
-            await gaana.edit("```Please unblock``` @FindmusicpleaseBot``` and try again```")
+            await gaana.edit(
+                "```Please unblock``` @FindmusicpleaseBot``` and try again```"
+            )
 
             return
 

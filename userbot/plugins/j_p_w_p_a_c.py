@@ -1,8 +1,8 @@
 """COMMAND : .join , .pay , .work , .push , .aag , .climb"""
-import asyncio
-from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins
+
 from userbot.utils import admin_cmd
+
 
 @borg.on(admin_cmd(pattern="join"))
 async def _(event):
@@ -19,6 +19,7 @@ async def _(event):
     else:
         await event.reply(mentions)
     await event.delete()
+
 
 @borg.on(admin_cmd(pattern="pay"))
 async def _(event):
@@ -37,7 +38,6 @@ async def _(event):
     await event.delete()
 
 
-
 @borg.on(admin_cmd(pattern="climb"))
 async def _(event):
     if event.fwd_from:
@@ -54,6 +54,7 @@ async def _(event):
         await event.reply(mentions)
     await event.delete()
 
+
 @borg.on(admin_cmd(pattern="aag"))
 async def _(event):
     if event.fwd_from:
@@ -69,6 +70,7 @@ async def _(event):
     else:
         await event.reply(mentions)
     await event.delete()
+
 
 @borg.on(admin_cmd(pattern="push"))
 async def _(event):

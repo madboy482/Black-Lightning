@@ -20,8 +20,6 @@ SOCKS5_TXT = "**Proxy Info** \nType: __SOCKS4__ \nTimeOut: __10000__ \nCountry: 
 sedpng = "https://soon.proxyscrape.com/asset/img/service/downloadicon.svg"
 
 
-
-
 @borg.on(admin_cmd(pattern="http$"))
 @borg.on(sudo_cmd(pattern="http$", allow_sudo=True))
 async def starkxD(event):

@@ -1,8 +1,3 @@
-
-
-
-
-
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -12,25 +7,16 @@ Usage: Searches for deleted accounts in a groups and channels.
 Use .zombies clean to remove deleted accounts from the groups and channels.
 \nPorted by ©[NIKITA](t.me/kirito6969) and ©[EYEPATCH](t.me/NeoMatrix90)"""
 
-from telethon import events
-from userbot.Config import Var
-from userbot.utils import admin_cmd
 #
 from asyncio import sleep
-from os import remove
 
-from telethon.errors import (BadRequestError, ChatAdminRequiredError,
-                             ImageProcessFailedError, PhotoCropSizeSmallError,
-                             UserAdminInvalidError)
-from telethon.errors.rpcerrorlist import (UserIdInvalidError,
-                                          MessageTooLongError)
-from telethon.tl.functions.channels import (EditAdminRequest,
-                                            EditBannedRequest,
-                                            EditPhotoRequest)
-from telethon.tl.types import (ChannelParticipantsAdmins, ChatAdminRights,
-                               ChatBannedRights, MessageEntityMentionName,
-                               MessageMediaPhoto)
+from telethon import events
+from telethon.errors import ChatAdminRequiredError, UserAdminInvalidError
+from telethon.tl.functions.channels import EditBannedRequest
+from telethon.tl.types import ChatBannedRights
 
+from userbot.Config import Var
+from userbot.utils import admin_cmd
 
 # =================== CONSTANT ===================
 
@@ -61,8 +47,6 @@ MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=True)
 
 UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 # ================================================
-
-
 
 
 @borg.on(admin_cmd(pattern=f"zombies", allow_sudo=True))
@@ -105,17 +89,16 @@ async def rm_deletedacc(show):
         if user.deleted:
             try:
                 await show.client(
-                    EditBannedRequest(show.chat_id, user.id, BANNED_RIGHTS))
+                    EditBannedRequest(show.chat_id, user.id, BANNED_RIGHTS)
+                )
             except ChatAdminRequiredError:
                 await show.edit("`WTF..\nI don't have ban rights in this group`")
                 return
             except UserAdminInvalidError:
                 del_u -= 1
                 del_a += 1
-            await show.client(
-                EditBannedRequest(show.chat_id, user.id, UNBAN_RIGHTS))
+            await show.client(EditBannedRequest(show.chat_id, user.id, UNBAN_RIGHTS))
             del_u += 1
-
 
     if del_u > 0:
         del_status = f"Cleaned **{del_u}** deleted account(s)"
@@ -124,14 +107,14 @@ async def rm_deletedacc(show):
         del_status = f"Cleaned **{del_u}** deleted account(s) \
         \n**{del_a}** deleted admin accounts are not removed"
 
-
     await show.edit(del_status)
     await sleep(2)
     await show.delete()
 
-
     if Var.G_BAN_LOGGER_GROUP is not None:
         await show.client.send_message(
-            Var.G_BAN_LOGGER_GROUP, "#CLEANUP\n"
+            Var.G_BAN_LOGGER_GROUP,
+            "#CLEANUP\n"
             f"Cleaned **{del_u}** deleted account(s) !!\
-            \nCHAT: {show.chat.title}(`{show.chat_id}`)")
+            \nCHAT: {show.chat.title}(`{show.chat_id}`)",
+        )

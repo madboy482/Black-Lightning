@@ -147,6 +147,7 @@ def register(**args):
 
 def grp_exclude(force_exclude=False):
     """ Check if the chat is excluded. """
+
     def decorator(func):
         async def wrapper(check):
             exclude = await get_exclude(check.chat_id)
@@ -156,14 +157,12 @@ def grp_exclude(force_exclude=False):
                     LOGS.info("EXCLUDED! force_exclude is True")
                     return
 
-                if exclude['excl_type'] == 2:  # all
+                if exclude["excl_type"] == 2:  # all
                     LOGS.info("EXCLUDED! type=2")
                     return
 
-                if exclude['excl_type'] == 1 and check.out is False:  # in
-                    LOGS.info(
-                        "EXCLUDED! type=1 and check.out is False"
-                    )
+                if exclude["excl_type"] == 1 and check.out is False:  # in
+                    LOGS.info("EXCLUDED! type=1 and check.out is False")
                     return
 
                 LOGS.info("NOT EXCLUDED!")

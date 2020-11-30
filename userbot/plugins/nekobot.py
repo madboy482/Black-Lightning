@@ -3,8 +3,8 @@
 # Official Web : nekobot.xyz
 # "Copy It As You Want But Don't Edit Credits"
 import requests
-from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
 
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 
 @borg.on(admin_cmd("ttt ?(.*)"))

@@ -1,7 +1,6 @@
 from userbot.utils import admin_cmd, load_module, remove_plugin
 
 
-
 @borg.on(admin_cmd(pattern="load ?(.*)", outgoing=True))
 async def load(event):
     if event.fwd_from:
