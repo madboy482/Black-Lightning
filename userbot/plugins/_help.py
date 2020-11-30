@@ -1,8 +1,7 @@
 import os
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_HNDLR, CMD_LIST
-from userbot.Config import  Var
-from userbot.Config import Config
+from userbot.Config import Var
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning User"
 CMD_HNDLR = Var.CMD_HNDLR

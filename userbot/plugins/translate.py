@@ -5,13 +5,13 @@ Available Commands:
 
 import emoji
 from googletrans import Translator
-from userbot.utils import admin_cmd
 from telethon import events
 
+from userbot.utils import admin_cmd
 
 
 @borg.on(admin_cmd(pattern="tr ?(.*)"))
-@borg.on(events.NewMessage(pattern=r"\.tr ?(.*)",incoming=True))
+@borg.on(events.NewMessage(pattern=r"\.tr ?(.*)", incoming=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -40,9 +40,7 @@ async def _(event):
          Source **( {} )**
          Translation **( {} )**
          {}""".format(
-            translated.src,
-            lan,
-            after_tr_text
+            translated.src, lan, after_tr_text
         )
         await event.edit(output_str)
     except Exception as exc:

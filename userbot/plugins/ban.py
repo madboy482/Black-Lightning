@@ -1,4 +1,3 @@
-
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
@@ -7,29 +6,12 @@
 Userbot module to help you manage a group
 """
 
-from asyncio import sleep
-from os import remove
-from telethon import events
-import asyncio
 from datetime import datetime
+
 from telethon.tl.functions.channels import EditBannedRequest
-from telethon.tl.types import ChatBannedRights
+from telethon.tl.types import ChatBannedRights, MessageEntityMentionName
 
-from telethon.errors import (BadRequestError, ChatAdminRequiredError,
-                             ImageProcessFailedError, PhotoCropSizeSmallError,
-                             UserAdminInvalidError)
-from telethon.errors.rpcerrorlist import (UserIdInvalidError,
-                                          MessageTooLongError)
-from telethon.tl.functions.channels import (EditAdminRequest,
-                                            EditBannedRequest,
-                                            EditPhotoRequest)
-from telethon.tl.functions.messages import UpdatePinnedMessageRequest
-from telethon.tl.types import (ChannelParticipantsAdmins, ChatAdminRights,
-                               ChatBannedRights, MessageEntityMentionName,
-                               MessageMediaPhoto)
-
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot 
-from userbot.utils import register, errors_handler, admin_cmd
+from userbot.utils import admin_cmd
 
 # =================== CONSTANT ===================
 PP_TOO_SMOL = "`The image is too small`"
@@ -39,9 +21,11 @@ NO_PERM = "`I don't have sufficient permissions! This is so sed. Alexa play desp
 NO_SQL = "`Running on Non-SQL mode!`"
 
 CHAT_PP_CHANGED = "`Chat Picture Changed`"
-CHAT_PP_ERROR = "`Some issue with updating the pic,`" \
-                "`maybe coz I'm not an admin,`" \
-                "`or don't have enough rights.`"
+CHAT_PP_ERROR = (
+    "`Some issue with updating the pic,`"
+    "`maybe coz I'm not an admin,`"
+    "`or don't have enough rights.`"
+)
 INVALID_MEDIA = "`Invalid Extension`"
 
 BANNED_RIGHTS = ChatBannedRights(
@@ -79,7 +63,7 @@ async def _(event):
     # commands start with ".unban"
     if event.fwd_from:
         return
-    start = datetime.now()
+    datetime.now()
     to_ban_id = None
     rights = None
     input_cmd = event.pattern_match.group(1)
@@ -117,9 +101,7 @@ async def _(event):
             from_user = await borg.get_entity(input_str)
             logger.info(from_user)
         async for message in borg.iter_messages(
-            event.chat_id,
-            min_id=event.reply_to_msg_id,
-            from_user=from_user
+            event.chat_id, min_id=event.reply_to_msg_id, from_user=from_user
         ):
             i = i + 1
             msgs.append(message)
@@ -140,7 +122,7 @@ async def _(event):
     # commands start with ".unban"
     if event.fwd_from:
         return
-    start = datetime.now()
+    datetime.now()
     to_ban_id = None
     rights = None
     input_cmd = event.pattern_match.group(1)
@@ -167,7 +149,7 @@ async def _(event):
 
 async def get_user_from_event(event):
     """ Get the user from argument or replied message. """
-    args = event.pattern_match.group(1).split(' ', 1)
+    args = event.pattern_match.group(1).split(" ", 1)
     extra = None
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
@@ -188,8 +170,7 @@ async def get_user_from_event(event):
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
 
-            if isinstance(probable_user_mention_entity,
-                          MessageEntityMentionName):
+            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
                 user_obj = await event.client.get_entity(user_id)
                 return user_obj

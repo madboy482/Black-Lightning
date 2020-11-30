@@ -1,5 +1,3 @@
-
-
 import base64
 
 from userbot.utils import admin_cmd

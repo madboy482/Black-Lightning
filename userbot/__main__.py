@@ -9,7 +9,6 @@ from userbot import bot
 from userbot.Config import Var
 from userbot.utils import load_module, start_assistant
 
-
 sed = logging.getLogger("Black Lightning")
 
 

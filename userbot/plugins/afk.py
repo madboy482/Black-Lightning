@@ -8,11 +8,6 @@ from telethon.tl import functions, types
 from userbot import CMD_HELP
 from userbot.utils import admin_cmd
 
-
-
-
-
-
 #####################################################################
 
 

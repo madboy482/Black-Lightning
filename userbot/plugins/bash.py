@@ -2,10 +2,9 @@ import asyncio
 import io
 import time
 
-
-
 from userbot import CMD_HELP
 from userbot.utils import admin_cmd, sudo_cmd
+
 
 @borg.on(admin_cmd(pattern="bash ?(.*)"))
 @borg.on(sudo_cmd(pattern="bash ?(.*)", allow_sudo=True))

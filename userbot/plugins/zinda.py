@@ -3,16 +3,18 @@
 
 """Check if your userbot is working."""
 import os
-import requests
 import time
-from PIL import Image
-from io import BytesIO
-from userbot import ALIVE_NAME
-from userbot.utils import admin_cmd
-from userbot.__init__ import StartTime
 from datetime import datetime
+from io import BytesIO
 
-ALIVE_PIC = os.environ.get("ALIVE_PIC" , None)
+import requests
+from PIL import Image
+
+from userbot import ALIVE_NAME
+from userbot.__init__ import StartTime
+
+ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
+
 
 def get_readable_time(seconds: int) -> str:
     count = 0
@@ -41,14 +43,16 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
+
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
+
 
 @command(outgoing=True, pattern="^.alive$")
 async def amireallyalive(alive):
     start = datetime.now()
     """ For .alive command, check if the bot is running.  """
     end = datetime.now()
-    ms = (end - start).microseconds / 1000
+    (end - start).microseconds / 1000
     uptime = get_readable_time((time.time() - StartTime))
     if ALIVE_PIC:
         tele = f"**This Black Lightning Assistant**\n\n"
@@ -61,10 +65,10 @@ async def amireallyalive(alive):
         tele += f"` 🔹 My pro owner`: {DEFAULTUSER}\n\n"
         tele += "    [✨ GitHub Repository ✨](https://github.com/Anmol-dot283/Black-Lightning)"
 
-        chat = await alive.get_chat()
+        await alive.get_chat()
         await alive.delete()
         """ For .alive command, check if the bot is running.  """
-        await borg.send_file(alive.chat_id, ALIVE_PIC,caption=tele, link_preview = False)
+        await borg.send_file(alive.chat_id, ALIVE_PIC, caption=tele, link_preview=False)
         await alive.delete()
         return
     req = requests.get("https://telegra.ph/file/b233f8b6332fbeb3f61dc.mp4")
@@ -76,14 +80,18 @@ async def amireallyalive(alive):
         img.save(sticker, "mp4")
         sticker.name = "sticker.mp4"
         sticker.seek(0)
-        await borg.send_message(alive.chat_id, f"**Welcome To Black Lightning **\n\n"
-                "**`Hey! I'm alive. All systems online and functioning normally!`**\n\n"
-                "` 🔸 Telethon version:` **1.15.0**\n` 🔹 Python:` **3.8.3**\n"
-                "` 🔸 More info:` [Black Lightning](https://github.com/Anmol-dot283/Black-Lightning)\n"
-                "` 🔹 Bot created by:` [@krish1303y](https://t.me/krish1303y)\n"
-                f"` 🔸 TeleBot Uptime:` {StartTime}\n"
-                "` 🔸 Database Status:` **All OK 👌!**\n"
-                f"` 🔹 My pro owner`: {DEFAULTUSER}\n\n"
-                "    [✨ GitHub Repository ✨](https://github.com/Anmol-dot283/Black-Lightning)", link_preview = False)
-        await borg.send_file(alive.chat_id, file=sticker) 
+        await borg.send_message(
+            alive.chat_id,
+            f"**Welcome To Black Lightning **\n\n"
+            "**`Hey! I'm alive. All systems online and functioning normally!`**\n\n"
+            "` 🔸 Telethon version:` **1.15.0**\n` 🔹 Python:` **3.8.3**\n"
+            "` 🔸 More info:` [Black Lightning](https://github.com/Anmol-dot283/Black-Lightning)\n"
+            "` 🔹 Bot created by:` [@krish1303y](https://t.me/krish1303y)\n"
+            f"` 🔸 TeleBot Uptime:` {StartTime}\n"
+            "` 🔸 Database Status:` **All OK 👌!**\n"
+            f"` 🔹 My pro owner`: {DEFAULTUSER}\n\n"
+            "    [✨ GitHub Repository ✨](https://github.com/Anmol-dot283/Black-Lightning)",
+            link_preview=False,
+        )
+        await borg.send_file(alive.chat_id, file=sticker)
         await alive.delete()

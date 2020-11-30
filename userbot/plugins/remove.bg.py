@@ -18,11 +18,11 @@ Syntax: .rmbg as reply to a media"""
 import io
 import os
 from datetime import datetime
-from userbot.Config import Var
+
 import requests
 
-from  userbot.utils import admin_cmd
-
+from userbot.Config import Var
+from userbot.utils import admin_cmd
 
 
 @borg.on(admin_cmd("rmbg ?(.*)"))

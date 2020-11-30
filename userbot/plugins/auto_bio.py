@@ -1,4 +1,3 @@
-  
 # AutoBio plugin for TeleBot
 # Using this might lead to ban of your account, use at your own risk.
 # Re-Written by @its_xditya

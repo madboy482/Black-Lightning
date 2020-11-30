@@ -25,9 +25,7 @@ from telethon.tl.types import (
 PP_TOO_SMOL = "`The image is too small`"
 PP_ERROR = "`Failure while processing the image`"
 NO_ADMIN = "`I am not an admin nub nibba!`"
-NO_PERM = (
-    "`I don't have sufficient permissions! This is so sed. Alexa play Tera Chacha Aya`\nIdiot If Ihave Not Any Persion\nHow I Could Play Tera Chacha Aaya?"
-)
+NO_PERM = "`I don't have sufficient permissions! This is so sed. Alexa play Tera Chacha Aya`\nIdiot If Ihave Not Any Persion\nHow I Could Play Tera Chacha Aaya?"
 NO_SQL = "`Running on Non-SQL mode!`"
 
 CHAT_PP_CHANGED = "`Chat Picture Changed`"
@@ -112,9 +110,13 @@ async def nothanos(event):
         return
     try:
         await event.client(EditBannedRequest(event.chat_id, user.id, UNBAN_RIGHTS))
-        await event.reply("`Unbanned Successfully. Ok Then \nGranting another chance.🚶`")
+        await event.reply(
+            "`Unbanned Successfully. Ok Then \nGranting another chance.🚶`"
+        )
     except BadRequestError:
-        await event.reply("Opps\nI Could't UnBan That User Probably Due To Less Permissions.")
+        await event.reply(
+            "Opps\nI Could't UnBan That User Probably Due To Less Permissions."
+        )
         return
 
 

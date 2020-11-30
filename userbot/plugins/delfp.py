@@ -1,6 +1,7 @@
 from telethon.tl.functions.photos import DeletePhotosRequest, GetUserPhotosRequest
 from telethon.tl.types import InputPhoto
-from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
+
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 
 @borg.on(admin_cmd(pattern="delpfp ?(.*)"))
