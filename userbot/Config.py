@@ -81,6 +81,7 @@ class Var(object):
     OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", None)
     OPEN_LOAD_KEY = os.environ.get("OPEN_LOAD_KEY", None)
     NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", False))
+    ENABLE_ASSISTANTBOT = os.environ.get("ENABLE_ASSISTANTBOT", "ENABLE")
     PM_DATA = os.environ.get("PM_DATA", "ENABLE")
     AUTH_TOKEN_DATA = os.environ.get("AUTH_TOKEN_DATA", None)
     PMSECURITY = os.environ.get("PMSECURITY", "ON")

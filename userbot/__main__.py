@@ -6,9 +6,9 @@ import telethon.utils
 from telethon import TelegramClient
 
 from userbot import bot
-from userbot.Config import Config
+from userbot.Config import Var
 from userbot.utils import load_module, start_assistant
-from var import Var
+
 
 sed = logging.getLogger("Black Lightning")
 
@@ -42,7 +42,7 @@ for name in files:
         shortname = path1.stem
         load_module(shortname.replace(".py", ""))
 
-if Config.ENABLE_ASSISTANTBOT == "ENABLE":
+if Var.ENABLE_ASSISTANTBOT == "ENABLE":
     path = "userbot/plugins/assistant/*.py"
     files = glob.glob(path)
     for name in files:
