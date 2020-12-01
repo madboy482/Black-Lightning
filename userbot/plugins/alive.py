@@ -65,7 +65,7 @@ async def amireallyalive(alive):
     myid = bot.uid
     """ For .alive command, check if the bot is running.  """
     end = datetime.now()
-    (end - start).microseconds / 10
+    (end - start).microseconds / 100 
     uptime = get_readable_time((time.time() - StartTime))
     if ALV_PIC:
         tele = f"**Welcome To 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 **\n\n"
