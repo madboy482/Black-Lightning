@@ -138,7 +138,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 
 @bot.on(admin_cmd(outgoing=True, pattern=r"u$"))
 async def upstream(event):
-    event = await event.edit("`Pulling the DarkCobra repo wait a sec ....`")
+    event = await event.edit("`Pulling the Black Lightning repo wait a sec ....`")
     off_repo = "https://github.com/Anmol-dot283/Black-Lightning"
     cmd = f"rm -rf .git"
     try:
