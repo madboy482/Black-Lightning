@@ -75,7 +75,7 @@ async def amireallyalive(alive):
         tele += f"{telemoji} **𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 Version**: `{telever}`\n"
         tele += f"{telemoji} **More Info**: @blacklightningot\n"
         tele += f"{telemoji} **Sudo** : `{sudo}`\n"
-        tele += f"{telemoji} **DMy Creator**: `@krish1303y🔥🔥🔥🔥!`\n"
+        tele += f"{telemoji} **My Creator**: `@krish1303y🔥🔥🔥🔥!`\n"
         tele += f"{telemoji} **Thunder Uptime**: `{uptime}`\n"
         tele += f"{telemoji} **Database Status**: `All OK 👌!`\n"
         tele += (
@@ -107,7 +107,7 @@ async def amireallyalive(alive):
             f"{telemoji} **Sudo** : `{sudo}`\n"
             f"{telemoji} **𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤  Uptime**: `{uptime}`\n"
             f"{telemoji} **Database Status**: `All OK 👌!`\n"
-            f"{telemoji} **DMy Creator**: `@krish1303y🔥🔥🔥🔥!`\n"
+            f"{telemoji} **My Creator**: `@krish1303y🔥🔥🔥🔥!`\n"
             f"{telemoji} **My pro owner** : [{DEFAULTUSER}](tg://user?id={myid})\n\n"
             "    [✨ GitHub Repository ✨](https://github.com/Anmol-dot283/Black-Lightning)",
             link_preview=False,
