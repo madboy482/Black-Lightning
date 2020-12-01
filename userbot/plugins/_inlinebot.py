@@ -184,8 +184,8 @@ async def rip(event):
         return
     await event.get_chat()
     him_id = event.query.user_id
-    await event.edit("Choice Accepted ✔️")
-    text2 = "Ok. Please Wait Until My Master Approves. Don't Spam Or Try Anything Stupid. \nThank You For Contacting Me."
+    await event.edit("Oo Yeah Baby You Have Good Intention Choice Accepted ✔️")
+    text2 = "Ok So. Please Wait Until My Master Approves. Don't Spam Or Try Anything Stupid. \nThank You For Contacting Me."
     await borg.send_message(event.query.user_id, text2)
     await tgbot.send_message(
         LOG_CHAT,
@@ -202,8 +202,8 @@ async def rip(event):
         return
     await event.get_chat()
     him_id = event.query.user_id
-    await event.edit("Choice Accepted ✔️")
-    text3 = "Ok, Wait. You can Ask After Master Approves You. Kindly, Wait."
+    await event.edit("Oo Yeah Baby You Have Good Intention Choice Accepted ✔️")
+    text3 = "You are Approved Be in Queue Wait. You can Ask After Master Approves You. Kindly, Wait."
     await borg.send_message(event.query.user_id, text3)
     await tgbot.send_message(
         LOG_CHAT,
