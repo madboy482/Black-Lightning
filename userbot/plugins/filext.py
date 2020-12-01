@@ -2,7 +2,6 @@
 Syntax: .filext EXTENSION"""
 import requests
 from bs4 import BeautifulSoup
-
 from userbot.utils import admin_cmd
 
 

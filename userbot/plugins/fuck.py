@@ -8,13 +8,16 @@ Available Commands:
 
 .kiss"""
 
+from telethon import events
 
 import asyncio
 
 from userbot.utils import admin_cmd
 
 
+
 @borg.on(admin_cmd("fuck"))
+
 async def _(event):
 
     if event.fwd_from:
@@ -25,13 +28,23 @@ async def _(event):
 
     animation_ttl = range(0, 101)
 
-    # input_str = event.pattern_match.group(1)
+    #input_str = event.pattern_match.group(1)
 
-    # if input_str == "fuk":
+   # if input_str == "fuk":
 
     await event.edit("fuk")
 
-    animation_chars = ["👉       ✊️", "👉     ✊️", "👉  ✊️", "👉✊️💦"]
+    animation_chars = [
+
+            "👉       ✊️",
+
+            "👉     ✊️",
+
+            "👉  ✊️",
+
+            "👉✊️💦"
+
+        ]
 
     for i in animation_ttl:
 
@@ -41,6 +54,7 @@ async def _(event):
 
 
 @borg.on(admin_cmd("sux"))
+
 async def _(event):
 
     if event.fwd_from:
@@ -51,13 +65,23 @@ async def _(event):
 
     animation_ttl = range(0, 101)
 
-    # input_str = event.pattern_match.group(1)
+    #input_str = event.pattern_match.group(1)
 
-    # if input_str == "sux":
+    #if input_str == "sux":
 
     await event.edit("sux")
 
-    animation_chars = ["🤵       👰", "🤵     👰", "🤵  👰", "🤵👼👰"]
+    animation_chars = [
+
+            "🤵       👰",
+
+            "🤵     👰",
+
+            "🤵  👰",
+
+            "🤵👼👰"
+
+        ]
 
     for i in animation_ttl:
 
@@ -69,10 +93,16 @@ async def _(event):
 ""
 
 
+from telethon import events
+
 import asyncio
 
 
+
+
+
 @borg.on(admin_cmd("kiss"))
+
 async def _(event):
 
     if event.fwd_from:
@@ -83,13 +113,23 @@ async def _(event):
 
     animation_ttl = range(0, 101)
 
-    # input_str = event.pattern_match.group(1)
+    #input_str = event.pattern_match.group(1)
 
-    # if input_str == "kiss":
+    #if input_str == "kiss":
 
     await event.edit("kiss")
 
-    animation_chars = ["🤵       👰", "🤵     👰", "🤵  👰", "🤵💋👰"]
+    animation_chars = [
+
+            "🤵       👰",
+
+            "🤵     👰",
+
+            "🤵  👰",
+
+            "🤵💋👰"
+
+        ]
 
     for i in animation_ttl:
 

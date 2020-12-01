@@ -10,12 +10,16 @@ Available Commands:
 .anim
 .fnl"""
 
+from telethon import events
+
 import asyncio
 
-from telethon import events
+
+
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+
 async def _(event):
 
     if event.fwd_from:
@@ -32,7 +36,18 @@ async def _(event):
 
         await event.edit(input_str)
 
-        animation_chars = ["▮", "▯", "▬", "▭" "‎"]
+        animation_chars = [
+
+            "▮",
+
+            "▯",
+
+            "▬",
+
+            "▭"
+            "‎"
+
+        ]
 
         for i in animation_ttl:
 
@@ -53,12 +68,16 @@ Available Commands:
 
 .emoji -_-"""
 
+from telethon import events
+
 import asyncio
 
-from telethon import events
+
+
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+
 async def _(event):
 
     if event.fwd_from:
@@ -75,7 +94,18 @@ async def _(event):
 
         await event.edit(input_str)
 
-        animation_chars = ["◧", "◨", "◧", "◨" "‎"]
+        animation_chars = [
+
+            "◧",
+
+            "◨",
+
+            "◧",
+
+            "◨"
+            "‎"
+
+        ]
 
         for i in animation_ttl:
 
@@ -84,7 +114,9 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
+
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+
 async def _(event):
 
     if event.fwd_from:
@@ -101,7 +133,18 @@ async def _(event):
 
         await event.edit(input_str)
 
-        animation_chars = ["╹", "╻", "╹", "╻" "‎"]
+        animation_chars = [
+
+            "╹",
+
+            "╻",
+
+            "╹",
+
+            "╻"
+            "‎"
+
+        ]
 
         for i in animation_ttl:
 
@@ -109,8 +152,8 @@ async def _(event):
 
             await event.edit(animation_chars[i % 4])
 
-
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+
 async def _(event):
 
     if event.fwd_from:
@@ -127,7 +170,18 @@ async def _(event):
 
         await event.edit(input_str)
 
-        animation_chars = ["⚫", "⬤", "●", "∘" "‎"]
+        animation_chars = [
+
+            "⚫",
+
+            "⬤",
+
+            "●",
+
+            "∘"
+            "‎"
+
+        ]
 
         for i in animation_ttl:
 
@@ -136,7 +190,9 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
+
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+
 async def _(event):
 
     if event.fwd_from:
@@ -153,7 +209,18 @@ async def _(event):
 
         await event.edit(input_str)
 
-        animation_chars = ["🖤", "❤️", "🖤", "❤️" "‎"]
+        animation_chars = [
+
+            "🖤",
+
+            "❤️",
+
+            "🖤",
+
+            "❤️"
+            "‎"
+
+        ]
 
         for i in animation_ttl:
 
@@ -162,7 +229,9 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
+
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+
 async def _(event):
 
     if event.fwd_from:
@@ -180,17 +249,29 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
+
             "😁",
+
             "😧",
+
             "😡",
+
             "😢",
+
             "‎**Repo by @r4v4n4**",
+ 
             "😁",
+
             "😧",
+
             "😡",
+
             "😢",
+
             "‎github.com/ravana69/pornhub",
-            "__**RePe GeNg Is BeHiNd You....**__",
+
+            "__**RePe GeNg Is BeHiNd You....**__"
+
         ]
 
         for i in animation_ttl:
@@ -201,6 +282,7 @@ async def _(event):
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+
 async def _(event):
 
     if event.fwd_from:
@@ -218,12 +300,19 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
+
             "😁🏿",
+
             "😁🏾",
+
             "😁🏽",
+
             "😁🏼",
+
             "‎😁",
-            "**Fair & Lovely GeNg Is BeHiNd You....**",
+
+            "**Fair & Lovely GeNg Is BeHiNd You....**"
+
         ]
 
         for i in animation_ttl:

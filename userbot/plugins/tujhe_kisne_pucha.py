@@ -4,9 +4,8 @@ Available Commands:
 .emoji apple
 .emoji :/
 .emoji -_-"""
-import asyncio
-
 from telethon import events
+import asyncio
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
@@ -18,7 +17,12 @@ async def _(event):
     input_str = event.pattern_match.group(1)
     if input_str == "tujhse":
         await event.edit(input_str)
-        animation_chars = ["kisine", "pucha?", "kya?", "tujhse"]
+        animation_chars = [
+            "kisine",
+            "pucha?",
+            "kya?",
+            "tujhse"
+        ]
         for i in animation_ttl:
             await asyncio.sleep(animation_interval)
             await event.edit(animation_chars[i % 4])

@@ -82,12 +82,7 @@ async def help(event):
             event.chat_id,
             message="You Can Deploy DARKCOBRA In Heroku By Following Steps Bellow, You Can See Some Quick Guides On Support Channel Or On Your Own Assistant Bot. \nThank You For Contacting Me.",
             buttons=[
-                [
-                    Button.url(
-                        "Deploy Tutorial 📺",
-                        "http://www.youtube.com/watch?v=-MbQO6kmP8o",
-                    )
-                ],
+                [Button.url("Deploy Tutorial 📺", "http://www.youtube.com/watch?v=-MbQO6kmP8o")],
                 [Button.url("Need Help ❓", "https://t.me/Dark_cobra_support_group")],
             ],
         )

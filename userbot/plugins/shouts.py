@@ -3,7 +3,10 @@ usage: .shout message
 originaly from : @corsicanu_bot
 """
 
-from telethon import events
+import sys
+from telethon import events, functions
+from uniborg.util import admin_cmd
+import random
 
 
 @borg.on(events.NewMessage(pattern=r"\.shouts", outgoing=True))
@@ -16,11 +19,14 @@ async def shout(args):
         messagestr = messagestr[7:]
         text = " ".join(messagestr)
         result = []
-        result.append(" ".join([s for s in text]))
+        result.append(' '.join([s for s in text]))
         for pos, symbol in enumerate(text[1:]):
-            result.append(symbol + " " + "  " * pos + symbol)
+            result.append(symbol + ' ' + '  ' * pos + symbol)
         result = list("\n".join(result))
         result[0] = text[0]
         result = "".join(result)
         msg = "\n" + result
-        await args.edit("`" + msg + "`")
+        await args.edit("`"+msg+"`")
+        
+    
+    

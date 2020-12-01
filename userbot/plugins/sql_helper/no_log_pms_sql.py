@@ -1,6 +1,5 @@
-from sqlalchemy import Column, Numeric
-
-from userbot.plugins.sql_helper import BASE, SESSION
+from sqlalchemy import Column, String, Numeric
+from userbot.plugins.sql_helper import SESSION, BASE
 
 
 class NOLogPMs(BASE):

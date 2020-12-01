@@ -4,8 +4,10 @@ Available Commands:
 .dns google.com
 .url <long url>
 .unshort <short url>"""
+from telethon import events
+import os
 import requests
-
+import json
 from userbot.utils import admin_cmd
 
 
@@ -43,11 +45,7 @@ async def _(event):
     if not input_str.startswith("http"):
         input_str = "http://" + input_str
     r = requests.get(input_str, allow_redirects=False)
-    if str(r.status_code).startswith("3"):
-        await event.edit(
-            "Input URL: {}\nReDirected URL: {}".format(input_str, r.headers["Location"])
-        )
+    if str(r.status_code).startswith('3'):
+        await event.edit("Input URL: {}\nReDirected URL: {}".format(input_str, r.headers["Location"]))
     else:
-        await event.edit(
-            "Input URL {} returned status_code {}".format(input_str, r.status_code)
-        )
+        await event.edit("Input URL {} returned status_code {}".format(input_str, r.status_code))

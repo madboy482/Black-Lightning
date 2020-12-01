@@ -1,6 +1,5 @@
 from sqlalchemy import Column, String
-
-from userbot.plugins.sql_helper import BASE, SESSION
+from userbot.plugins.sql_helper import SESSION, BASE
 
 
 class GBan(BASE):

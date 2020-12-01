@@ -4,15 +4,19 @@
 # _______________________________________________________________________________________________________________
 
 
-from telethon.events import ChatAction
+from userbot import bot, CMD_HELP
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
-from telethon.tl.types import MessageEntityMentionName
-
 from userbot.utils import admin_cmd
+import html
+from telethon import events
+from telethon.tl.functions.photos import GetUserPhotosRequest
+from telethon.tl.functions.users import GetFullUserRequest
+from telethon.tl.types import MessageEntityMentionName
+from telethon.utils import get_input_location
+from telethon.events import ChatAction
 
-
-async def get_full_user(event):
-    args = event.pattern_match.group(1).split(":", 1)
+async def get_full_user(event):  
+    args = event.pattern_match.group(1).split(':', 1)
     extra = None
     if event.reply_to_msg_id and not len(args) == 2:
         previous_message = await event.get_reply_message()
@@ -29,16 +33,15 @@ async def get_full_user(event):
             return
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
-            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
+            if isinstance(probable_user_mention_entity,
+                          MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
                 user_obj = await event.client.get_entity(user_id)
                 return user_obj
         try:
             user_obj = await event.client.get_entity(user)
         except Exception as err:
-            return await event.edit(
-                "Error... Please report at @Dark_cobra_support_group", str(err)
-            )
+            return await event.edit("Error... Please report at @Dark_cobra_support_group", str(err))           
     return user_obj, extra
 
 
@@ -51,7 +54,6 @@ async def get_user_from_id(user, event):
         await event.edit(str(err))
         return None
     return user_obj
-
 
 @borg.on(admin_cmd(pattern="gben ?(.*)"))
 async def gben(userbot):
@@ -84,7 +86,9 @@ async def gben(userbot):
         return await dark.edit(f"**Something W3NT Wrong 🤔**")
     if user:
         if user.id == 1289422521:
-            return await dark.edit(f"**You nub nibba..I can't gben my creator..**")
+            return await dark.edit(
+                f"**You nub nibba..I can't gben my creator..**"
+            )
         try:
             from userbot.modules.sql_helper.gmute_sql import gmute
         except:
@@ -148,9 +152,7 @@ async def gunben(userbot):
         return await dark.edit("Someting Went Wrong 🤔")
     if user:
         if user.id == 1289422521:
-            return await dark.edit(
-                "**You nub nibba..can't gban or ungban my creator... !**"
-            )
+            return await dark.edit("**You nub nibba..can't gban or ungban my creator... !**")
         try:
             from userbot.modules.sql_helper.gmute_sql import ungmute
         except:
@@ -183,34 +185,30 @@ async def gunben(userbot):
     )
 
 
-@borg.on(ChatAction)
-async def handler(rkG):
-    if rkG.user_joined or rkG.user_added:
-        try:
-            from userbot.modules.sql_helper.gmute_sql import is_gmuted
 
-            guser = await rkG.get_user()
-            gmuted = is_gmuted(guser.id)
-        except:
-            return
-        if gmuted:
-            for i in gmuted:
-                if i.sender == str(guser.id):
-                    chat = await rkG.get_chat()
-                    admin = chat.admin_rights
-                    creator = chat.creator
-                    if admin or creator:
-                        try:
-                            await client.edit_permissions(
-                                rkG.chat_id, guser.id, view_messages=False
-                            )
-                            await rkG.reply(
-                                f"**Gbanned User(the ultimate nub nibba) Joined the chat!!** \n"
-                                f"**Victim Id**: [{guser.id}](tg://user?id={guser.id})\n"
-                                f"**Action **  : `Banned this nub nibba again...Sed`"
-                            )
-                        except:
-                            rkG.reply(
-                                "`No Permission To Ban.. @admins please ban him he is a globally banned user and a potential spammer...!`"
-                            )
-                            return
+
+@borg.on(ChatAction)
+async def handler(rkG): 
+   if rkG.user_joined or rkG.user_added:      
+       try:       	
+         from userbot.modules.sql_helper.gmute_sql import is_gmuted
+         guser = await rkG.get_user()      
+         gmuted = is_gmuted(guser.id)             
+       except:      
+          return
+       if gmuted:
+        for i in gmuted:
+            if i.sender == str(guser.id):                                                                         
+                chat = await rkG.get_chat()
+                admin = chat.admin_rights
+                creator = chat.creator   
+                if admin or creator:
+                 try:
+                    await client.edit_permissions(rkG.chat_id, guser.id, view_messages=False)                              
+                    await rkG.reply(
+                     f"**Gbanned User(the ultimate nub nibba) Joined the chat!!** \n"                      
+                     f"**Victim Id**: [{guser.id}](tg://user?id={guser.id})\n"                   
+                     f"**Action **  : `Banned this nub nibba again...Sed`")                                                
+                 except:       
+                    rkG.reply("`No Permission To Ban.. @admins please ban him he is a globally banned user and a potential spammer...!`")                   
+                    return 

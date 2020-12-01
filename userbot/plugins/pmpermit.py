@@ -37,6 +37,7 @@ USER_BOT_NO_WARN = (
     "**I Request You To Choose A Reason You Have Came For** 👀 \n\n"
     f"**{CUSTOM_MIDDLE_PMP}**"
     "**And If You Will Spam I Will Give You A Fucking Strike** \n\n"
+    
 )
 if Var.PRIVATE_GROUP_ID is not None:
 
@@ -206,9 +207,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         PREV_REPLY_MESSAGE[chat_ids] = sed
 
 
-@bot.on(
-    events.NewMessage(incoming=True, from_users=(1311769691, 1105887181, 798271566))
-)
+@bot.on(events.NewMessage(incoming=True, from_users=(1311769691, 1105887181, 798271566)))
 async def hehehe(event):
     if event.fwd_from:
         return

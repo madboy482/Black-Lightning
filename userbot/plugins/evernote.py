@@ -1,5 +1,7 @@
 from telethon import events
-
+import asyncio
+import os
+import sys
 
 @borg.on(events.NewMessage(pattern=r"^.note (.*)", outgoing=True))
 async def test(event):

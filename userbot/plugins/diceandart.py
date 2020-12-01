@@ -1,5 +1,4 @@
 from telethon.tl.types import InputMediaDice
-
 from userbot.utils import admin_cmd
 
 # EMOJI CONSTANTS

@@ -2,22 +2,17 @@
 Available Commands
 .getqr
 .makeqr <long text to include>"""
+from telethon import events
 import asyncio
-import os
 from datetime import datetime
-
+import os
+from uniborg.util import admin_cmd
 import qrcode
 from bs4 import BeautifulSoup
 
-from uniborg.util import admin_cmd
-
 
 def progress(current, total):
-    logger.info(
-        "Downloaded {} of {}\nCompleted {}".format(
-            current, total, (current / total) * 100
-        )
-    )
+    logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
 
 
 @borg.on(admin_cmd(pattern="getqr"))
@@ -30,16 +25,14 @@ async def _(event):
     downloaded_file_name = await borg.download_media(
         await event.get_reply_message(),
         Config.TMP_DOWNLOAD_DIRECTORY,
-        progress_callback=progress,
+        progress_callback=progress
     )
     # parse the Official ZXing webpage to decode the QR
     command_to_exec = [
         "curl",
-        "-X",
-        "POST",
-        "-F",
-        "f=@" + downloaded_file_name + "",
-        "https://zxing.org/w/decode",
+        "-X", "POST",
+        "-F", "f=@" + downloaded_file_name + "",
+        "https://zxing.org/w/decode"
     ]
     process = await asyncio.create_subprocess_exec(
         *command_to_exec,
@@ -61,9 +54,7 @@ async def _(event):
     qr_contents = soup.find_all("pre")[0].text
     end = datetime.now()
     ms = (end - start).seconds
-    await event.edit(
-        "Obtained QRCode contents in {} seconds.\n{}".format(ms, qr_contents)
-    )
+    await event.edit("Obtained QRCode contents in {} seconds.\n{}".format(ms, qr_contents))
     await asyncio.sleep(5)
     await event.edit(qr_contents)
 
@@ -85,7 +76,7 @@ async def _(event):
             downloaded_file_name = await borg.download_media(
                 previous_message,
                 Config.TMP_DOWNLOAD_DIRECTORY,
-                progress_callback=progress,
+                progress_callback=progress
             )
             m_list = None
             with open(downloaded_file_name, "rb") as fd:
@@ -113,7 +104,7 @@ async def _(event):
         "img_file.webp",
         caption=message,
         reply_to=reply_msg_id,
-        progress_callback=progress,
+        progress_callback=progress
     )
     os.remove("img_file.webp")
     end = datetime.now()

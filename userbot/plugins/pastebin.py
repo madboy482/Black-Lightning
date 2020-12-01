@@ -4,9 +4,12 @@ from datetime import datetime
 
 import requests
 from requests import exceptions, get
+from telethon import events
+from telethon.errors.rpcerrorlist import YouBlockedUserError
 
+from userbot import CMD_HELP
 from userbot.Config import Var
-from userbot.utils import admin_cmd
+from userbot.utils import admin_cmd, sudo_cmd
 
 logging.basicConfig(
     format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s", level=logging.WARNING
@@ -182,10 +185,24 @@ async def _(event):
         await event.edit(reply_text)
 
 
+
 # ok..
 
 
+
+
+
+
+
 # Hmm
+
+
+
+
+
+
+
+
 
 
 # Acha...

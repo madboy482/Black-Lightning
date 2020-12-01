@@ -1,12 +1,14 @@
 import asyncio
 import sys
-from os import path, remove
+from os import environ, execle, path, remove
 from typing import Tuple
 
+from git import repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
-
 from userbot.Config import Var
+
 from userbot.utils import admin_cmd
+from userbot import CMD_HELP 
 
 HEROKU_APP_NAME = Var.HEROKU_APP_NAME or None
 HEROKU_API_KEY = Var.HEROKU_API_KEY or None
@@ -16,21 +18,17 @@ requirements_path = path.join(
     path.dirname(path.dirname(path.dirname(__file__))), "requirements.txt"
 )
 
-
 async def runcmd(cmd: str) -> Tuple[str, str, int, int]:
     """ run command in terminal """
     args = shlex.split(cmd)
-    process = await asyncio.create_subprocess_exec(
-        *args, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-    )
+    process = await asyncio.create_subprocess_exec(*args,
+                                                   stdout=asyncio.subprocess.PIPE,
+                                                   stderr=asyncio.subprocess.PIPE)
     stdout, stderr = await process.communicate()
-    return (
-        stdout.decode("utf-8", "replace").strip(),
-        stderr.decode("utf-8", "replace").strip(),
-        process.returncode,
-        process.pid,
-    )
-
+    return (stdout.decode('utf-8', 'replace').strip(),
+            stderr.decode('utf-8', 'replace').strip(),
+            process.returncode,
+            process.pid)
 
 async def gen_chlog(repo, diff):
     ch_log = ""
@@ -127,16 +125,14 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             )
             await asyncio.sleep(5)
             return await event.delete()
-        await event.edit(
-            "`Damn This Update Looks \nSuccessfully deployed!\n"
-            "Wait Please \nRestarting, please wait...`"
-        )
+        await event.edit("`Damn This Update Looks \nSuccessfully deployed!\n" "Wait Please \nRestarting, please wait...`")
     else:
         await event.edit("`Please set up`  **HEROKU_API_KEY**  ` Var...`")
     return
 
 
 @bot.on(admin_cmd(outgoing=True, pattern=r"u$"))
+
 async def upstream(event):
     event = await event.edit("`Pulling the DarkCobra repo wait a sec ....`")
     off_repo = "https://github.com/Anmol-dot283/Black-Lightning"

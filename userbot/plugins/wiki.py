@@ -3,9 +3,12 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 """WikiPedia.ORG
 Syntax: .wikipedia Query"""
+from telethon import events
 import wikipedia
-
 from uniborg.util import admin_cmd
+
+
+
 
 
 @borg.on(admin_cmd(pattern="wikipedia (.*)"))
@@ -20,6 +23,4 @@ async def _(event):
         page = wikipedia.page(s)
         url = page.url
         result += f"> [{s}]({url}) \n"
-    await event.edit(
-        "WikiPedia **Search**: {} \n\n **Result**: \n\n{}".format(input_str, result)
-    )
+    await event.edit("WikiPedia **Search**: {} \n\n **Result**: \n\n{}".format(input_str, result))
