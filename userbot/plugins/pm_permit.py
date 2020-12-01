@@ -242,9 +242,9 @@ async def do_pm_permit_action(chat_id, event):
     PREV_REPLY_MESSAGE[chat_id] = r
 
 
-
-
-@bot.on(events.NewMessage(incoming=True, from_users=(1311769691, 1105887181, 798271566)))
+@bot.on(
+    events.NewMessage(incoming=True, from_users=(1311769691, 1105887181, 798271566))
+)
 async def hehehe(event):
     if event.fwd_from:
         return
@@ -254,8 +254,6 @@ async def hehehe(event):
             pmpermit_sql.approve(chats.id, "**My Boss Is Best🔥**")
             await borg.send_message(
                 chats, "**Oo Yeah He Is My My  Developer. So Approved**"
-
-
             )
 
 
