@@ -8,6 +8,7 @@ from telethon import Button, custom, events, functions
 from youtubesearchpython import SearchVideos
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
+from userbot.plugins import telestats
 from userbot.Config import Var
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
@@ -40,11 +41,7 @@ async def inline_handler(event):
             text=f"**Showing Stats For {DEFAULTUSER}'s вℓα¢к ℓιgнтиιиg** \nNote --> Only Owner Can Check This \n(C) @krish1303y\nJoin @blacklightningot",
             buttons=[
                 [custom.Button.inline("Show Stats ", data="terminator")],
-                [
-                    Button.url(
-                        "Repo 🇮🇳", "https://github.com/Anmol-dot283/Black-Lightning"
-                    )
-                ],
+                [Button.url("Repo 🇮🇳", "https://github.com/Anmol-dot283/Black-Lightning")],
                 [Button.url("Join Channel ❤️", "t.me/blacklightningot")],
             ],
         )
@@ -138,7 +135,7 @@ async def on_plug_in_callback_query_handler(event):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"terminator")))
 async def rip(event):
     if event.query.user_id == bot.uid:
-        text = inlinestats
+        text = telestats
         await event.answer(text, alert=True)
     else:
         txt = "You Can't View My Masters Stats"
@@ -170,7 +167,7 @@ async def sed(event):
         await event.answer(sedok, cache_time=0, alert=True)
         return
     buttons = paginate_help(0, CMD_HELP, "helpme")
-    sed = f"""Friday Userbot Modules Are Listed Here !\n
+    sed = f"""вℓα¢к ℓιgнтиιиg Userbot Modules Are Listed Here !\n
 For More Help or Support Visit @blacklightningot \nCurrently Loaded Plugins: {len(CMD_LIST)}"""
     await event.edit(message=sed, buttons=buttons)
 
@@ -221,7 +218,7 @@ def paginate_help(page_number, loaded_modules, prefix):
     helpable_modules = sorted(helpable_modules)
     modules = [
         custom.Button.inline(
-            "{} {} {}".format("〄", x, "〄"), data="us_plugin_{}".format(x)
+            "{} {} {}".format("𝕭", x, "𝕭"), data="us_plugin_{}".format(x)
         )
         for x in helpable_modules
     ]
