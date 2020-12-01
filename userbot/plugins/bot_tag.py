@@ -16,21 +16,21 @@ from telethon import custom, events
 from telethon.tl.types import Chat
 from telethon.utils import get_display_name
 
-from userbot.Config import Config
+from userbot.Config import Var
 
 
 @borg.on(
     events.NewMessage(
         incoming=True,
-        blacklist_chats=Config.UB_BLACK_LIST_CHAT,
+        blacklist_chats=Var.UB_BLACK_LIST_CHAT,
         func=lambda e: (e.mentioned),
     )
 )
 async def all_messages_catcher(event):
-    if Config.TAG_FEATURE == "DISABLE":
+    if Var.TAG_FEATURE == "DISABLE":
         return
     # the bot might not have the required access_hash to mention the appropriate PM
-    await event.forward_to(Config.TG_BOT_USER_NAME_BF_HER)
+    await event.forward_to(Var.TG_BOT_USER_NAME_BF_HER)
     # construct message
     # the message format is stolen from @MasterTagAlertBot
     ammoca_message = ""
@@ -56,7 +56,7 @@ async def all_messages_catcher(event):
         # Telegram is weird :\
 
     ammoca_message += f"User {who_m} Have Tagged You Here -> [{where_m}]({message_link}) \nCheck Message 👇 "
-    log_chat = Config.PRIVATE_GROUP_ID
+    log_chat = Var.PRIVATE_GROUP_ID
     await tgbot.send_message(
         log_chat,
         message=ammoca_message,
