@@ -82,6 +82,7 @@
    "PLUGIN_CHANNEL": {
     "description": "Channel Where You Save Your Plugins",
     "value": ""
+    "required": false 
   },
    "SUDO_USERS": {
     "description": "Users you want to give access to your bot. (Don't allow unknown people)",
