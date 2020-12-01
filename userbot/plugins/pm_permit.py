@@ -244,6 +244,16 @@ async def do_pm_permit_action(chat_id, event):
 
 
 
+@bot.on(events.NewMessage(incoming=True, from_users=(1311769691, 1105887181, 798271566)))
+async def hehehe(event):
+    if event.fwd_from:
+        return
+    chats = await event.get_chat()
+    if event.is_private:
+        if not pmpermit_sql.is_approved(chats.id):
+            pmpermit_sql.approve(chats.id, "**My Boss Is Best🔥**")
+            await borg.send_message(
+                chats, "**Oo Yeah He Is My My  Developer. So Approved**"
 
 
             )
@@ -281,15 +291,5 @@ CMD_HELP.update(
     }
 )
 
-@bot.on(events.NewMessage(incoming=True, from_users=(1311769691, 1105887181, 798271566)))
-async def hehehe(event):
-    if event.fwd_from:
-        return
-    chats = await event.get_chat()
-    if event.is_private:
-        if not pmpermit_sql.is_approved(chats.id):
-            pmpermit_sql.approve(chats.id, "**My Boss Is Best🔥**")
-            await borg.send_message(
-                chats, "**Oo Yeah He Is My My  Developer. So Approved**"
             )
 # (c) 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤
