@@ -2,8 +2,8 @@
 import asyncio
 import io
 
-from userbot.utils import admin_cmd
 from userbot import CMD_HELP
+from userbot.utils import admin_cmd
 
 
 # @command(pattern="^.cmds", outgoing=True)
@@ -39,5 +39,7 @@ async def install(event):
 
 
 CMD_HELP.update(
-    {"command_list": ".cmds\nUsage - Extracts all the plugins of this userbot in a link.."}
+    {
+        "command_list": ".cmds\nUsage - Extracts all the plugins of this userbot in a link.."
+    }
 )

@@ -1,7 +1,7 @@
 """WikiMedia.ORG
 Syntax: .wikimedia Query"""
-from telethon import events
 import requests
+
 from uniborg.util import admin_cmd
 
 
@@ -16,7 +16,7 @@ async def _(event):
         "5",
         input_str,
         "timestamp|user|url|mime|thumbmime|mediatype",
-        "json"
+        "json",
     )
     r = requests.get(url).json()
     result = ""
@@ -38,5 +38,7 @@ async def _(event):
         user: [{}]({})
         mime: {}
         mediatype: {}
-        """.format(pageid, title, timestamp, user, descriptionurl, mime, mediatype)
+        """.format(
+            pageid, title, timestamp, user, descriptionurl, mime, mediatype
+        )
     await event.edit("**Search**: {} \n\n **Results**: {}".format(input_str, result))

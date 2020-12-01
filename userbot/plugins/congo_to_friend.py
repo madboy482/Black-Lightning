@@ -1,7 +1,6 @@
 import random
 
-from uniborg.util import edit_or_reply, admin_cmd, sudo_cmd
-
+from uniborg.util import admin_cmd
 from userbot import CMD_HELP
 
 RUNSREACTS = [
@@ -21,8 +20,8 @@ RUNSREACTS = [
 @borg.on(admin_cmd(pattern="congo"))
 async def _(event):
     if event.fwd_from:
-         return
-    bro = random.randint(0, len(RUNSREACTS) - 1)    
+        return
+    bro = random.randint(0, len(RUNSREACTS) - 1)
     reply_text = RUNSREACTS[bro]
     await event.edit(reply_text)
 

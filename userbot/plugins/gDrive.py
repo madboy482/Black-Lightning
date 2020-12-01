@@ -7,7 +7,6 @@ import requests
 from telethon import events
 
 
-
 async def download_file_from_google_drive(id):
     URL = "https://docs.google.com/uc?export=download"
 

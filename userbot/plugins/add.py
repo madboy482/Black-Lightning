@@ -1,6 +1,3 @@
-
-
-
 """Invite the user(s) to the current chat
 Syntax: .invite <User(s)>"""
 
@@ -13,7 +10,7 @@ Syntax: .invite <User(s)>"""
 
 from telethon import functions
 
-from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 
 @borg.on(admin_cmd(pattern="invite ?(.*)"))

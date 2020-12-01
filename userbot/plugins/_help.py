@@ -1,6 +1,7 @@
 from userbot import CMD_LIST
 from userbot.Config import Var
 
+
 @command(pattern="^.help ?(.*)")
 async def cmd_list(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):

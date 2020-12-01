@@ -1,4 +1,3 @@
-from uniborg.util import admin_cmd
 from userbot import SUDO_LIST
 from userbot.utils import sudo_cmd
 

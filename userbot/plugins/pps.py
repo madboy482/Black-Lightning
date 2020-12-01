@@ -5,30 +5,18 @@ cmd is .PPS ,
 ALL credits to the owner of FTG BOT and the dev of this Plugin Emily Bennett."""
 
 
-import sys
-import os
-import datetime
-import time
-from telethon import events
-from telethon.tl import functions, types
-import asyncio
-from telethon import utils
-from uniborg.util import admin_cmd
-import html
+import logging
 from html import *
-from telethon.tl.functions.photos import GetUserPhotosRequest
-from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import MessageEntityMentionName
-from telethon.utils import get_input_location
+
+from telethon import *
 from telethon.tl.functions.account import *
 from telethon.tl.functions.channels import *
 from telethon.tl.functions.photos import *
 from telethon.tl.types import *
-from telethon import *
-import logging
+
+from uniborg.util import admin_cmd
 
 logger = logging.getLogger(__name__)
-
 
 
 if 1 == 1:
@@ -37,7 +25,7 @@ if 1 == 1:
 
     @borg.on(admin_cmd(pattern="PPS(.*)"))
     async def PPScmd(event):
-#        """Gets the profile photos of replied users, channels or chats"""
+        #        """Gets the profile photos of replied users, channels or chats"""
         id = "".join(event.raw_text.split(maxsplit=2)[1:])
         user = await event.get_reply_message()
         chat = event.input_chat
@@ -58,8 +46,8 @@ if 1 == 1:
                     await event.edit("<code>ID number you entered is invalid</code>")
                     return
             except:
-                 await event.edit("<code>ID number you entered is invalid</code>")
-                 return
+                await event.edit("<code>ID number you entered is invalid</code>")
+                return
             if int(id) <= (len(photos)):
                 send_photos = await event.client.download_media(photos[id - 1])
                 await borg.send_file(event.chat_id, send_photos)

@@ -1,4 +1,3 @@
-
 # For @borgHelp
 """Check if your userbot is working."""
 import time
@@ -10,7 +9,7 @@ from PIL import Image
 
 from userbot import ALIVE_NAME, CMD_HELP, telever
 from userbot.__init__ import StartTime
-from userbot.Config import Config, Var
+from userbot.Config import Var
 
 # ======CONSTANTS=========#
 CUSTOM_ALIVE = (
