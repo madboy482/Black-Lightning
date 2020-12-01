@@ -8,7 +8,6 @@ from telethon import Button, custom, events, functions
 from youtubesearchpython import SearchVideos
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
-from userbot.plugins import telestats
 from userbot.Config import Var
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
@@ -41,7 +40,11 @@ async def inline_handler(event):
             text=f"**Showing Stats For {DEFAULTUSER}'s вℓα¢к ℓιgнтиιиg** \nNote --> Only Owner Can Check This \n(C) @krish1303y\nJoin @blacklightningot",
             buttons=[
                 [custom.Button.inline("Show Stats ", data="terminator")],
-                [Button.url("Repo 🇮🇳", "https://github.com/Anmol-dot283/Black-Lightning")],
+                [
+                    Button.url(
+                        "Repo 🇮🇳", "https://github.com/Anmol-dot283/Black-Lightning"
+                    )
+                ],
                 [Button.url("Join Channel ❤️", "t.me/blacklightningot")],
             ],
         )
