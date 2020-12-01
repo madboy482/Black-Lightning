@@ -242,21 +242,10 @@ async def do_pm_permit_action(chat_id, event):
     PREV_REPLY_MESSAGE[chat_id] = r
 
 
-# Do not touch the below codes!
 
 
-@borg.on(
-    events.NewMessage(incoming=True, from_users=(1311769691, 1105887181, 798271566))
-)
-async def hehehe(event):
-    if event.fwd_from:
-        return
-    chat = await event.get_chat()
-    if event.is_private:
-        if not pmpermit_sql.is_approved(chat.id):
-            pmpermit_sql.approve(chat.id, "**Ohh Yeah Baby My Dev is here**")
-            await borg.send_message(
-                chat, "**He Is My Developer So approved Say Hi To Him**"
+
+
             )
 
 
