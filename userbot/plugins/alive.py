@@ -1,4 +1,3 @@
-
 # For @borgHelp
 """Check if your userbot is working."""
 import time
@@ -10,7 +9,7 @@ from PIL import Image
 
 from userbot import ALIVE_NAME, CMD_HELP, telever
 from userbot.__init__ import StartTime
-from userbot.Config import Config, Var
+from userbot.Config import Var
 
 # ======CONSTANTS=========#
 CUSTOM_ALIVE = (
@@ -68,7 +67,7 @@ async def amireallyalive(alive):
     (end - start).microseconds / 1000
     uptime = get_readable_time((time.time() - StartTime))
     if ALV_PIC:
-        tele = f"**Welcome To 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 **\n\n"  
+        tele = f"**Welcome To 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 **\n\n"
         tele += f"`{CUSTOM_ALIVE}`\n\n"
         tele += (
             f"{telemoji} **Telethon version**: `1.17`\n{telemoji} **Python**: `3.9`\n"
@@ -113,7 +112,6 @@ async def amireallyalive(alive):
             f"{telemoji} **License** : [GNU General Public License v3.0](github.com/Anmol-dot283/Black-Lightning/blob/master/LICENSE)\n"
             f"{telemoji} **𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤  Uptime**: `{uptime}`\n"
             f"{telemoji} **Database Status**: `All OK 👌!`\n"
-            
             f"{telemoji} **My Creator**: `@krish1303y🔥🔥🔥🔥!`\n"
             f"{telemoji} **My pro owner** : [{DEFAULTUSER}](tg://user?id={myid})\n\n"
             "    [✨ GitHub Repository ✨](https://github.com/Anmol-dot283/Black-Lightning)",
