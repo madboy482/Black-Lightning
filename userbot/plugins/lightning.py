@@ -1,15 +1,16 @@
 import os
 import re
 import urllib
-from math import ceil
 
 import requests
 from telethon import Button, custom, events, functions
 from youtubesearchpython import SearchVideos
-from userbot.Config import Var
+
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
+from userbot.Config import Var
 from userbot.plugins import telestats
-inlinestats = 'telestats'
+
+inlinestats = "telestats"
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
     WARN_PIC = "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
@@ -26,7 +27,7 @@ async def inline_handler(event):
     query = event.text
     if event.query.user_id == bot.uid and query.startswith("вℓα¢к ℓιgнтиιиg"):
         rev_text = query[::-1]
-        buttons = paginate_help(0, CMD_HELP, "helpme")
+        paginate_help(0, CMD_HELP, "helpme")
 
         await event.answer([result])
     elif event.query.user_id == bot.uid and query == "stats":
@@ -35,7 +36,11 @@ async def inline_handler(event):
             text=f"**Showing Stats For {DEFAULTUSER}'s вℓα¢к ℓιgнтиιиg** \nNote --> Only Owner Can Check This \n(C) @blacklightningot",
             buttons=[
                 [custom.Button.inline("Show Stats ", data="terminator")],
-                [Button.url("Repo 🇮🇳", "https://github.com/Anmol-dot283/Black-Lightning")],
+                [
+                    Button.url(
+                        "Repo 🇮🇳", "https://github.com/Anmol-dot283/Black-Lightning"
+                    )
+                ],
                 [Button.url("Join Channel ❤️", "t.me/blacklightningot")],
             ],
         )
@@ -97,9 +102,6 @@ async def on_plug_in_callback_query_handler(event):
         data=re.compile(b"us_plugin_(.*)")
     )
 )
-
-
-
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"terminator")))
 async def rip(event):
     if event.query.user_id == bot.uid:
@@ -174,9 +176,6 @@ async def rip(event):
         message=f"Hello, A [New User](tg://user?id={him_id}). Wants To Ask You Something.",
         buttons=[Button.url("Contact Him", f"tg://user?id={him_id}")],
     )
-
-
-
 
 
 @tgbot.on(events.InlineQuery(pattern=r"torrent (.*)"))
