@@ -4,8 +4,7 @@ import random
 import re
 from math import ceil
 
-from telethon import custom, events, functions
-from telethon.tl.custom import Button
+from telethon import custom, events
 
 from userbot import CMD_HELP, CMD_LIST
 from userbot.Config import Var
@@ -204,5 +203,3 @@ def paginate_help(page_number, loaded_plugins, prefix):
             )
         ]
     return pairs
-
-
