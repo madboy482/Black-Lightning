@@ -8,8 +8,8 @@ from telethon import Button, custom, events, functions
 from telethon.tl.functions.users import GetFullUserRequest
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, CUSTOM_PMPERMIT, bot
-from userbot.Config import Var
 from userbot.plugins import telestats
+from userbot.Config import Var
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 TELEPIC = (
@@ -52,13 +52,9 @@ elif Var.LOAD_MYBOT == "False":
         )
     )
 
-CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "𝔅")
-NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD = int(
-    os.environ.get("NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD", 10)
-)
-NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(
-    os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 3)
-)
+CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "𝔅") 
+NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD = int(os.environ.get("NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD", 10))
+NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 3))
 
 if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
@@ -71,7 +67,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             rev_text = query[::-1]
             buttons = paginate_help(0, CMD_LIST, "helpme")
             result = builder.article(
-                "© TeleBot Help",
+                "© 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 Help",
                 text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_LIST)),
                 buttons=buttons,
                 link_preview=False,
@@ -79,14 +75,14 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         elif event.query.user_id == bot.uid and query == "stats":
             result = builder.article(
                 title="Stats",
-                text=f"**TeleBot Stats For [{DEFAULTUSER}](tg://user?id={myid})**\n\n__Bot is functioning normally, master!__\n\n(c) @blacklightningot",
+                text=f"**𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 Stats For [{DEFAULTUSER}](tg://user?id={myid})**\n\n__Bot is functioning normally, master!__\n\n(c) @blacklightningot",
                 buttons=[
                     [custom.Button.inline("Stats", data="statcheck")],
-                    [Button.url("Repo", "https://github.com/xditya/TeleBot")],
+                    [Button.url("Repo", "github.com/Anmol-dot283/Black-Lightning")],
                     [
                         Button.url(
                             "Deploy Now!",
-                            "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fxditya%2FTeleBot&template=https%3A%2F%2Fgithub.com%2Fxditya%2FTeleBot",
+                            "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FAnmol-dot283%2FBlack-Lightning&template=https%3A%2F%2Fgithub.com%2FAnmol-dot283%2FBlack-Lightning",
                         )
                     ],
                 ],
@@ -111,9 +107,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 text=f"𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 - Telegram Userbot.",
                 buttons=[
                     [
-                        Button.url(
-                            "Repo", "https://github.com/Anmol-dot283/Black-Lightning"
-                        ),
+                        Button.url("Repo", "https://github.com/Anmol-dot283/Black-Lightning"),
                         Button.url(
                             "Deploy",
                             "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FAnmol-dot283%2FBlack-Lightning&template=https%3A%2F%2Fgithub.com%2FAnmol-dot283%2FBlack-Lightning",
@@ -125,13 +119,12 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             result = builder.article(
                 "Source Code",
-                text="**Welcome to TeleBot**\n\n`Click below buttons for more`",
+                text="**Welcome to 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤**\n\n`Click below buttons for more`",
                 buttons=[
                     [custom.Button.url("Creator👨‍🦱", "https://t.me/krish1303y")],
                     [
                         custom.Button.url(
-                            "👨‍💻Source Code‍💻",
-                            "https://github.com/Anmol-dot283/Black-Lightning",
+                            "👨‍💻Source Code‍💻", "https://github.com/Anmol-dot283/Black-Lightning"
                         ),
                         custom.Button.url(
                             "Deploy 🌀",
@@ -140,8 +133,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     ],
                     [
                         custom.Button.url(
-                            "Updates and Support Group↗️",
-                            "https://t.me/blacklightningot",
+                            "Updates and Support Group↗️", "https://t.me/blacklightningot"
                         )
                     ],
                 ],
@@ -161,7 +153,9 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Please get your own Userbot from @𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 , and don't use mine!"
+            reply_pop_up_alert = (
+                "Please get your own 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 from @blacklightningot , and don't use mine!"
+            )
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pmclick")))
@@ -171,7 +165,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"This is the PM Security for {DEFAULTUSER} to keep away spammers and retards.\n\nProtected by [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](t.me/blacklightningot)"
+                f"This is the PM Security for {DEFAULTUSER} to keep away spammers and retards and Can Ban Fuckin Spammers.\n\nProtected by [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](t.me/blacklightningot)"
             )
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"reopen")))
@@ -208,7 +202,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"Oho, you want to chat...\nPlease wait and see if {DEFAULTUSER} is in a mood to chat, if yes, he will be replying soon!\nTill then, **do not spam.**"
+                f"Oh, you want to chat...\nPlease wait and see if {DEFAULTUSER} is in a mood to chat, if yes, he will be replying soon!\nTill then, **do not spam.**"
             )
             target = await event.client(GetFullUserRequest(event.query.user_id))
             ok = event.query.user_id
@@ -316,7 +310,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             else:
                 reply_pop_up_alert = help_string
             reply_pop_up_alert += "\n Use .unload {} to remove this plugin\n\
-                © Telebot".format(
+                © 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤".format(
                 plugin_name
             )
             if len(help_string) >= 140:
