@@ -1,3 +1,4 @@
+
 # For @borgHelp
 """Check if your userbot is working."""
 import time
@@ -9,7 +10,7 @@ from PIL import Image
 
 from userbot import ALIVE_NAME, CMD_HELP, telever
 from userbot.__init__ import StartTime
-from userbot.Config import Var
+from userbot.Config import Config, Var
 
 # ======CONSTANTS=========#
 CUSTOM_ALIVE = (
@@ -18,7 +19,7 @@ CUSTOM_ALIVE = (
     else "Hey! I'm alive. All systems online and functioning normally!"
 )
 ALV_PIC = Var.ALIVE_PIC if Var.ALIVE_PIC else None
-telemoji = Var.CUSTOM_ALIVE_EMOJI if Var.CUSTOM_ALIVE_EMOJI else "**ℵ**"
+telemoji = Var.CUSTOM_ALIVE_EMOJI if Var.CUSTOM_ALIVE_EMOJI else "**𝕭**"
 if Var.SUDO_USERS:
     sudo = "Enabled"
 else:
@@ -64,7 +65,7 @@ async def amireallyalive(alive):
     myid = bot.uid
     """ For .alive command, check if the bot is running.  """
     end = datetime.now()
-    (end - start).microseconds / 1000
+    (end - start).microseconds / 10
     uptime = get_readable_time((time.time() - StartTime))
     if ALV_PIC:
         tele = f"**Welcome To 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 **\n\n"
@@ -73,8 +74,9 @@ async def amireallyalive(alive):
             f"{telemoji} **Telethon version**: `1.17`\n{telemoji} **Python**: `3.9`\n"
         )
         tele += f"{telemoji} **𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 Version**: `{telever}`\n"
-        tele += f"{telemoji} **More Info**: @blacklightning\n"
+        tele += f"{telemoji} **More Info**: @blacklightningot\n"
         tele += f"{telemoji} **Sudo** : `{sudo}`\n"
+        tele += f"{telemoji} **DMy Creator**: `@krish1303y🔥🔥🔥🔥!`\n"
         tele += f"{telemoji} **Thunder Uptime**: `{uptime}`\n"
         tele += f"{telemoji} **Database Status**: `All OK 👌!`\n"
         tele += (
@@ -102,10 +104,11 @@ async def amireallyalive(alive):
             f"`{CUSTOM_ALIVE}`\n\n"
             f"{telemoji} **Telethon version**: `1.17`\n{telemoji} **Python**: `3.9`\n"
             f"{telemoji} **𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤  Version**: `{telever}`\n"
-            f"{telemoji} **More Info**:` @borgSupport\n"
+            f"{telemoji} **More Info**:` @blacklightningot\n"
             f"{telemoji} **Sudo** : `{sudo}`\n"
             f"{telemoji} **𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤  Uptime**: `{uptime}`\n"
             f"{telemoji} **Database Status**: `All OK 👌!`\n"
+            f"{telemoji} **DMy Creator**: `@krish1303y🔥🔥🔥🔥!`\n"
             f"{telemoji} **My pro owner** : [{DEFAULTUSER}](tg://user?id={myid})\n\n"
             "    [✨ GitHub Repository ✨](https://github.com/Anmol-dot283/Black-Lightning)",
             link_preview=False,
