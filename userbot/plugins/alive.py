@@ -1,3 +1,4 @@
+
 # For @borgHelp
 """Check if your userbot is working."""
 import time
@@ -9,7 +10,7 @@ from PIL import Image
 
 from userbot import ALIVE_NAME, CMD_HELP, telever
 from userbot.__init__ import StartTime
-from userbot.Config import Var
+from userbot.Config import Config, Var
 
 # ======CONSTANTS=========#
 CUSTOM_ALIVE = (
@@ -87,7 +88,7 @@ async def amireallyalive(alive):
         await borg.send_file(alive.chat_id, ALV_PIC, caption=tele, link_preview=False)
         await alive.delete()
         return
-    req = requests.get("https://telegra.ph/file/c3683ea84426c1046faef.mp4")
+    req = requests.get("https://telegra.ph/file/7f72b0ea1893e84028298.mp4")
     req.raise_for_status()
     file = BytesIO(req.content)
     file.seek(0)

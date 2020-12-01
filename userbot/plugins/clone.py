@@ -4,10 +4,9 @@ from telethon.tl import functions
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 
-from userbot.Config import Config, Var
-from userbot.utils import admin_cmd
-
 from .. import ALIVE_NAME, CMD_HELP
+from userbot.utils import admin_cmd
+from userbot.Config import Var,  Config
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "TeleBot"
 DEFAULTUSERBIO = "404: No bio found!"
