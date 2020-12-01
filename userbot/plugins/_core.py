@@ -2,10 +2,10 @@ import asyncio
 import os
 from datetime import datetime
 from pathlib import Path
-
-from userbot import ALIVE_NAME, bot
+from telethon.tl.types import InputMessagesFilterDocument
 from userbot.utils import admin_cmd, load_module, remove_plugin
-
+from userbot import ALIVE_NAME
+from userbot import bot
 edit_or_reply = "reply"
 DELETE_TIMEOUT = 5
 thumb_image_path = "./Resources/IMG_20201005_150245_168.jpg"
@@ -85,7 +85,9 @@ async def unload(event):
         await event.edit(f"Successfully unloaded {shortname}")
     except Exception as e:
         await event.edit(
-            "Successfully unloaded {shortname}\n{}".format(shortname, str(e))
+            "Successfully unloaded {shortname}\n{}".format(
+                shortname, str(e)
+            )
         )
 
 
