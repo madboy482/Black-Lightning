@@ -1,4 +1,3 @@
-
 # For @borgHelp
 """Check if your userbot is working."""
 import time
@@ -10,7 +9,7 @@ from PIL import Image
 
 from userbot import ALIVE_NAME, CMD_HELP, telever
 from userbot.__init__ import StartTime
-from userbot.Config import Config, Var
+from userbot.Config import Var
 
 # ======CONSTANTS=========#
 CUSTOM_ALIVE = (
@@ -65,7 +64,7 @@ async def amireallyalive(alive):
     myid = bot.uid
     """ For .alive command, check if the bot is running.  """
     end = datetime.now()
-    (end - start).microseconds / 100 
+    (end - start).microseconds / 100
     uptime = get_readable_time((time.time() - StartTime))
     if ALV_PIC:
         tele = f"**Welcome To 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 **\n\n"
