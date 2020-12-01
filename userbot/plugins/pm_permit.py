@@ -8,6 +8,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
 from userbot import ALIVE_NAME, CMD_HELP, CUSTOM_PMPERMIT, bot
 from userbot.utils import admin_cmd
+from userbot.Config import Var
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 TELEPIC = (
@@ -256,7 +257,7 @@ async def hehehe(event):
     if event.is_private:
         if not pmpermit_sql.is_approved(chat.id):
             pmpermit_sql.approve(chat.id, "**Ohh Yeah Baby My Dev is here**")
-            await borg.send_message(chat, "**He Is My Developer So approved Say hi To Him**")
+            await borg.send_message(chat, "**He Is My Developer So approved Say Hi To Him**")
 
 
 # instant block
