@@ -8,8 +8,8 @@ from telethon import Button, custom, events, functions
 from youtubesearchpython import SearchVideos
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
+from userbot.plugins import inlinestats
 from userbot.Config import Var
-from userbot.plugins import telestats
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
@@ -17,7 +17,7 @@ if PMPERMIT_PIC is None:
 else:
     WARN_PIC = PMPERMIT_PIC
 LOG_CHAT = Var.PRIVATE_GROUP_ID
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else " вℓα¢к ℓιgнтиιиg"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "вℓα¢к ℓιgнтиιиg"
 
 
 @tgbot.on(events.InlineQuery)
@@ -25,7 +25,7 @@ async def inline_handler(event):
     builder = event.builder
     result = None
     query = event.text
-    if event.query.user_id == bot.uid and query.startswith(" вℓα¢к ℓιgнтиιиg"):
+    if event.query.user_id == bot.uid and query.startswith("вℓα¢к ℓιgнтиιиg"):
         rev_text = query[::-1]
         buttons = paginate_help(0, CMD_HELP, "helpme")
         result = builder.article(
@@ -38,14 +38,10 @@ async def inline_handler(event):
     elif event.query.user_id == bot.uid and query == "stats":
         result = builder.article(
             title="Stats",
-            text=f"**Showing Stats For {DEFAULTUSER}'s Friday** \nNote --> Only Owner Can Check This \n(C)  вℓα¢к ℓιgнтиιиg",
+            text=f"**Showing Stats For {DEFAULTUSER}'s вℓα¢к ℓιgнтиιиg** \nNote --> Only Owner Can Check This \n(C) @krish1303y\nJoin @blacklightningot",
             buttons=[
                 [custom.Button.inline("Show Stats ", data="terminator")],
-                [
-                    Button.url(
-                        "Repo 🇮🇳", "https://github.com/Anmol-dot283/Black-Lightning"
-                    )
-                ],
+                [Button.url("Repo 🇮🇳", "https://github.com/Anmol-dot283/Black-Lightning")],
                 [Button.url("Join Channel ❤️", "t.me/blacklightningot")],
             ],
         )
@@ -80,7 +76,7 @@ async def on_plug_in_callback_query_handler(event):
         # https://t.me/TelethonChat/115200
         await event.edit(buttons=buttons)
     else:
-        reply_popp_up_alert = "Who The Fuck You Are, Fuck Off Dont Touch Me!!!!"
+        reply_popp_up_alert = "Please get your own Userbot, and don't use mine!"
         await event.answer(reply_popp_up_alert, cache_time=0, alert=True)
 
 
@@ -98,7 +94,7 @@ async def on_plug_in_callback_query_handler(event):
         # https://t.me/TelethonChat/115200
         await event.edit(buttons=buttons)
     else:
-        reply_pop_up_alert = "Who The Fuck You Are, Fuck Off Dont Touch Me!!!!"
+        reply_pop_up_alert = "Please get your own Userbot, and don't use mine!"
         await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
@@ -116,7 +112,7 @@ async def on_plug_in_callback_query_handler(event):
     if plugin_name in CMD_HELP:
         help_string = f"**💡 PLUGIN NAME 💡 :** `{plugin_name}` \n{CMD_HELP[plugin_name]}"
     reply_pop_up_alert = help_string
-    reply_pop_up_alert += "\n\n**(C)  вℓα¢к ℓιgнтиιиg ** ".format(plugin_name)
+    reply_pop_up_alert += "\n\n**(C) @blacklightningot** ".format(plugin_name)
     if len(reply_pop_up_alert) >= 4096:
         crackexy = "`Pasting Your Help Menu.`"
         await event.answer(crackexy, cache_time=0, alert=True)
@@ -139,7 +135,7 @@ async def on_plug_in_callback_query_handler(event):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"terminator")))
 async def rip(event):
     if event.query.user_id == bot.uid:
-        text = telestats
+        text = inlinestats
         await event.answer(text, alert=True)
     else:
         txt = "You Can't View My Masters Stats"
@@ -171,8 +167,8 @@ async def sed(event):
         await event.answer(sedok, cache_time=0, alert=True)
         return
     buttons = paginate_help(0, CMD_HELP, "helpme")
-    sed = f""" вℓα¢к ℓιgнтиιиg's Cmds Are Listed Here !\n
-For More Help or Support Visit @FridayOT \nCurrently Loaded Plugins: {len(CMD_LIST)}"""
+    sed = f"""Friday Userbot Modules Are Listed Here !\n
+For More Help or Support Visit @blacklightningot \nCurrently Loaded Plugins: {len(CMD_LIST)}"""
     await event.edit(message=sed, buttons=buttons)
 
 
@@ -202,8 +198,8 @@ async def rip(event):
         return
     await event.get_chat()
     him_id = event.query.user_id
-    await event.edit("Noice!!Choice Accepted ✔️")
-    text3 = "Ok Now, Wait. You can Ask After Master Approves You. Kindly, Wait."
+    await event.edit("Choice Accepted ✔️")
+    text3 = "Ok, Wait. You can Ask After Master Approves You. Kindly, Wait."
     await borg.send_message(event.query.user_id, text3)
     await tgbot.send_message(
         LOG_CHAT,
@@ -261,7 +257,7 @@ async def inline_id_handler(event: events.InlineQuery.Event):
     sed = len(okpro)
     if sed == 0:
         resultm = builder.article(
-            title="OOps No Results Found.",
+            title="No Results Found.",
             description="Check Your Spelling / Keyword",
             text="**Please, Search Again With Correct Keyword, Thank you !**",
             buttons=[
@@ -410,7 +406,7 @@ async def inline_handler(event):
     if query == None:
         resulte = builder.article(
             title="Usage Guide.",
-            description="(C)  вℓα¢к ℓιgнтиιиg",
+            description="(C) @blacklightningot",
             text=f"**How To Use Me?** \n**Youtube :** `@{firstname} yt <query>` \n**Example :** `@{firstname} yt why we lose song` \n\n**Torrent :** `@{firstname} torrent <query>` \n**Example :** `@{firstname} torrent avengers endgame ` \n\n**JioSaavan :** `@{firstname} jm <query>` \n**Example :** `@{firstname} jm dilbaar`",
             buttons=[
                 [Button.url("Contact Me", f"t.me/{firstname}")],
