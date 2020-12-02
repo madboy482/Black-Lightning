@@ -2,12 +2,11 @@
 Syntax: .night REASON"""
 import asyncio
 import datetime
-
 from telethon import events
 from telethon.tl import functions, types
-
-from userbot import ALIVE_NAME
 from userbot.utils import admin_cmd
+from userbot import ALIVE_NAME
+from userbot.Config import Var
 
 global USER_night  # pylint:disable=E0602
 global night_time  # pylint:disable=E0602
@@ -16,11 +15,7 @@ USER_night = {}
 night_time = None
 last_night_message = {}
 
-DEFAULTUSER = (
-    str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
-)
-
-
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 @borg.on(events.NewMessage(outgoing=True))  # pylint:disable=E0602
 async def set_not_night(event):
     global USER_night  # pylint:disable=E0602
@@ -31,22 +26,22 @@ async def set_not_night(event):
         try:
             await borg.send_message(  # pylint:disable=E0602
                 Config.PLUGIN_CHANNEL,  # pylint:disable=E0602
-                "Mine Owner has Gone Sleep (Pure Din Sota hi Rehta He {DEFAULTUSER} )",
+                "Mine Owner has Gone Sleep (Pure Din Sota hi Rehta He {DEFAULTUSER} )"
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             await borg.send_message(  # pylint:disable=E0602
                 event.chat_id,
-                "Please set `PLUGIN_CHANNEL` "
-                + "for the proper functioning of night functionality "
-                + "in @Sensible_userbot \n\n `{}`".format(str(e)),
+                "Please set `PLUGIN_CHANNEL` " + \
+                "for the proper functioning of night functionality " + \
+                "in @blacklightningot \n\n `{}`".format(str(e)),
                 reply_to=event.message.id,
-                silent=True,
+                silent=True
             )
         USER_night = {}  # pylint:disable=E0602
         night_time = None  # pylint:disable=E0602
 
-
 @borg.on(admin_cmd(pattern=r"night ?(.*)"))
+
 async def _(event):
     if event.fwd_from:
         return
@@ -60,7 +55,9 @@ async def _(event):
     reason = event.pattern_match.group(1)
     if not USER_night:  # pylint:disable=E0602
         last_seen_status = await borg(  # pylint:disable=E0602
-            functions.account.GetPrivacyRequest(types.InputPrivacyKeyStatusTimestamp())
+            functions.account.GetPrivacyRequest(
+                types.InputPrivacyKeyStatusTimestamp()
+            )
         )
         if isinstance(last_seen_status.rules, types.PrivacyValueAllowAll):
             night_time = datetime.datetime.now()  # pylint:disable=E0602
@@ -73,17 +70,17 @@ async def _(event):
         await event.delete()
         try:
             await borg.send_message(  # pylint:disable=E0602
-                Config.PLUGIN_CHANNEL, f"My BOss Wants So Sleep"  # pylint:disable=E0602
+                Var.PLUGIN_CHANNEL,  # pylint:disable=E0602
+                f"My BOss Wants So Sleep"
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             logger.warn(str(e))  # pylint:disable=E0602
 
 
-@borg.on(
-    events.NewMessage(  # pylint:disable=E0602
-        incoming=True, func=lambda e: bool(e.mentioned or e.is_private)
-    )
-)
+@borg.on(events.NewMessage(  # pylint:disable=E0602
+    incoming=True,
+    func=lambda e: bool(e.mentioned or e.is_private)
+))
 async def on_night(event):
     if event.fwd_from:
         return
@@ -112,13 +109,13 @@ async def on_night(event):
                 night_since = "**Yesterday**"
             elif days > 1:
                 if days > 6:
-                    date = now + datetime.timedelta(
-                        days=-days, hours=-hours, minutes=-minutes
-                    )
+                    date = now + \
+                        datetime.timedelta(
+                            days=-days, hours=-hours, minutes=-minutes)
                     night_since = date.strftime("%A, %Y %B %m, %H:%I")
                 else:
                     wday = now + datetime.timedelta(days=-days)
-                    night_since = wday.strftime("%A")
+                    night_since = wday.strftime('%A')
             elif hours > 1:
                 night_since = f"`{int(hours)}h{int(minutes)}m` **ago**"
             elif minutes > 0:
@@ -126,12 +123,10 @@ async def on_night(event):
             else:
                 night_since = f"`{int(seconds)}s` **ago**"
         msg = None
-        message_to_reply = (
-            f"My Master Has Been Gone For {night_since}\nWhere He Is: **On Bed Sleeping** "
-            + f"\n\n__ I'll back in a few Light years__\n**"
-            if reason
+        message_to_reply = f"My Master Has Been Gone For {night_since}\nWhere He Is: **On Bed Sleeping** " + \
+            f"\n\n__ I'll back in a few Light years__\n**" \
+            if reason \
             else f"**Important Notice**\n\n[{DEFAULTUSER} Is Sleeping DND And Also Good night To You...](https://telegra.ph/file/3e6d2fb965f293e3680ff.jpg) "
-        )
         msg = await event.reply(message_to_reply)
         await asyncio.sleep(5)
         if event.chat_id in last_night_message:  # pylint:disable=E0602
