@@ -79,6 +79,9 @@ class Var(object):
     ENABLE_ASSISTANTBOT = os.environ.get("ENABLE_ASSISTANTBOT", "ENABLE")
     PM_DATA = os.environ.get("PM_DATA", "ENABLE")
     TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "Black Lightning")
+    PRIVATE_GROUP_BOT_API_ID = os.environ.get("PRIVATE_GROUP_BOT_API_ID", None)
+    if PRIVATE_GROUP_BOT_API_ID:
+            PRIVATE_GROUP_BOT_API_ID = int(PRIVATE_GROUP_BOT_API_ID)
     AUTH_TOKEN_DATA = os.environ.get("AUTH_TOKEN_DATA", None)
     PMSECURITY = os.environ.get("PMSECURITY", "ON")
     # for autopic
