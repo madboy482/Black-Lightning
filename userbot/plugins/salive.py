@@ -3,7 +3,7 @@ import time
 from userbot import ALIVE_NAME, CMD_HELP, Lastupdate
 from userbot.Config import Var
 from userbot.utils import admin_cmd, sudo_cmd
-
+from userbot.plugins import telever
 
 # Functions
 def get_readable_time(seconds: int) -> str:
