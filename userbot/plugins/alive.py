@@ -14,7 +14,7 @@ from userbot.utils import admin_cmd, sudo_cmd
 
 # 🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤"
-ALIVE_PHOTTO = os.environ.get("ALIVE_PHOTTO", None)
+ALIVE_IMAGE = os.environ.get("ALIVE_IMAGE", None)
 
 # Thanks to Sipak bro and Raganork..
 # animation Idea by @NOOB_GUY_OP (Sipakisking)
