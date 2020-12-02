@@ -7,7 +7,7 @@ from telethon.tl import functions, types
 
 from userbot import CMD_HELP
 from userbot.utils import admin_cmd
-
+from userbot.Config import Var
 #####################################################################
 
 
@@ -43,7 +43,7 @@ async def set_not_afk(event):
         )
         try:
             await borg.send_message(  # pylint:disable=E0602
-                Config.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
+                Var.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
                 "#AFKFALSE \nSet AFK mode to False\n"
                 + "__Back alive!__\n**No Longer afk.**\n `Was afk for:``"
                 + total_afk_time
