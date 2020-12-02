@@ -13,7 +13,7 @@ from userbot.Config import Config
 from userbot.utils import admin_cmd
 
 telegraph = Telegraph()
-tgnoob = telegraph.create_account(short_name="Friday 🇮🇳")
+tgnoob = telegraph.create_account(short_name="Lighting")
 
 
 async def runcmd(cmd: str) -> Tuple[str, str, int, int]:
