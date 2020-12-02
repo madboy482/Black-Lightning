@@ -35,7 +35,7 @@
 
 # String
 
-[![Run on Repl.it](https://repl.it/badge/github/STARKGANG/friday)](https://repl.it/@Anmol10H/Lightning-Userbot#main.py)
+[![Run on Repl.it](https://repl.it/badge/github/STARKGANG/friday)](https://repl.it/@Anmol10H/Lightning-Repl#main.py)
 
 
 
