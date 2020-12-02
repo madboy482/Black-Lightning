@@ -2,7 +2,7 @@ import time
 
 from userbot import ALIVE_NAME, CMD_HELP, Lastupdate
 from userbot.Config import Var
-from userbot.plugins import currentversion
+from userbot.plugins import telever
 from userbot.utils import admin_cmd, sudo_cmd
 
 
