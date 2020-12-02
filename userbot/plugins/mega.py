@@ -31,11 +31,11 @@ from asyncio.subprocess import PIPE as asyncPIPE
 from urllib.error import HTTPError
 
 from pySmartDL import SmartDL
-
+from userbot.Config import Var
 from userbot import CMD_HELP, LOGS
 from userbot.utils import admin_cmd, humanbytes, time_formatter
 
-TEMP_DOWNLOAD_DIRECTORY = Config.TMP_DOWNLOAD_DIRECTORY
+TEMP_DOWNLOAD_DIRECTORY = Var.TEMP_DOWNLOAD_DIRECTORY
 
 
 async def subprocess_run(megadl, cmd):
