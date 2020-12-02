@@ -136,7 +136,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
     return
 
 
-@bot.on(admin_cmd(outgoing=True, pattern=r"u$"))
+@bot.on(admin_cmd(outgoing=True, pattern=r"upd$"))
 async def upstream(event):
     event = await event.edit("`Pulling the Black Lightning repo wait a sec ....`")
     off_repo = "https://github.com/Anmol-dot283/Black-Lightning"
