@@ -68,6 +68,11 @@ python3 -m Black-Lightning
 <a aria-hidden="true" class="anchor" href="https://github.com/hellboi-atul/hellboi-atul/blob/master/README.md#Uniborg" id="user-content-Uniborg" style="background-color: initial; box-sizing: border-box; color: #0366d6; float: left; line-height: 1; margin-left: -20px; padding-right: 4px; text-decoration-line: none;"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z" fill-rule="evenodd"></path></svg></a><a href="https://github.com/jarvis210904/J.A.R.V.I.S-Userbot#Uniborg" id="user-content-Uniborg" style="background-color: initial; box-sizing: border-box; color: #0366d6; text-decoration-line: none;"></a>Uniborg🤗</h3>
 
 
+# Special Credit
+<h3 style="text-align: left;">
+<a href="https://github.com/DARK-COBRA/DARKCOBRA">DARK COBRA</a></h3>
+<h3 style="box-sizing: border-box; font-size: 1.25em; line-height: 1.25; margin-bottom: 16px; margin-top: 24px;">
+
 
 # Mandatory Vars
 ```
