@@ -81,7 +81,7 @@ class Var(object):
     TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "Black Lightning")
     PRIVATE_GROUP_BOT_API_ID = os.environ.get("PRIVATE_GROUP_BOT_API_ID", None)
     if PRIVATE_GROUP_BOT_API_ID:
-            PRIVATE_GROUP_BOT_API_ID = int(PRIVATE_GROUP_BOT_API_ID)
+        PRIVATE_GROUP_BOT_API_ID = int(PRIVATE_GROUP_BOT_API_ID)
     AUTH_TOKEN_DATA = os.environ.get("AUTH_TOKEN_DATA", None)
     PMSECURITY = os.environ.get("PMSECURITY", "ON")
     # for autopic
