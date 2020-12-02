@@ -7,7 +7,7 @@ import os
 import requests
 
 from userbot.utils import admin_cmd
-from userbot.Var import Var
+from userbot.Config import Var
 
 
 def ocr_space_file(
