@@ -2,13 +2,13 @@ import asyncio
 import os
 from datetime import datetime
 from pathlib import Path
-
-from userbot import ALIVE_NAME, bot
+from telethon.tl.types import InputMessagesFilterDocument
 from userbot.utils import admin_cmd, load_module, remove_plugin
-
+from userbot import ALIVE_NAME
+from userbot import bot
 edit_or_reply = "reply"
 DELETE_TIMEOUT = 5
-thumb_image_path = "./Resources/IMG_20201005_150245_168.jpg"
+thumb_image_path = "./resources/541200.png"
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
 
 
@@ -34,7 +34,7 @@ async def send(event):
         end = datetime.now()
         time_taken_in_ms = (end - start).seconds
         await pro.edit(
-            f"**==> Plugin name:** `{input_str}`\n**==> Uploaded in {time_taken_in_ms} seconds only.**\n**==> Uploaded by:** [{DEFAULTUSER}](tg://user?id={hmm})\n"
+            f"**==> Plugin name:** `{input_str}`\n**==> Uploaded in {time_taken_in_ms} seconds only.**\n**==> Uploaded by:Black Lightnings** [{DEFAULTUSER}](tg://user?id={hmm})\n"
         )
         await asyncio.sleep(DELETE_TIMEOUT)
         await event.delete()
@@ -85,7 +85,9 @@ async def unload(event):
         await event.edit(f"Successfully unloaded {shortname}")
     except Exception as e:
         await event.edit(
-            "Successfully unloaded {shortname}\n{}".format(shortname, str(e))
+            "Successfully unloaded {shortname}\n{}".format(
+                shortname, str(e)
+            )
         )
 
 
