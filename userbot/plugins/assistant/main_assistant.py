@@ -82,7 +82,12 @@ async def help(event):
             event.chat_id,
             message="You Can Deploy Black lihgning In Heroku By Following Steps Bellow, You Can See Some Quick Guides On Support Channel Or On Your Own Assistant Bot. \nThank You For Contacting Me.",
             buttons=[
-                [Button.url("Deploy Tutorial 📺", "https://www.youtube.com/watch?v=GfZMqrCAqxI&t=339s")],
+                [
+                    Button.url(
+                        "Deploy Tutorial 📺",
+                        "https://www.youtube.com/watch?v=GfZMqrCAqxI&t=339s",
+                    )
+                ],
                 [Button.url("Need Help ❓", "https://t.me/blacklightningot")],
             ],
         )
