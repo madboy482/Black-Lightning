@@ -905,7 +905,7 @@ async def vapor(vpr):
 async def source(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
-            "Hello , User I Am Using [FridayUserbot](https://github.com/Starkgang/FridayUserbot) ! Worth A Try 😌"
+            "Hello , User I Am Using [Lightningt](https://github.com/Anmol-dot283/Black-Lightning) ! Worth A Try 😌"
         )
 
 
