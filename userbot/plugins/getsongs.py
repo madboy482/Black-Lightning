@@ -34,7 +34,7 @@ async def _(event):
         force_document=False,
         allow_cache=False,
         supports_streaming=True,
-        caption="Uploaded successfully by DARK COBRA userbot..!",
+        caption="Uploaded successfully by Black Lightning   userbot..!",
         reply_to=reply_to_id,
     )
     subprocess.run("rm -rf *.mp3", shell=True)
