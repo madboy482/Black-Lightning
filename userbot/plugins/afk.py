@@ -164,7 +164,7 @@ async def _(event):
         await event.delete()
         try:
             await borg.send_message(  # pylint:disable=E0602
-                Config.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
+                Var.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
                 f"#AFKTRUE \nSet AFK mode to True, and Reason is {reason}",
             )
         except Exception as e:  # pylint:disable=C0103,W0703
