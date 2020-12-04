@@ -30,6 +30,7 @@ class Var(object):
     SUDO_HNDLR = os.environ.get("SUDO_HNDLR", "\.")
     OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
     LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
+    NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", True))
     PMBOT_START_MSSG = os.environ.get("PMBOT_START_MSSG", None)
     LESS_SPAMMY = os.environ.get("LESS_SPAMMY", None)
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
