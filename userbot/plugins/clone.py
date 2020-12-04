@@ -4,7 +4,7 @@ from telethon.tl import functions
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 
-from userbot.Config import Config, Var
+from userbot.Config import Var
 from userbot.utils import admin_cmd
 
 from .. import ALIVE_NAME, CMD_HELP
