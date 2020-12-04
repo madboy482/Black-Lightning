@@ -9,7 +9,7 @@ from userbot.utils import admin_cmd
 
 from .. import ALIVE_NAME, CMD_HELP
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "TeleBot"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
 DEFAULTUSERBIO = "404: No bio found!"
 if Var.PRIVATE_GROUP_ID is None:
     BOTLOG = False
@@ -29,7 +29,7 @@ async def _(event):
         return False
     user_id = replied_user.user.id
     profile_pic = await event.client.download_profile_photo(
-        user_id, Config.TMP_DOWNLOAD_DIRECTORY
+        user_id, Var.TEMP_DOWNLOAD_DIRECTORY
     )
     # some people have weird HTML in their names
     first_name = html.escape(replied_user.user.first_name)
