@@ -36,11 +36,13 @@ class Var(object):
         t_file.write(AUTH_TOKEN_DATA)
         t_file.close()
     PRIVATE_GROUP_ID = os.environ.get("PRIVATE_GROUP_ID", None)
-    if PRIVATE_GROUP_ID != None:
+    if PRIVATE_GROUP_ID is not None:
         try:
             PRIVATE_GROUP_ID = int(PRIVATE_GROUP_ID)
         except ValueError:
-            raise ValueError("Invalid Private Group ID. Make sure your ID is starts with -100 and make sure that it is only numbers.")
+            raise ValueError(
+                "Invalid Private Group ID. Make sure your ID is starts with -100 and make sure that it is only numbers."
+            )
     NEWS_CHANNEL_ID = int(os.environ.get("NEWS_CHANNEL_ID", -100))
     SPAMWATCH_API = os.environ.get("SPAMWATCH_API", None)
     ANTISPAM_SYSTEM = os.environ.get("ANTISPAM_SYSTEM", "DISABLE")
