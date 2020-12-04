@@ -37,7 +37,7 @@ from userbot.utils import admin_cmd, errors_handler, register
 # =================== CONSTANT ===================
 PP_TOO_SMOL = "`The image is too small`"
 PP_ERROR = "`Failure while processing the image`"
-NO_ADMIN = "`I am not an admin nub nibba!`"
+NO_ADMIN = "`Im Not An Admin Here Niiba Say Stfu to the person who you wanna mute`"
 NO_PERM = (
     "`I don't have sufficient permissions! This is so sed. Alexa play Tera Baap Aaya`"
 )
