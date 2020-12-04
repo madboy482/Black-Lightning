@@ -2,14 +2,16 @@
 Available Commands:
 .tts LanguageCode as reply to a message
 .tts LangaugeCode | text to speak"""
-from userbot import CMD_HELP
 import asyncio
 import os
 import subprocess
 from datetime import datetime
+
 from gtts import gTTS
-from userbot.utils import admin_cmd
+
+from userbot import CMD_HELP
 from userbot.Config import Var
+from userbot.utils import admin_cmd
 
 
 @borg.on(admin_cmd(pattern="voice (.*)"))
@@ -33,25 +35,27 @@ async def _(event):
         os.makedirs(Var.TEMP_DOWNLOAD_DIRECTORY)
     required_file_name = Var.TEMP_DOWNLOAD_DIRECTORY + "voice.ogg"
     try:
-        #https://github.com/SpEcHiDe/UniBorg/commit/17f8682d5d2df7f3921f50271b5b6722c80f4106
+        # https://github.com/SpEcHiDe/UniBorg/commit/17f8682d5d2df7f3921f50271b5b6722c80f4106
         tts = gTTS(text, lang=lan)
         tts.save(required_file_name)
         command_to_execute = [
             "ffmpeg",
             "-i",
-             required_file_name,
-             "-map",
-             "0:a",
-             "-codec:a",
-             "libopus",
-             "-b:a",
-             "100k",
-             "-vbr",
-             "on",
-             required_file_name + ".opus"
+            required_file_name,
+            "-map",
+            "0:a",
+            "-codec:a",
+            "libopus",
+            "-b:a",
+            "100k",
+            "-vbr",
+            "on",
+            required_file_name + ".opus",
         ]
         try:
-            t_response = subprocess.check_output(command_to_execute, stderr=subprocess.STDOUT)
+            t_response = subprocess.check_output(
+                command_to_execute, stderr=subprocess.STDOUT
+            )
         except (subprocess.CalledProcessError, NameError, FileNotFoundError) as exc:
             await event.edit(str(exc))
             # continue sending required_file_name
@@ -66,7 +70,7 @@ async def _(event):
             # caption="Processed {} ({}) in {} seconds!".format(text[0:97], lan, ms),
             reply_to=event.message.reply_to_msg_id,
             allow_cache=False,
-            voice_note=True
+            voice_note=True,
         )
         os.remove(required_file_name)
         await event.edit("Processed {} ({}) in {} seconds!".format(text[0:97], lan, ms))
@@ -75,12 +79,13 @@ async def _(event):
     except Exception as e:
         await event.edit(str(e))
 
-        
-CMD_HELP.update({
-    "voice":
-    " Google Text to Speech\
+
+CMD_HELP.update(
+    {
+        "voice": " Google Text to Speech\
 \nAvailable Commands:\
 \n.voice LanguageCode as reply to a message\
 \n\n.voice LangaugeCode | text to speak\
 "
-}) 
+    }
+)
