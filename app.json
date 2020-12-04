@@ -68,7 +68,11 @@
       "description": "create a private channel and then type .get_id add that value here for save messages",
       "value": ""
    },
-   "HEROKU_API_KEY": {
+   "PM_LOGGR_BOT_API_ID": {
+       "description": "for login private messages create a private channel and do .get_id and add that id", 
+       "value": ""
+   }, 
+    "HEROKU_API_KEY": {
     "description": "Go to https://dashboard.heroku.com/account, scroll down and press Reveal API.Required for updater to work.",
     "value": "",
     "required": true
