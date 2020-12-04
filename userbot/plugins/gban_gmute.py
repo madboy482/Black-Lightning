@@ -37,7 +37,7 @@ async def get_full_user(event):
             user_obj = await event.client.get_entity(user)
         except Exception as err:
             return await event.edit(
-                "Error... Please report at @Dark_cobra_support_group", str(err)
+                "Error... Please report at @lightningsupport", str(err)
             )
     return user_obj, extra
 
