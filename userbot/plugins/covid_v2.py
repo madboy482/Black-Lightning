@@ -29,7 +29,7 @@ async def _(event):
             return
         if response.text.startswith("Country"):
             await event.edit(
-                "😶**Country Not Found**😅\n\n[🔴🔴🔴🔴\n ⏩⏩ How to use ⏪⏪\n🔵🔵🔵🔵](https://t.me/Dark_cobra_support)"
+                "😶**Country Not Found**😅\n\n[🔴🔴🔴🔴\n ⏩⏩ How to use ⏪⏪\n🔵🔵🔵🔵](https://t.me/blacklightningot)"
             )
         else:
             await event.delete()
