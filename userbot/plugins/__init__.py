@@ -41,7 +41,7 @@ else:
 TELEUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
 telever = "4.9"
 
-tele = f"TeleBot Version: {telever}\n"
+tele = f"Lighning Version: {telever}\n"
 tele += f"Log Group: {log}\n"
 tele += f"Assistant Bot: {bots}\n"
 tele += f"Lydia: {lyd}\n"
