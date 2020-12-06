@@ -10,12 +10,11 @@ from userbot import ALIVE_NAME, CMD_HELP, CUSTOM_PMPERMIT, bot
 from userbot.Config import Var
 from userbot.utils import admin_cmd
 
-PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
-TELEPIC = (
-    PMPERMIT_PIC
-    if PMPERMIT_PIC
-    else "https://telegra.ph/file/e3b456e31cba8308b7a80.png"
-)
+if PMPERMIT_PIC is None:
+    WARN_PIC = "https://telegra.ph/file/e3b456e31cba8308b7a80.jpg"
+else:
+    WARN_PIC = PMPERMIT_PIC
+
 PM_WARNS = {}
 PREV_REPLY_MESSAGE = {}
 myid = bot.uid
