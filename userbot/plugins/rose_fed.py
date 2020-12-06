@@ -18,7 +18,7 @@ async def _(event):
             try:
                 await conv.send_message("/start")
                 await conv.get_response()
-                await conv.send_message("/newfed DARK-COBRA Federation")
+                await conv.send_message("/newfed Black Lightning Federation")
                 audio = await conv.get_response()
                 await borg.send_message(event.chat_id, audio.text)
                 await event.delete()
