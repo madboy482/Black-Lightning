@@ -1,3 +1,6 @@
+# by uniborg...Thanks @spechide 
+# Now will be used in HellBot too....
+"""Syntax: .afk REASON"""
 import asyncio
 import datetime
 from datetime import datetime
@@ -6,11 +9,7 @@ from telethon import events
 from telethon.tl import functions, types
 
 from userbot import CMD_HELP
-from userbot.Config import Var
 from userbot.utils import admin_cmd
-
-#####################################################################
-
 
 global USER_AFK  # pylint:disable=E0602
 global afk_time  # pylint:disable=E0602
@@ -38,7 +37,7 @@ async def set_not_afk(event):
     if ".afk" not in current_message and "yes" in USER_AFK:  # pylint:disable=E0602
         shite = await borg.send_message(
             event.chat_id,
-            "__Back alive!__\n**No Longer afk.**\n `Was afk for:``"
+            "😶__Back alive!__\n**No Longer afk.**\n `Was afk for:``"
             + total_afk_time
             + "`",
         )
@@ -46,7 +45,7 @@ async def set_not_afk(event):
             await borg.send_message(  # pylint:disable=E0602
                 Var.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
                 "#AFKFALSE \nSet AFK mode to False\n"
-                + "__Back alive!__\n**No Longer afk.**\n `Was afk for:``"
+                + "😶__Back alive!__\n**No Longer afk.**\n `Was afk for:``"
                 + total_afk_time
                 + "`",
             )
@@ -55,7 +54,7 @@ async def set_not_afk(event):
                 event.chat_id,
                 "Please set `PRIVATE_GROUP_BOT_API_ID` "
                 + "for the proper functioning of afk functionality "
-                + "Why??\n\n `{}`".format(str(e)),
+                + "Ask In @HellBot_Official Chat grp to get help..\n\n `{}`".format(str(e)),
                 reply_to=event.message.id,
                 silent=True,
             )
@@ -118,13 +117,13 @@ async def on_afk(event):
         #           afk_since = f"`{int(seconds)}s` **ago**"
         msg = None
         message_to_reply = (
-            f"__ Master Been #AFK since__ `{total_afk_time}`"
-            + f"\n\n_\n**REASON**: {reason}"
+            f"Hey!! My master is currently offline... Since when?\n**For** `{total_afk_time}`\n"
+            + f"\n\n__He left a reason BTW🧐__ :-\n{reason}"
             if reason
-            else f"**Hey!!**\n`Master is  #AFK`\n\n__Since__>>> {total_afk_time}"
+            else f"**Heyy!**\n__I am currently unavailable. Since when, you ask? For {total_afk_time} .__\n\nWhen will I be back? Soon __Whenever I feel like coming back__🤧🚶🚶  "
         )
         msg = await event.reply(message_to_reply)
-        await asyncio.sleep(2)
+        await asyncio.sleep(5)
         if event.chat_id in last_afk_message:  # pylint:disable=E0602
             await last_afk_message[event.chat_id].delete()  # pylint:disable=E0602
         last_afk_message[event.chat_id] = msg  # pylint:disable=E0602
@@ -156,11 +155,11 @@ async def _(event):
         USER_AFK = f"yes: {reason}"  # pylint:disable=E0602
         if reason:
             await borg.send_message(
-                event.chat_id, f"**I shall be Going afk!**\n __Reason >>> {reason}__"
+                event.chat_id, f"__**I shall be Going afk because**__ ~ {reason}"
             )
         else:
             await borg.send_message(event.chat_id, f"**I am Going afk!**")
-        await asyncio.sleep(2)
+        await asyncio.sleep(5)
         await event.delete()
         try:
             await borg.send_message(  # pylint:disable=E0602
@@ -173,7 +172,10 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "afk": ".afk (reason)"
-        "\nUsage mention u as afk when someone tag or reply to any of ur msg or dm."
+        "afk": "__**PLUGIN NAME :** Afk__\
+\n\n ** CMD ** `.afk` [Optional Reason]\
+\n**USAGE  :  **Sets you as afk.\nReplies to anyone who tags/PM's \
+you telling them that you are AFK(reason)\n\n__Switches off AFK when you type back anything, anywhere.__\
+"
     }
 )
