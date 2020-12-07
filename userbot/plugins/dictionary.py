@@ -3,7 +3,7 @@ Syntax: .meaning <word>"""
 
 import requests
 
-from uniborg.util import admin_cmd
+from userbot.utils import admin_cmd
 
 
 @borg.on(admin_cmd("meaning (.*)"))
