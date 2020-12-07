@@ -6,8 +6,8 @@ from telethon import events
 from telethon.tl.functions.messages import GetPeerDialogsRequest
 from userbot.thunderconfig import Config
 from var import Var
-from userbot import LOAD_PLUG
-from userbot import CMD_LIST
+from userbot.__init__ import LOAD_PLUG
+from userbot.__init__ import CMD_LIST
 
 async def is_read(borg, entity, message, is_out=None):
     """
