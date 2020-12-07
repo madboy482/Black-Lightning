@@ -1,8 +1,7 @@
 import random
 
-from userbot.utils import admin_cmd, edit_or_reply, 
-
 from userbot import CMD_HELP
+from userbot.utils import admin_cmd, edit_or_reply
 
 RUNSREACTS = [
     "`Aur Bata Bsdk Kar Liya Tunee Party De Chal!`",
