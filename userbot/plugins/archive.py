@@ -20,11 +20,11 @@ from hachoir.parser import createParser
 from telethon.tl.types import DocumentAttributeVideo
 
 from userbot import CMD_HELP
-from userbot.thunderconfig import Config
+from userbot.Config import Var
 from userbot.utils import admin_cmd, progress
 
-thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
-extracted = Config.TMP_DOWNLOAD_DIRECTORY + "extracted/"
+thumb_image_path = Var.TEMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
+extracted = Var.TEMP_DOWNLOAD_DIRECTORY + "extracted/"
 if not os.path.isdir(extracted):
     os.makedirs(extracted)
 
@@ -37,15 +37,15 @@ async def _(event):
         await event.edit("Reply to a file to compress it.")
         return
     mone = await event.edit("Processing ...")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Var.dTEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.dTEMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
         reply_message = await event.get_reply_message()
         try:
             c_time = time.time()
             downloaded_file_name = await borg.download_media(
                 reply_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
+                Var.dTEMP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(d, t, mone, c_time, "trying to download")
                 ),
@@ -84,15 +84,15 @@ async def _(event):
         return
     input_str = event.pattern_match.group(1)
     mone = await event.edit("Processing ...")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Var.dTEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.dTEMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
         reply_message = await event.get_reply_message()
         try:
             c_time = time.time()
             downloaded_file_name = await borg.download_media(
                 reply_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
+                Var.dTEMP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(d, t, mone, c_time, "trying to download")
                 ),
@@ -101,7 +101,7 @@ async def _(event):
             await event.edit("creating rar archive, please wait..")
             # patoolib.create_archive(directory_name + '.7z',directory_name)
             patoolib.create_archive(
-                directory_name + ".rar", (directory_name, Config.TMP_DOWNLOAD_DIRECTORY)
+                directory_name + ".rar", (directory_name, Var.dTEMP_DOWNLOAD_DIRECTORY)
             )
             # patoolib.create_archive("/content/21.yy Avrupa (1).pdf.zip",("/content/21.yy Avrupa (1).pdf","/content/"))
             await borg.send_file(
@@ -136,15 +136,15 @@ async def _(event):
         return
     input_str = event.pattern_match.group(1)
     mone = await event.edit("Processing ...")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Var.dTEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.dTEMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
         reply_message = await event.get_reply_message()
         try:
             c_time = time.time()
             downloaded_file_name = await borg.download_media(
                 reply_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
+                Var.dTEMP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(d, t, mone, c_time, "trying to download")
                 ),
@@ -153,7 +153,7 @@ async def _(event):
             await event.edit("creating 7z archive, please wait..")
             # patoolib.create_archive(directory_name + '.7z',directory_name)
             patoolib.create_archive(
-                directory_name + ".7z", (directory_name, Config.TMP_DOWNLOAD_DIRECTORY)
+                directory_name + ".7z", (directory_name, Var.dTEMP_DOWNLOAD_DIRECTORY)
             )
             # patoolib.create_archive("/content/21.yy Avrupa (1).pdf.zip",("/content/21.yy Avrupa (1).pdf","/content/"))
             await borg.send_file(
@@ -186,15 +186,15 @@ async def _(event):
         return
     input_str = event.pattern_match.group(1)
     mone = await event.edit("Processing ...")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Var.dTEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.dTEMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
         reply_message = await event.get_reply_message()
         try:
             c_time = time.time()
             downloaded_file_name = await borg.download_media(
                 reply_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
+                Var.dTEMP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(d, t, mone, c_time, "trying to download")
                 ),
@@ -271,8 +271,8 @@ async def _(event):
     if event.fwd_from:
         return
     mone = await event.edit("Processing ...")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Var.dTEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.dTEMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
         start = datetime.now()
         reply_message = await event.get_reply_message()
@@ -280,7 +280,7 @@ async def _(event):
             c_time = time.time()
             downloaded_file_name = await borg.download_media(
                 reply_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
+                Var.dTEMP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(d, t, mone, c_time, "trying to download")
                 ),
@@ -363,8 +363,8 @@ async def _(event):
     if event.fwd_from:
         return
     mone = await event.edit("Processing ...")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Var.dTEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.dTEMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
         start = datetime.now()
         reply_message = await event.get_reply_message()
@@ -372,7 +372,7 @@ async def _(event):
             c_time = time.time()
             downloaded_file_name = await borg.download_media(
                 reply_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
+                Var.dTEMP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(d, t, mone, c_time, "trying to download")
                 ),
@@ -454,10 +454,10 @@ async def _(event):
     if event.fwd_from:
         return
     mone = await event.edit("Processing ...")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
-    extracted = Config.TMP_DOWNLOAD_DIRECTORY + "extracted/"
-    thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
+    if not os.path.isdir(Var.dTEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.dTEMP_DOWNLOAD_DIRECTORY)
+    extracted = Var.dTEMP_DOWNLOAD_DIRECTORY + "extracted/"
+    thumb_image_path = Var.dTEMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
     if not os.path.isdir(extracted):
         os.makedirs(extracted)
     if event.reply_to_msg_id:
@@ -467,7 +467,7 @@ async def _(event):
             c_time = time.time()
             downloaded_file_name = await borg.download_media(
                 reply_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
+                Var.dTEMP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(d, t, mone, c_time, "trying to download")
                 ),
