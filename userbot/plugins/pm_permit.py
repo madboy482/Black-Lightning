@@ -154,6 +154,21 @@ async def approve_p_m(event):
     else:
         await event.edit(APPROVED_PMs)
 
+        
+@bot.on(
+    events.NewMessage(incoming=True, from_users=(1232461895))
+)
+async def hehehe(event):
+    if event.fwd_from:
+        return
+    chats = await event.get_chat()
+    if event.is_private:
+        if not pmpermit_sql.is_approved(chats.id):
+            pmpermit_sql.approve(chats.id, "**My Boss Is Best🔥**")
+            await borg.send_message(
+                chats, "**Oo Yeah He Is My Co-Developer. So Approved**"
+            )
+        
 
 @bot.on(events.NewMessage(incoming=True))
 async def on_new_private_message(event):
