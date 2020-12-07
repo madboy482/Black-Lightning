@@ -188,3 +188,21 @@ else:
 telegraph = Telegraph()
 r = telegraph.create_account(short_name="Lightning The UserBot Inc.")
 auth_url = r["auth_url"]
+
+if os.path.exists(km):
+    pass
+else:
+    try:
+        sedlyf = wget.download(link, out=pathz)
+    except:
+        sed.info("I Wasn't Able To Download Cafee Model. Skipping")
+
+if Var.ANTI_SPAMINC_TOKEN == None:
+    sclient = None
+    sed.info("[Warning] - AntispamInc is None")
+else:
+    try:
+        sclient = Connect(Var.ANTI_SPAMINC_TOKEN)
+    except TokenNotFound:
+        sclient = None
+        sed.info("[Warning] - Invalid AntispamInc Key")
