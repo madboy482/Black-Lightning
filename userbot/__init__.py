@@ -76,6 +76,97 @@ if bool(ENV):
         pass
 
     # Userbot logging feature switch.
+    BOTLOG_CHATID = os.environ.get("BOTLOG_CHATID", None)
+    try:
+        BOTLOG_CHATID = int(BOTLOG_CHATID)
+    except BaseException:
+        pass
+
+    # Userbot logging feature switch.
+    BOTLOG = sb(os.environ.get("BOTLOG", "False"))
+
+    # Bleep Blop, this is a bot ;)
+    PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
+
+    # Console verbose logging
+    CONSOLE_LOGGER_VERBOSE = sb(
+        os.environ.get(
+            "CONSOLE_LOGGER_VERBOSE",
+            "False"))
+
+    # SQL Database URI
+    DB_URI = os.environ.get("DATABASE_URL", None)
+
+    # OCR API key
+    OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
+
+    # remove.bg API key
+    REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
+
+    # Chrome Driver and Headless Google Chrome Binaries
+    CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
+    GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
+
+    # For bit.ly plugin
+    BITLY_TOKEN = os.environ.get("BITLY_TOKEN", None)
+
+    # OpenWeatherMap API Key
+    OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
+
+    # Anti Spambot Config
+    ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT", "False"))
+
+    ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
+
+    # Youtube API key
+    YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
+
+    # Default .alive name
+    ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
+
+    # for autopic
+    AUTOPIC_TEXT = os.environ.get(
+        "AUTOPIC_TEXT",
+        "Life Is too Short.\n And so is your TG account.")
+    AUTO_PIC_FONT = os.environ.get("AUTOPIC_FONT", "DejaVuSans.ttf")
+    AUTOPIC_FONT_COLOUR = os.environ.get("AUTOPIC_FONT_COLOUR", None)
+
+    CMD_HNDLR = os.environ.get("CMD_HNDLR", r"\.")
+
+    LESS_SPAMMY = os.environ.get("LESS_SPAMMY", True)
+
+    # Time & Date - Country and Time Zone
+    COUNTRY = str(os.environ.get("COUNTRY", ""))
+
+    TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
+
+    # Clean Welcome
+    CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
+
+    # CUSTOM PMPERMIT
+    CUSTOM_PMPERMIT = os.environ.get("CUSTOM_PMPERMIT", None)
+
+    # PMPERMIT
+    COUNT_MSG = 0
+    COUNT_PM = {}
+
+    # Last.fm Module
+    BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
+    DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
+
+    LASTFM_API = os.environ.get("LASTFM_API", None)
+    LASTFM_SECRET = os.environ.get("LASTFM_SECRET", None)
+    LASTFM_USERNAME = os.environ.get("LASTFM_USERNAME", None)
+    LASTFM_PASSWORD_PLAIN = os.environ.get("LASTFM_PASSWORD", None)
+    LASTFM_PASS = pylast.md5(LASTFM_PASSWORD_PLAIN)
+    if not LASTFM_USERNAME == "None":
+    BOTLOG_CHATID = os.environ.get("BOTLOG_CHATID", None)
+    try:
+        BOTLOG_CHATID = int(BOTLOG_CHATID)
+    except:
+        pass
+
+    # Userbot logging feature switch.
     BOTLOG = sb(os.environ.get("BOTLOG", "False"))
 
     # Bleep Blop, this is a bot ;)
@@ -136,6 +227,7 @@ if bool(ENV):
 
     # Spamwatch Module
     SPAMWATCH_API = os.environ.get("SPAMWATCH_API", None)
+    CMD_HNDLR = os.environ.get("CMD_HNDLR", r"\.")
     ANTISPAM_SYSTEM = os.environ.get("ANTISPAM_SYSTEM", "DISABLE")
     WHITE_CHAT = PRIVATE_GROUP_ID = int(os.environ.get("WHITE_CHAT", False))
 
