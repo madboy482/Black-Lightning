@@ -3,7 +3,6 @@ Syntax: .ifsc rp <IFSC CODE>"""
 import json
 
 import requests
-
 from uniborg.util import admin_cmd
 
 

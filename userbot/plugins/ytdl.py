@@ -12,6 +12,7 @@ import os
 import time
 
 from telethon.tl.types import DocumentAttributeAudio
+from uniborg.util import admin_cmd
 from youtube_dl import YoutubeDL
 from youtube_dl.utils import (
     ContentTooShortError,
@@ -23,8 +24,6 @@ from youtube_dl.utils import (
     UnavailableVideoError,
     XAttrMetadataError,
 )
-
-from uniborg.util import admin_cmd
 
 
 async def progress(current, total, event, start, type_of_ps, file_name=None):

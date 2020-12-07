@@ -25,7 +25,6 @@ async def _(event):
 
 """.admin Plugin for @UniBorg"""
 from telethon.tl.types import ChannelParticipantsAdmins
-
 from uniborg.util import admin_cmd
 
 
@@ -50,7 +49,6 @@ async def _(event):
 
 """.admin Plugin for @UniBorg"""
 from telethon.tl.types import ChannelParticipantsAdmins
-
 from uniborg.util import admin_cmd
 
 
@@ -73,7 +71,6 @@ async def _(event):
 
 """.admin Plugin for @UniBorg"""
 from telethon.tl.types import ChannelParticipantsAdmins
-
 from uniborg.util import admin_cmd
 
 
@@ -96,7 +93,6 @@ async def _(event):
 
 """.admin Plugin for @UniBorg"""
 from telethon.tl.types import ChannelParticipantsAdmins
-
 from uniborg.util import admin_cmd
 
 

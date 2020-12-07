@@ -3,7 +3,6 @@ command: .singer singer name - song name
 by @quiec
 """
 from PyLyrics import *
-
 from uniborg.util import admin_cmd
 
 
