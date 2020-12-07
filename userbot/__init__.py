@@ -14,13 +14,14 @@ from requests import get
 from telegraph import Telegraph, exceptions, upload_file
 from telethon import TelegramClient
 from telethon.sessions import StringSession
-
-from userbot.thunderconfig import Config
+from userbot.Config import Var
 from var import Var
 
+from userbot.Config import Config
 from .function import thunderfunction as topfunc
 
 Lastupdate = time.time()
+sedprint = logging.getLogger("WARNING")
 StartTime = time.time()
 telever = "4.9"
 
@@ -180,30 +181,21 @@ AFKREASON = None
 # End of PaperPlaneExtended Support Vars
 link = "https://people.eecs.berkeley.edu/~rich.zhang/projects/2016_colorization/files/demo_v2/colorization_release_v2.caffemodel"
 km = "./resources/imgcolour/colorization_release_v2.caffemodel"
-if os.path.exists(km):
-    pass
-else:
-    pathz = "./resources/imgcolour/"
-    sedlyf = wget.download(link, out=pathz)
-
-telegraph = Telegraph()
-r = telegraph.create_account(short_name="Lightning The UserBot Inc.")
-auth_url = r["auth_url"]
-
+pathz = "./resources/imgcolour/"
 if os.path.exists(km):
     pass
 else:
     try:
         sedlyf = wget.download(link, out=pathz)
     except:
-        sed.info("I Wasn't Able To Download Cafee Model. Skipping")
+        sedprint.info("I Wasn't Able To Download Cafee Model. Skipping")
 
 if Config.ANTI_SPAMINC_TOKEN == None:
     sclient = None
-    sed.info("[Warning] - AntispamInc is None")
+    sedprint.info("[Warning] - AntispamInc is None")
 else:
     try:
         sclient = Connect(Config.ANTI_SPAMINC_TOKEN)
     except TokenNotFound:
         sclient = None
-        sed.info("[Warning] - Invalid AntispamInc Key")
+        sedprint.info("[Warning] - Invalid AntispamInc Key")
