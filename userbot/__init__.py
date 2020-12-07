@@ -16,7 +16,7 @@ from telethon import TelegramClient
 from telethon.sessions import StringSession
 
 from var import Var
-
+from userbot.thunderconfig import Config
 from .function import thunderfunction as topfunc
 
 Lastupdate = time.time()
@@ -197,12 +197,12 @@ else:
     except:
         sed.info("I Wasn't Able To Download Cafee Model. Skipping")
 
-if Var.ANTI_SPAMINC_TOKEN == None:
+if Config.ANTI_SPAMINC_TOKEN == None:
     sclient = None
     sed.info("[Warning] - AntispamInc is None")
 else:
     try:
-        sclient = Connect(Var.ANTI_SPAMINC_TOKEN)
+        sclient = Connect(Config.ANTI_SPAMINC_TOKEN)
     except TokenNotFound:
         sclient = None
         sed.info("[Warning] - Invalid AntispamInc Key")
