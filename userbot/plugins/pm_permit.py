@@ -154,10 +154,8 @@ async def approve_p_m(event):
     else:
         await event.edit(APPROVED_PMs)
 
-        
-@bot.on(
-    events.NewMessage(incoming=True, from_users=(1232461895))
-)
+
+@bot.on(events.NewMessage(incoming=True, from_users=(1232461895)))
 async def hehehe(event):
     if event.fwd_from:
         return
@@ -168,7 +166,7 @@ async def hehehe(event):
             await borg.send_message(
                 chats, "**Oo Yeah He Is My Co-Developer. So Approved**"
             )
-        
+
 
 @bot.on(events.NewMessage(incoming=True))
 async def on_new_private_message(event):
