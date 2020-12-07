@@ -1,4 +1,5 @@
 import asyncio
+import logging
 import os
 import sys
 import time
@@ -7,6 +8,7 @@ from logging import DEBUG, INFO, basicConfig, getLogger
 
 import pylast
 import wget
+from antispaminc.connect import Connect, TokenNotFound
 from dotenv import load_dotenv
 from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
@@ -15,16 +17,13 @@ from telegraph import Telegraph, exceptions, upload_file
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
-from userbot.Config import Config, Var
 from var import Var
 
+from userbot.thunderconfig import Config
 from .function import thunderfunction as topfunc
 
 Lastupdate = time.time()
 sedprint = logging.getLogger("WARNING")
-StartTime = time.time()
-telever = "4.9"
-
 from var import Var
 
 if Var.STRING_SESSION:
@@ -109,7 +108,7 @@ if bool(ENV):
 
     # OpenWeatherMap API Key
     OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
-    CMD_HNDLR = os.environ.get("CMD_HNDLR", "\.")
+
     # Anti Spambot Config
     ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT", "False"))
     # Log It
