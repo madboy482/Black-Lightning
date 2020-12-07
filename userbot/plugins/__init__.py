@@ -6,7 +6,7 @@ from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
-from userbo.__init__ import ALIVE_NAME, bot
+from userbot.__init__ import ALIVE_NAME, bot
 
 from userbot.__init__ import StartTime
 from userbot.Config import Config, Var
