@@ -1,7 +1,6 @@
 """WikiMedia.ORG
 Syntax: .wikimedia Query"""
 import requests
-
 from uniborg.util import admin_cmd
 
 

@@ -5,7 +5,6 @@
 from datetime import datetime
 
 import requests
-
 from uniborg.util import admin_cmd
 
 

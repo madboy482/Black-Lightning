@@ -14,7 +14,6 @@ from random import choice
 import requests
 from bs4 import BeautifulSoup
 from humanize import naturalsize
-
 from uniborg.util import admin_cmd
 
 

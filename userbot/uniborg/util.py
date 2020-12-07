@@ -4,9 +4,9 @@ import signal
 
 from telethon import events
 from telethon.tl.functions.messages import GetPeerDialogsRequest
+from uerbot import LOAD_PLUG
 
 from userbot.__init__ import CMD_LIST
-from uerbot import LOAD_PLUG
 from userbot.thunderconfig import Config
 from var import Var
 
