@@ -4,10 +4,11 @@ import signal
 
 from telethon import events
 from telethon.tl.functions.messages import GetPeerDialogsRequest
+
+from userbot.__init__ import CMD_LIST, LOAD_PLUG
 from userbot.thunderconfig import Config
 from var import Var
-from userbot.__init__ import LOAD_PLUG
-from userbot.__init__ import CMD_LIST
+
 
 async def is_read(borg, entity, message, is_out=None):
     """
@@ -16,8 +17,7 @@ async def is_read(borg, entity, message, is_out=None):
     """
     is_out = getattr(message, "out", is_out)
     if not isinstance(is_out, bool):
-        raise ValueError(
-            "Message was id but is_out not provided or not a bool")
+        raise ValueError("Message was id but is_out not provided or not a bool")
     message_id = getattr(message, "id", message)
     if not isinstance(message_id, int):
         raise ValueError("Failed to extract id from message")
@@ -40,13 +40,14 @@ async def get_target_self_message(borg, event):
 
 
 async def get_recent_self_message(borg, event):
-    async for message in borg.iter_messages(
-            await event.get_input_chat(), limit=20):
+    async for message in borg.iter_messages(await event.get_input_chat(), limit=20):
         if message.out:
             return message
 
+
 def _handle_timeout(signum, frame):
     raise TimeoutError("Execution took too long")
+
 
 def sync_timeout(seconds):
     def decorator(func):
@@ -59,19 +60,21 @@ def sync_timeout(seconds):
             finally:
                 signal.alarm(0)
             return r
+
         return wrapper
+
     return decorator
+
 
 async def send_replacement_message(event, *args, **kwargs):
     """
     Same as event.respond()
     but with reply_to already set to what this event is replying to
     """
-    if 'reply_to' in kwargs:
+    if "reply_to" in kwargs:
         raise ValueError("reply_to must not be provided")
-    kwargs['reply_to'] = event.message.reply_to_msg_id
+    kwargs["reply_to"] = event.message.reply_to_msg_id
     return await event.respond(*args, **kwargs)
-
 
 
 def sudo_cmd(pattern=None, **args):
@@ -184,7 +187,6 @@ def admin_cmd(pattern=None, **args):
  One of the main components of the userbot. """
 
 
-
 def command(**args):
     args["func"] = lambda e: e.via_bot_id is None
 
@@ -197,30 +199,26 @@ def command(**args):
     else:
         pattern = args.get("pattern", None)
         allow_sudo = args.get("allow_sudo", None)
-        allow_edited_updates = args.get('allow_edited_updates', False)
+        allow_edited_updates = args.get("allow_edited_updates", False)
         args["incoming"] = args.get("incoming", False)
         args["outgoing"] = True
         if bool(args["incoming"]):
             args["outgoing"] = False
 
         try:
-            if pattern is not None and not pattern.startswith('(?i)'):
-                args['pattern'] = '(?i)' + pattern
+            if pattern is not None and not pattern.startswith("(?i)"):
+                args["pattern"] = "(?i)" + pattern
         except BaseException:
             pass
 
-        reg = re.compile('(.*)')
+        reg = re.compile("(.*)")
         if pattern is not None:
             try:
                 cmd = re.search(reg, pattern)
                 try:
-                    cmd = cmd.group(1).replace(
-                        "$",
-                        "").replace(
-                        "\\",
-                        "").replace(
-                        "^",
-                        "")
+                    cmd = (
+                        cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
+                    )
                 except BaseException:
                     pass
 
@@ -242,7 +240,7 @@ def command(**args):
             pass
 
         if "allow_edited_updates" in args:
-            del args['allow_edited_updates']
+            del args["allow_edited_updates"]
 
         def decorator(func):
             if allow_edited_updates:
