@@ -1,6 +1,6 @@
 import random
 
-from uniborg.util import admin_cmd
+from userbot.utils import admin_cmd, edit_or_reply, 
 
 from userbot import CMD_HELP
 
