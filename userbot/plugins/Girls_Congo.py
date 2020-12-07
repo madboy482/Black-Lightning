@@ -1,6 +1,6 @@
 import random
 
-from uniborg.util import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 from userbot import CMD_HELP
 
@@ -32,6 +32,6 @@ CMD_HELP.update(
     {
         "congratulations": "**Congratulations**\
 \n\n**Syntax : **`.Gcongo`\
-\n**Usage :** This plugin is used Fir Girls To Congratulate Someone."
+\n**Usage :** This plugin is used For Girls To Congratulate Someone."
     }
 )
