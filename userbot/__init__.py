@@ -15,8 +15,9 @@ from telegraph import Telegraph, exceptions, upload_file
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
-from var import Var
 from userbot.thunderconfig import Config
+from var import Var
+
 from .function import thunderfunction as topfunc
 
 Lastupdate = time.time()
