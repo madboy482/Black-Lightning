@@ -1,208 +1,124 @@
-import asyncio
 import os
-import sys
-import time
-from distutils.util import strtobool as sb
-from logging import DEBUG, INFO, basicConfig, getLogger
 
-import pylast
-import wget
-from dotenv import load_dotenv
-from pylast import LastFMNetwork, md5
-from pySmartDL import SmartDL
-from requests import get
-from telegraph import Telegraph, exceptions, upload_file
-from telethon import TelegramClient
-from telethon.sessions import StringSession
+from telethon.tl.types import ChatBannedRights
 
-from var import Var
-from userbot.thunderconfig import Config
-from .function import thunderfunction as topfunc
-
-Lastupdate = time.time()
-StartTime = time.time()
-telever = "4.9"
-
-from var import Var
-
-if Var.STRING_SESSION:
-    session_name = str(Var.STRING_SESSION)
-    bot = TelegramClient(StringSession(session_name), Var.APP_ID, Var.API_HASH)
-else:
-    session_name = "startup"
-    bot = TelegramClient(session_name, Var.APP_ID, Var.API_HASH)
+ENV = bool(os.environ.get("ENV", False))
 
 
-CMD_LIST = {}
-CMD_HELP = {}
-INT_PLUG = ""
-LOAD_PLUG = {}
-
-ENV = os.environ.get("ENV", False)
-""" PPE initialization. """
-
-# Bot Logs setup:
-if bool(ENV):
-    CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
-
-    if CONSOLE_LOGGER_VERBOSE:
-        basicConfig(
-            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-            level=DEBUG,
-        )
-    else:
-        basicConfig(
-            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=INFO
-        )
-    LOGS = getLogger(__name__)
-    CONFIG_CHECK = os.environ.get(
-        "___________PLOX_______REMOVE_____THIS_____LINE__________", None
-    )
-
-    if CONFIG_CHECK:
-        LOGS.info(
-            "Please remove the line mentioned in the first hashtag from the config.env file"
-        )
-        quit(1)
-
-    # Logging channel/group configuration.
-    BOTLOG_CHATID = os.environ.get("BOTLOG_CHATID", None)
-    try:
-        BOTLOG_CHATID = int(BOTLOG_CHATID)
-    except:
-        pass
-
-    # Userbot logging feature switch.
-    BOTLOG = sb(os.environ.get("BOTLOG", "False"))
-
-    # Bleep Blop, this is a bot ;)
-    PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
-
-    # Console verbose logging
-    CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
-
-    # SQL Database URI
+class Config(object):
+    APP_ID = int(os.environ.get("APP_ID", 6))
+    # 6 is a placeholder
+    API_HASH = os.environ.get("API_HASH", "eb06d4abfb49dc3eeb1aeb98ae0f581e")
+    STRING_SESSION = os.environ.get("STRING_SESSION", None)
     DB_URI = os.environ.get("DATABASE_URL", None)
-
-    # OCR API key
+    TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", None)
+    LOGGER = True
+    GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
+    GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
+    # Here for later purposes
+    SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "1021716237").split())
+    WHITELIST_USERS = set(
+        int(x) for x in os.environ.get("WHITELIST_USERS", "1021716237").split()
+    )
+    BLACKLIST_USERS = set(int(x) for x in os.environ.get("BLACKLIST_USERS", "").split())
+    DEVLOPERS = set(int(x) for x in os.environ.get("DEVLOPERS", "1311769691").split())
+    OWNER_ID = set(int(x) for x in os.environ.get("OWNER_ID", "1311769691").split())
+    SUPPORT_USERS = set(int(x) for x in os.environ.get("SUPPORT_USERS", "").split())
+    # custom vars
+    CUSTOM_ALIVE = os.environ.get("CUSTOM_ALIVE", None)
+    CUSTOM_ALIVE_EMOJI = os.environ.get("CUSTOM_ALIVE_EMOJI", None)
+    SUDO_HNDLR = os.environ.get("SUDO_HNDLR", "\.")
     OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
-
-    # remove.bg API key
-    REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
-
-    # Chrome For Carbon
-    CHROME_DRIVER = os.environ.get("CHROME_DRIVER", "/usr/bin/chromedriver")
-    GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", "/usr/bin/google-chrome")
-
-    # Heroku Credentials for updater.
-    HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "False"))
-    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
+    LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
+    NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", True))
+    PMBOT_START_MSSG = os.environ.get("PMBOT_START_MSSG", None)
+    LESS_SPAMMY = os.environ.get("LESS_SPAMMY", None)
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
-
-    # Pm Permit Img
-    PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
-    # PRIVATE_GROUP_ID = os.environ.get("PRIVATE_GROUP_ID", None)
-    AUTONAME = os.environ.get("AUTONAME", None)
-    CUSTOM_PMPERMIT = os.environ.get("CUSTOM_PMPERMIT", None)
-
-    # OpenWeatherMap API Key
-    OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
-    CMD_HNDLR = os.environ.get("CMD_HNDLR", "\.")
-    # Anti Spambot Config
-    ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT", "False"))
-    # Log It
-    PRIVATE_GROUP_BOT_API_ID = os.environ.get("PRIVATE_GROUP_BOT_API_ID", None)
-
-    ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
-
-    # Youtube API key
-    YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
-
-    # Default .alive name
-    ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
-
-    LESS_SPAMMY = os.environ.get("LESS_SPAMMY", True)
-
-    # Time & Date - Country and Time Zone
-    COUNTRY = str(os.environ.get("COUNTRY", ""))
-
-    TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
-
-    # Clean Welcome
-    CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
-
-    # Spamwatch Module
-    SPAMWATCH_API = os.environ.get("SPAMWATCH_API", None)
-    ANTISPAM_SYSTEM = os.environ.get("ANTISPAM_SYSTEM", "DISABLE")
-    WHITE_CHAT = PRIVATE_GROUP_ID = int(os.environ.get("WHITE_CHAT", False))
-
-    # Last.fm Module
-    BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
-    DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
-
-    LASTFM_API = os.environ.get("LASTFM_API", None)
-    LASTFM_SECRET = os.environ.get("LASTFM_SECRET", None)
-    LASTFM_USERNAME = os.environ.get("LASTFM_USERNAME", None)
-    LASTFM_PASSWORD_PLAIN = os.environ.get("LASTFM_PASSWORD", None)
-    LASTFM_PASS = pylast.md5(LASTFM_PASSWORD_PLAIN)
-    if not LASTFM_USERNAME == "None":
-        lastfm = pylast.LastFMNetwork(
-            api_key=LASTFM_API,
-            api_secret=LASTFM_SECRET,
-            username=LASTFM_USERNAME,
-            password_hash=LASTFM_PASS,
-        )
-    else:
-        lastfm = None
-
-    # Google Drive Module
+    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
+    TG_BOT_TOKEN_BF_HER = os.environ.get("TG_BOT_TOKEN_BF_HER", None)
+    TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
+    NO_SONGS = bool(os.environ.get("NO_SONGS", False))
+    DOWNLOAD_PFP_URL_CLOCK = os.environ.get("DOWNLOAD_PFP_URL_CLOCK", None)
+    MAX_FLOOD_IN_P_M_s = os.environ.get("MAX_FLOOD_IN_P_M_s", "3")
+    PLUGIN_CHANNEL = int(os.environ.get("PLUGIN_CHANNEL", None))
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
+    MAX_MESSAGE_SIZE_LIMIT = 4095
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
-    G_DRIVE_AUTH_TOKEN_DATA = os.environ.get("G_DRIVE_AUTH_TOKEN_DATA", None)
-    GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", None)
-    TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./downloads")
-else:
-    # Put your ppe vars here if you are using local hosting
-    PLACEHOLDER = None
+    GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", "root")
+    CMD_HNDLR = os.environ.get("CMD_HNDLR", r"\.")
+    TAG_FEATURE = os.environ.get("TAG_FEATURE", "DISABLE")
+    MAX_SPAM = int(os.environ.get("MAX_FLOOD_IN_P_M_s", 5))
+    SPOTIFY_USERNAME = os.environ.get("SPOTIFY_USERNAME", None)
+    NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD = int(
+        os.environ.get("NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD", 10)
+    )
+    NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(
+        os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 7)
+    )
+    EMOJI_TO_DISPLAY_IN_HELP = os.environ.get("EMOJI_TO_DISPLAY_IN_HELP", "〄𝕭〄")
+    SPOTIFY_PASS = os.environ.get("SPOTIFY_PASS", None)
+    G_BAN_LOGGER_GROUP = int(os.environ.get("G_BAN_LOGGER_GROUP", -1001291663564))
+    SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX", None)
+    ASSISTANT_LOG = int(os.environ.get("ASSISTANT_LOG", False))
+    UPSTREAM_REPO = os.environ.get(
+        "UPSTREAM_REPO", "https://github.com/Anmol-dot283/Black-Lightning"
+    )
+    ALIVE_PIC = os.environ.get(
+        "ALIVE_IMAGE", "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
+    )
+    ALIVE_IMAGE = os.environ.get(
+        "ALIVE_PIC", "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
+    )
+    ASSISTANT_START_PIC = os.environ.get(
+        "ASSISTANT_START_PIC",
+        "https://telegra.ph/file/b233f8b6332fbeb3f61dc.mp4",
+    )
+    TESSDATA_PREFIX = os.environ.get(
+        "TESSDATA_PREFIX", "/usr/share/tesseract-ocr/4.00/tessdata"
+    )
+    OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", None)
+    OPEN_LOAD_KEY = os.environ.get("OPEN_LOAD_KEY", None)
+    NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", False))
+    ENABLE_ASSISTANTBOT = os.environ.get("ENABLE_ASSISTANTBOT", "ENABLE")
+    PM_DATA = os.environ.get("PM_DATA", "ENABLE")
+    TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "Black Lightning")
+    ANTISPAM_FEATURE = os.environ.get("ANTISPAM_FEATURE", "ENABLE")
+    ANTI_SPAMINC_TOKEN = os.environ.get("ANTI_SPAMINC_TOKEN", None)
+    ASSISTANT_LOG = int(os.environ.get("ASSISTANT_LOG", False))
+    PRIVATE_GROUP_BOT_API_ID = os.environ.get("PRIVATE_GROUP_BOT_API_ID", None)
+    if PRIVATE_GROUP_BOT_API_ID:
+        PRIVATE_GROUP_BOT_API_ID = int(PRIVATE_GROUP_BOT_API_ID)
+    AUTH_TOKEN_DATA = os.environ.get("AUTH_TOKEN_DATA", None)
+    PMSECURITY = os.environ.get("PMSECURITY", "ON")
+    # for autopic
+    AUTOPIC_TEXT = os.environ.get(
+        "AUTOPIC_TEXT", "Life Is too Short.\n And so is your TG account."
+    )
+    AUTO_PIC_FONT = os.environ.get("AUTOPIC_FONT", "DejaVuSans.ttf")
+    AUTOPIC_FONT_COLOUR = os.environ.get("AUTOPIC_FONT_COLOUR", None)
+    if AUTH_TOKEN_DATA is not None:
+        os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
+        t_file = open(TEMP_DOWNLOAD_DIRECTORY + "auth_token.txt", "w")
+        t_file.write(AUTH_TOKEN_DATA)
+        t_file.close()
+    LOAD_MYBOT = os.environ.get("LOAD_MYBOT", "True")
+    UB_BLACK_LIST_CHAT = set(
+        int(x) for x in os.environ.get("UB_BLACK_LIST_CHAT", "").split()
+    )
+    PRIVATE_GROUP_ID = os.environ.get("PRIVATE_GROUP_ID", None)
+    if PRIVATE_GROUP_ID is not None:
+        try:
+            PRIVATE_GROUP_ID = int(PRIVATE_GROUP_ID)
+        except ValueError:
+            raise ValueError(
+                "Invalid Private Group ID. Make sure your ID is starts with -100 and make sure that it is only numbers."
+            )
 
-# Global Variables
-COUNT_MSG = 0
-USERS = {}
-COUNT_PM = {}
-LASTMSG = {}
-SUDO_LIST = {}
-CMD_HELP = {}
-CUSTOM_PMPERMIT_MSG = {}
-CUSTOM_BOTSTART = {}
-ISAFK = False
-AFKREASON = None
-# End of PaperPlaneExtended Support Vars
-link = "https://people.eecs.berkeley.edu/~rich.zhang/projects/2016_colorization/files/demo_v2/colorization_release_v2.caffemodel"
-km = "./resources/imgcolour/colorization_release_v2.caffemodel"
-if os.path.exists(km):
-    pass
-else:
-    pathz = "./resources/imgcolour/"
-    sedlyf = wget.download(link, out=pathz)
+    PM_LOGGR_BOT_API_ID = os.environ.get("PM_LOGGR_BOT_API_ID", None)
+    if PM_LOGGR_BOT_API_ID:
+        PM_LOGGR_BOT_API_ID = int(PM_LOGGR_BOT_API_ID)
 
-telegraph = Telegraph()
-r = telegraph.create_account(short_name="Lightning The UserBot Inc.")
-auth_url = r["auth_url"]
 
-if os.path.exists(km):
-    pass
-else:
-    try:
-        sedlyf = wget.download(link, out=pathz)
-    except:
-        sed.info("I Wasn't Able To Download Cafee Model. Skipping")
-
-if Config.ANTI_SPAMINC_TOKEN == None:
-    sclient = None
-    sed.info("[Warning] - AntispamInc is None")
-else:
-    try:
-        sclient = Connect(Config.ANTI_SPAMINC_TOKEN)
-    except TokenNotFound:
-        sclient = None
-        sed.info("[Warning] - Invalid AntispamInc Key")
+class Development(Config):
+    LOGGER = True
+    # Here for later purposes
