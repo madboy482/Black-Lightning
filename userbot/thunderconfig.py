@@ -1,5 +1,4 @@
 import os
-from telethon.tl.types import ChatBannedRights
 
 ENV = bool(os.environ.get("ENV", False))
 
@@ -15,28 +14,14 @@ class Config(object):
     GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
     GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
     # Here for later purposes
-    SUDO_USERS = set(
-        int(x) for x in os.environ.get(
-            "SUDO_USERS",
-            "1021716237").split())
+    SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "1021716237").split())
     WHITELIST_USERS = set(
-        int(x) for x in os.environ.get(
-            "WHITELIST_USERS",
-            "1021716237").split())
-    BLACKLIST_USERS = set(
-        int(x) for x in os.environ.get(
-            "BLACKLIST_USERS", "").split())
-    DEVLOPERS = set(
-        int(x) for x in os.environ.get(
-            "DEVLOPERS",
-            "1311769691").split())
-    OWNER_ID = set(
-        int(x) for x in os.environ.get(
-            "OWNER_ID",
-            "1311769691").split())
-    SUPPORT_USERS = set(
-        int(x) for x in os.environ.get(
-            "SUPPORT_USERS", "").split())
+        int(x) for x in os.environ.get("WHITELIST_USERS", "1021716237").split()
+    )
+    BLACKLIST_USERS = set(int(x) for x in os.environ.get("BLACKLIST_USERS", "").split())
+    DEVLOPERS = set(int(x) for x in os.environ.get("DEVLOPERS", "1311769691").split())
+    OWNER_ID = set(int(x) for x in os.environ.get("OWNER_ID", "1311769691").split())
+    SUPPORT_USERS = set(int(x) for x in os.environ.get("SUPPORT_USERS", "").split())
     # custom vars
     CUSTOM_ALIVE = os.environ.get("CUSTOM_ALIVE", None)
     CUSTOM_ALIVE_EMOJI = os.environ.get("CUSTOM_ALIVE_EMOJI", None)
@@ -58,45 +43,48 @@ class Config(object):
     CMD_HNDLR = os.environ.get("CMD_HNDLR", r"\.")
     TAG_FEATURE = os.environ.get("TAG_FEATURE", "DISABLE")
     SPOTIFY_USERNAME = os.environ.get("SPOTIFY_USERNAME", None)
-    NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD = int(os.environ.get("NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD", 10))
+    NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD = int(
+        os.environ.get("NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD", 10)
+    )
     PRIVATE_GROUP_BOT_API_ID = os.environ.get("PRIVATE_GROUP_BOT_API_ID", None)
     if PRIVATE_GROUP_BOT_API_ID:
-            PRIVATE_GROUP_BOT_API_ID = int(PRIVATE_GROUP_BOT_API_ID)
-    NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 7))
+        PRIVATE_GROUP_BOT_API_ID = int(PRIVATE_GROUP_BOT_API_ID)
+    NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(
+        os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 7)
+    )
     EMOJI_TO_DISPLAY_IN_HELP = os.environ.get("EMOJI_TO_DISPLAY_IN_HELP", "〄𝕭〄")
     SPOTIFY_PASS = os.environ.get("SPOTIFY_PASS", None)
     G_BAN_LOGGER_GROUP = int(os.environ.get("G_BAN_LOGGER_GROUP", -1001291663564))
     SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX", None)
     ASSISTANT_LOG = int(os.environ.get("ASSISTANT_LOG", False))
     UPSTREAM_REPO = os.environ.get(
-            "UPSTREAM_REPO", "https://github.com/Anmol-dot283/Black-Lightning"
-        )
+        "UPSTREAM_REPO", "https://github.com/Anmol-dot283/Black-Lightning"
+    )
     ALIVE_PIC = os.environ.get(
-            "ALIVE_IMAGE", "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
-        )
+        "ALIVE_IMAGE", "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
+    )
     ALIVE_IMAGE = os.environ.get(
-            "ALIVE_PIC", "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
-        )
+        "ALIVE_PIC", "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
+    )
     ASSISTANT_START_PIC = os.environ.get(
-            "ASSISTANT_START_PIC",
-            "https://telegra.ph/file/b233f8b6332fbeb3f61dc.mp4",
-        )
+        "ASSISTANT_START_PIC",
+        "https://telegra.ph/file/b233f8b6332fbeb3f61dc.mp4",
+    )
     TESSDATA_PREFIX = os.environ.get(
-            "TESSDATA_PREFIX", "/usr/share/tesseract-ocr/4.00/tessdata"
-        )
+        "TESSDATA_PREFIX", "/usr/share/tesseract-ocr/4.00/tessdata"
+    )
     OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", None)
     OPEN_LOAD_KEY = os.environ.get("OPEN_LOAD_KEY", None)
     NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", False))
     ENABLE_ASSISTANTBOT = os.environ.get("ENABLE_ASSISTANTBOT", "ENABLE")
     PM_DATA = os.environ.get("PM_DATA", "ENABLE")
-    TELEGRAPH_SHORT_NAME = os.environ.get(
-            "TELEGRAPH_SHORT_NAME", "Black Lightning")
+    TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "Black Lightning")
     AUTH_TOKEN_DATA = os.environ.get("AUTH_TOKEN_DATA", None)
     PMSECURITY = os.environ.get("PMSECURITY", "ON")
     # for autopic
     AUTOPIC_TEXT = os.environ.get(
-        "AUTOPIC_TEXT",
-        "Life Is too Short.\n And so is your TG account.")
+        "AUTOPIC_TEXT", "Life Is too Short.\n And so is your TG account."
+    )
     AUTO_PIC_FONT = os.environ.get("AUTOPIC_FONT", "DejaVuSans.ttf")
     AUTOPIC_FONT_COLOUR = os.environ.get("AUTOPIC_FONT_COLOUR", None)
     if AUTH_TOKEN_DATA is not None:
@@ -106,21 +94,22 @@ class Config(object):
         t_file.close()
     LOAD_MYBOT = os.environ.get("LOAD_MYBOT", "True")
     UB_BLACK_LIST_CHAT = set(
-            int(x) for x in os.environ.get(
-                "UB_BLACK_LIST_CHAT", "").split())
+        int(x) for x in os.environ.get("UB_BLACK_LIST_CHAT", "").split()
+    )
     PRIVATE_GROUP_ID = os.environ.get("PRIVATE_GROUP_ID", None)
     if PRIVATE_GROUP_ID is not None:
         try:
             PRIVATE_GROUP_ID = int(PRIVATE_GROUP_ID)
         except ValueError:
             raise ValueError(
-                "Invalid Private Group ID. Make sure your ID is starts with -100 and make sure that it is only numbers.")
-        
+                "Invalid Private Group ID. Make sure your ID is starts with -100 and make sure that it is only numbers."
+            )
+
     PM_LOGGR_BOT_API_ID = os.environ.get("PM_LOGGR_BOT_API_ID", None)
     if PM_LOGGR_BOT_API_ID:
-            PM_LOGGR_BOT_API_ID = int(PM_LOGGR_BOT_API_ID)        
+        PM_LOGGR_BOT_API_ID = int(PM_LOGGR_BOT_API_ID)
+
 
 class Development(Config):
     LOGGER = True
     # Here for later purposes
-
