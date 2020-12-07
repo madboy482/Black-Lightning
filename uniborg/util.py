@@ -1,8 +1,6 @@
 import functools
-import re
 import signal
 
-from telethon import events
 from telethon.tl.functions.messages import GetPeerDialogsRequest
 
 
@@ -13,8 +11,7 @@ async def is_read(borg, entity, message, is_out=None):
     """
     is_out = getattr(message, "out", is_out)
     if not isinstance(is_out, bool):
-        raise ValueError(
-            "Message was id but is_out not provided or not a bool")
+        raise ValueError("Message was id but is_out not provided or not a bool")
     message_id = getattr(message, "id", message)
     if not isinstance(message_id, int):
         raise ValueError("Failed to extract id from message")
@@ -37,13 +34,14 @@ async def get_target_self_message(borg, event):
 
 
 async def get_recent_self_message(borg, event):
-    async for message in borg.iter_messages(
-            await event.get_input_chat(), limit=20):
+    async for message in borg.iter_messages(await event.get_input_chat(), limit=20):
         if message.out:
             return message
 
+
 def _handle_timeout(signum, frame):
     raise TimeoutError("Execution took too long")
+
 
 def sync_timeout(seconds):
     def decorator(func):
@@ -56,15 +54,18 @@ def sync_timeout(seconds):
             finally:
                 signal.alarm(0)
             return r
+
         return wrapper
+
     return decorator
+
 
 async def send_replacement_message(event, *args, **kwargs):
     """
     Same as event.respond()
     but with reply_to already set to what this event is replying to
     """
-    if 'reply_to' in kwargs:
+    if "reply_to" in kwargs:
         raise ValueError("reply_to must not be provided")
-    kwargs['reply_to'] = event.message.reply_to_msg_id
+    kwargs["reply_to"] = event.message.reply_to_msg_id
     return await event.respond(*args, **kwargs)

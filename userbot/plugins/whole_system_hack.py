@@ -6,8 +6,8 @@ Available Commands:
 import asyncio
 
 from telethon.tl.functions.users import GetFullUserRequest
-from uniborg.util import admin_cmd
 
+from uniborg.util import admin_cmd
 from userbot import CMD_HELP
 
 

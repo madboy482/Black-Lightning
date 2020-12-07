@@ -21,8 +21,8 @@ from cowpy import cow
 from telethon import events
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
-from uniborg.util import admin_cmd
 
+from uniborg.util import admin_cmd
 from userbot import CMD_HELP
 from userbot.utils import register
 

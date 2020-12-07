@@ -5,8 +5,8 @@
 import os
 
 from telethon.tl import functions
-from uniborg.util import admin_cmd
 
+from uniborg.util import admin_cmd
 from userbot.Config import Var
 
 

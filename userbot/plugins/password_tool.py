@@ -2,8 +2,8 @@ import secrets
 from random import *
 
 from password_strength import PasswordStats
-from uniborg.util import admin_cmd
 
+from uniborg.util import admin_cmd
 from userbot import CMD_HELP
 from userbot.utils import admin_cmd
 

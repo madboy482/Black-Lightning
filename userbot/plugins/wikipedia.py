@@ -4,6 +4,7 @@
 """WikiPedia.ORG
 Syntax: .wikipedia Query"""
 import wikipedia
+
 from uniborg.util import admin_cmd
 
 
