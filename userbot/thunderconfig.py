@@ -11,6 +11,7 @@ class Config(object):
     DB_URI = os.environ.get("DATABASE_URL", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", None)
     LOGGER = True
+    OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
     GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
     GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
     # Here for later purposes
@@ -26,9 +27,11 @@ class Config(object):
     # custom vars
     CUSTOM_ALIVE = os.environ.get("CUSTOM_ALIVE", None)
     CUSTOM_ALIVE_EMOJI = os.environ.get("CUSTOM_ALIVE_EMOJI", None)
+    REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
     SUDO_HNDLR = os.environ.get("SUDO_HNDLR", "\.")
     OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
     LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
+    LYDIA_API = os.environ.get("LYDIA_API", None)
     NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", True))
     PMBOT_START_MSSG = os.environ.get("PMBOT_START_MSSG", None)
     LESS_SPAMMY = os.environ.get("LESS_SPAMMY", None)
@@ -84,6 +87,9 @@ class Config(object):
     TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "Black Lightning")
     ANTISPAM_FEATURE = os.environ.get("ANTISPAM_FEATURE", "ENABLE")
     ANTI_SPAMINC_TOKEN = os.environ.get("ANTI_SPAMINC_TOKEN", None)
+    SCREEN_SHOT_LAYER_ACCESS_KEY = os.environ.get(
+           "SCREEN_SHOT_LAYER_ACCESS_KEY", None
+        )
     ASSISTANT_LOG = int(os.environ.get("ASSISTANT_LOG", False))
     PRIVATE_GROUP_BOT_API_ID = os.environ.get("PRIVATE_GROUP_BOT_API_ID", None)
     if PRIVATE_GROUP_BOT_API_ID:
