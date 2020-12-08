@@ -8,7 +8,6 @@ from youtubesearchpython import SearchVideos
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
 from userbot.Config import Var
-from userbot.plugins import inlinestats
 
 telever = "inlinestats"
 
