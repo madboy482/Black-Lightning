@@ -6,13 +6,13 @@ from pathlib import Path
 
 from telethon import events
 
-from userbot.__init__ import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot
+from userbot import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot
 from userbot.Config import Var
 from userbot.wraptools import am_i_admin, ignore_bot, ignore_fwd, ignore_grp, ignore_pm
 from var import Var
 
 sedprint = logging.getLogger("PLUGINS")
-cmdhandler = Var.HNDLR
+cmdhandler = Var.CMD_HNDLR
 bothandler = Var.BOT_HANDLER
 
 
@@ -92,11 +92,11 @@ def load_module(shortname):
         import sys
         from pathlib import Path
 
-        import userbot.modules
+        import userbot.plugins
         import userbot.utils
 
-        path = Path(f"userbot/modules/{shortname}.py")
-        name = "userbot.modules.{}".format(shortname)
+        path = Path(f"userbot/plugins/{shortname}.py")
+        name = "userbot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
@@ -106,11 +106,11 @@ def load_module(shortname):
         import sys
         from pathlib import Path
 
-        import userbot.modules
+        import userbot.plugins
         import userbot.utils
 
-        path = Path(f"userbot/modules/{shortname}.py")
-        name = "userbot.modules.{}".format(shortname)
+        path = Path(f"userbot/plugins/{shortname}.py")
+        name = "userbot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = bot
@@ -120,9 +120,9 @@ def load_module(shortname):
         mod.logger = logging.getLogger(shortname)
         # support for uniborg
         sys.modules["uniborg.util"] = userbot.utils
-        sys.modules["friday.util"] = userbot.utils
+        sys.modules["lightning.util"] = userbot.utils
         sys.modules["userbot.utils"] = userbot.utils
-        sys.modules["userbot.plugins"] = userbot.modules
+        sys.modules["userbot.plugins"] = userbot.plugins
         mod.Var = Var
         mod.ignore_grp = ignore_grp()
         mod.ignore_pm = ignore_pm()
@@ -130,12 +130,12 @@ def load_module(shortname):
         mod.am_i_admin = am_i_admin()
         mod.ignore_fwd = ignore_fwd()
         mod.borg = bot
-        mod.friday = bot
+        mod.lightning = bot
         # support for paperplaneextended
         sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
         # for imports
-        sys.modules["userbot.modules." + shortname] = mod
+        sys.modules["userbot.plugins." + shortname] = mod
         sedprint.info("Successfully imported " + shortname)
 
 
@@ -147,7 +147,7 @@ def remove_plugin(shortname):
             del LOAD_PLUG[shortname]
 
         except:
-            name = f"userbot.modules.{shortname}"
+            name = f"userbot.plugins.{shortname}"
 
             for i in reversed(range(len(bot._event_builders))):
                 ev, cb = bot._event_builders[i]
@@ -201,7 +201,7 @@ def admin_cmd(pattern=None, **args):
     return events.NewMessage(**args)
 
 
-def friday_on_cmd(pattern=None, **args):
+def admin_cmd(pattern=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
 
     stack = inspect.stack()
@@ -318,7 +318,7 @@ def errors_handler(func):
 
             text = "**USERBOT CRASH REPORT**\n\n"
 
-            link = "[Here](https://t.me/FridayOT)"
+            link = "[Here](https://t.me/lightningsupport)"
             text += "If you wanna you can report it"
             text += f"- just forward this message {link}.\n"
             text += "Nothing is logged except the fact of error and date\n"
@@ -329,7 +329,7 @@ def errors_handler(func):
             ftext += "\nyou may not report this error if you've"
             ftext += "\nany confidential data here, no one will see your data\n\n"
 
-            ftext += "--------BEGIN FRIDAY USERBOT TRACEBACK LOG--------"
+            ftext += "--------BEGIN Lightning USERBOT TRACEBACK LOG--------"
             ftext += "\nDate: " + date
             ftext += "\nGroup ID: " + str(errors.chat_id)
             ftext += "\nSender ID: " + str(errors.sender_id)
