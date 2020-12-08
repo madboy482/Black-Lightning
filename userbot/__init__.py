@@ -229,9 +229,24 @@ ISAFK = False
 AFKREASON = None
 
 ######Anti Spam system ######
+link = "https://people.eecs.berkeley.edu/~rich.zhang/projects/2016_colorization/files/demo_v2/colorization_release_v2.caffemodel"
+km = "./resources/imgcolour/colorization_release_v2.caffemodel"
+pathz = "./resources/imgcolour/"
+if os.path.exists(km):
+    pass
+else:
+    try:
+        sedlyf = wget.download(link, out=pathz)
+    except:
+        sedprint.info("I Wasn't Able To Download Cafee Model. Skipping")
 
-if Config.ANTI_SPAMINC_TOKEN is not None:
+if Config.ANTI_SPAMINC_TOKEN == None:
+    sclient = None
+    sedprint.info("[Warning] - AntispamInc is None")
+else:
     try:
         sclient = Connect(Config.ANTI_SPAMINC_TOKEN)
     except Exception as e:
-        sed.info("Antispaminc Client Failed to Start " + e)
+        sclient = None
+        sedprint.info("[Warning] - " + e)
+
