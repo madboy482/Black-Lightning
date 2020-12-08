@@ -84,7 +84,6 @@ def command(**args):
 
         return decorator
 
-
 def load_module(shortname):
     if shortname.startswith("__"):
         pass
@@ -138,6 +137,7 @@ def load_module(shortname):
         # for imports
         sys.plugins["userbot.plugins." + shortname] = mod
         sedprint.info("Successfully imported " + shortname)
+
 
 
 def remove_plugin(shortname):
@@ -662,8 +662,8 @@ def start_assistant(shortname):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        sedprint.info("Starting Your Assistant Bot.")
-        sedprint.info("Assistant Sucessfully imported " + shortname)
+        print("Initialising Lightning.")
+        print("Lightning - Imported " + shortname)
     else:
         import importlib
         import sys
@@ -674,17 +674,6 @@ def start_assistant(shortname):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.tgbot = bot.tgbot
-        mod.serena = bot.tgbot
-        mod.assistant_cmd = assistant_cmd
-        mod.god_only = god_only()
-        mod.only_groups = only_groups()
-        mod.only_pro = only_pro()
-        mod.pro_only = only_pro()
-        mod.only_group = only_group()
-        mod.is_bot_admin = is_bot_admin()
-        mod.is_admin = is_admin()
-        mod.peru_only = peru_only()
-        mod.only_pvt = only_pvt()
         spec.loader.exec_module(mod)
-        sys.plugins["userbot.plugins.assistant" + shortname] = mod
-        sedprint.info("Lightning Has imported " + shortname)
+        sys.modules["userbot.plugins.assistant." + shortname] = mod
+        print("Lightnining Has imported " + shortname)
