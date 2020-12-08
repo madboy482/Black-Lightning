@@ -13,8 +13,8 @@ from hachoir.parser import createParser
 from telethon.tl.types import DocumentAttributeVideo
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
 from userbot.Config import Var
+from userbot.utils import admin_cmd
 
 thumb_image_path = Var.TEMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
 extracted = Var.TEMP_DOWNLOAD_DIRECTORY + "extracted/"
