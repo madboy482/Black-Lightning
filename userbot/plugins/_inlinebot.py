@@ -9,7 +9,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, CUSTOM_PMPERMIT, bot
 from userbot.Config import Var
-from userbot.plugins import telestats
+from userbot.plugins import inlinestats
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 TELEPIC = (
@@ -268,7 +268,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"statcheck")))
     async def rip(event):
-        text = telestats
+        text = inlinestats
         await event.answer(text, alert=True)
 
     @tgbot.on(
