@@ -84,6 +84,7 @@ def command(**args):
 
         return decorator
 
+
 def load_module(shortname):
     if shortname.startswith("__"):
         pass
@@ -137,7 +138,6 @@ def load_module(shortname):
         # for imports
         sys.plugins["userbot.plugins." + shortname] = mod
         sedprint.info("Successfully imported " + shortname)
-
 
 
 def remove_plugin(shortname):
