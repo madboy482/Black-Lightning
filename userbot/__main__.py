@@ -6,8 +6,9 @@ import telethon.utils
 from telethon import TelegramClient
 
 from userbot import bot
-from userbot.Config import Var
+from userbot.Config import Config
 from userbot.utils import load_module, start_assistant
+from var import Var
 
 sed = logging.getLogger("Black Lightning")
 
@@ -41,7 +42,7 @@ for name in files:
         shortname = path1.stem
         load_module(shortname.replace(".py", ""))
 
-if Var.ENABLE_ASSISTANTBOT == "ENABLE":
+if Config.ENABLE_ASSISTANTBOT == "ENABLE":
     path = "userbot/plugins/assistant/*.py"
     files = glob.glob(path)
     for name in files:
@@ -49,10 +50,10 @@ if Var.ENABLE_ASSISTANTBOT == "ENABLE":
             path1 = Path(f.name)
             shortname = path1.stem
             start_assistant(shortname.replace(".py", ""))
-    sed.info("Black Lightning And Thunder Bot Have Been Installed Successfully !")
+    sed.info("Black Lightning Bot Have Been Installed Successfully !")
 else:
-    sed.info("LightningHas Been Installed Sucessfully !")
-    sed.info("You Can Visit blacklightningot For Any Support Or Doubts")
+    sed.info("Black Lightning Has Been Installed Sucessfully !")
+    sed.info("You Can Visit @lightnigsupport For Any Support Or Doubts")
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
