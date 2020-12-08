@@ -12,9 +12,10 @@ from telethon.tl.types import (
     InputStickerSetID,
     MessageMediaPhoto,
 )
-from userbot.utils import *
+
 from userbot import CMD_HELP
 from userbot.Config import Var
+from userbot.utils import *
 
 KANGING_STR = [
     "Using Witchery to kang this sticker...",
