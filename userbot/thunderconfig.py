@@ -33,6 +33,7 @@ class Config(object):
     LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
     LYDIA_API = os.environ.get("LYDIA_API", None)
     NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", True))
+    SUDO_COMMAND_HAND_LER = os.environ.get("SUDO_COMMAND_HAND_LER", "\.")
     PMBOT_START_MSSG = os.environ.get("PMBOT_START_MSSG", None)
     LESS_SPAMMY = os.environ.get("LESS_SPAMMY", None)
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
