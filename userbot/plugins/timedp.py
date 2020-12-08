@@ -7,8 +7,6 @@ from PIL import Image, ImageDraw, ImageFont
 from pySmartDL import SmartDL
 from telethon.tl import functions
 
-from userbot.utils import admin_cmd
-
 FONT_FILE_TO_USE = "Fonts/digital.ttf"
 
 
