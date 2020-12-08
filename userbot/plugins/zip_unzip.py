@@ -11,8 +11,8 @@ from datetime import datetime
 
 from userbot.utils import admin_cmd
 
-extracted = Config.TMP_DOWNLOAD_DIRECTORY + "extracted/"
-thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
+extracted = Var.TEMP_DOWNLOAD_DIRECTORY + "extracted/"
+thumb_image_path = Var.TEMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
 
 
 @borg.on(admin_cmd("zip"))
@@ -23,14 +23,14 @@ async def _(event):
         await event.edit("Reply to a file to compress it. Bruh.")
         return
     mone = await event.edit("Processing ...")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Var.TEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.TEMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
         reply_message = await event.get_reply_message()
         try:
             downloaded_file_name = await admin.download_media(
                 reply_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
+                Var.TEMP_DOWNLOAD_DIRECTORY,
             )
             directory_name = downloaded_file_name
             await event.edit(downloaded_file_name)
@@ -64,8 +64,8 @@ async def _(event):
     if event.fwd_from:
         return
     mone = await event.edit("Processing ...")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Var.TEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.TEMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
         start = datetime.now()
         reply_message = await event.get_reply_message()
@@ -73,7 +73,7 @@ async def _(event):
             t.time()
             downloaded_file_name = await bot.download_media(
                 reply_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
+                Var.TEMP_DOWNLOAD_DIRECTORY,
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             await mone.edit(str(e))
