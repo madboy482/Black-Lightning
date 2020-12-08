@@ -13,6 +13,8 @@ from userbot.wraptools import am_i_admin, ignore_bot, ignore_fwd, ignore_grp, ig
 sedprint = logging.getLogger("PLUGINS")
 cmdhandler = Config.CMD_HNDLR
 bothandler = Config.BOT_HANDLER
+sudo_hndlr = Config.SUDO_HNDLR if Config.SUDO_HNDLR else "!"
+
 
 
 def command(**args):
