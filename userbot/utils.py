@@ -140,7 +140,6 @@ def load_module(shortname):
         sedprint.info("Successfully imported " + shortname)
 
 
-
 def remove_plugin(shortname):
     try:
         try:
