@@ -10,11 +10,11 @@ from asyncio import create_subprocess_exec as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
 
 from userbot.utils import admin_cmd
-
+from userbot.Config import Var
 if not os.path.isdir("./SAVED"):
     os.makedirs("./SAVED")
-if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-    os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+if not os.path.isdir(Var.TEMP_DOWNLOAD_DIRECTORY):
+    os.makedirs(Var.TEMP_DOWNLOAD_DIRECTORY)
 
 
 @borg.on(admin_cmd(outgoing=True, pattern="pips(?: |$)(.*)"))
@@ -84,7 +84,7 @@ async def _(event):
     stdout, stderr = await process.communicate()
     o = stdout.decode()
     OUTPUT = f"**[Sᴜʀᴠɪᴠᴏʀ's](tg://need_update_for_some_feature/) SUICIDE BOMB:**\n{o}"
-    if len(OUTPUT) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(OUTPUT) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "env.text"
             await borg.send_file(
@@ -120,7 +120,7 @@ async def _(event):
     stdout, stderr = await process.communicate()
     o = stdout.decode()
     OUTPUT = f"**[Sᴜʀᴠɪᴠᴏʀ's](tg://need_update_for_some_feature/) PLUGINS:**\n{o}\n\n**HELP:** __If you want to know the commands for a plugin, do:-__ \n `.help <plugin name>` **without the < > brackets.**\n__All plugins might not work directly. Visit__ @Sur_vivor __for assistance.__"
-    if len(OUTPUT) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(OUTPUT) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "env.text"
             await borg.send_file(
@@ -156,7 +156,7 @@ async def _(event):
     stdout, stderr = await process.communicate()
     o = stdout.decode()
     OUTPUT = f"**Date & Time Of India:**\n\n\n{o}"
-    if len(OUTPUT) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(OUTPUT) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "env.text"
             await borg.send_file(
@@ -192,7 +192,7 @@ async def _(event):
     stdout, stderr = await process.communicate()
     o = stdout.decode()
     OUTPUT = f"**[Sᴜʀᴠɪᴠᴏʀ's](tg://need_update_for_some_feature/) Environment Module:**\n\n\n{o}"
-    if len(OUTPUT) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(OUTPUT) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "env.text"
             await borg.send_file(
@@ -229,7 +229,7 @@ async def _(event):
     stdout, stderr = await process.communicate()
     o = stdout.decode()
     OUTPUT = f"**[Sᴜʀᴠɪᴠᴏʀ's](tg://need_update_for_some_feature/) , Server Speed Calculated:**\n{o}"
-    if len(OUTPUT) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(OUTPUT) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "env.text"
             await borg.send_file(
@@ -265,7 +265,7 @@ async def _(event):
     stdout, stderr = await process.communicate()
     o = stdout.decode()
     OUTPUT = f"{o}"
-    if len(OUTPUT) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(OUTPUT) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "env.text"
             await borg.send_file(
@@ -301,7 +301,7 @@ async def _(event):
     stdout, stderr = await process.communicate()
     o = stdout.decode()
     OUTPUT = f"{o}"
-    if len(OUTPUT) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(OUTPUT) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "env.text"
             await borg.send_file(
@@ -337,7 +337,7 @@ async def _(event):
     stdout, stderr = await process.communicate()
     o = stdout.decode()
     OUTPUT = f"{o}"
-    if len(OUTPUT) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(OUTPUT) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "env.text"
             await borg.send_file(
@@ -373,7 +373,7 @@ async def _(event):
     stdout, stderr = await process.communicate()
     o = stdout.decode()
     OUTPUT = f"{o}"
-    if len(OUTPUT) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(OUTPUT) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "kwot.text"
             await borg.send_file(
@@ -409,7 +409,7 @@ async def _(event):
     stdout, stderr = await process.communicate()
     o = stdout.decode()
     OUTPUT = f"{o}"
-    if len(OUTPUT) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(OUTPUT) > Var.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "env.text"
             await borg.send_file(
