@@ -15,6 +15,7 @@ class Config(object):
     GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
     # Here for later purposes
     SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "1021716237").split())
+    BOT_HANDLER = os.environ.get("BOT_HANDLER", "^/")
     WHITELIST_USERS = set(
         int(x) for x in os.environ.get("WHITELIST_USERS", "1021716237").split()
     )
