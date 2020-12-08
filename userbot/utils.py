@@ -120,10 +120,10 @@ def load_module(shortname):
         mod.command = command
         mod.logger = logging.getLogger(shortname)
         # support for uniborg
-        sys.plugins["uniborg.util"] = userbot.utils
-        sys.plugins["lightning.util"] = userbot.utils
-        sys.plugins["userbot.utils"] = userbot.utils
-        sys.plugins["userbot.plugins"] = userbot.plugins
+        sys.modules["uniborg.util"] = userbot.utils
+        sys.modules["lightning.util"] = userbot.utils
+        sys.modules["userbot.utils"] = userbot.utils
+        sys.modules["userbot.plugins"] = userbot.plugins
         mod.Config = Config
         mod.ignore_grp = ignore_grp()
         mod.ignore_pm = ignore_pm()
@@ -133,10 +133,10 @@ def load_module(shortname):
         mod.borg = bot
         mod.lightning = bot
         # support for paperplaneextended
-        sys.plugins["userbot.events"] = userbot.utils
+        sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
         # for imports
-        sys.plugins["userbot.plugins." + shortname] = mod
+        sys.modules["userbot.plugins." + shortname] = mod
         sedprint.info("Successfully imported " + shortname)
 
 
