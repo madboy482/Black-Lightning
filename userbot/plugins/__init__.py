@@ -1,5 +1,5 @@
 from userbot import topfunc
-from userbot.thunderconfigs import Config
+from userbot.thunderconfig import Config
 from userbot.utils import admin_cmd
 from var import Var
 
