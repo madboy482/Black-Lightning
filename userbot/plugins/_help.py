@@ -2,6 +2,7 @@ import os
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_HNDLR, CMD_LIST
 from userbot.Config import Var
+from userbot import admin_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 User"
 CMD_HNDLR = Var.CMD_HNDLR
