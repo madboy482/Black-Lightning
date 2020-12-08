@@ -116,12 +116,12 @@ def load_module(shortname):
         mod = importlib.util.module_from_spec(spec)
         mod.bot = bot
         mod.tgbot = bot.tgbot
-        mod.Config = Config
+        mod.Var = Var
         mod.command = command
         mod.logger = logging.getLogger(shortname)
         # support for uniborg
         sys.modules["uniborg.util"] = userbot.utils
-        sys.modules["lightning.util"] = userbot.utils
+        sys.modules["friday.util"] = userbot.utils
         sys.modules["userbot.utils"] = userbot.utils
         sys.modules["userbot.plugins"] = userbot.plugins
         mod.Config = Config
@@ -131,13 +131,14 @@ def load_module(shortname):
         mod.am_i_admin = am_i_admin()
         mod.ignore_fwd = ignore_fwd()
         mod.borg = bot
-        mod.lightning = bot
+        mod.friday = bot
         # support for paperplaneextended
         sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
         # for imports
         sys.modules["userbot.plugins." + shortname] = mod
         sedprint.info("Successfully imported " + shortname)
+
 
 
 def remove_plugin(shortname):
@@ -686,5 +687,5 @@ def start_assistant(shortname):
         mod.peru_only = peru_only()
         mod.only_pvt = only_pvt()
         spec.loader.exec_module(mod)
-        sys.modules["userbot.plugins.assistant" + shortname] = mod
+        sys.plugins["userbot.plugins.assistant" + shortname] = mod
         sedprint.info("Lightning Has imported " + shortname)
