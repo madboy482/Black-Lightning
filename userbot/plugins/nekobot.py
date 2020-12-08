@@ -4,7 +4,7 @@
 # "Copy It As You Want But Don't Edit Credits"
 import requests
 
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import admin_cmd, edit_or_reply
 
 
 @borg.on(admin_cmd("ttt ?(.*)"))
