@@ -8,7 +8,7 @@ import time
 import time as t
 import zipfile
 from datetime import datetime
-
+from userbot.Config import Var
 from userbot.utils import admin_cmd
 
 extracted = Var.TEMP_DOWNLOAD_DIRECTORY + "extracted/"
