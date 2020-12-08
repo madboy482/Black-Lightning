@@ -8,9 +8,10 @@ from youtubesearchpython import SearchVideos
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
 from userbot.Config import Var
-from userbot.plugins import telestats
+from userbot.plugins import inlinestats
 
-inlinestats = "telestats"
+telever = "inlinestats"
+
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
     WARN_PIC = "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
