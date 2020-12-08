@@ -8,7 +8,6 @@ from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 
 @borg.on(admin_cmd("ttt ?(.*)"))
-@borg.on(sudo_cmd("ttt ?(.*)", allow_sudo=True))
 async def noobishere(event):
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
@@ -34,7 +33,6 @@ async def noobishere(event):
 
 
 @borg.on(admin_cmd("tweet ?(.*)"))
-@borg.on(sudo_cmd("tweet ?(.*)", allow_sudo=True))
 async def noobishere(event):
     reply_to_id = event.message.id
     text = event.pattern_match.group(1)
