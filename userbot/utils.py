@@ -9,6 +9,7 @@ from telethon import events
 from userbot import CMD_LIST, LOAD_PLUG, bot
 from userbot.Config import Var
 from userbot.thunderconfig import Config
+from userbot.wraptools import am_i_admin, ignore_bot, ignore_fwd, ignore_grp, ignore_pm
 
 sedprint = logging.getLogger("PLUGINS")
 cmdhandler = Config.CMD_HNDLR
@@ -83,13 +84,15 @@ def command(**args):
 
         return decorator
 
-
 def load_module(shortname):
     if shortname.startswith("__"):
         pass
     elif shortname.endswith("_"):
         import importlib
+        import sys
+        from pathlib import Path
 
+        import userbot.plugins
         import userbot.utils
 
         path = Path(f"userbot/plugins/{shortname}.py")
@@ -97,10 +100,13 @@ def load_module(shortname):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        print("Successfully (re)imported " + shortname)
+        sedprint.info("Successfully (re)imported " + shortname)
     else:
         import importlib
+        import sys
+        from pathlib import Path
 
+        import userbot.plugins
         import userbot.utils
 
         path = Path(f"userbot/plugins/{shortname}.py")
@@ -113,24 +119,25 @@ def load_module(shortname):
         mod.command = command
         mod.logger = logging.getLogger(shortname)
         # support for uniborg
-        sys.modules["uniborg.util"] = userbot.utils
+        sys.plugins["uniborg.util"] = userbot.utils
+        sys.plugins["lightning.util"] = userbot.utils
+        sys.plugins["userbot.utils"] = userbot.utils
+        sys.plugins["userbot.plugins"] = userbot.plugins
         mod.Config = Config
+        mod.ignore_grp = ignore_grp()
+        mod.ignore_pm = ignore_pm()
+        mod.ignore_bot = ignore_bot()
+        mod.am_i_admin = am_i_admin()
+        mod.ignore_fwd = ignore_fwd()
         mod.borg = bot
-        mod.userbot = bot
-        # auto-load
-        mod.admin_cmd = admin_cmd
-        mod.sudo_cmd = sudo_cmd
-        mod.edit_or_reply = edit_or_reply
-        mod.eor = eor
+        mod.lightning = bot
         # support for paperplaneextended
-        sys.modules["userbot.events"] = userbot.utils
+        sys.plugins["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
         # for imports
-        sys.modules["userbot.plugins." + shortname] = mod
-        print("Successfully (re)imported " + shortname)
-        # support for other third-party plugins
-        sys.modules["userbot.utils"] = userbot.utils
-        sys.modules["userbot"] = userbot
+        sys.plugins["userbot.plugins." + shortname] = mod
+        sedprint.info("Successfully imported " + shortname)
+
 
 
 def remove_plugin(shortname):
