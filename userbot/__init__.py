@@ -20,6 +20,9 @@ from var import Var
 
 from .function import thunderfunction as topfunc
 
+StartTime = time.time()
+telever = "5.0"
+
 Lastupdate = time.time()
 sed = logging.getLogger("WARNING")
 
