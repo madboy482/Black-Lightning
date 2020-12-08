@@ -2,7 +2,7 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
+from userbot.utils import admin_cmd, sudo_cmd
 
 
 @borg.on(admin_cmd(pattern="ascii ?(.*)"))
@@ -23,7 +23,7 @@ async def _(event):
         await eor(event, "```Reply to actual users message.```")
         return
     await eor(event, "```Wait making ASCII...```")
-    # For userbot
+    # For TeleBot
     async with borg.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -43,7 +43,7 @@ async def _(event):
             await borg.send_file(event.chat_id, response.message.media)
 
 
-# For userbot
+# For TeleBot
 CMD_HELP.update(
     {
         "ascii": "`.ascii` reply to any image file:\
