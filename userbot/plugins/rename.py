@@ -8,9 +8,9 @@ import time
 from datetime import datetime
 
 from uniborg.util import admin_cmd
-
 from userbot import CMD_HELP
 from userbot.Config import Var
+
 thumb_image_path = Var.TEMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
 
 
