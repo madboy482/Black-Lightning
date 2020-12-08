@@ -25,6 +25,7 @@ telever = "5.0"
 
 Lastupdate = time.time()
 sed = logging.getLogger("WARNING")
+sedprint = logging.getLogger("WARNING")
 
 os.system("pip install --upgrade pip")
 if Var.STRING_SESSION:
