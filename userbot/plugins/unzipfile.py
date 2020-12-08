@@ -12,21 +12,23 @@ from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from telethon.tl.types import DocumentAttributeVideo
 
+from userbot import CMD_HELP
 from userbot.utils import admin_cmd
+from userbot.Config import Var
 
-thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
-extracted = Config.TMP_DOWNLOAD_DIRECTORY + "extracted/"
+thumb_image_path = Var.TEMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
+extracted = Var.TEMP_DOWNLOAD_DIRECTORY + "extracted/"
 if not os.path.isdir(extracted):
     os.makedirs(extracted)
 
 
-@borg.on(admin_cmd(pattern="unzip"))
+@friday.on(admin_cmd(pattern="unzip"))
 async def _(event):
     if event.fwd_from:
         return
     mone = await event.edit("Processing ...")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Var.TEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Var.TEMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
         start = datetime.now()
         reply_message = await event.get_reply_message()
@@ -34,7 +36,7 @@ async def _(event):
             time.time()
             downloaded_file_name = await borg.download_media(
                 reply_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
+                Var.TEMP_DOWNLOAD_DIRECTORY,
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             await mone.edit(str(e))
@@ -114,3 +116,12 @@ def get_lst_of_files(input_directory, output_lst):
             return get_lst_of_files(current_file_name, output_lst)
         output_lst.append(current_file_name)
     return output_lst
+
+
+CMD_HELP.update(
+    {
+        "unzipfile": "**Unzip File**\
+\n\n**Syntax : **`.unzip <reply to zip file>`\
+\n**Usage :** Unzips given zip file."
+    }
+)
