@@ -10,7 +10,6 @@ import os
 import time
 
 from telethon.tl.types import DocumentAttributeAudio
-from uniborg.util import admin_cmd
 from youtube_dl import YoutubeDL
 from youtube_dl.utils import (
     ContentTooShortError,
@@ -23,6 +22,7 @@ from youtube_dl.utils import (
     XAttrMetadataError,
 )
 
+from uniborg.util import admin_cmd
 from userbot.utils import progress
 
 try:

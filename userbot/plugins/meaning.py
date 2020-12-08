@@ -2,6 +2,7 @@
 Syntax: .meaning <word>"""
 
 import requests
+
 from uniborg.util import admin_cmd
 
 

@@ -9,6 +9,7 @@ from datetime import datetime
 
 import barcode
 from barcode.writer import ImageWriter
+
 from uniborg.util import admin_cmd
 
 

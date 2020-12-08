@@ -3,6 +3,7 @@ Syntax: .xkcd <search>"""
 from urllib.parse import quote
 
 import requests
+
 from uniborg.util import admin_cmd
 
 
