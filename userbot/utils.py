@@ -1,17 +1,25 @@
+import functools
 import inspect
 import logging
-import math
 import re
-import sys
 from pathlib import Path
 
 from telethon import events
 
-from userbot import CMD_LIST, LOAD_PLUG, bot
-from userbot.Config import Config, Var
+from userbot.__init__ import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot
+from userbot.Config import Var
+from userbot.wraptools import (
+    am_i_admin,
+    ignore_bot,
+    ignore_fwd,
+    ignore_grp,
+    ignore_pm,
+)
+from var import Var
 
-handler = Var.CMD_HNDLR if Var.CMD_HNDLR else r"\."
-sudo_hndlr = Var.SUDO_HNDLR if Var.SUDO_HNDLR else "!"
+sedprint = logging.getLogger("PLUGINS")
+cmdhandler = Var.HNDLR
+bothandler = Var.BOT_HANDLER
 
 
 def command(**args):
@@ -25,7 +33,7 @@ def command(**args):
         return print("stupidity at its best")
     else:
         pattern = args.get("pattern", None)
-        allow_sudo = args.get("allow_sudo", None)
+        allow_sudo = args.get("allow_sudo", False)
         allow_edited_updates = args.get("allow_edited_updates", False)
         args["incoming"] = args.get("incoming", False)
         args["outgoing"] = True
@@ -35,25 +43,25 @@ def command(**args):
         try:
             if pattern is not None and not pattern.startswith("(?i)"):
                 args["pattern"] = "(?i)" + pattern
-        except BaseException:
+        except:
             pass
 
         reg = re.compile("(.*)")
-        if pattern is not None:
+        if not pattern == None:
             try:
                 cmd = re.search(reg, pattern)
                 try:
                     cmd = (
                         cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
                     )
-                except BaseException:
+                except:
                     pass
 
                 try:
                     CMD_LIST[file_test].append(cmd)
-                except BaseException:
+                except:
                     CMD_LIST.update({file_test: [cmd]})
-            except BaseException:
+            except:
                 pass
 
         if allow_sudo:
@@ -63,7 +71,7 @@ def command(**args):
         del allow_sudo
         try:
             del args["allow_sudo"]
-        except BaseException:
+        except:
             pass
 
         if "allow_edited_updates" in args:
@@ -75,7 +83,7 @@ def command(**args):
             bot.add_event_handler(func, events.NewMessage(**args))
             try:
                 LOAD_PLUG[file_test].append(func)
-            except BaseException:
+            except:
                 LOAD_PLUG.update({file_test: [func]})
             return func
 
@@ -87,22 +95,28 @@ def load_module(shortname):
         pass
     elif shortname.endswith("_"):
         import importlib
+        import sys
+        from pathlib import Path
 
+        import userbot.modules
         import userbot.utils
 
-        path = Path(f"userbot/plugins/{shortname}.py")
-        name = "userbot.plugins.{}".format(shortname)
+        path = Path(f"userbot/modules/{shortname}.py")
+        name = "userbot.modules.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        print("Successfully (re)imported " + shortname)
+        sedprint.info("Successfully (re)imported " + shortname)
     else:
         import importlib
+        import sys
+        from pathlib import Path
 
+        import userbot.modules
         import userbot.utils
 
-        path = Path(f"userbot/plugins/{shortname}.py")
-        name = "userbot.plugins.{}".format(shortname)
+        path = Path(f"userbot/modules/{shortname}.py")
+        name = "userbot.modules.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = bot
@@ -112,23 +126,23 @@ def load_module(shortname):
         mod.logger = logging.getLogger(shortname)
         # support for uniborg
         sys.modules["uniborg.util"] = userbot.utils
-        mod.Config = Config
+        sys.modules["friday.util"] = userbot.utils
+        sys.modules["userbot.utils"] = userbot.utils
+        sys.modules["userbot.plugins"] = userbot.modules
+        mod.Var = Var
+        mod.ignore_grp = ignore_grp()
+        mod.ignore_pm = ignore_pm()
+        mod.ignore_bot = ignore_bot()
+        mod.am_i_admin = am_i_admin()
+        mod.ignore_fwd = ignore_fwd()
         mod.borg = bot
-        mod.userbot = bot
-        # auto-load
-        mod.admin_cmd = admin_cmd
-        mod.sudo_cmd = sudo_cmd
-        mod.edit_or_reply = edit_or_reply
-        mod.eor = eor
+        mod.friday = bot
         # support for paperplaneextended
         sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
         # for imports
-        sys.modules["userbot.plugins." + shortname] = mod
-        print("Successfully (re)imported " + shortname)
-        # support for other third-party plugins
-        sys.modules["userbot.utils"] = userbot.utils
-        sys.modules["userbot"] = userbot
+        sys.modules["userbot.modules." + shortname] = mod
+        sedprint.info("Successfully imported " + shortname)
 
 
 def remove_plugin(shortname):
@@ -138,14 +152,14 @@ def remove_plugin(shortname):
                 bot.remove_event_handler(i)
             del LOAD_PLUG[shortname]
 
-        except BaseException:
-            name = f"userbot.plugins.{shortname}"
+        except:
+            name = f"userbot.modules.{shortname}"
 
             for i in reversed(range(len(bot._event_builders))):
                 ev, cb = bot._event_builders[i]
                 if cb.__module__ == name:
                     del bot._event_builders[i]
-    except BaseException:
+    except:
         raise ValueError
 
 
@@ -160,15 +174,59 @@ def admin_cmd(pattern=None, **args):
 
     # get the pattern from the decorator
     if pattern is not None:
-        if pattern.startswith(r"\#"):
+        if pattern.startswith("\#"):
             # special fix for snip.py
             args["pattern"] = re.compile(pattern)
         else:
-            args["pattern"] = re.compile(handler + pattern)
-            cmd = handler + pattern
+            args["pattern"] = re.compile(cmdhandler + pattern)
+            cmd = cmdhandler + pattern
             try:
                 CMD_LIST[file_test].append(cmd)
-            except BaseException:
+            except:
+                CMD_LIST.update({file_test: [cmd]})
+
+    args["outgoing"] = True
+    # should this command be available for other users?
+    if allow_sudo:
+        args["from_users"] = list(Var.SUDO_USERS)
+        # Mutually exclusive with outgoing (can only set one of either).
+        args["incoming"] = True
+        del args["allow_sudo"]
+
+    # error handling condition check
+    elif "incoming" in args and not args["incoming"]:
+        args["outgoing"] = True
+
+    # add blacklist chats, UB should not respond in these chats
+    if "allow_edited_updates" in args and args["allow_edited_updates"]:
+        args["allow_edited_updates"]
+        del args["allow_edited_updates"]
+
+    # check if the plugin should listen for outgoing 'messages'
+
+    return events.NewMessage(**args)
+
+
+def friday_on_cmd(pattern=None, **args):
+    args["func"] = lambda e: e.via_bot_id is None
+
+    stack = inspect.stack()
+    previous_stack_frame = stack[1]
+    file_test = Path(previous_stack_frame.filename)
+    file_test = file_test.stem.replace(".py", "")
+    allow_sudo = args.get("allow_sudo", False)
+
+    # get the pattern from the decorator
+    if pattern is not None:
+        if pattern.startswith("\#"):
+            # special fix for snip.py
+            args["pattern"] = re.compile(pattern)
+        else:
+            args["pattern"] = re.compile(cmdhandler + pattern)
+            cmd = cmdhandler + pattern
+            try:
+                CMD_LIST[file_test].append(cmd)
+            except:
                 CMD_LIST.update({file_test: [cmd]})
 
     args["outgoing"] = True
@@ -196,6 +254,17 @@ def admin_cmd(pattern=None, **args):
 """ Userbot module for managing events.
  One of the main components of the userbot. """
 
+import asyncio
+import datetime
+import math
+import sys
+import traceback
+from time import gmtime, strftime
+
+from telethon import events
+
+from userbot import bot
+
 
 def register(**args):
     """ Register a new event. """
@@ -215,19 +284,19 @@ def register(**args):
         del args["disable_edited"]
 
     reg = re.compile("(.*)")
-    if pattern is not None:
+    if not pattern == None:
         try:
             cmd = re.search(reg, pattern)
             try:
                 cmd = cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
-            except BaseException:
+            except:
                 pass
 
             try:
                 CMD_LIST[file_test].append(cmd)
-            except BaseException:
+            except:
                 CMD_LIST.update({file_test: [cmd]})
-        except BaseException:
+        except:
             pass
 
     def decorator(func):
@@ -245,11 +314,50 @@ def register(**args):
 
 
 def errors_handler(func):
-    async def wrapper(event):
+    async def wrapper(errors):
         try:
-            return await func(event)
-        except Exception:
-            pass
+            await func(errors)
+        except BaseException:
+
+            date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+            new = {"error": str(sys.exc_info()[1]), "date": datetime.datetime.now()}
+
+            text = "**USERBOT CRASH REPORT**\n\n"
+
+            link = "[Here](https://t.me/FridayOT)"
+            text += "If you wanna you can report it"
+            text += f"- just forward this message {link}.\n"
+            text += "Nothing is logged except the fact of error and date\n"
+
+            ftext = "\nDisclaimer:\nThis file uploaded ONLY here,"
+            ftext += "\nwe logged only fact of error and date,"
+            ftext += "\nwe respect your privacy,"
+            ftext += "\nyou may not report this error if you've"
+            ftext += "\nany confidential data here, no one will see your data\n\n"
+
+            ftext += "--------BEGIN FRIDAY USERBOT TRACEBACK LOG--------"
+            ftext += "\nDate: " + date
+            ftext += "\nGroup ID: " + str(errors.chat_id)
+            ftext += "\nSender ID: " + str(errors.sender_id)
+            ftext += "\n\nEvent Trigger:\n"
+            ftext += str(errors.text)
+            ftext += "\n\nTraceback info:\n"
+            ftext += str(traceback.format_exc())
+            ftext += "\n\nError text:\n"
+            ftext += str(sys.exc_info()[1])
+            ftext += "\n\n--------END USERBOT TRACEBACK LOG--------"
+
+            command = 'git log --pretty=format:"%an: %s" -5'
+
+            ftext += "\n\n\nLast 5 commits:\n"
+
+            process = await asyncio.create_subprocess_shell(
+                command, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
+            )
+            stdout, stderr = await process.communicate()
+            result = str(stdout.decode().strip()) + str(stderr.decode().strip())
+
+            ftext += result
 
     return wrapper
 
@@ -322,26 +430,24 @@ class Loader:
 
 def sudo_cmd(pattern=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
-
     stack = inspect.stack()
     previous_stack_frame = stack[1]
     file_test = Path(previous_stack_frame.filename)
     file_test = file_test.stem.replace(".py", "")
     allow_sudo = args.get("allow_sudo", False)
-
     # get the pattern from the decorator
     if pattern is not None:
-        if pattern.startswith(r"\#"):
+        if pattern.startswith("\#"):
             # special fix for snip.py
             args["pattern"] = re.compile(pattern)
         else:
-            args["pattern"] = re.compile(sudo_hndlr + pattern)
-            cmd = sudo_hndlr + pattern
+            args["pattern"] = re.compile(Var.SUDO_HNDLR + pattern)
+            reg = Var.SUDO_HNDLR[1]
+            cmd = (reg + pattern).replace("$", "").replace("\\", "").replace("^", "")
             try:
-                CMD_LIST[file_test].append(cmd)
-            except BaseException:
-                CMD_LIST.update({file_test: [cmd]})
-
+                SUDO_LIST[file_test].append(cmd)
+            except:
+                SUDO_LIST.update({file_test: [cmd]})
     args["outgoing"] = True
     # should this command be available for other users?
     if allow_sudo:
@@ -349,23 +455,24 @@ def sudo_cmd(pattern=None, **args):
         # Mutually exclusive with outgoing (can only set one of either).
         args["incoming"] = True
         del args["allow_sudo"]
-
     # error handling condition check
     elif "incoming" in args and not args["incoming"]:
         args["outgoing"] = True
-
+    # add blacklist chats, UB should not respond in these chats
+    args["blacklist_chats"] = True
+    black_list_chats = list(Var.UB_BLACK_LIST_CHAT)
+    if len(black_list_chats) > 0:
+        args["chats"] = black_list_chats
     # add blacklist chats, UB should not respond in these chats
     if "allow_edited_updates" in args and args["allow_edited_updates"]:
         args["allow_edited_updates"]
         del args["allow_edited_updates"]
-
     # check if the plugin should listen for outgoing 'messages'
-
     return events.NewMessage(**args)
 
 
 async def edit_or_reply(event, text):
-    if event.sender_id in Config.SUDO_USERS:
+    if event.sender_id in Var.SUDO_USERS:
         reply_to = await event.get_reply_message()
         if reply_to:
             return await reply_to.reply(text)
@@ -373,16 +480,168 @@ async def edit_or_reply(event, text):
     return await event.edit(text)
 
 
-async def eor(event, text):
-    if event.sender_id in Config.SUDO_USERS:
-        reply_to = await event.get_reply_message()
-        if reply_to:
-            return await reply_to.reply(text)
-        return await event.reply(text)
-    return await event.edit(text)
+#    Copyright (C) Midhun KM 2020
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-# TGBot
+def assistant_cmd(add_cmd, is_args=False):
+    def cmd(func):
+        serena = bot.tgbot
+        if is_args:
+            pattern = bothandler + add_cmd + "(?: |$)(.*)"
+        elif is_args == "stark":
+            pattern = bothandler + add_cmd + " (.*)"
+        elif is_args == "snips":
+            pattern = bothandler + add_cmd + " (\S+)"
+        else:
+            pattern = bothandler + add_cmd + "$"
+        serena.add_event_handler(
+            func, events.NewMessage(incoming=True, pattern=pattern)
+        )
+
+    return cmd
+
+
+def is_admin():
+    def decorator(func):
+        @functools.wraps(func)
+        async def wrapper(event):
+            serena = bot.tgbot
+            sed = await serena.get_permissions(event.chat_id, event.sender_id)
+            user = event.sender_id
+            kek = bot.uid
+            if sed.is_admin:
+                await func(event)
+            if event.sender_id == kek:
+                pass
+            elif not user:
+                pass
+            if not sed.is_admin:
+                await event.reply("Only Admins Can Use it.")
+
+        return wrapper
+
+    return decorator
+
+
+def is_bot_admin():
+    def decorator(func):
+        @functools.wraps(func)
+        async def wrapper(event):
+            serena = bot.tgbot
+            pep = await serena.get_me()
+            sed = await serena.get_permissions(event.chat_id, pep)
+            if sed.is_admin:
+                await func(event)
+            else:
+                await event.reply("I Must Be Admin To Do This.")
+
+        return wrapper
+
+    return decorator
+
+
+def only_pro():
+    def decorator(func):
+        @functools.wraps(func)
+        async def wrapper(event):
+            kek = list(Var.SUDO_USERS)
+            mm = bot.uid
+            if event.sender_id == mm:
+                await func(event)
+            elif event.sender_id == kek:
+                await func(event)
+            else:
+                await event.reply("Only Owners, Sudo Users Can Use This Command.")
+
+        return wrapper
+
+    return decorator
+
+
+def god_only():
+    def decorator(func):
+        @functools.wraps(func)
+        async def wrapper(event):
+            moms = bot.uid
+            if event.sender_id == moms:
+                await func(event)
+            else:
+                pass
+
+        return wrapper
+
+    return decorator
+
+
+def only_groups():
+    def decorator(func):
+        @functools.wraps(func)
+        async def wrapper(event):
+            if event.is_group:
+                await func(event)
+            else:
+                await event.reply("This Command Only Works On Groups.")
+
+        return wrapper
+
+    return decorator
+
+
+def only_group():
+    def decorator(func):
+        @functools.wraps(func)
+        async def wrapper(event):
+            if event.is_group:
+                await func(event)
+            else:
+                pass
+
+        return wrapper
+
+    return decorator
+
+
+def peru_only():
+    def decorator(func):
+        @functools.wraps(func)
+        async def wrapper(event):
+            kek = list(Var.SUDO_USERS)
+            mm = bot.uid
+            if event.sender_id == mm:
+                await func(event)
+            elif event.sender_id == kek:
+                await func(event)
+            else:
+                pass
+
+        return wrapper
+
+    return decorator
+
+
+def only_pvt():
+    def decorator(func):
+        @functools.wraps(func)
+        async def wrapper(event):
+            if event.is_group:
+                pass
+            else:
+                await func(event)
+
+        return wrapper
+
+    return decorator
 
 
 def start_assistant(shortname):
@@ -398,8 +657,8 @@ def start_assistant(shortname):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        print("Initialising TGBot.")
-        print("Thunder - Imported " + shortname)
+        sedprint.info("Starting Your Assistant Bot.")
+        sedprint.info("Assistant Sucessfully imported " + shortname)
     else:
         import importlib
         import sys
@@ -410,64 +669,17 @@ def start_assistant(shortname):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.tgbot = bot.tgbot
+        mod.serena = bot.tgbot
+        mod.assistant_cmd = assistant_cmd
+        mod.god_only = god_only()
+        mod.only_groups = only_groups()
+        mod.only_pro = only_pro()
+        mod.pro_only = only_pro()
+        mod.only_group = only_group()
+        mod.is_bot_admin = is_bot_admin()
+        mod.is_admin = is_admin()
+        mod.peru_only = peru_only()
+        mod.only_pvt = only_pvt()
         spec.loader.exec_module(mod)
         sys.modules["userbot.plugins.assistant" + shortname] = mod
-        print("TGBot Has imported " + shortname)
-
-
-def load_assistant(shortname):
-    if shortname.startswith("__"):
-        pass
-    elif shortname.endswith("_"):
-        import importlib
-        import sys
-        from pathlib import Path
-
-        path = Path(f"userbot/plugins/assistant/{shortname}.py")
-        name = "userbot.plugins.assistant.{}".format(shortname)
-        spec = importlib.util.spec_from_file_location(name, path)
-        mod = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(mod)
-        print("Initialising .")
-        print("Thunder  - Imported " + shortname)
-    else:
-        import importlib
-        import sys
-        from pathlib import Path
-
-        path = Path(f"userbot/plugins/assistant/{shortname}.py")
-        name = "userbot.plugins.assistant.{}".format(shortname)
-        spec = importlib.util.spec_from_file_location(name, path)
-        mod = importlib.util.module_from_spec(spec)
-        mod.tgbot = bot.tgbot
-        spec.loader.exec_module(mod)
-        sys.modules["userbot.plugins.assistant." + shortname] = mod
-        print("Thunder and Lightning  Has imported " + shortname)
-
-
-def grp_exclude(force_exclude=False):
-    """ Check if the chat is excluded. """
-
-    def decorator(func):
-        async def wrapper(check):
-            exclude = await get_exclude(check.chat_id)
-            if exclude is not None:
-                LOGS.info(func)
-                if force_exclude:
-                    LOGS.info("EXCLUDED! force_exclude is True")
-                    return
-
-                if exclude["excl_type"] == 2:  # all
-                    LOGS.info("EXCLUDED! type=2")
-                    return
-
-                if exclude["excl_type"] == 1 and check.out is False:  # in
-                    LOGS.info("EXCLUDED! type=1 and check.out is False")
-                    return
-
-                LOGS.info("NOT EXCLUDED!")
-            await func(check)
-
-        return wrapper
-
-    return decorator
+        sedprint.info("Lightning Has imported " + shortname)
