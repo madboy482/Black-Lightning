@@ -22,8 +22,8 @@ from datetime import datetime
 from mimetypes import guess_type
 
 import httplib2
-from apiclient.discovery import build
-from apiclient.http import MediaFileUpload
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaFileUpload
 from oauth2client.client import OAuth2WebServerFlow
 from oauth2client.file import Storage
 from telethon import events
