@@ -148,15 +148,14 @@ if bool(ENV):
     # Default .alive name
     ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
     AUTONAME = os.environ.get("AUTONAME", None)
-
+    # Custom pm permi
+    CUSTOM_PMPERMIT = os.environ.get("CUSTOM_PMPERMIT", None)
     # Time & Date - Country and Time Zone
     COUNTRY = str(os.environ.get("COUNTRY", "India"))
-
     TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
     FBAN_REASON = os.environ.get("FBAN_REASON", None)
     FBAN_USER = os.environ.get("FBAN_USER", None)
-    # Clean Welcome
-
+    
     # Clean Welcome
     CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
 
