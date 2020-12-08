@@ -2,10 +2,10 @@ import time
 
 from userbot import ALIVE_NAME, CMD_HELP, Lastupdate
 from userbot.Config import Var
-from userbot.plugins import telever
+from userbot.plugins import inlinestats
 from userbot.utils import admin_cmd, sudo_cmd
 
-
+telever = "telestats"
 # Functions
 def get_readable_time(seconds: int) -> str:
     count = 0
@@ -66,7 +66,7 @@ async def friday(alive):
 CMD_HELP.update(
     {
         "alive": "**ALive**\
-\n\n**Syntax : **`.alive`\
-\n**Usage :** Check if UserBot is Alive"
+\n\n**Syntax : **`.salive`\
+\n**Usage :** Check if UserBot is SAlive"
     }
 )
