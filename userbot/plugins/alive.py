@@ -3,18 +3,11 @@
 # For @TeleBotHelp
 """Check if your userbot is working."""
 import time
-from datetime import datetime
-from io import BytesIO
 
-import requests
-from PIL import Image
-
-from userbot import ALIVE_NAME, CMD_HELP, telever
-from userbot.__init__ import StartTime
+from userbot import ALIVE_NAME, CMD_HELP, Lastupdate
 from userbot.Config import Var
-from userbot.thunderconfig import Config
-from userbot import Lastupdate
 from userbot.plugins import currentversion
+from userbot.thunderconfig import Config
 from userbot.utils import admin_cmd, sudo_cmd
 
 # ======CONSTANTS=========#
