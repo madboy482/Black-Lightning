@@ -121,7 +121,7 @@ def load_module(shortname):
         mod.logger = logging.getLogger(shortname)
         # support for uniborg
         sys.modules["uniborg.util"] = userbot.utils
-        sys.modules["lightning.util"] = userbot.utils
+        sys.modules["user.util"] = userbot.utils
         sys.modules["userbot.utils"] = userbot.utils
         sys.modules["userbot.plugins"] = userbot.plugins
         mod.Config = Config
@@ -131,7 +131,7 @@ def load_module(shortname):
         mod.am_i_admin = am_i_admin()
         mod.ignore_fwd = ignore_fwd()
         mod.borg = bot
-        mod.lightning = bot
+        mod.user = bot
         # support for paperplaneextended
         sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
