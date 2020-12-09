@@ -1,6 +1,7 @@
 import glob
 from pathlib import Path
 from sys import argv
+import logging
 
 import telethon.utils
 from telethon import TelegramClient
@@ -13,7 +14,7 @@ from userbot.utils import load_assistant, load_module, start_assistant
 TELE = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
-
+sed = logging.getLogger("Black Lightning")
 
 async def add_bot(bot_token):
     await bot.start(bot_token)
@@ -75,11 +76,10 @@ if Config.ENABLE_ASSISTANTBOT == "ENABLE":
             path1 = Path(f.name)
             shortname = path1.stem
             load_assistant(shortname.replace(".py", ""))
-    print("Black Lightning set up completely!")
-
-print("Black Lightning set up - Level - Basic")
-print("Black Lightning has been fully deployed! Do Visit @lightningSupport")
-bot.loop.run_until_complete(startup_log_all_done())
+    sed.info("Black Lightning  Bot Have Been Installed Successfully !")
+else:
+    sed.info("Black Lightning Has Been Installed Sucessfully !")
+    sed.info("You Can Visit @lightningsupport For Any Support Or Doubts")
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
