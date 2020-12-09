@@ -19,7 +19,7 @@ from userbot import (
     CMD_HELP,
     bot,
 )
-from  userbot.utils import errors_handler
+from userbot.utils import errors_handler
 
 
 @borg.on(ChatAction)
