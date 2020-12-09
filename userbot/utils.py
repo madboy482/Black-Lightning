@@ -9,13 +9,6 @@ from telethon import events
 from userbot import CMD_LIST, LOAD_PLUG, bot
 from userbot.Config import Var
 from userbot.thunderconfig import Config
-from userbot.wraptools import (
-    am_i_admin,
-    ignore_bot,
-    ignore_fwd,
-    ignore_grp,
-    ignore_pm,
-)
 
 sedprint = logging.getLogger("PLUGINS")
 cmdhandler = Config.CMD_HNDLR
@@ -95,8 +88,10 @@ def load_module(shortname):
     if shortname.startswith("__"):
         pass
     elif shortname.endswith("_"):
-        import userbot.utils
         import importlib
+
+        import userbot.utils
+
         path = Path(f"userbot/plugins/{shortname}.py")
         name = "userbot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
@@ -104,8 +99,10 @@ def load_module(shortname):
         spec.loader.exec_module(mod)
         print("Successfully (re)imported " + shortname)
     else:
-        import userbot.utils
         import importlib
+
+        import userbot.utils
+
         path = Path(f"userbot/plugins/{shortname}.py")
         name = "userbot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
@@ -643,6 +640,7 @@ def only_pvt():
         return wrapper
 
     return decorator
+
 
 def start_assistant(shortname):
     if shortname.startswith("__"):
