@@ -88,29 +88,45 @@ def load_module(shortname):
     if shortname.startswith("__"):
         pass
     elif shortname.endswith("_"):
+        import userbot.utils
         import importlib
-        import sys
-        from pathlib import Path
-
-        path = Path(f"userbot/plugins/assistant/{shortname}.py")
-        name = "userbot.plugins.assistant.{}".format(shortname)
+        path = Path(f"userbot/plugins/{shortname}.py")
+        name = "userbot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        sedprint.info("Successfully (re)imported " + shortname)
+        print("Successfully (re)imported " + shortname)
     else:
+        import userbot.utils
         import importlib
-        import sys
-        from pathlib import Path
-
-        path = Path(f"userbot/plugins/assistant/{shortname}.py")
-        name = "userbot.plugins.assistant.{}".format(shortname)
+        path = Path(f"userbot/plugins/{shortname}.py")
+        name = "userbot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
+        mod.bot = bot
         mod.tgbot = bot.tgbot
+        mod.Var = Var
+        mod.command = command
+        mod.logger = logging.getLogger(shortname)
+        # support for uniborg
+        sys.modules["uniborg.util"] = userbot.utils
+        mod.Config = Config
+        mod.borg = bot
+        mod.userbot = bot
+        # auto-load
+        mod.admin_cmd = admin_cmd
+        mod.sudo_cmd = sudo_cmd
+        mod.edit_or_reply = edit_or_reply
+        mod.eor = eor
+        # support for paperplaneextended
+        sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
-        sys.modules["userbot.plugins.assistant." + shortname] = mod
-        sedprint.info("Successfully imported " + shortname)
+        # for imports
+        sys.modules["userbot.plugins." + shortname] = mod
+        print("Successfully (re)imported " + shortname)
+        # support for other third-party plugins
+        sys.modules["userbot.utils"] = userbot.utils
+        sys.modules["userbot"] = userbot
 
 
 def remove_plugin(shortname):
