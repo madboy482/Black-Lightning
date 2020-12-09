@@ -9,7 +9,13 @@ from telethon import events
 from userbot import CMD_LIST, LOAD_PLUG, bot
 from userbot.Config import Var
 from userbot.thunderconfig import Config
-from userbot.wraptools import am_i_admin, ignore_bot, ignore_fwd, ignore_grp, ignore_pm
+from userbot.wraptools import (
+    am_i_admin,
+    ignore_bot,
+    ignore_fwd,
+    ignore_grp,
+    ignore_pm,
+
 
 sedprint = logging.getLogger("PLUGINS")
 cmdhandler = Config.CMD_HNDLR
@@ -84,7 +90,6 @@ def command(**args):
 
         return decorator
 
-
 def load_module(shortname):
     if shortname.startswith("__"):
         pass
@@ -93,11 +98,8 @@ def load_module(shortname):
         import sys
         from pathlib import Path
 
-        import userbot.plugins
-        import userbot.utils
-
-        path = Path(f"userbot/plugins/{shortname}.py")
-        name = "userbot.plugins.{}".format(shortname)
+        path = Path(f"userbot/plugins/assistant/{shortname}.py")
+        name = "userbot.plugins.assistant.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
@@ -107,37 +109,16 @@ def load_module(shortname):
         import sys
         from pathlib import Path
 
-        import userbot.plugins
-        import userbot.utils
-
-        path = Path(f"userbot/plugins/{shortname}.py")
-        name = "userbot.plugins.{}".format(shortname)
+        path = Path(f"userbot/plugins/assistant/{shortname}.py")
+        name = "userbot.plugins.assistant.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
-        mod.bot = bot
         mod.tgbot = bot.tgbot
-        mod.Var = Var
-        mod.command = command
-        mod.logger = logging.getLogger(shortname)
-        # support for uniborg
-        sys.modules["uniborg.util"] = userbot.utils
-        sys.modules["user.util"] = userbot.utils
-        sys.modules["userbot.utils"] = userbot.utils
-        sys.modules["userbot.plugins"] = userbot.plugins
-        mod.Config = Config
-        mod.ignore_grp = ignore_grp()
-        mod.ignore_pm = ignore_pm()
-        mod.ignore_bot = ignore_bot()
-        mod.am_i_admin = am_i_admin()
-        mod.ignore_fwd = ignore_fwd()
-        mod.borg = bot
-        mod.user = bot
-        # support for paperplaneextended
-        sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
-        # for imports
-        sys.modules["userbot.plugins." + shortname] = mod
+        sys.modules["userbot.plugins.assistant." + shortname] = mod
         sedprint.info("Successfully imported " + shortname)
+
+
 
 
 def remove_plugin(shortname):
@@ -662,7 +643,7 @@ def start_assistant(shortname):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        print("Initialising Lightning.")
+        print("Initialising PMBot.")
         print("Lightning - Imported " + shortname)
     else:
         import importlib
