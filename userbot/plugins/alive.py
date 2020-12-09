@@ -1,11 +1,63 @@
 """Check if userbot alive. If you change these, you become the gayest gay such that even the gay world will disown you."""
 # CREDITS: @WhySooSerious, @Sur_vivor
+# For @TeleBotHelp
+"""Check if your userbot is working."""
 import time
+from datetime import datetime
+from io import BytesIO
 
-from userbot import ALIVE_NAME, CMD_HELP, Lastupdate
+import requests
+from PIL import Image
+
+from userbot import ALIVE_NAME, CMD_HELP, telever
+from userbot.__init__ import StartTime
 from userbot.Config import Var
+from userbot.thunderconfig import Config
+from userbot import Lastupdate
 from userbot.plugins import currentversion
 from userbot.utils import admin_cmd, sudo_cmd
+
+# ======CONSTANTS=========#
+CUSTOM_ALIVE = (
+    Var.CUSTOM_ALIVE
+    if Var.CUSTOM_ALIVE
+    else "Hey! I'm alive. All systems online and functioning normally!"
+)
+ALV_PIC = Var.ALIVE_PIC if Var.ALIVE_PIC else None
+telemoji = Var.CUSTOM_ALIVE_EMOJI if Var.CUSTOM_ALIVE_EMOJI else "**✵**"
+if Config.SUDO_USERS:
+    sudo = "Enabled"
+else:
+    sudo = "Disabled"
+# ======CONSTANTS=========#
+
+
+def get_readable_time(seconds: int) -> str:
+    count = 0
+    ping_time = ""
+    time_list = []
+    time_suffix_list = ["s", "m", "h", "days"]
+
+    while count < 4:
+        count += 1
+        if count < 3:
+            remainder, result = divmod(seconds, 60)
+        else:
+            remainder, result = divmod(seconds, 24)
+        if seconds == 0 and remainder == 0:
+            break
+        time_list.append(int(result))
+        seconds = int(remainder)
+
+    for x in range(len(time_list)):
+        time_list[x] = str(time_list[x]) + time_suffix_list[x]
+    if len(time_list) == 4:
+        ping_time += time_list.pop() + ", "
+
+    time_list.reverse()
+    ping_time += ":".join(time_list)
+
+    return ping_time
 
 
 # Functions
