@@ -121,7 +121,7 @@ async def upstream(ups):
             "Force-Syncing to latest stable userbot code, please wait master...😅😅"
         )
     else:
-        await ups.edit("`Updating userbot, please wait....you are best boss🤗😇")
+        await ups.edit("`Updating userbot, please wait....you are best boss🤗😇`")
     if HEROKU_API_KEY is not None:
         import heroku3
 
