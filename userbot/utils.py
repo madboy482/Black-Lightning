@@ -15,7 +15,7 @@ from userbot.wraptools import (
     ignore_fwd,
     ignore_grp,
     ignore_pm,
-
+)
 
 sedprint = logging.getLogger("PLUGINS")
 cmdhandler = Config.CMD_HNDLR
