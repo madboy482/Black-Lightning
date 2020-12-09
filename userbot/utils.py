@@ -127,7 +127,7 @@ def load_module(shortname):
         spec.loader.exec_module(mod)
         # for imports
         sys.modules["userbot.plugins." + shortname] = mod
-         sedprint.info("Successfully imported " + shortname)
+        sedprint.info("Successfully imported " + shortname)
         # support for other third-party plugins
         sys.modules["userbot.utils"] = userbot.utils
         sys.modules["userbot"] = userbot
