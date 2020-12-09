@@ -45,9 +45,9 @@
     "required": false
    },
     "CMD_HNDLR": {
-    "description": "Used to invoke commands, leave blank for default, (dot)",
-    "value": "",
-    "required": false
+    "description": "Used to invoke commands, leave as it for default",
+    "value": ".",
+    "required": true
    },  
     "SUDO_HNDLR": {
     "description": "Used to invoke sudo commands, leave blank for default",
