@@ -1,7 +1,7 @@
 import glob
+import logging
 from pathlib import Path
 from sys import argv
-import logging
 
 import telethon.utils
 from telethon import TelegramClient
@@ -15,6 +15,7 @@ TELE = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
 sed = logging.getLogger("Black Lightning")
+
 
 async def add_bot(bot_token):
     await bot.start(bot_token)
