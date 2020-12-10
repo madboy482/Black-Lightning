@@ -32,6 +32,8 @@ class Config(object):
     SUDO_HNDLR = os.environ.get("SUDO_HNDLR", "\.")
     OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
     LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
+    ALIVE_PHOTTO = os.environ.get("ALIVE_PHOTTO", None)
+    ALIVE_MSG = os.environ.get("ALIVE_MSG", None)
     LYDIA_API = os.environ.get("LYDIA_API", None)
     NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", True))
     SUDO_COMMAND_HAND_LER = os.environ.get("SUDO_COMMAND_HAND_LER", "\.")
