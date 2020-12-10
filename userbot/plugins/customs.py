@@ -58,15 +58,3 @@ async def hlo(event):
     )
 
 
-@borg.on(admin_cmd(pattern=r"bye ?(.*)"))
-async def bye(event):
-    giveVar = event.text
-    a = giveVar[5:6]
-    if not a:
-        a = "🌺"
-    b = giveVar[7:8]
-    if not b:
-        b = "✨"
-    await event.edit(
-        f"{a}{b}{b}{a}{a}{b}{a}{a}{a}{b}{a}{b}{b}{b}{a}\n{a}{b}{a}{b}{a}{a}{b}{a}{b}{a}{a}{b}{a}{a}{a}\n{a}{b}{b}{a}{a}{a}{a}{b}{a}{a}{a}{b}{b}{a}{a}\n{a}{b}{a}{b}{a}{a}{a}{b}{a}{a}{a}{b}{a}{a}{a}\n{a}{b}{b}{a}{a}{a}{a}{b}{a}{a}{a}{b}{b}{b}{a}"
-    )
