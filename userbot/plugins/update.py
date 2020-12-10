@@ -16,9 +16,10 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
 from userbot import CMD_HELP
+from userbot.thunderconfig import Config
 from userbot.utils import admin_cmd
 from var import Var
-from userbot.thunderconfig import Config
+
 friday
 UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
 UPSTREAM_REPO_BRANCH = "master"
@@ -86,7 +87,8 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                 break
         if heroku_app is None:
             await event.edit(
-                f"{txt}\n" "**Invalid Heroku credentials for deploying Black Lightning dyno.**"
+                f"{txt}\n"
+                "**Invalid Heroku credentials for deploying Black Lightning dyno.**"
             )
             return repo.__del__()
         ups_rem.fetch(ac_br)
