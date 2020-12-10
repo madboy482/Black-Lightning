@@ -2,7 +2,7 @@ from uniborg.util import admin_cmd
 from userbot import CMD_HELP
 
 
-@borg.on(admin_cmd(pattern="c"))
+@borg.on(admin_cmd(pattern="cop"))
 async def _(event):
     if event.fwd_from:
         return
@@ -14,7 +14,7 @@ async def _(event):
         the_real_message = the_real_message.replace("_", "_")
         await event.edit(the_real_message)
     else:
-        await event.edit("Reply to a  message .c to copy nd paste ")
+        await event.edit("Reply to a  message .cop to copy nd paste ")
 
 
-CMD_HELP.update({"c": ".c <reply to any text> " "\nc that text nd redeliver it"})
+CMD_HELP.update({"cop": ".c <reply to any text> " "\nc that text nd redeliver it"})
