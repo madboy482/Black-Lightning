@@ -5,13 +5,13 @@ Available Commands:
 
 import emoji
 from googletrans import Translator
-from telethon import events
 
-from userbot.utils import admin_cmd
+from userbot import CMD_HELP
+from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
 
 
-@borg.on(admin_cmd(pattern="tr ?(.*)"))
-@borg.on(events.NewMessage(pattern=r"\.tr ?(.*)", incoming=True))
+@borg.on(admin_cmd("tr ?(.*)"))
+@borg.on(sudo_cmd("tr ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -26,7 +26,7 @@ async def _(event):
     elif "|" in input_str:
         lan, text = input_str.split("|")
     else:
-        await event.edit("`.tr LanguageCode` as reply to a message")
+        await edit_or_reply(event, "`.tr LanguageCode` as reply to a message")
         return
     text = emoji.demojize(text.strip())
     lan = lan.strip()
@@ -36,12 +36,21 @@ async def _(event):
         after_tr_text = translated.text
         # TODO: emojify the :
         # either here, or before translation
-        output_str = """**Translated By Black Lightning** 
+        output_str = """**Translated By Black Lightning Userbot** 
          Source **( {} )**
          Translation **( {} )**
          {}""".format(
             translated.src, lan, after_tr_text
         )
-        await event.edit(output_str)
+        await edit_or_reply(event, output_str)
     except Exception as exc:
-        await event.edit(str(exc))
+        await edit_or_reply(event, str(exc))
+
+
+CMD_HELP.update(
+    {
+        "translate": "**Translate**\
+\n\n**Syntax : **`.tr <language Code> <reply to text>`\
+\n**Usage :** Translates the given text into your language."
+    }
+)
