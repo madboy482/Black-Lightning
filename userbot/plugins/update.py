@@ -20,7 +20,6 @@ from userbot.thunderconfig import Config
 from userbot.utils import admin_cmd
 from var import Var
 
-
 UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
 UPSTREAM_REPO_BRANCH = "master"
 HEROKU_APP_NAME = Var.HEROKU_APP_NAME
