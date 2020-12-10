@@ -1,4 +1,3 @@
-
 import asyncio
 import os
 import sys
@@ -18,9 +17,13 @@ IS_SELECTED_DIFFERENT_BRANCH = (
 OFFICIAL_UPSTREAM_REPO = Config.UPSTREAM_REPO
 BOT_IS_UP_TO_DATE = "**The Black Lightning** is up-to-date sur."
 NEW_BOT_UP_DATE_FOUND = (
-    "new update found for {branch_name}\n" "changelog: \n\n{changelog}\n" "updating your Black Lightning ..."
+    "new update found for {branch_name}\n"
+    "changelog: \n\n{changelog}\n"
+    "updating your Black Lightning ..."
 )
-NEW_UP_DATE_FOUND = "New update found for {branch_name}\n" "`updating your Black Lightning...`"
+NEW_UP_DATE_FOUND = (
+    "New update found for {branch_name}\n" "`updating your Black Lightning...`"
+)
 REPO_REMOTE_NAME = "temponame"
 IFFUCI_ACTIVE_BRANCH_NAME = "master"
 DIFF_MARKER = "HEAD..{remote_name}/{branch_name}"
