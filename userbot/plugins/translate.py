@@ -4,14 +4,14 @@ Available Commands:
 .tr LangaugeCode | text to translate"""
 
 import emoji
-from googletrans import Translator
-
+from asyncio import sleep
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from googletrans import Translator
+from userbot.utils import admin_cmd, sudo_cmd
+
 
 
 @borg.on(admin_cmd("tr ?(.*)"))
-@borg.on(sudo_cmd("tr ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -22,11 +22,11 @@ async def _(event):
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         text = previous_message.message
-        lan = input_str or "gu"
+        lan = input_str or "en"
     elif "|" in input_str:
         lan, text = input_str.split("|")
     else:
-        await edit_or_reply(event, "`.tr LanguageCode` as reply to a message")
+        await event.edit(".tr LanguageCode as reply to a message")
         return
     text = emoji.demojize(text.strip())
     lan = lan.strip()
@@ -36,21 +36,21 @@ async def _(event):
         after_tr_text = translated.text
         # TODO: emojify the :
         # either here, or before translation
-        output_str = """**Translated By Black Lightning Userbot** 
-         Source **( {} )**
-         Translation **( {} )**
-         {}""".format(
-            translated.src, lan, after_tr_text
+        output_str = """**Translated By 𝔻𝔸ℝ𝕂 ℂ𝕆𝔹ℝ𝔸** from {} to {}
+{}""".format(
+            translated.src,
+            lan,
+            after_tr_text
         )
-        await edit_or_reply(event, output_str)
+        await event.edit(output_str)
     except Exception as exc:
-        await edit_or_reply(event, str(exc))
-
+        await event.edit(str(exc))
 
 CMD_HELP.update(
     {
-        "translate": "**Translate**\
-\n\n**Syntax : **`.tr <language Code> <reply to text>`\
-\n**Usage :** Translates the given text into your language."
+        "translate": ".tr <language code> <reply to text>"
+        "\nUsage: reply any msg with .tr (language code) example .tr en / .tr hi\n\n"
+        ".tr <language code> | <msg> "
+        "\nUsage: translate text example .tr en|msg (note:- this | mark is important.\n\n"
     }
 )
