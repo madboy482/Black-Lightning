@@ -1,11 +1,6 @@
-import heroku3
-import asyncio
-import os
-import requests
-import math
-from userbot.utils import admin_cmd
 from userbot import CMD_HELP
-from userbot.thunderconfig import Config
+from userbot.utils import admin_cmd
+
 
 @borg.on(admin_cmd(pattern=r"heya ?(.*)"))  # initially made by @NOOB_GUY_OP
 async def hhi(event):
