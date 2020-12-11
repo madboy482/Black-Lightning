@@ -67,3 +67,4 @@ CMD_HELP.update(
     \n\n📌** CMD ★** `.bye(emoji)(emoji)`\
     \n**USAGE   ★  **Try it yourself (put space )"
     }
+)
