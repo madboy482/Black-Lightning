@@ -30,12 +30,12 @@ async def gws(event):
     await event.edit(f"{a}{a}{a}{a}{a}{a}{a} \n{a} {m} {a}\n{a}{a}{a}{a}{a}{a}{a}")
 
 
-@borg.on(admin_cmd(pattern=r"hii ?(.*)"))
+@borg.on(admin_cmd(pattern=r"arigato ?(.*)"))
 async def hii(event):
     giveVar = event.text
     a = giveVar[5:6]
     if not a:
-        a = "🌺"
+        a = "😙"
     b = giveVar[7:8]
     if not b:
         b = "✨"
