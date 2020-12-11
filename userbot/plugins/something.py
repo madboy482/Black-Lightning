@@ -29,7 +29,7 @@ async def test(event):
     )
 
 
-@borg.on(admin_cmd(pattern=r"hi"))
+@borg.on(admin_cmd(pattern=r"hola"))
 async def hi(event):
     if event.fwd_from:
         return
