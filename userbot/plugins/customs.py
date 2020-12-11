@@ -1,7 +1,7 @@
 from userbot.utils import admin_cmd
 
 
-@borg.on(admin_cmd(pattern=r"hhi ?(.*)"))  # initially made by @NOOB_GUY_OP
+@borg.on(admin_cmd(pattern=r"heya ?(.*)"))  # initially made by @NOOB_GUY_OP
 async def hhi(event):
     giveVar = event.text
     a = giveVar[5:6]
@@ -13,8 +13,6 @@ async def hhi(event):
     await event.edit(
         f"{a}{b}{b}{a}{b}{a}{a}{a}\n{a}{b}{b}{a}{b}{b}{a}{b}\n{a}{a}{a}{a}{b}{b}{a}{b}\n{a}{b}{b}{a}{b}{b}{a}{b}\n{a}{b}{b}{a}{b}{a}{a}{a}\n☁☁☁☁☁☁☁☁"
     )
-
-
 # later made by me
 @borg.on(admin_cmd(pattern=r"gws?(.*)"))
 async def gws(event):
