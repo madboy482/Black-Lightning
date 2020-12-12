@@ -1,10 +1,11 @@
 import asyncio
 from collections import deque
 
+from userbot import ALIVE_NAME
 from userbot.utils import admin_cmd, sudo_cmd
-from userbot import ALIVE_NAME, CMD_HELP
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
+
 
 @borg.on(admin_cmd(pattern=r"lul$"))
 async def _(event):
@@ -202,6 +203,7 @@ async def _(event):
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 16])
 
+
 @borg.on(admin_cmd(pattern=f"human$", outgoing=True))
 @borg.on(sudo_cmd(pattern="human$", allow_sudo=True))
 async def _(event):
@@ -231,8 +233,8 @@ async def _(event):
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 16])
-        
-        
+
+
 @borg.on(admin_cmd(pattern=f"music$", outgoing=True))
 @borg.on(sudo_cmd(pattern="music$", allow_sudo=True))
 async def _(event):
@@ -257,9 +259,8 @@ async def _(event):
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 11])
-        
-       
-    
+
+
 @borg.on(admin_cmd(pattern=f"squ$", outgoing=True))
 @borg.on(sudo_cmd(pattern="squ$", allow_sudo=True))
 async def _(event):
