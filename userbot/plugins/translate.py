@@ -10,7 +10,7 @@ from userbot import CMD_HELP
 from userbot.utils import admin_cmd
 
 
-@borg.on(admin_cmd("tr ?(.*)"))
+@borg.on(admin_cmd("tra ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -46,9 +46,9 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "translate": ".tr <language code> <reply to text>"
+        "translate": ".tra <language code> <reply to text>"
         "\nUsage: reply any msg with .tr (language code) example .tr en / .tr hi\n\n"
-        ".tr <language code> | <msg> "
+        ".tra <language code> | <msg> "
         "\nUsage: translate text example .tr en|msg (note:- this | mark is important.\n\n"
     }
 )
