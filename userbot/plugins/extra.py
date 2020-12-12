@@ -1,12 +1,15 @@
-import asyncio
-import time
+import asyncio, subprocess
+import time, re, io
+from userbot import bot, BOTLOG, BOTLOG_CHATID, CMD_HELP
+from telethon import events, functions, types
+from telethon.events import StopPropagation
+from telethon.tl.functions.messages import ExportChatInviteRequest
+from telethon.tl.functions.contacts import BlockRequest
+from telethon.tl.functions.channels import LeaveChannelRequest, CreateChannelRequest, DeleteMessagesRequest
 from collections import deque
-
-from telethon.tl.functions.channels import LeaveChannelRequest
-
-from userbot import CMD_HELP, bot
+from telethon.tl.functions.users import GetFullUserRequest
+from userbot.events import register
 from userbot.utils import admin_cmd
-
 
 @borg.on(admin_cmd("leave$"))
 async def leave(e):
@@ -109,6 +112,21 @@ async def _(event):
         await event.edit("".join(deq))
         deq.rotate(1)
 
+        
+@borg.on(admin_cmd(pattern="evil ?(.*)"))
+async def _(event):
+     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
+        await event.edit("😒You Know I'm a good **PERSON**😏")
+        await asyncio.sleep(1.9)
+        await event.edit("BUT😡")
+        await asyncio.sleep(1.2)
+        await event.edit("😑Don't give me a reason😠")
+        await asyncio.sleep(1.9)
+        await event.edit("🤨To show my😎")
+        await asyncio.sleep(1.4)
+        await event.edit("**😈EVIL SIDE**😈")
+        await asyncio.sleep(1.3)
+        await event.edit("**😈YOU KNOW THAT I'M A GOOD PERSON. BUT DON'T GIVE ME REASON TO SHOW MY EVIL SIDE😈**")
 
 CMD_HELP.update({"leave": "Leave a Chat"})
 CMD_HELP.update({";__;": "You try it!"})
@@ -123,3 +141,4 @@ CMD_HELP.update({"oof": "Same as ;__; but ooof"})
 CMD_HELP.update({"earth": "Sends Kensar Earth animation"})
 CMD_HELP.update({"heart": "Try and you'll get your emotions back"})
 CMD_HELP.update({"fap": "Faking orgasm"})
+CMD_HELP.update({"evil": "shows evil side"})
