@@ -7,7 +7,6 @@ from telethon import events
 from telethon.tl import functions, types
 
 from userbot import ALIVE_NAME
-from userbot.Config import Var
 from userbot.utils import admin_cmd
 
 global USER_night  # pylint:disable=E0602
