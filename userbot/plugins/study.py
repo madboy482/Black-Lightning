@@ -7,9 +7,10 @@ from datetime import datetime
 
 from telethon import events
 from telethon.tl import functions, types
-from userbot.thunderconfig import Config
-from userbot.Config import Var
+
 from userbot import CMD_HELP
+from userbot.Config import Var
+from userbot.thunderconfig import Config
 from userbot.utils import admin_cmd
 
 global USER_AFK  # pylint:disable=E0602
@@ -24,6 +25,7 @@ afk_start = {}
 
 # Originally by @NOOB_GUY_OP
 # I think its first for DARKCOBRA
+
 
 @borg.on(events.NewMessage(outgoing=True))  # pylint:disable=E0602
 async def set_not_afk(event):
@@ -42,7 +44,8 @@ async def set_not_afk(event):
             event.chat_id,
             "__Back alive!__\n**No Longer Studying.**\n `Was Studying for:``"
             + total_afk_time
-            + "`", file=pic
+            + "`",
+            file=pic,
         )
         try:
             await borg.send_message(  # pylint:disable=E0602
@@ -50,11 +53,12 @@ async def set_not_afk(event):
                 "#AFKFALSE \nSet Study mode to False\n"
                 + "__Back alive!__\n**No Longer Reading.**\n `Was Reading for:``"
                 + total_afk_time
-                + "`", file=pic
+                + "`",
+                file=pic,
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             await borg.send_message(  # pylint:disable=E0602 # Originally by @NOOB_GUY_OP
-# I think its first for DARKCOBRA
+                # I think its first for DARKCOBRA
                 event.chat_id,
                 "Please set `PRIVATE_GROUP_BOT_API_ID` "
                 + "for the proper functioning of Study functionality "
@@ -91,8 +95,8 @@ async def on_afk(event):
         # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
         return False
     if USER_AFK and not (await event.get_sender()).bot:
-        msg = None# Originally by @NOOB_GUY_OP
-# I think its first for DARKCOBRA
+        msg = None  # Originally by @NOOB_GUY_OP
+        # I think its first for DARKCOBRA
         message_to_reply = (
             f"__My Master Has Been Reading since__ `{total_afk_time}`\nWhere He Is: I don't know dear friend..he is a too busy person "
             + f"\n\n__I can't guarantee you that when he will come..__\n**REASON**: {reason}"
@@ -155,5 +159,4 @@ CMD_HELP.update(
 you telling them that you are AFK(reason)\n\n__Switches off AFK when you type back anything, anywhere.__\
 "
     }
-
 )
