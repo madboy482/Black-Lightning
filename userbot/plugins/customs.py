@@ -1,6 +1,6 @@
 from userbot import CMD_HELP
 from userbot.utils import admin_cmd
-
+from userbot import bot
 
 @borg.on(admin_cmd(pattern=r"heya ?(.*)"))  # initially made by @NOOB_GUY_OP
 async def hhi(event):
@@ -45,7 +45,7 @@ async def hlo(event):
     )
 
 
-@borg.on(admin_cmd(pattern=r"bye ?(.*)"))
+@borg.on(admin_cmd(pattern=r"seeu ?(.*)"))
 async def bye(event):
     giveVar = event.text
     a = giveVar[5:6]
@@ -62,15 +62,15 @@ async def bye(event):
 CMD_HELP.update(
     {
         "customs": "__**PLUGIN NAME :** Custom animations__\
-    \n\n📌** CMD ★** `.hhi(emoji)(emoji)`\
+    \n\n📌** CMD ★** `.heya(emoji)(emoji)`\
     \n**USAGE   ★  **Try it yourself (put space ) \
-    \n\n📌** CMD ★** `.hhi(emoji)(emoji)`\
+    \n\n📌** CMD ★** `.glitch(emoji)(emoji)`\
     \n**USAGE   ★  **Try it yourself (put space )\
     \n\n📌** CMD ★** `.gws(emoji)`\
     \n**USAGE   ★  **Try it yourself (put space )\
-    \n\n📌** CMD ★** `.hlo(emoji)(emoji)`\
+    \n\n📌** CMD ★** `.heyy(emoji)(emoji)`\
     \n**USAGE   ★  **Try it yourself (put space )\
-    \n\n📌** CMD ★** `.bye(emoji)(emoji)`\
+    \n\n📌** CMD ★** `.seeu(emoji)(emoji)`\
     \n**USAGE   ★  **Try it yourself (put space )"
     }
 )
