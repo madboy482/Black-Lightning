@@ -7,9 +7,9 @@ from datetime import datetime
 
 from telethon import events
 from telethon.tl import functions, types
-from userbot.thunderconfig import Config
 
 from userbot import CMD_HELP
+from userbot.thunderconfig import Config
 from userbot.utils import admin_cmd
 
 global USER_AFK  # pylint:disable=E0602
@@ -24,6 +24,7 @@ afk_start = {}
 
 # Originally by @NOOB_GUY_OP
 # I think its first for DARKCOBRA
+
 
 @borg.on(events.NewMessage(outgoing=True))  # pylint:disable=E0602
 async def set_not_afk(event):
@@ -42,7 +43,8 @@ async def set_not_afk(event):
             event.chat_id,
             "__Back alive!__\n**No Longer Studying.**\n `Was Studying for:``"
             + total_afk_time
-            + "`", file=pic
+            + "`",
+            file=pic,
         )
         try:
             await borg.send_message(  # pylint:disable=E0602
@@ -50,11 +52,12 @@ async def set_not_afk(event):
                 "#AFKFALSE \nSet Study mode to False\n"
                 + "__Back alive!__\n**No Longer Reading.**\n `Was Reading for:``"
                 + total_afk_time
-                + "`", file=pic
+                + "`",
+                file=pic,
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             await borg.send_message(  # pylint:disable=E0602 # Originally by @NOOB_GUY_OP
-# I think its first for DARKCOBRA
+                # I think its first for DARKCOBRA
                 event.chat_id,
                 "Please set `PRIVATE_GROUP_BOT_API_ID` "
                 + "for the proper functioning of Study functionality "
@@ -91,8 +94,8 @@ async def on_afk(event):
         # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
         return False
     if USER_AFK and not (await event.get_sender()).bot:
-        msg = None# Originally by @NOOB_GUY_OP
-# I think its first for DARKCOBRA
+        msg = None  # Originally by @NOOB_GUY_OP
+        # I think its first for DARKCOBRA
         message_to_reply = (
             f"__My Master Has Been Reading since__ `{total_afk_time}`\nWhere He Is: I don't know dear friend..he is a too busy person "
             + f"\n\n__I can't guarantee you that when he will come..__\n**REASON**: {reason}"
@@ -121,22 +124,24 @@ async def _(event):
     afk_time = None
     last_afk_message = {}
     afk_end = {}
-    start_1 = datetime.now()# Originally by @NOOB_GUY_OP
-# I think its first for DARKCOBRA
+    start_1 = datetime.now()  # Originally by @NOOB_GUY_OP
+    # I think its first for DARKCOBRA
     afk_start = start_1.replace(microsecond=0)
     reason = event.pattern_match.group(1)
     pic = event.pattern_match.group(2)
     if not USER_AFK:  # pylint:disable=E0602
         last_seen_status = await borg(  # pylint:disable=E0602
             functions.account.GetPrivacyRequest(types.InputPrivacyKeyStatusTimestamp())
-        )# Originally by @NOOB_GUY_OP
-# I think its first for DARKCOBRA
+        )  # Originally by @NOOB_GUY_OP
+        # I think its first for DARKCOBRA
         if isinstance(last_seen_status.rules, types.PrivacyValueAllowAll):
             afk_time = datetime.datetime.now()  # pylint:disable=E0602
         USER_AFK = f"yes: {reason} {pic}"  # pylint:disable=E0602
         if reason:
             await borg.send_message(
-                event.chat_id, f"**I shall be Going  For Study!** __because ~ {reason}__", file=pic
+                event.chat_id,
+                f"**I shall be Going  For Study!** __because ~ {reason}__",
+                file=pic,
             )
         else:
             await borg.send_message(event.chat_id, f"**I am Going afk!**", file=pic)
@@ -145,7 +150,8 @@ async def _(event):
         try:
             await borg.send_message(  # pylint:disable=E0602
                 Config.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
-                f"#MAFKTRUE \nSet Study mode to True, and Reason is {reason}",file=pic
+                f"#MAFKTRUE \nSet Study mode to True, and Reason is {reason}",
+                file=pic,
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             logger.warn(str(e))  # pylint:disable=E0602
