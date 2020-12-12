@@ -1,6 +1,6 @@
 from userbot import CMD_HELP
 from userbot.utils import admin_cmd
-from userbot import bot
+
 
 @borg.on(admin_cmd(pattern=r"heya ?(.*)"))  # initially made by @NOOB_GUY_OP
 async def hhi(event):
