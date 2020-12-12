@@ -88,8 +88,7 @@ python3 -m Black-Lightning
 
 
 
-# Credits 
-`[+] Check Contribution At https://github.com/StarkGang/FridayUserbot/graphs/contributors`
+
 
 
 
@@ -103,10 +102,7 @@ will. Specifically you can redistribute and/or modify it under the terms of the
 [GNU General Public License](https://www.gnu.org/licenses/gpl.html) as
 published by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version. 
-=======
-<p align="center"><a href="https://t.me/blacklightningsupport"><img src=" https://telegra.ph/file/46374b4c4da3a5dc1aa98.jpg" width="5000"></a></p> 
-<h1 align="center"><b>Black Lightning -USERBOT 🇮🇳 </b></h1>
-<h4 align="center">A Powerful, Smart And Simple Userbot In Telethon.</h4>
+
 
 
 
