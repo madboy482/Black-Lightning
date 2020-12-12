@@ -2,7 +2,7 @@
 #
 # Licensed under the Raphielscape Public License, Version 1.b (the "License");
 # you may not use this file except in compliance with the License.
-# The Whole Credits Goes To Friday user bot Thx Stark Sir
+#
 #
 
 """ Userbot module for having some fun with people. """
@@ -21,8 +21,8 @@ from cowpy import cow
 from telethon import events
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
-
 from uniborg.util import admin_cmd
+
 from userbot import CMD_HELP
 from userbot.utils import register
 
