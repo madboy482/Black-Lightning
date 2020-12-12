@@ -47,7 +47,7 @@
     "CMD_HNDLR": {
     "description": "Used to invoke commands, leave as it for default",
     "value": ".",
-    "required": true
+    "required": false
    },  
     "SUDO_HNDLR": {
     "description": "Used to invoke sudo commands, leave blank for default",
@@ -68,6 +68,11 @@
       "description": "create a private channel and then type .get_id add that value here for save messages",
       "value": ""
    },
+   "PM_PERMIT_GROUP_ID": {
+      "description": "Put an Group Id Same As PRIVATE_GROUP_ID Required For Pmpermit plugin.",
+      "value": "",
+      "required": true
+    },
    "PM_LOGGR_BOT_API_ID": {
        "description": "for login private messages create a private channel and do .get_id and add that id", 
        "value": ""
