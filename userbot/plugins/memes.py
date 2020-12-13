@@ -905,7 +905,7 @@ async def vapor(vpr):
 async def source(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
-            "Hello , User I Am Using [Lightningt](https://github.com/Anmol-dot283/Black-Lightning) ! Worth A Try 😌"
+            "Hello , User I Am Using [Lightningt](https://github.com/KeinShin/Black-Lightning) ! Worth A Try 😌"
         )
 
 
@@ -1096,6 +1096,13 @@ async def faces(owo):
         reply_text += " " + random.choice(UWUS)
         await owo.edit(reply_text)
 
+
+@register(outgoing=True, pattern="^.deploy$")
+async def source(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        await e.edit(
+            "So You Wanna Deploy? ,Here It Is  [Lightning](https://github.com/KeinShin/Black-Lightning) ! Worth A Try 😌"
+        )
 
 @register(outgoing=True, pattern="^.react$")
 async def react_meme(react):
