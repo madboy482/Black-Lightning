@@ -1101,7 +1101,7 @@ async def faces(owo):
 async def source(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
-            "So You Wanna Deploy? ,Here It Is  [Lightning](https://github.com/KeinShin/Black-Lightning) ! Worth A Try 😌"
+            "So You Wanna Deploy? Here It Is  [Lightning](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning&template=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning) ! Worth A Try 😌"
         )
 
 
