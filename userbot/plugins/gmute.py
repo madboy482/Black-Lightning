@@ -10,8 +10,8 @@ from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 
 # @command(outgoing=True, pattern=r"^.gmute ?(\d+)?")
-@borg.on(admin_cmd(pattern=r"gmute ?(\d+)?", outgoing=True))
-@borg.on(sudo_cmd(pattern=r"gmute ?(\d+)?", allow_sudo=True))
+@borg.on(admin_cmd(pattern=r"fmute ?(\d+)?", outgoing=True))
+@borg.on(sudo_cmd(pattern=r"fmute ?(\d+)?", allow_sudo=True))
 async def startgmute(event):
     private = False
     if event.fwd_from:
@@ -77,8 +77,8 @@ async def startgmute(event):
 
 
 # @command(outgoing=True, pattern=r"^.ungmute ?(\d+)?")
-@borg.on(admin_cmd(pattern=r"ungmute ?(\d+)?", outgoing=True))
-@borg.on(sudo_cmd(pattern=r"ungmute ?(\d+)?", allow_sudo=True))
+@borg.on(admin_cmd(pattern=r"unfmute ?(\d+)?", outgoing=True))
+@borg.on(sudo_cmd(pattern=r"unfmute ?(\d+)?", allow_sudo=True))
 async def endgmute(event):
     private = False
     if event.fwd_from:
@@ -100,10 +100,10 @@ async def endgmute(event):
             "Please reply to a user or add their into the command to ungmute them.",
         )
     event.chat_id
-    if not is_muted(userid, "gmute"):
+    if not is_muted(userid, "fmute"):
         return await edit_or_reply(event, "Duct Tape is not on this user's mouth")
     try:
-        unmute(userid, "gmute")
+        unmute(userid, "fmute")
     except Exception as e:
         await edit_or_reply(event, "Error occured!\nError is " + str(e))
     else:
