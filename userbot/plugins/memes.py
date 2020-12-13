@@ -1097,7 +1097,7 @@ async def faces(owo):
         await owo.edit(reply_text)
 
 
-@register(outgoing=True, pattern="^.deploy$")
+@register(outgoing=True, pattern="^.lightningdeploy$")
 async def source(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
@@ -1392,7 +1392,7 @@ async def hi(event):
     )
 
 
-@borg.on(admin_cmd(pattern=r"lol"))
+@borg.on(admin_cmd(pattern=r"lool"))
 async def hi(event):
     if event.fwd_from:
         return
@@ -1463,7 +1463,7 @@ async def spammer(e):
             )
 
 
-@borg.on(admin_cmd(pattern=r"no"))
+@borg.on(admin_cmd(pattern=r"nah"))
 async def hi(event):
     if event.fwd_from:
         return
