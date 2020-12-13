@@ -28,7 +28,7 @@
 
 # Deploy
 
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Anmol-dot283/Black-Lightning)
+[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/KeinShin/Black-Lightning)
 
 
 
@@ -44,7 +44,7 @@
 
 Simply clone the repository and run the main file:
 ```sh
-git clone https://github/Anmol-dot2833/Black-Lightning
+git clone https://github/KienShin/Black-Lightning
 cd Black Lightning 
 virtualenv -p /usr/bin/python3 venv
 . ./venv/bin/activate
