@@ -1097,7 +1097,7 @@ async def faces(owo):
         await owo.edit(reply_text)
 
 
-@register(outgoing=True, pattern="^.lightningdeploy$")
+@register(outgoing=True, pattern="^.deploymeh$")
 async def source(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
