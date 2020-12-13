@@ -114,5 +114,5 @@ async def endgmute(event):
 
 @command(incoming=True)
 async def watcher(event):
-    if is_muted(event.sender_id, "gmute"):
+    if is_muted(event.sender_id, "fmute"):
         await event.delete()
