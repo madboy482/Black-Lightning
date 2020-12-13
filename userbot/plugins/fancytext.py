@@ -16,7 +16,7 @@ async def _(event):
         await event.edit("╔═╦═╗╔══╗╔══╗\n║║║║║║══╣╚╗╔╝\n║║║║║╠══║─║║─\n╚╩═╩╝╚══╝─╚╝─")
 
 
-@borg.on(admin_cmd(pattern="gm ?(.*)"))
+@borg.on(admin_cmd(pattern="gmg ?(.*)"))
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit("good morning ")
