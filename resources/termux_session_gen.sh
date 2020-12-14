@@ -16,6 +16,6 @@ apt-get update
 apt-get upgrade -y
 pkg upgrade -y
 pkg install python wget -y
-wget https://raw.githubusercontent.com/Anmol-dot283/Black-Lightning/master/resources/lightning-setup.py
+wget https://raw.githubusercontent.com/KeinShin/Black-Lightning/master/telesetup.py
 pip3 install telethon
-python3 telebot-setup.py
+python3 telesetup.py
