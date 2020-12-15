@@ -1,5 +1,9 @@
 """night Plugin for Sensible_userbot
-Syntax: .night REASON"""
+Syntax: .study REASON"""
+
+# this is plugin is by @krish1303y for Black Lightning
+# kang with credits
+
 import asyncio
 import datetime
 
@@ -31,7 +35,7 @@ async def set_not_night(event):
         try:
             await borg.send_message(  # pylint:disable=E0602
                 Var.PLUGIN_CHANNEL,  # pylint:disable=E0602
-                "Mine Owner has Gone Study (Pure Din Sota hi Rehta He Ye Abb Padhai Karega)",
+                "Mine Owner has Gone Study `Pure Din Sota hi Rehta He Ye Abb Padhai Karega`",
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             await borg.send_message(  # pylint:disable=E0602
