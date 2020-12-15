@@ -27,7 +27,7 @@ Lastupdate = time.time()
 sed = logging.getLogger("WARNING")
 sedprint = logging.getLogger("WARNING")
 
-os.system("pip install --upgrade pip")
+
 if Var.STRING_SESSION:
     session_name = str(Var.STRING_SESSION)
     bot = TelegramClient(StringSession(session_name), Var.APP_ID, Var.API_HASH)
