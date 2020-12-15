@@ -72,7 +72,7 @@ async def scan(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern=r"pro"))
+@borg.on(admin_cmd(pattern=r".pro"))
 async def scan(event):
     path = "dcobra"
 
