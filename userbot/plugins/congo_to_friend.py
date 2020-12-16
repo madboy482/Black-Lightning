@@ -1,7 +1,7 @@
 import random
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 RUNSREACTS = [
     "`Aur Bata Bsdk Kar Liya Tunee Party De Chal!`",
@@ -17,7 +17,7 @@ RUNSREACTS = [
 ]
 
 
-@borg.on(admin_cmd(pattern="congo"))
+@borg.on(admin_cmd(pattern="chalbsdk"))
 async def _(event):
     if event.fwd_from:
         return
@@ -28,8 +28,8 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "congo_to_friend": "**congo_to_friend**\
-\n\n**Syntax : **`.congo2`\
+        "chalbsdk": "**congo_to_friend**\
+\n\n**Syntax : **`.chalbsdk`\
 \n**Usage :** This plugin is used to congratulate friend."
     }
 )
