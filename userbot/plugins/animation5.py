@@ -1,7 +1,7 @@
 import asyncio
 
 from userbot import ALIVE_NAME, CMD_HELP
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmdmd
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
 
