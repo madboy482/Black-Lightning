@@ -1,9 +1,9 @@
 import asyncio
 
-from userbot import ALIVE_NAME
-from userbot.utils import admin_cmd
+from userbot import ALIVE_NAME, CMD_HELP
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmdmd
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "cat"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
 
 
 @borg.on(admin_cmd(outgoing=True, pattern="loading( (.*)|$)"))
