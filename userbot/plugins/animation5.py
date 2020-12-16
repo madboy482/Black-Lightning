@@ -6,7 +6,7 @@ from userbot.utils import admin_cmd
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="loading( (.*)|$)"))
+@borg.on(admin_cmd(outgoing=True, pattern="bufferedd( (.*)|$)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -18,7 +18,7 @@ async def _(event):
         await event.edit(animation_chars[i % 4])
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="square( (.*)|$)"))
+@borg.on(admin_cmd(outgoing=True, pattern="dabba( (.*)|$)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -30,7 +30,7 @@ async def _(event):
         await event.edit(animation_chars[i % 4])
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="up( (.*)|$)"))
+@borg.on(admin_cmd(outgoing=True, pattern="kein( (.*)|$)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -42,7 +42,7 @@ async def _(event):
         await event.edit(animation_chars[i % 4])
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="round( (.*)|$)"))
+@borg.on(admin_cmd(outgoing=True, pattern="dhab( (.*)|$)"))
 async def _(event):
     if event.fwd_from:
         return
