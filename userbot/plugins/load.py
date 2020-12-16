@@ -2,13 +2,13 @@
 
 Available Commands:
 
-.load
-.square
+.box
+.lefft
 .up
-.round
-.heart
-.anim
-.fnl"""
+.circle
+.dill
+.repee
+.fairnhansome"""
 
 import asyncio
 
@@ -39,17 +39,6 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-"""Emoji
-
-Available Commands:
-
-.emoji shrug
-
-.emoji apple
-
-.emoji :/
-
-.emoji -_-"""
 
 import asyncio
 
