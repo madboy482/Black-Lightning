@@ -26,7 +26,7 @@ telever = "5.0"
 Lastupdate = time.time()
 sed = logging.getLogger("WARNING")
 sedprint = logging.getLogger("WARNING")
-
+CMD_HNDLR = Config.CMD_HNDLR
 
 if Var.STRING_SESSION:
     session_name = str(Var.STRING_SESSION)
