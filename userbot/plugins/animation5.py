@@ -77,12 +77,12 @@ async def _(event):
         "😧",
         "😡",
         "😢",
-        "‎**Repo of catuserbot**",
+        "‎**Repo of  @r4v4n4**",
         "😁",
         "😧",
         "😡",
         "😢",
-        "[CAT IS BEST](https://github.com/Sur-vivor/CatUserbot)",
+        "[Raped](github.com/ravana69/pornhub)",
         "__**Good to See you Guys....**__",
     ]
     for i in animation_ttl:
