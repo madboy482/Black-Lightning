@@ -15,7 +15,7 @@ import asyncio
 from telethon import events
 
 
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@borg.on(admin_cmd(pattern="box ?(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -58,7 +58,7 @@ import asyncio
 from telethon import events
 
 
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@borg.on(admin_cmd(pattern="lefft ?(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -84,7 +84,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-@borg.on(admin_cmd(pattern=r"up"))
+@borg.on(admin_cmd(pattern="up ?(.*)",  outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -110,7 +110,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@borg.on(admin_cmd(pattern="circle ?(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -136,7 +136,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@borg.on(admin_cmd(pattern="dill ?(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -162,7 +162,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@borg.on(admin_cmd(pattern="repee ?(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -200,7 +200,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@borg.on(admin_cmd(pattern="fairnhansome ?(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
