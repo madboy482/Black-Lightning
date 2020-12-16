@@ -84,7 +84,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@borg.on(admin_cmd(pattern=r"up"))
 async def _(event):
 
     if event.fwd_from:
