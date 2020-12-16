@@ -11,7 +11,7 @@ from userbot.Config import Var
 from userbot.thunderconfig import Config
 
 sedprint = logging.getLogger("PLUGINS")
-cmdhandler = Config.CMD_HNDLR
+cmdhandler = Config.CMD_HNDLR if Config.CMD_HNDLR else "\."
 bothandler = Config.BOT_HANDLER
 sudo_hndlr = Config.SUDO_HNDLR if Config.SUDO_HNDLR else "!"
 
