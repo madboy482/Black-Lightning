@@ -12,7 +12,7 @@ thumb_image_path = "./resources/541200.png"
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
 
 
-@bot.on(admin_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
+@borg.on(admin_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
 async def send(event):
     if event.fwd_from:
         return
@@ -34,7 +34,7 @@ async def send(event):
         end = datetime.now()
         time_taken_in_ms = (end - start).seconds
         await pro.edit(
-            f"**==> Plugin name:** `{input_str}`\n**==> Uploaded in {time_taken_in_ms} seconds only.**\n**==> Uploaded by:Black Lightnings** [{DEFAULTUSER}](tg://user?id={hmm})\n"
+            f"**==> Plugin name:** `{input_str}`\n**==> Uploaded in {time_taken_in_ms} seconds only.**\n**==> Uploaded by:Black Lightning's** [{DEFAULTUSER}](tg://user?id={hmm})\n"
         )
         await asyncio.sleep(DELETE_TIMEOUT)
         await event.delete()
@@ -42,7 +42,7 @@ async def send(event):
         await edit_or_reply(event, "**404**: __File Not Found__")
 
 
-@bot.on(admin_cmd(pattern="install"))
+@borg.on(admin_cmd(pattern="install"))
 async def install(event):
     if event.fwd_from:
         return
@@ -59,7 +59,7 @@ async def install(event):
                 shortname = path1.stem
                 load_module(shortname.replace(".py", ""))
                 await event.edit(
-                    "Plugin successfully installed\n @blacklightningot `{}`".format(
+                    "Lightning  successfully installed this plguin\n @blacklightningot `{}`".format(
                         os.path.basename(downloaded_file_name)
                     )
                 )
@@ -75,7 +75,7 @@ async def install(event):
     await event.delete()
 
 
-@bot.on(admin_cmd(pattern=r"unload (?P<shortname>\w+)$"))
+@borg.on(admin_cmd(pattern=r"unload (?P<shortname>\w+)$"))
 async def unload(event):
     if event.fwd_from:
         return
@@ -89,7 +89,7 @@ async def unload(event):
         )
 
 
-@bot.on(admin_cmd(pattern=r"load (?P<shortname>\w+)$"))
+@borg.on(admin_cmd(pattern=r"load (?P<shortname>\w+)$"))
 async def load(event):
     if event.fwd_from:
         return
