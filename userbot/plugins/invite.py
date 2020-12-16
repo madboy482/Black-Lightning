@@ -6,39 +6,18 @@
 
 # --------------------------------------------------------------------------------------------------------------------------------
 
-from userbot import *
-from userbot.utils import admin_cmd
-import asyncio, time, io, math, os, logging, asyncio, shutil, re, subprocess, json
-from datetime import datetime
-from hachoir.metadata import extractMetadata
-from hachoir.parser import createParser
-from base64 import b64decode
-from pySmartDL import SmartDL
-from userbot import TEMP_DOWNLOAD_DIRECTORY, CMD_HELP, COUNTRY, TZ_NUMBER
-from telethon.events import NewMessage
-from telethon.tl.custom import Dialog
-from telethon.tl.types import Channel, Chat, User
-FULL_SUDO = os.environ.get("FULL_SUDO", None)
-from telethon.tl import functions, types
-from userbot import BOTLOG_CHATID, CMD_HELP, BOTLOG, BOTLOG_CHATID, YOUTUBE_API_KEY, TEMP_DOWNLOAD_DIRECTORY, CHROME_DRIVER, GOOGLE_CHROME_BIN, bot
-from telethon.tl.functions.messages import GetHistoryRequest, CheckChatInviteRequest, GetFullChatRequest
-from telethon.tl.functions.channels import GetFullChannelRequest, GetParticipantsRequest
-from telethon.errors import FloodWaitError
-from bs4 import BeautifulSoup
-from time import sleep
-from html import unescape
-from urllib.parse import quote_plus
-from urllib.error import HTTPError
-from telethon import events
-from requests import get
-from html import unescape
-from re import findall
-from asyncio import sleep
-from datetime import datetime as dt
-from pytz import country_names as c_n, country_timezones as c_tz, timezone as tz
-from telethon.errors.rpcerrorlist import YouBlockedUserError
-import random
+import os
 
+from userbot import *
+from userbot import CMD_HELP
+from userbot.utils import admin_cmd
+
+FULL_SUDO = os.environ.get("FULL_SUDO", None)
+from telethon.tl import functions
+from telethon.tl.functions.channels import GetFullChannelRequest
+from telethon.tl.functions.messages import GetFullChatRequest
+
+from userbot import CMD_HELP
 
 
 async def get_chatinfo(event):
