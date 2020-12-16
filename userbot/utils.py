@@ -216,7 +216,6 @@ def admin_cmd(pattern=None, command=None, **args):
     return events.NewMessage(**args)
 
 
-
 """ Userbot module for managing events.
  One of the main components of the userbot. """
 
