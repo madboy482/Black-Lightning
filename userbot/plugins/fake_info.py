@@ -14,7 +14,6 @@
 
 from faker import Faker
 from faker.providers import internet
-from userbot.utils import friday_on_cmd
 
 from userbot import CMD_HELP
 
