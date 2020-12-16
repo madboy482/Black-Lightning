@@ -12,8 +12,6 @@ Available Commands:
 
 import asyncio
 
-from telethon import events
-
 
 @borg.on(admin_cmd(pattern="box ?(.*)", outgoing=True))
 async def _(event):
@@ -55,8 +53,6 @@ Available Commands:
 
 import asyncio
 
-from telethon import events
-
 
 @borg.on(admin_cmd(pattern="lefft ?(.*)", outgoing=True))
 async def _(event):
@@ -84,7 +80,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-@borg.on(admin_cmd(pattern="up ?(.*)",  outgoing=True))
+@borg.on(admin_cmd(pattern="up ?(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
