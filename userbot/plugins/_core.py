@@ -6,7 +6,6 @@ from pathlib import Path
 from userbot import ALIVE_NAME, bot
 from userbot.utils import admin_cmd, load_module, remove_plugin
 
-
 DELETE_TIMEOUT = 5
 thumb_image_path = "./resources/541200.png"
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
