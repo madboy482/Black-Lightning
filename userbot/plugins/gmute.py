@@ -1,52 +1,17 @@
-"""
-ThankYou @pureindialover
-added speciality for sudos if u kang give me credits
-"""
 import asyncio
 
 from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
-from userbot.thunderconfig import Config
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import admin_cmd
 
 
 # @command(outgoing=True, pattern=r"^.gmute ?(\d+)?")
-@borg.on(admin_cmd(pattern=r"fmute ?(\d+)?", outgoing=True))
-@borg.on(sudo_cmd(pattern=r"fmute ?(\d+)?", allow_sudo=True))
+@borg.on(admin_cmd(pattern=r"fmute ?(\d+)?"))
 async def startgmute(event):
     private = False
     if event.fwd_from:
         return
-    reply = await event.get_reply_message()
-    user_id = reply.from_id
-    if user_id == (await borg.get_me()).id:
-        await event.reply(r"LoL. Why would I Gmute u. You are my owner")
-        return
-    if user_id in Config.SUDO_USERS:
-        await event.reply(
-            "**He has more power than me.**\nPerhaps I can't gmute him.\n\n"
-            "**Tip:** He iz a sudo user."
-        )
-        return
-    if user_id in Config.WHITELIST_USERS:
-        await event.reply(
-            "**He has more immunity.**\nPerhaps I can't gmute him.\n\n"
-            "**Tip:** He iz a Whitelist user."
-        )
-        return
-    if user_id in Config.SUPPORT_USERS:
-        await event.reply(
-            "**He has more connections.**\nPerhaps I can't gmute him.\n\n"
-            "**Tip:** He iz a SUPPORT user."
-        )
-        return
-    if user_id in Config.DEVLOPERS:
-        await event.reply(
-            "**He my maintainer.**\nPerhaps I can't gmute him.\n\n"
-            "**Tip:** He iz a devloper."
-        )
-        return
     elif event.is_private:
-        await edit_or_reply(event, "Putting Duct Tape on that person's mouth!")
+        await event.edit("Putting Dick🍆 💦 In Son mouth!!")
         await asyncio.sleep(3)
         private = True
     reply = await event.get_reply_message()
@@ -58,33 +23,30 @@ async def startgmute(event):
         userid = event.chat_id
     else:
         return await event.edit(
-            "Please reply to a user or add their into the command to gmute them."
+            "Please reply to a user or add their into the command to fmute them."
         )
     event.chat_id
     await event.get_chat()
-    if is_muted(userid, "gmute"):
-        return await edit_or_reply(
-            event, "Duct Tape is already availabe on this user's mouth"
-        )
+    if is_muted(userid, "fmute"):
+        return await event.edit("This user is already fmuted")
     try:
-        mute(userid, "gmute")
+        mute(userid, "fmute")
     except Exception as e:
-        await edit_or_reply(event, "Error occured!\nError is " + str(e))
+        await event.edit("Error occured!\nError is " + str(e))
     else:
-        await edit_or_reply(
-            event, "Successfully putted Duct Tape on that person's mouth"
-        )
+        await event.edit("Son Can't speek now.... Filled His Mouth With Cum😉")
 
 
 # @command(outgoing=True, pattern=r"^.ungmute ?(\d+)?")
-@borg.on(admin_cmd(pattern=r"unfmute ?(\d+)?", outgoing=True))
-@borg.on(sudo_cmd(pattern=r"unfmute ?(\d+)?", allow_sudo=True))
+@borg.on(admin_cmd(pattern=r"unfmute ?(\d+)?"))
 async def endgmute(event):
     private = False
     if event.fwd_from:
         return
     elif event.is_private:
-        await edit_or_reply(event, "Removed Duct Tape from that person's mouth!")
+        await event.edit(
+            "Taking Out Dick from Son mouth....\n\n       Today Sex Done😁 "
+        )
         await asyncio.sleep(3)
         private = True
     reply = await event.get_reply_message()
@@ -95,21 +57,18 @@ async def endgmute(event):
     elif private is True:
         userid = event.chat_id
     else:
-        return await edit_or_reply(
-            event,
-            "Please reply to a user or add their into the command to ungmute them.",
+        return await event.edit(
+            "Please reply to a user or add their into the command to ungmute them."
         )
     event.chat_id
     if not is_muted(userid, "fmute"):
-        return await edit_or_reply(event, "Duct Tape is not on this user's mouth")
+        return await event.edit("This user is not gmuted")
     try:
         unmute(userid, "fmute")
     except Exception as e:
-        await edit_or_reply(event, "Error occured!\nError is " + str(e))
+        await event.edit("Error occured!\nError is " + str(e))
     else:
-        await edit_or_reply(
-            event, "Successfully Removed Duct Tape from that person's mouth"
-        )
+        await event.edit("Son Feeling Good..... Now speak🍆🍆")
 
 
 @command(incoming=True)
