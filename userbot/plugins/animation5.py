@@ -54,7 +54,7 @@ async def _(event):
         await event.edit(animation_chars[i % 4])
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="hart( (.*)|$)"))hart
+@borg.on(admin_cmd(outgoing=True, pattern="hart( (.*)|$)"))
 async def _(event):
     if event.fwd_from:
         return
