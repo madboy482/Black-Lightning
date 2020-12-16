@@ -17,28 +17,14 @@ class Var(object):
     GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
     GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
     # Here for later purposes
-    SUDO_USERS = set(
-        int(x) for x in os.environ.get(
-            "SUDO_USERS",
-            "1311769691").split())
+    SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "1311769691").split())
     WHITELIST_USERS = set(
-        int(x) for x in os.environ.get(
-            "WHITELIST_USERS",
-            "1311769691").split())
-    BLACKLIST_USERS = set(
-        int(x) for x in os.environ.get(
-            "BLACKLIST_USERS", "").split())
-    DEVLOPERS = set(
-        int(x) for x in os.environ.get(
-            "DEVLOPERS",
-            "1311769691").split())
-    OWNER_ID = set(
-        int(x) for x in os.environ.get(
-            "OWNER_ID",
-            "1311769691").split())
-    SUPPORT_USERS = set(
-        int(x) for x in os.environ.get(
-            "SUPPORT_USERS", "").split())
+        int(x) for x in os.environ.get("WHITELIST_USERS", "1311769691").split()
+    )
+    BLACKLIST_USERS = set(int(x) for x in os.environ.get("BLACKLIST_USERS", "").split())
+    DEVLOPERS = set(int(x) for x in os.environ.get("DEVLOPERS", "1311769691").split())
+    OWNER_ID = set(int(x) for x in os.environ.get("OWNER_ID", "1311769691").split())
+    SUPPORT_USERS = set(int(x) for x in os.environ.get("SUPPORT_USERS", "").split())
     # custom vars
     CUSTOM_ALIVE = os.environ.get("CUSTOM_ALIVE", None)
     CUSTOM_ALIVE_EMOJI = os.environ.get("CUSTOM_ALIVE_EMOJI", None)
