@@ -15,7 +15,7 @@ if not os.path.isdir("./dcobra/"):
 # made by  @THE_B_LACK_HAT Some errors solved by Sh1vam
 
 
-@borg.on(admin_cmd(pattern=r"cmask"))
+@borg.on(admin_cmd(pattern=r".cmask"))
 async def scan(event):
     path = "dcobra"
 
@@ -72,7 +72,7 @@ async def scan(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern=r".pro"))
+@borg.on(admin_cmd(pattern=r".ppro"))
 async def scan(event):
     path = "dcobra"
 
@@ -127,7 +127,7 @@ async def scan(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern=r"oxy"))
+@borg.on(admin_cmd(pattern=r".oxy"))
 async def scan(event):
     path = "dcobra"
 
@@ -182,7 +182,7 @@ async def scan(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern=r"gold"))
+@borg.on(admin_cmd(pattern=r".gold"))
 async def scan(event):
     path = "dcobra"
 
@@ -237,7 +237,7 @@ async def scan(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern=r"old"))
+@borg.on(admin_cmd(pattern=r".old"))
 async def scan(event):
     path = "dcobra"
 
@@ -292,7 +292,7 @@ async def scan(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern=r"krish"))
+@borg.on(admin_cmd(pattern=r".krish"))
 async def scan(event):
     path = "dcobra"
 
@@ -347,7 +347,7 @@ async def scan(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern=r"cprotect"))
+@borg.on(admin_cmd(pattern=r".cprotect"))
 async def scan(event):
     path = "dcobra"
 
