@@ -8,8 +8,8 @@ USERID = bot.uid
 mention = f"[{DEFAULTUSER}](tg://user?id={USERID})"
 
 
-@bot.on(admin_cmd(pattern="carry (.*)"))
-@bot.on(sudo_cmd(pattern="carry (.*)", allow_sudo=True))
+@dborg.on(admin_cmd(pattern="carry (.*)"))
+@dborg.on(sudo_cmd(pattern="carry (.*)", allow_sudo=True))
 async def kraken(carry):
     name = carry.pattern_match.group(1)
     await edit_or_reply(
@@ -18,8 +18,8 @@ async def kraken(carry):
     )
 
 
-@bot.on(admin_cmd(pattern="ded (.*)"))
-@bot.on(sudo_cmd(pattern="ded (.*)", allow_sudo=True))
+@dborg.on(admin_cmd(pattern="ded (.*)"))
+@dborg.on(sudo_cmd(pattern="ded (.*)", allow_sudo=True))
 async def kraken(ded):
     name = ded.pattern_match.group(1)
     await edit_or_reply(
@@ -41,8 +41,8 @@ async def kraken(ded):
     )
 
 
-@bot.on(admin_cmd(pattern="killer (.*)"))
-@bot.on(sudo_cmd(pattern="killer (.*)", allow_sudo=True))
+@dborg.on(admin_cmd(pattern="killer (.*)"))
+@dborg.on(sudo_cmd(pattern="killer (.*)", allow_sudo=True))
 async def kraken(killer):
     name = killer.pattern_match.group(1)
     await edit_or_reply(
@@ -71,8 +71,8 @@ A = (
 )
 
 
-@bot.on(admin_cmd(pattern="sthink (.*)"))
-@bot.on(sudo_cmd(pattern="sthink (.*)", allow_sudo=True))
+@dborg.on(admin_cmd(pattern="sthink (.*)"))
+@dborg.on(sudo_cmd(pattern="sthink (.*)", allow_sudo=True))
 async def kraken(think):
     name = think.pattern_match.group(1)
     B = (
@@ -96,8 +96,8 @@ async def kraken(think):
     await edit_or_reply(think, B)
 
 
-@bot.on(admin_cmd(pattern="sfrog (.*)"))
-@bot.on(sudo_cmd(pattern="sfrog (.*)", allow_sudo=True))
+@dborg.on(admin_cmd(pattern="sfrog (.*)"))
+@dborg.on(sudo_cmd(pattern="sfrog (.*)", allow_sudo=True))
 async def kraken(frogsay):
     name = frogsay.pattern_match.group(1)
     C = (
@@ -121,8 +121,8 @@ async def kraken(frogsay):
     await edit_or_reply(frogsay, C)
 
 
-@bot.on(admin_cmd(pattern="sdead (.*)"))
-@bot.on(sudo_cmd(pattern="sdead (.*)", allow_sudo=True))
+@dborg.on(admin_cmd(pattern="sdead (.*)"))
+@dborg.on(sudo_cmd(pattern="sdead (.*)", allow_sudo=True))
 async def kraken(deadfrog):
     name = deadfrog.pattern_match.group(1)
     D = (
@@ -146,8 +146,8 @@ async def kraken(deadfrog):
     await edit_or_reply(deadfrog, D)
 
 
-@bot.on(admin_cmd(pattern="strump (.*)"))
-@bot.on(sudo_cmd(pattern="strump (.*)", allow_sudo=True))
+@dborg.on(admin_cmd(pattern="strump (.*)"))
+@dborg.on(sudo_cmd(pattern="strump (.*)", allow_sudo=True))
 async def kraken(trumpsay):
     name = trumpsay.pattern_match.group(1)
     E = (
@@ -171,8 +171,8 @@ async def kraken(trumpsay):
     await edit_or_reply(trumpsay, E)
 
 
-@bot.on(admin_cmd(pattern="schina (.*)"))
-@bot.on(sudo_cmd(pattern="schina (.*)", allow_sudo=True))
+@dborg.on(admin_cmd(pattern="schina (.*)"))
+@dborg.on(sudo_cmd(pattern="schina (.*)", allow_sudo=True))
 async def kraken(ckmkb):
     name = ckmkb.pattern_match.group(1)
     F = (
@@ -197,14 +197,14 @@ async def kraken(ckmkb):
     await edit_or_reply(ckmkb, F)
 
 
-@bot.on(admin_cmd(pattern=r"sshit$"))
-@bot.on(sudo_cmd(pattern="sshit$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"sshit$"))
+@dborg.on(sudo_cmd(pattern="sshit$", allow_sudo=True))
 async def kraken(shit):
     await edit_or_reply(shit, A)
 
 
-@bot.on(admin_cmd(pattern=r"elove$"))
-@bot.on(sudo_cmd(pattern="elove$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"elove$"))
+@dborg.on(sudo_cmd(pattern="elove$", allow_sudo=True))
 async def kakashi(event):
     await edit_or_reply(
         event,
@@ -490,86 +490,86 @@ T = (
 )
 
 
-@bot.on(admin_cmd(pattern=r"monster$"))
-@bot.on(sudo_cmd(pattern="monster$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"monster$"))
+@dborg.on(sudo_cmd(pattern="monster$", allow_sudo=True))
 async def bluedevilmonster(monster):
     await edit_or_reply(monster, G)
 
 
-@bot.on(admin_cmd(pattern=r"pig$"))
-@bot.on(sudo_cmd(pattern="pig$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"pig$"))
+@dborg.on(sudo_cmd(pattern="pig$", allow_sudo=True))
 async def bluedevilpig(pig):
     await edit_or_reply(pig, H)
 
 
-@bot.on(admin_cmd(pattern=r"gun$"))
-@bot.on(sudo_cmd(pattern="gun$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"gun$"))
+@dborg.on(sudo_cmd(pattern="gun$", allow_sudo=True))
 async def bluedevilgun(gun):
     await edit_or_reply(gun, I)
 
 
-@bot.on(admin_cmd(pattern=r"dog$"))
-@bot.on(sudo_cmd(pattern="dog$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"dog$"))
+@dborg.on(sudo_cmd(pattern="dog$", allow_sudo=True))
 async def bluedevildog(dog):
     await edit_or_reply(dog, J)
 
 
-@bot.on(admin_cmd(pattern=r"hello$"))
-@bot.on(sudo_cmd(pattern="hello$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"hello$"))
+@dborg.on(sudo_cmd(pattern="hello$", allow_sudo=True))
 async def bluedevilhello(hello):
     await edit_or_reply(hello, K)
 
 
-@bot.on(admin_cmd(pattern=r"hmf$"))
-@bot.on(sudo_cmd(pattern="hmf$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"hmf$"))
+@dborg.on(sudo_cmd(pattern="hmf$", allow_sudo=True))
 async def bluedevilhmf(hmf):
     await edit_or_reply(hmf, L)
 
 
-@bot.on(admin_cmd(pattern=r"couple$"))
-@bot.on(sudo_cmd(pattern="couple$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"couple$"))
+@dborg.on(sudo_cmd(pattern="couple$", allow_sudo=True))
 async def bluedevilcouple(couple):
     await edit_or_reply(couple, M)
 
 
-@bot.on(admin_cmd(pattern=r"sup$"))
-@bot.on(sudo_cmd(pattern="sup$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"sup$"))
+@dborg.on(sudo_cmd(pattern="sup$", allow_sudo=True))
 async def bluedevilsupreme(supreme):
     await edit_or_reply(supreme, N)
 
 
-@bot.on(admin_cmd(pattern=r"india$"))
-@bot.on(sudo_cmd(pattern="india$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"india$"))
+@dborg.on(sudo_cmd(pattern="india$", allow_sudo=True))
 async def bluedevilindia(india):
     await edit_or_reply(india, O)
 
 
-@bot.on(admin_cmd(pattern=r"wc$"))
-@bot.on(sudo_cmd(pattern="wc$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"wc$"))
+@dborg.on(sudo_cmd(pattern="wc$", allow_sudo=True))
 async def bluedevilwelcome(welcome):
     await edit_or_reply(welcome, P)
 
 
-@bot.on(admin_cmd(pattern=r"snk$"))
-@bot.on(sudo_cmd(pattern="snk$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"snk$"))
+@dborg.on(sudo_cmd(pattern="snk$", allow_sudo=True))
 async def bluedevilsnake(snake):
     await edit_or_reply(snake, Q)
 
 
-@bot.on(admin_cmd(pattern=r"bye$"))
-@bot.on(sudo_cmd(pattern="bye$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"bye$"))
+@dborg.on(sudo_cmd(pattern="bye$", allow_sudo=True))
 async def bluedevilbye(bye):
     await edit_or_reply(bye, R)
 
 
-@bot.on(admin_cmd(pattern=r"shitos$"))
-@bot.on(sudo_cmd(pattern="shitos$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"shitos$"))
+@dborg.on(sudo_cmd(pattern="shitos$", allow_sudo=True))
 async def bluedevilshitos(shitos):
     await edit_or_reply(shitos, S)
 
 
-@bot.on(admin_cmd(pattern=r"dislike$"))
-@bot.on(sudo_cmd(pattern="dislike$", allow_sudo=True))
+@dborg.on(admin_cmd(pattern=r"dislike$"))
+@dborg.on(sudo_cmd(pattern="dislike$", allow_sudo=True))
 async def bluedevildislike(dislike):
     await edit_or_reply(dislike, T)
 
