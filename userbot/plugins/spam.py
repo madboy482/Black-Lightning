@@ -5,8 +5,8 @@ import os
 from telethon import functions, types
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
-from ..utils import admin_cmd, edit_or_reply, sudo_cmd
-from . import BOTLOG, BOTLOG_CHATID, CMD_HELP
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
 
 
 @bot.on(admin_cmd(pattern="spam (.*)"))
