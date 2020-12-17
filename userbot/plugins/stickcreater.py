@@ -119,7 +119,7 @@ async def sticklet(event):
     await event.client.send_file(
         event.chat_id,
         image_stream,
-        caption="Created Using DARK COBRA THE USERBOT",
+        caption="Created Using Black Lightning THE USERBOT",
         reply_to=event.message.reply_to_msg_id,
     )
     # cleanup
