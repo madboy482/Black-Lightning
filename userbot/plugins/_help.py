@@ -56,8 +56,7 @@ async def cmd_list(event):
             else:
                 await event.edit(input_str + " is not a valid plugin!")
         else:
-            help_string = f"""`Userbot Helper for {DEFAULTUSER} to reveal all the commands of `**[𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin/Black-Lightning)**\n
-            In Case The Menu Dosent Pop Up do `.help <cmd name>`"""
+            help_string = f"""`Userbot Helper for {DEFAULTUSER} to reveal all the commands of `**[𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin/Black-Lightning)**\nIn Case The Help Dosent Pop Up do `.help <cmd name>`"""
             try:
                 results = await bot.inline_query(  # pylint:disable=E0602
                     tgbotusername, help_string
