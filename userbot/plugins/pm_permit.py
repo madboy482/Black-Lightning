@@ -116,7 +116,7 @@ async def approve_p_m(event):
             if pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
                 await event.edit(
-                      "Approved [{}](tg://user?id={}) to PM you.".format(firstname, chat.id)
+                      "Disapproved [{}](tg://user?id={}) to PM you.".format(firstname, chat.id)
             )
             await asyncio.sleep(3)
             await event.delete()
