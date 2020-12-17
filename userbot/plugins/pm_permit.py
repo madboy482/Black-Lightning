@@ -111,15 +111,15 @@ async def approve_p_m(event):
     chat = await event.get_chat()
     if event.is_private:
         if chat.id == 1311769691:
-            await event.edit("Sorry, I Can't Disapprove My Master")
+            await event.edit("Sorry, I Can't Disapprove My Developer")
         else:
             if pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
                 await event.edit(
-                    "[{}](tg://user?id={}) disapproved to PM.".format(
-                        firstname, chat.id
-                    )
-                )
+                      "Approved [{}](tg://user?id={}) to PM you.".format(firstname, chat.id)
+            )
+            await asyncio.sleep(3)
+            await event.delete()
 
 
 @borg.on(admin_cmd(pattern="listapproved"))
@@ -295,7 +295,7 @@ CMD_HELP.update(
         \n\n.disapprove/.da\nUse - DisApprove PM\
         \n\n.listapproved\nUse - Get all approved PMs.\
         \n\nSet var PMPERMIT_PIC for custom PMPic, CUSTOM_PMPERMIT for custom text, PMSECURITY <on/off> to enable/disable, INSTANT_BLOCK <on/off>.\
-        \nGet help from @TeleBotHelpBot."
+        \nGet help from @blacklightningot."
     }
 )
 # (c) 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤
