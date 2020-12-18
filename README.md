@@ -1,5 +1,5 @@
 # Logo
-<p align="center"><a href="https://t.me/blackBlack Lightning support"><img src="https://telegra.ph/file/230040f2c873f40ea8768.jpg"></a></p> 
+<p align="center"><a href="https://t.me/blackBlack Lightning support"><img src="https://telegra.ph/file/81ec6f56df2636bb2221e.jpg"></a></p> 
 <h1 align="center"><b>Black Lightning-USERBOT 🇮🇳 </b></h1>
 <h4 align="center">A Powerful, Smart And Simple Userbot In Telethon.</h4>
 
