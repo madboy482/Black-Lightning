@@ -18,8 +18,8 @@ async def spammer(e):
     reply_to_id = e.message
     if e.reply_to_msg_id:
         reply_to_id = await e.get_reply_message()
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Config.TEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Config.TEMP_DOWNLOAD_DIRECTORY)
     try:
         hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
         hmm = Get(hmm)
@@ -55,7 +55,7 @@ async def spammer(e):
                     + f"`{spam_message}`",
                 )
     elif reply_to_id.media:
-        to_download_directory = Config.TMP_DOWNLOAD_DIRECTORY
+        to_download_directory = Config.TEMP_DOWNLOAD_DIRECTORY
         downloaded_file_name = os.path.join(to_download_directory, "spam")
         downloaded_file_name = await e.client.download_media(
             reply_to_id.media, downloaded_file_name
@@ -166,8 +166,8 @@ async def spammer(e):
     reply_to_id = e.message
     if e.reply_to_msg_id:
         reply_to_id = await e.get_reply_message()
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Config.TEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Config.TEMP_DOWNLOAD_DIRECTORY)
     try:
         hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
         hmm = Get(hmm)
@@ -201,7 +201,7 @@ async def spammer(e):
                     + f"`{spam_message}`",
                 )
     elif reply_to_id.media:
-        to_download_directory = Config.TMP_DOWNLOAD_DIRECTORY
+        to_download_directory = Config.TEMP_DOWNLOAD_DIRECTORY
         downloaded_file_name = os.path.join(to_download_directory, "spam")
         downloaded_file_name = await e.client.download_media(
             reply_to_id.media, downloaded_file_name
