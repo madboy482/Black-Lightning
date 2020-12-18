@@ -14,6 +14,7 @@
 
 <a href="https://t.me/blackBlack Lightning support"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram"></a>
 
+## Tottal CMDs -: CMDS Are More Than 470 :D
 
 # About ɮʟǟƈᏦ ʟɨɢɦƭռɨռɢ
 
@@ -49,9 +50,7 @@
 
 16. And Many More CMDS 
 
-## Tottal CMDs -: 
 
-#CMDS Are More Than 470 :D" id="CMDS Are More Than 470 :D" style="background-color: initial; box-sizing: border-box; color: #0366d6; text-decoration-line: none;"></a>CMDS Are More Than 470.. 🤗</h3>
 
 ## Note-: 
 
