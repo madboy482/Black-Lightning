@@ -15,7 +15,18 @@
 <a href="https://t.me/blackBlack Lightning support"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram"></a>
 
 
+# About ɮʟǟƈᏦ ʟɨɢɦƭռɨռɢ
 
+1. Can Do Many This Such As Download ANy Video From Youtube and Other Sites
+2. Many Things For Adult Tho....
+3. Many Cool CMDS To Trick Your Friends
+4. Can Give Mast To Any Img Such As .Krish Mask,Gold Mask, ManyOther
+4. And More CMDS Just Deploy It 
+6. CMDS =  471 CMDS
+
+## Note-: 
+
+This is a userbot made for telegram. I made this userbot with help of all other userbots available in telegram. All credits goes to its Respective Owners.......
 
 # How To
 
