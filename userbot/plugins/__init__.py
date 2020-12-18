@@ -62,8 +62,8 @@ if Config.PRIVATE_GROUP_BOT_API_ID is None:
 else:
     BOTLOG = True
     BOTLOG_CHATID = Config.PRIVATE_GROUP_BOT_API_ID
-    
-    
+
+
 inlinestats = (
     f"✘ SHOWING Black Lightning STATS ✘\n"
     f"VERSION = {currentversion} \n"
