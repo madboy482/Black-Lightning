@@ -64,8 +64,8 @@ def user_full_name(user):
     return full_name
 
 
-@borg.on(admin_cmd(pattern="inviteall ?(.*)"))
-@borg.on(sudo_cmd(pattern="inviteall ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="allinvite ?(.*)"))
+@borg.on(sudo_cmd(pattern="allinvite ?(.*)", allow_sudo=True))
 async def get_users(event):
     sender = await event.get_sender()
     me = await event.client.get_me()
@@ -144,7 +144,7 @@ CMD_HELP.update(
         "invite": """**Plugin : **`invite`
   •  **Syntax : **`.add username(s)/userid(s)`
   •  **Function : **__Add the given user/users to the group where u used the command__
-  •  **Syntax : **`.inviteall groups username`
+  •  **Syntax : **`.allinvite groups username`
   •  **Function : **__Scrapes users from the given chat to your group__
 """
     }
