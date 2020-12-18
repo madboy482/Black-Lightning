@@ -5,7 +5,8 @@ import os
 from telethon import functions, types
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
+from userbot import CMD_HELP
+from userbot.plugins import BOTLOG, BOTLOG_CHATID
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 
