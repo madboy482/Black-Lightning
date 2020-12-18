@@ -28,9 +28,6 @@ async def gamez(event):
     await event.delete()
 
 
-
-
-
 @borg.on(admin_cmd(pattern="mod ?(.*)"))
 async def mod(event):
     if event.fwd_from:
