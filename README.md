@@ -31,7 +31,7 @@
 
 7. Its Has Many Plugins To Trick Your Friends 
 
-8. Many  Animated Filters Plugins Like ## Rock ## Hello ## Heart ## Adults Filters Like Sax etc....
+8. Many  Animated Filters Plugins Like ```Rock``` ```Hello```  ```Heart```  ```Adults``` Filters Like ``Sax`` etc....
 
 9. Can Tell You About The Person when he/she Will Enter In Ur Grup That He Is Spammer And Will Ban him/her automatically
 
@@ -51,8 +51,7 @@
 
 ## Tottal CMDs -: 
 
-471 And More WIll Added Soon
-
+#CMDS Are More Than 470 :D" id="CMDS Are More Than 470 :D" style="background-color: initial; box-sizing: border-box; color: #0366d6; text-decoration-line: none;"></a>CMDS Are More Than 470.. 🤗</h3>
 
 ## Note-: 
 
