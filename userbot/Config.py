@@ -76,7 +76,7 @@ class Var(object):
         "ALIVE_IMAGE", "https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
     )
     ALIVE_IMAGE = os.environ.get(
-        "ALIVE_PIC", https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
+        "ALIVE_PIC", "https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
     )
     ASSISTANT_START_PIC = os.environ.get(
         "ASSISTANT_START_PIC",
