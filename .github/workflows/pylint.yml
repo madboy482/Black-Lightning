@@ -11,11 +11,11 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v1
         with:
-          python-version: 3.9
+          python-version: 3.8
  
       - name: Install Python lint libraries
         run: |
-          pip3 install autopep8 autoflake isort black
+          pip install autopep8 autoflake isort black
       - name: Check for showstoppers
         run: |
           autopep8 --verbose --in-place --recursive --aggressive --aggressive --ignore=W605. *.py
@@ -31,6 +31,6 @@ jobs:
           commit_message: 'pylint: auto fixes'
           commit_options: '--no-verify'
           repository: .
-          commit_user_name: Anmol-dot283
-          commit_user_email: ypoxsisofficial@gmail.com
-          commit_author: Anmol-dot283 <ypoxsisofficial@gmail.com>
+          commit_user_name: KeinShin
+          commit_user_email: poxsisofficial@gmail.com
+          commit_author: KeinShin <poxsisofficial@gmail.com>
