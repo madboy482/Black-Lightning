@@ -81,6 +81,9 @@ class Config(object):
     ALIVE_PIC = os.environ.get(
         "ALIVE_IMAGE", "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
     )
+    CUSTOM_ALIVE_PIC = os.environ.get(
+        "CUSTOM_ALIVE_IMG", "https://telegra.ph/file/50e422f6b07fa9126c1d1.jpg"
+    )
     ALIVE_IMAGE = os.environ.get(
         "ALIVE_PIC", "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
     )
