@@ -1,13 +1,8 @@
 import asyncio
 import os
-import time
-from io import BytesIO
 
-import requests
-from PIL import Image
-
-from userbot import ALIVE_NAME, CMD_HELP, StartTime, topfunc
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot import ALIVE_NAME
+from userbot.utils import admin_cmd, sudo_cmd
 
 PM_IMG = Config.ALIVE_PIC
 version = "4.5"
@@ -48,34 +43,34 @@ pm_caption += f"➾ **ᴍʏ ᴍᴀsᴛᴇʀ** ☞ [{DEFAULTUSER}](tg://user?id={
 @borg.on(admin_cmd(pattern=r"alive"))
 @borg.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
 async def amireallyalive(yes):
-    chat = await yes.get_chat()
+    await yes.get_chat()
     global ghanti
     ghanti = borg.uid
-    on = await borg.send_file(yes.chat_id, file=file1,caption=pm_caption)
+    on = await borg.send_file(yes.chat_id, file=file1, caption=pm_caption)
 
     await asyncio.sleep(edit_time)
-    ok = await borg.edit_message(yes.chat_id, on, file=file2) 
+    ok = await borg.edit_message(yes.chat_id, on, file=file2)
 
     await asyncio.sleep(edit_time)
     ok2 = await borg.edit_message(yes.chat_id, ok, file=file3)
 
     await asyncio.sleep(edit_time)
     ok3 = await borg.edit_message(yes.chat_id, ok2, file=file1)
-    
+
     await asyncio.sleep(edit_time)
     ok4 = await borg.edit_message(yes.chat_id, ok3, file=file3)
-    
+
     await asyncio.sleep(edit_time)
     ok5 = await borg.edit_message(yes.chat_id, ok4, file=file2)
-    
+
     await asyncio.sleep(edit_time)
     ok6 = await borg.edit_message(yes.chat_id, ok5, file=file1)
-    
+
     await asyncio.sleep(edit_time)
     ok7 = await borg.edit_message(yes.chat_id, ok6, file=file4)
 
     await yes.delete()
-    
+
     """ For .dalive command, check if the bot is running.  """
-    await borg.send_file(yes.chat_id, PM_IMG,caption=pm_caption)
+    await borg.send_file(yes.chat_id, PM_IMG, caption=pm_caption)
     await yes.delete()
