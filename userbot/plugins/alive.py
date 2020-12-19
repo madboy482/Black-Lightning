@@ -14,7 +14,11 @@ from userbot import ALIVE_NAME, CMD_HELP, StartTime, topfunc
 from userbot.Config import Var
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
-PM_IMG = Config.ALIVE_PIC
+PM_IMG  = Config.ALIVE.PIC
+LIGHTNING_IMG = Config.LIGHtNING_IMAGE
+ALV_PIC = Var.TELE_PIC if Var.TELE_PIC else None
+
+HELL_IMG = Config.HELL_PIC
 version = "4.5"
 python_version = "3.8.5"
 catversion = "3.0"
@@ -78,7 +82,7 @@ async def amireallyalive(yes):
     await alive.delete()
 
     """ For .alive command, check if the bot is running.  """
-    await borg.send_file(alive.chat_id, PM_IMG, caption=pm_caption)
+    await borg.send_file(alive.chat_id, LIGHTNING_IMG, caption=pm_caption)
     await alive.delete()
 
 
@@ -201,7 +205,7 @@ async def amireallyalive(alive):
     await alive.get_chat()
     await alive.delete()
     """ For .halive command, check if the bot is running.  """
-    await borg.send_file(alive.chat_id, PM_IMG, caption=pm_caption)
+    await borg.send_file(alive.chat_id, HELL_IMG, caption=pm_caption)
     await alive.delete()
 
 
