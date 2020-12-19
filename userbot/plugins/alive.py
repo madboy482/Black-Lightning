@@ -4,15 +4,14 @@
 # Kang with credits else gay...
 import asyncio
 import os
-from io import BytesIO
 import time
+from io import BytesIO
 
 import requests
 from PIL import Image
 
-from userbot import ALIVE_NAME, CMD_HELP, topfunc, StartTime
-from userbot.utils import admin_cmd, sudo_cmd, edit_or_reply, sudo_cmd
-
+from userbot import ALIVE_NAME, CMD_HELP, StartTime, topfunc
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 PM_IMG = Config.ALIVE_PIC
 version = "4.5"
@@ -170,16 +169,12 @@ async def amireallyalive(alive):
             link_preview=False,
         )
         await alive.delete()
-        
-        
 
 
-# Hellbot's Alive Message 
+# Hellbot's Alive Message
 # Credits to Hellboy Op
 
 
-
-        
 ludosudo = Config.SUDO_USERS
 
 if ludosudo:
@@ -253,8 +248,9 @@ async def amireallyalive(calive):
             f"**{EMOJI} Python Version :** `{python_version()}\n`"
             f"**{EMOJI} Uptime :** `{uptime}\n`"
             f"**{EMOJI} Master:** {DEFAULTUSER}\n",
-        )    
-    
+        )
+
+
 def check_data_base_heal_th():
     # https://stackoverflow.com/a/41961968
     is_database_working = False
@@ -274,11 +270,13 @@ def check_data_base_heal_th():
         is_database_working = True
     return is_database_working, output
 
+
+from datetime import datetime
+
 # Telebot's Alive
 # Credits To Telbot And xditya
 from userbot.Config import Var
-from userbot.thunderconfig  import Config
-from datetime import datetime 
+from userbot.thunderconfig import Config
 
 CUSTOM_ALIVE = (
     Var.CUSTOM_ALIVE
@@ -353,7 +351,9 @@ async def amireallyalive(talive):
         tele += (
             f"{telemoji} **My pro owner** : [{DEFAULTUSER}](tg://user?id={myid})\n\n"
         )
-        tele += "    [✨ GitHub Repository ✨](https://github.com/KeinShin/Black-Lightning)"
+        tele += (
+            "    [✨ GitHub Repository ✨](https://github.com/KeinShin/Black-Lightning)"
+        )
         await talive.get_chat()
         await talive.delete()
         """ For .talive command, check if the bot is running.  """
@@ -387,10 +387,6 @@ async def amireallyalive(talive):
         await talive.delete()
 
 
-
-
-
-
 CMD_HELP.update(
     {
         "spam": "**Plugin : **`spam`\
@@ -407,4 +403,4 @@ CMD_HELP.update(
         \n**Function : **__ .CatUSerbot's Alive.__\
         \n\n\n**NOTE : All Credits To Thier Respective !!**"
     }
-)    
+)
