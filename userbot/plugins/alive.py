@@ -12,7 +12,7 @@ from PIL import Image
 
 from userbot import ALIVE_NAME, CMD_HELP, StartTime, topfunc
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
-
+from userbot.Config import Var
 PM_IMG = Config.ALIVE_PIC
 version = "4.5"
 python_version = "3.8.5"
