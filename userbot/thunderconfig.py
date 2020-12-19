@@ -79,14 +79,14 @@ class Config(object):
         "UPSTREAM_REPO", "https://github.com/KeinShin/Black-Lightning"
     )
     ALIVE_PIC = os.environ.get(
-        "ALIVE_IMAGE", "https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
+        "ALIVE_IMAGE", "https://telegra.ph/file/b01cd4ef19edc14195648.mp4"
     )
     ALIVE_IMAGE = os.environ.get(
-        "ALIVE_PIC", "https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
+        "ALIVE_PIC", "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
     )
     ASSISTANT_START_PIC = os.environ.get(
         "ASSISTANT_START_PIC",
-        "https://telegra.ph/file/b233f8b6332fbeb3f61dc.mp4",
+        "https://telegra.ph/file/63abc60224dc567e3d441.jpg",
     )
     TESSDATA_PREFIX = os.environ.get(
         "TESSDATA_PREFIX", "/usr/share/tesseract-ocr/4.00/tessdata"
