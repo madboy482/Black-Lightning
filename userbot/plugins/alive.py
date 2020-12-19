@@ -74,9 +74,6 @@ async def amireallyalive(yes):
     await asyncio.sleep(edit_time)
     ok6 = await borg.edit_message(yes.chat_id, ok5, file=file1)
 
-    await asyncio.sleep(edit_time)
-    ok7 = await borg.edit_message(yes.chat_id, ok6, file=file4)
-
     await alive.delete()
 
     """ For .alive command, check if the bot is running.  """
