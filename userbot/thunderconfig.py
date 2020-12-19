@@ -79,7 +79,7 @@ class Config(object):
         "UPSTREAM_REPO", "https://github.com/KeinShin/Black-Lightning"
     )
     ALIVE_PIC = os.environ.get(
-        "ALIVE_IMAGE", "https://telegra.ph/file/b01cd4ef19edc14195648.mp4"
+        "ALIVE_IMAGE", "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
     )
     ALIVE_IMAGE = os.environ.get(
         "ALIVE_PIC", "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
