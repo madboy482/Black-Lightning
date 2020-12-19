@@ -1,4 +1,3 @@
-
 import os
 
 try:
@@ -17,6 +16,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from validators.url import url
 
 MARGINS = [50, 150, 250, 350, 450]
+
 
 async def darkmusic(dark, QUALITY):
     search = dark
@@ -60,8 +60,8 @@ async def darkmusicvideo(dark):
     command = 'youtube-dl -f "[filesize<20M]" ' + video_link
     os.system(command)
 
-    
- # Making it easy....
+
+# Making it easy....
 # thanks to @ranger_op for idea
 # codes by @mrconfused
 # catuserbot
@@ -597,4 +597,3 @@ EMOJI_PATTERN = re.compile(
 def deEmojify(inputString: str) -> str:
     """Remove emojis and other non-safe characters from string"""
     return re.sub(EMOJI_PATTERN, "", inputString)
-   
