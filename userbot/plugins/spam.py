@@ -495,7 +495,7 @@ CMD_HELP.update(
         \n\n**Syntax : **`.wspam <text>`\
         \n**Function : **__ Spam the text word by word.__\
         \n\n**Syntax : **`.mspam \ <count> >reply to media> \`\
-        \n**Function : **__ .delayspam but with custom delay.__\
+        \n**Function : **__ .mspam but with  media.__\
         \n\n\n**NOTE : Spam at your own risk !!**"
     }
 )
