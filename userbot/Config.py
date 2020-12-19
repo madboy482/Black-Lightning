@@ -72,15 +72,27 @@ class Var(object):
     UPSTREAM_REPO = os.environ.get(
         "UPSTREAM_REPO", "https://github.com/KeinShin/Black-Lightning"
     )
+    HELL_PIC = os.environ.get(
+        "HELL_IMAGE", "https://telegra.ph/file/b01cd4ef19edc14195648.mp4"
+    )    
     ALIVE_PIC = os.environ.get(
-        "ALIVE_IMAGE", "https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
+        "ALIVE_IMAGE", "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
+    )
+    TELE_PIC = os.environ.get(
+        "TELE_IMAGE", "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
+    )
+    CUSTOM_ALIVE_PIC = os.environ.get(
+        "CUSTOM_ALIVE_IMG", "https://telegra.ph/file/50e422f6b07fa9126c1d1.jpg"
     )
     ALIVE_IMAGE = os.environ.get(
-        "ALIVE_PIC", "https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
+        "ALIVE_PIC", "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
+    )
+    LIGHtNING_IMAGE = os.environ.get(
+        "LIGHTNING_PIC", "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
     )
     ASSISTANT_START_PIC = os.environ.get(
         "ASSISTANT_START_PIC",
-        "https://telegra.ph/file/b233f8b6332fbeb3f61dc.mp4",
+        "https://telegra.ph/file/63abc60224dc567e3d441.jpg",
     )
     TESSDATA_PREFIX = os.environ.get(
         "TESSDATA_PREFIX", "/usr/share/tesseract-ocr/4.00/tessdata"
