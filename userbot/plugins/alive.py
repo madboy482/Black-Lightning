@@ -391,6 +391,8 @@ CMD_HELP.update(
         \n**Function : **__ Mello's Alive t.__\
         \n\n**Syntax : **`.calive `\
         \n**Function : **__ .CatUSerbot's Alive.__\
+        \n\n**Syntax : **`.dalive `\
+        \n**Function : **__ .DC Uerbot's Alive.__\
         \n\n\n**NOTE : All Credits To Thier Respective !!**"
     }
 )
