@@ -213,43 +213,18 @@ async def tiny_pic_spam(e):
 
 
 @bot.on(admin_cmd("delayspam (.*)"))
-@bot.on(sudo_cmd(pattern="delayspam (.*)", allow_sudo=True))
 async def spammer(e):
-    if e.fwd_from:
-        return
-    input_str = "".join(e.text.split(maxsplit=1)[1:])
-    spamDelay = float(input_str.split(" ", 2)[0])
-    counter = int(input_str.split(" ", 2)[1])
-    spam_message = str(input_str.split(" ", 2)[2])
+    spamDelay = float(e.pattern_match.group(1).split(" ", 2)[0])
+    counter = int(e.pattern_match.group(1).split(" ", 2)[1])
+    spam_message = str(e.pattern_match.group(1).split(" ", 2)[2])
     await e.delete()
-    for _ in range(counter):
+    for i in range(1, counter):
         await e.respond(spam_message)
-        await asyncio.sleep(spamDelay)
-    if BOTLOG:
-        if e.is_private:
-            await e.client.send_message(
-                BOTLOG_CHATID,
-                "#DELAYSPAM\n"
-                + f"Delay Spam was executed successfully in [User](tg://user?id={e.chat_id}) chat with {spamDelay}s Delay and {counter} times with : `{message}`",
-            )
-        else:
-            await e.client.send_message(
-                BOTLOG_CHATID,
-                "#DELAYCSPAM\n"
-                + f"Delay Spam was executed successfully in {e.chat.title}(`{e.chat_id}`) chat with {spamDelay}s Delay and {counter} times with: `{message}`",
-            )
-
-
-import asyncio
-import base64
-import os
-
-from telethon import functions, types
-from telethon.tl.functions.messages import ImportChatInviteRequest as Get
-
-from userbot import CMD_HELP
-from userbot.plugins import BOTLOG, BOTLOG_CHATID
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+        await sleep(spamDelay)
+    if LOGGER:
+        await e.client.send_message(
+            LOGGER_GROUP, "#DelaySPAM\n" "DelaySpam was executed successfully"
+        )
 
 
 @bot.on(admin_cmd(pattern="spam (.*)"))
@@ -455,31 +430,18 @@ async def tiny_pic_spam(e):
 
 
 @bot.on(admin_cmd("delayspam (.*)"))
-@bot.on(sudo_cmd(pattern="delayspam (.*)", allow_sudo=True))
 async def spammer(e):
-    if e.fwd_from:
-        return
-    input_str = "".join(e.text.split(maxsplit=1)[1:])
-    spamDelay = float(input_str.split(" ", 2)[0])
-    counter = int(input_str.split(" ", 2)[1])
-    spam_message = str(input_str.split(" ", 2)[2])
+    spamDelay = float(e.pattern_match.group(1).split(" ", 2)[0])
+    counter = int(e.pattern_match.group(1).split(" ", 2)[1])
+    spam_message = str(e.pattern_match.group(1).split(" ", 2)[2])
     await e.delete()
-    for _ in range(counter):
+    for i in range(1, counter):
         await e.respond(spam_message)
-        await asyncio.sleep(spamDelay)
-    if BOTLOG:
-        if e.is_private:
-            await e.client.send_message(
-                BOTLOG_CHATID,
-                "#DELAYSPAM\n"
-                + f"Delay Spam was executed successfully in [User](tg://user?id={e.chat_id}) chat with {spamDelay}s Delay and {counter} times with : `{message}`",
-            )
-        else:
-            await e.client.send_message(
-                BOTLOG_CHATID,
-                "#DELAYCSPAM\n"
-                + f"Delay Spam was executed successfully in {e.chat.title}(`{e.chat_id}`) chat with {spamDelay}s Delay and {counter} times with: `{message}`",
-            )
+        await sleep(spamDelay)
+    if LOGGER:
+        await e.client.send_message(
+            LOGGER_GROUP, "#DelaySPAM\n" "DelaySpam was executed successfully"
+        )
 
 
 CMD_HELP.update(
