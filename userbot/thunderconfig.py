@@ -23,6 +23,7 @@ class Config(object):
     )
     BLACKLIST_USERS = set(int(x) for x in os.environ.get("BLACKLIST_USERS", "").split())
     DEVLOPERS = set(int(x) for x in os.environ.get("DEVLOPERS", "1311769691").split())
+    MAX_MESSAGE_SIZE_LIMIT = 4095
     OWNER_ID = set(int(x) for x in os.environ.get("OWNER_ID", "1311769691").split())
     SUPPORT_USERS = set(int(x) for x in os.environ.get("SUPPORT_USERS", "").split())
     # custom vars
