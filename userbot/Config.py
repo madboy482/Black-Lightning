@@ -73,10 +73,10 @@ class Var(object):
         "UPSTREAM_REPO", "https://github.com/KeinShin/Black-Lightning"
     )
     ALIVE_PIC = os.environ.get(
-        "ALIVE_IMAGE", "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
+        "ALIVE_IMAGE", "https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
     )
     ALIVE_IMAGE = os.environ.get(
-        "ALIVE_PIC", "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
+        "ALIVE_PIC", https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
     )
     ASSISTANT_START_PIC = os.environ.get(
         "ASSISTANT_START_PIC",
