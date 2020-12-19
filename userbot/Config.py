@@ -22,7 +22,7 @@ class Var(object):
         int(x) for x in os.environ.get("WHITELIST_USERS", "1311769691").split()
     )
     MAX_ANTI_FLOOD_MESSAGES = 10
-        # warn mode for anti flood
+    # warn mode for anti flood
     ANTI_FLOOD_WARN_MODE = ChatBannedRights(
         until_date=None, view_messages=None, send_messages=True
     )
