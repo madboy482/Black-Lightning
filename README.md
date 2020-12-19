@@ -1,6 +1,6 @@
 # Logo
 <a href="https://t.me/lightningsupport"><img src="Note:- I Assembled Many Bot To Make This All Credits Goes To Thier Respected Owner"></a>
-<p align="center"><a href="https://t.me/lightningsupport"><img src="https://telegra.ph/file/a0d52e4b76b543ef1ef4c.jpg"></a></p> 
+<p align="center"><a href="https://t.me/lightningsupport"><img src="https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"></a></p> 
 <h1 align="center"><b>Black Lightning-USERBOT 🇮🇳 </b></h1>
 <h4 align="center">A Powerful, Smart And Simple Userbot In Telethon.</h4>
 
