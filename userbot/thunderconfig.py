@@ -80,7 +80,7 @@ class Config(object):
     )
     HELL_PIC = os.environ.get(
         "HELL_IMAGE", "https://telegra.ph/file/b01cd4ef19edc14195648.mp4"
-    )    
+    )
     ALIVE_PIC = os.environ.get(
         "ALIVE_IMAGE", "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
     )
