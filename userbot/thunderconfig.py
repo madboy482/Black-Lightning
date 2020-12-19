@@ -12,7 +12,7 @@ class Config(object):
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", None)
     TMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", None)
     MAX_ANTI_FLOOD_MESSAGES = 10
-        # warn mode for anti flood
+    # warn mode for anti flood
     ANTI_FLOOD_WARN_MODE = ChatBannedRights(
         until_date=None, view_messages=None, send_messages=True
     )
