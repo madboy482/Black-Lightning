@@ -33,24 +33,17 @@ global ghanti
 ghanti = borg.uid
 edit_time = 5
 """ =======================CONSTANTS====================== """
-file1 = "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
-file2 = "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
-file3 = "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
-file4 = "https://telegra.ph/file/7f72b0ea1893e84028298.mp4"
+file1 = "https://telegra.ph/file/b4f20d392bf8dcc50bdd9.mp4"
+file2 = "https://telegra.ph/file/b01cd4ef19edc14195648.mp4"
+file3 = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
 """ =======================CONSTANTS====================== """
-pm_caption = "** 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 𝙸𝚂 𝙾𝙽𝙻𝙸𝙽𝙴**\n\n"
-pm_caption += (
-    "**Yes Master, Am Alive And Systems Are Working Perfectly As It Should Be...**\n\n"
-)
-pm_caption += "**I Will Be With You Until My Dynos Dead"
+pm_caption = "** 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 𝙸𝚂 🅾🅽🅻🅸🅽🅴**\n\n"
+
 pm_caption += "✘ About My System ✘\n\n"
-pm_caption += "➾ **ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀꜱɪᴏɴ** ☞ 1.17.5\n"
-pm_caption += "➾ **ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ** ☞ [ᴊᴏɪɴ](https://t.me/blacklightningot)\n"
-pm_caption += "➾ **ʟɪᴄᴇɴꜱᴇ**  ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin)\n"
-pm_caption += "➾ **ᴄᴏᴘʏʀɪɢʜᴛ ʙʏ** ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin/Black-Lightning)\n\n"
-pm_caption += (
-    "➾ **Hey Whoever Is Seein This Alive Dont Dm  And Dont Spam In My  Master DM"
-)
+pm_caption += "➾ **`ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀꜱɪᴏɴ`** ☞ 1.17.5\n"
+pm_caption += "➾ **`ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ`** ☞ [ᴊᴏɪɴ](https://t.me/blacklightningot)\n"
+pm_caption += "➾ **`ʟɪᴄᴇɴꜱᴇ`**  ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin)\n"
+pm_caption += "➾ **`ᴄᴏᴘʏʀɪɢʜᴛ ʙʏ`** ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin/Black-Lightning)\n\n"
 pm_caption += "➾ **Spammer Go Away Im His Assitant"
 pm_caption += f"➾ **ᴍʏ ᴍᴀsᴛᴇʀ** ☞ [{DEFAULTUSER}](tg://user?id={ghanti})\n"
 
@@ -145,7 +138,7 @@ async def amireallyalive(alive):
         )
         await allive.delete()
         return
-    req = requests.get("https://telegra.ph/file/7f72b0ea1893e84028298.mp4")
+    req = requests.get("https://telegra.ph/file/b01cd4ef19edc14195648.mp4")
     req.raise_for_status()
     file = BytesIO(req.content)
     file.seek(0)
@@ -184,7 +177,7 @@ else:
 
 kraken = bot.uid
 
-PM_IMG = "https://telegra.ph/file/80e5200c615cf0cb57aa9.mp4"
+PM_IMG = "https://telegra.ph/file/b01cd4ef19edc14195648.mp4"
 pm_caption = "__**🔥🔥ɮʟǟƈӄ ʟɨɢɦȶռɨռɢ ɨs օռʟɨռɛ🔥🔥**__\n\n"
 
 pm_caption += (
