@@ -13,6 +13,7 @@ from PIL import Image
 from userbot import ALIVE_NAME, CMD_HELP, StartTime, topfunc
 from userbot.Config import Var
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.thunderconfig import Config
 
 PM_IMG = Config.ALIVE.PIC
 LIGHTNING_IMG = Config.LIGHtNING_IMAGE
