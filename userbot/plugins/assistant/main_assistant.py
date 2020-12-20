@@ -76,6 +76,7 @@ async def start(event):
         if os.path.exists(mypic):
             os.remove(mypic)
 
+
 # Data's
 
 
