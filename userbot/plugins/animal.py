@@ -33,7 +33,7 @@ async def kek(admin):
     )
 
 
-@borg.on(borg_cmd(pattern=r"dog"))
+@borg.on(admin_cmd(pattern=r"dog"))
 async def dog(dog):
     await dog.edit(D)
     P = (
