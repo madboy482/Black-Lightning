@@ -93,7 +93,7 @@ class Config(object):
     ALIVE_IMAGE = os.environ.get(
         "ALIVE_PIC", "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
     )
-    LIGHtNING_IMAGE = os.environ.get(
+    LIGHTNING_IMAGE = os.environ.get(
         "LIGHTNING_PIC", "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
     )
     ASSISTANT_START_PIC = os.environ.get(
