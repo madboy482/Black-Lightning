@@ -430,6 +430,5 @@ CMD_HELP.update(
         \n\n**Syntax : **`.salive `\
         \n**Function : **__ .Lightning Uerbot's Alive.__\
         \n\n\n**NOTE : All Credits To Thier Respective !!**"
-        
     }
 )
