@@ -338,3 +338,10 @@ async def _(event):
         "╔═══════════════════╗ \n ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ \n╚═══════════════════╝"
     )
     await asyncio.sleep(6)
+
+    
+@borg.on(admin_cmd(pattern=r"hbday"))
+async def hi(event):
+    if event.fwd_from:
+        return
+    await event.edit("¸.•°*”˜˜”*°•.¸☆ ★ ☆¸.•°*”˜˜”*°\n╔╗╔╦══╦═╦═╦╗╔╗ ★ ★ \n║╚╝║══║═║═║╚╝║ ☆¸.•° \n║╔╗║╔╗║╔╣╔╩╗╔╝ ★\n╚╝╚╩╝╚╩╝╚╝═╚╝★Birthday!★")    
