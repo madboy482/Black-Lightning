@@ -285,7 +285,9 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Abbe Lode Tera Baap Ka Hai Ye Button Mat Tabba!( ͡ಥ ͜ʖ ͡ಥ)"
+            reply_pop_up_alert = (
+                "Abbe Lode Tera Baap Ka Hai Ye Button Mat Tabba!( ͡ಥ ͜ʖ ͡ಥ)"
+            )
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(
@@ -330,7 +332,9 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             else:
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
-            reply_pop_up_alert = "Please get your own Userbot, and don't use mine!( ͡ಥ ͜ʖ ͡ಥ)"
+            reply_pop_up_alert = (
+                "Please get your own Userbot, and don't use mine!( ͡ಥ ͜ʖ ͡ಥ)"
+            )
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
