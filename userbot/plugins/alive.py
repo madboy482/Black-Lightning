@@ -63,6 +63,7 @@ pm_caption += "➾ `ᴄᴏᴘʏʀɪɢʜᴛ ʙʏ` ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏�
 pm_caption += f"➾ `ᴍʏ ᴍᴀsᴛᴇʀ` ☞ [{DEFAULTUSER}](tg://user?id={ghanti})\n"
 pm_caption += "➾ `🔥Creator🔥` ☞ [ᴊᴏɪɴ](https://t.me/krish1303y)\n"
 
+
 @borg.on(admin_cmd(pattern=r"alive"))
 @borg.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
 async def amireallyalive(yes):
