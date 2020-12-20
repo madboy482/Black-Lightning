@@ -13,12 +13,12 @@
 
 import asyncio
 import io
-import re
 import os
+import re
 
 from telethon import Button, custom, events
 from telethon.tl.functions.users import GetFullUserRequest
-from telethon.utils import pack_bot_file_id
+
 from userbot import bot
 from userbot.plugins.sql_helper.blacklist_assistant import (
     add_nibba_in_db,
