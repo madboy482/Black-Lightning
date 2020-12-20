@@ -4,27 +4,17 @@
 # sources is commented above the taken code
 
 import asyncio
-import io
 import os
-import random
-import re
 import textwrap
-import time
-import lottie
-from random import randint, uniform
 
-from glitch_this import ImageGlitcher
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
-from PIL import Image, ImageDraw, ImageEnhance, ImageFont, ImageOps
-from telethon import events, functions, types
-from telethon.errors.rpcerrorlist import YouBlockedUserError
+from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import DocumentAttributeFilename
 
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from userbot.events import register
 from userbot.utils import admin_cmd
-from userbot.helper import progress
+
 THUMB_IMAGE_PATH = "./thumb_image.jpg"
 
 
@@ -161,6 +151,7 @@ async def drawText(image_path, text):
     img.save(webp_file, "webp")
     return webp_file
 
+
 @bot.on(admin_cmd(outgoing=True, pattern="mms ?(.*)"))
 async def mim(event):
     if not event.reply_to_msg_id:
@@ -201,15 +192,11 @@ async def mim(event):
             reply_message,
             "meme.png",
         )
-    await event.edit(
-        "```Memifying 🔸🔸🔸 ```"
-    )
+    await event.edit("```Memifying 🔸🔸🔸 ```")
     await asyncio.sleep(0.1)
     text = event.pattern_match.group(1)
     photo = await draw_meme(dls_loc, text)
-    await event.client.send_file(
-        event.chat_id, photo, reply_to=event.reply_to_msg_id
-    )
+    await event.client.send_file(event.chat_id, photo, reply_to=event.reply_to_msg_id)
     await event.delete()
     os.system("rm *.tgs *.mp4 *.png")
     os.remove(photo)
@@ -317,6 +304,7 @@ async def draw_meme(image_path, text):
     photo = os.path.join(TEMP_DOWNLOAD_DIRECTORY, photu)
     img.save(photo, "png")
     return photo
+
 
 CMD_HELP.update(
     {
