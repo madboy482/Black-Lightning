@@ -411,7 +411,7 @@ async def amireallyalive(talive):
 
 CMD_HELP.update(
     {
-        "alives": "**Plugin : **`alives`\
+        "alive": "**alive**\
         \n\n**Syntax : **`.halive For Hellbot's Alive`\
         \n**Function : **__ Hellbot's Alive__\
         \n\n**Syntax : **`.talive`\
