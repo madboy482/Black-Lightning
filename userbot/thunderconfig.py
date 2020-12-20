@@ -142,6 +142,7 @@ class Config(object):
         FBAN_GROUP_ID = int(FBAN_GROUP_ID)
     EXCLUDE_FED = os.environ.get("EXCLUDE_FED", None)
 
+
 class Development(Config):
     LOGGER = True
     # Here for later purposes

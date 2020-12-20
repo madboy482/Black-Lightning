@@ -1,4 +1,3 @@
-  
 #    Telebot - UserBot
 #    Copyright (C) 2020 Telebot
 #    This program is free software: you can redistribute it and/or modify
@@ -18,6 +17,7 @@ import asyncio
 
 from userbot import CMD_HELP
 from userbot.utils import admin_cmd
+
 # By @HeisenbergTheDanger, @its_xditya
 
 
@@ -188,9 +188,7 @@ async def _(event):
                 await response.click(0)
                 fedfile = await bot_conv.get_response()
                 if fedfile.media:
-                    downloaded_file_name = await borg.download_media(
-                        fedfile, "fedlist"
-                    )
+                    downloaded_file_name = await borg.download_media(fedfile, "fedlist")
                     file = open(downloaded_file_name, "r")
                     lines = file.readlines()
                     for line in lines:
