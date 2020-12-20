@@ -12,10 +12,8 @@ class Config(object):
     STRING_SESSION = os.environ.get("STRING_SESSION", None)
     DB_URI = os.environ.get("DATABASE_URL", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", None)
-            # This is required for the modules involving the file system.
-    TMP_DOWNLOAD_DIRECTORY = os.environ.get(
-        "TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/"
-    )
+    # This is required for the modules involving the file system.
+    TMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
     MAX_ANTI_FLOOD_MESSAGES = 10
     # warn mode for anti flood
     ANTI_FLOOD_WARN_MODE = ChatBannedRights(
