@@ -47,6 +47,7 @@ class Var(object):
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     TG_BOT_TOKEN_BF_HER = os.environ.get("TG_BOT_TOKEN_BF_HER", None)
     TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
+    TAG_LOG = os.environ.get("TAG_LOG", None)
     NO_SONGS = bool(os.environ.get("NO_SONGS", False))
     DOWNLOAD_PFP_URL_CLOCK = os.environ.get("DOWNLOAD_PFP_URL_CLOCK", None)
     MAX_FLOOD_IN_P_M_s = os.environ.get("MAX_FLOOD_IN_P_M_s", "3")
