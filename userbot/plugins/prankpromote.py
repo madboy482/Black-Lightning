@@ -12,16 +12,13 @@ from telethon.tl.types import ChatAdminRights
 from userbot.utils import admin_cmd
 
 
-
 @borg.on(admin_cmd(pattern="ppromote ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
-    start = datetime.now()
+    datetime.now()
     to_promote_id = None
-    rights = ChatAdminRights(
-        post_messages=True
-    )
+    rights = ChatAdminRights(post_messages=True)
     input_str = event.pattern_match.group(1)
     reply_msg_id = event.message.id
     if reply_msg_id:
