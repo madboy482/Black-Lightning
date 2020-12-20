@@ -1,4 +1,3 @@
-  
 # (c) Shrimadhav U K
 #
 # This file is part of @UniBorg
@@ -21,8 +20,8 @@ from telethon import custom, events
 from telethon.tl.types import Channel
 from telethon.utils import get_display_name
 
-from userbot.thunderconfig import Config
 from userbot import CMD_HELP
+from userbot.thunderconfig import Config
 
 if Config.TAG_LOG:
     NEEDTOLOG = int(Config.TAG_LOG)
@@ -76,7 +75,8 @@ if Config.TAG_LOG:
             )
         else:
             return
-            
+
+
 CMD_HELP.update(
     {
         "tag_info": "**taginfo**\
@@ -84,4 +84,3 @@ CMD_HELP.update(
 \n**Usage :** Set TAG_LOG if you want this plugin to work."
     }
 )
-
