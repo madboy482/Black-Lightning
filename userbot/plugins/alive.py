@@ -2,7 +2,6 @@
 # animation Idea by @(Sipakisking) && @Hell boy_pikachu
 # Made by @hellboi_atul ....and thanks to @Crackexy for the logos...
 # Kang with credits else gay...
-import asyncio
 import os
 import time
 from io import BytesIO
@@ -20,7 +19,6 @@ if ALIVE_PIC is None:
     PM_iMG = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
 else:
     PM_iMG = ALIVE_PIC
-
 
 
 TELE_PIC = os.environ.get("TELE_PIC", None)
