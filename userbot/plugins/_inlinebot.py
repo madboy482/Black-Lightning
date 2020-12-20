@@ -15,7 +15,7 @@ PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 TELEPIC = (
     PMPERMIT_PIC
     if PMPERMIT_PIC
-    else "https://telegra.ph/file/e3b456e31cba8308b7a80.png"
+    else "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
 )
 PM_WARNS = {}
 PREV_REPLY_MESSAGE = {}
@@ -29,9 +29,9 @@ LOG_GP = Var.PRIVATE_GROUP_ID
 MESAG = (
     str(CUSTOM_PMPERMIT)
     if CUSTOM_PMPERMIT
-    else "`𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 PM security! Please wait for me to approve you. 😊"
+    else "` вℓα¢к ℓιgнтηιηg PM security! Please wait for me to approve you. 😊"
 )
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 User"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "вℓα¢к ℓιgнтηιηg User"
 USER_BOT_WARN_ZERO = "`I had warned you not to spam. Now you have been blocked and reported until further notice.`\n\n**GoodBye!** "
 
 if Var.LOAD_MYBOT == "True":
@@ -161,17 +161,17 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Bhak Bsdk Kya Tapa Tap Daba Rha Rha Nikal Leya Apna 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 from @blacklightningot , and don't use mine!"
+            reply_pop_up_alert = "Bhak Bsdk Kya Tapa Tap Daba Rha Rha Nikal Leya Apna вℓα¢к ℓιgнтηιηg from @blacklightningot , and don't use mine!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pmclick")))
     async def on_pm_click(event):
         if event.query.user_id == bot.uid:
-            reply_pop_up_alert = "This ain't for you, master!"
+            reply_pop_up_alert = "This ain't for you, master!( ͡ಥ ͜ʖ ͡ಥ)"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"This is the PM Security for {DEFAULTUSER} to keep away spammers and retards and Can Ban Fuckin Spammers.\n\nProtected by [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](t.me/blacklightningot)"
+                f"This is the PM Security for {DEFAULTUSER} to keep away spammers and retards and Can Ban Fuckin Spammers.\n\nProtected by [вℓα¢к ℓιgнтηιηg](t.me/blacklightningot)"
             )
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"reopen")))
@@ -186,7 +186,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"req")))
     async def on_pm_click(event):
         if event.query.user_id == bot.uid:
-            reply_pop_up_alert = "This ain't for you, master!"
+            reply_pop_up_alert = "This ain't for you, master!( ͡ಥ ͜ʖ ͡ಥ)"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
@@ -204,7 +204,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
     async def on_pm_click(event):
         event.query.user_id
         if event.query.user_id == bot.uid:
-            reply_pop_up_alert = "This ain't for you, master!"
+            reply_pop_up_alert = "This ain't for you, master!( ͡ಥ ͜ʖ ͡ಥ)"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
@@ -263,7 +263,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 "Menu Closed!!", buttons=[Button.inline("Re-open Menu", data="reopen")]
             )
         else:
-            reply_pop_up_alert = "Bhak Bsdk Kya Tapa Tap Daba Rha Rha Nikal Leya Apna 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 from @blacklightningot , and don't use mine!"
+            reply_pop_up_alert = "Bhak Bsdk Kya Tapa Tap Daba Rha Rha Nikal Leya Apna 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 from @blacklightningot , and don't use mine!( ͡ಥ ͜ʖ ͡ಥ)"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"statcheck")))
@@ -285,7 +285,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Abbe Lode Tera Baap Ka Hai Ye Butto Mat Tabba!"
+            reply_pop_up_alert = "Abbe Lode Tera Baap Ka Hai Ye Button Mat Tabba!( ͡ಥ ͜ʖ ͡ಥ)"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(
@@ -330,7 +330,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             else:
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
-            reply_pop_up_alert = "Please get your own Userbot, and don't use mine!"
+            reply_pop_up_alert = "Please get your own Userbot, and don't use mine!( ͡ಥ ͜ʖ ͡ಥ)"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
