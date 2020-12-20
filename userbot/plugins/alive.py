@@ -400,7 +400,6 @@ CMD_HELP.update(
         \n**Function : **__ Hellbot's Alive__\
         \n\n**Syntax : **`.talive`\
         \n**Function : **__Telebot's Alive !!__\
-        \nFor above two commands use `.bigspam` instead of spam for spamming more than 50 messages\
         \n\n**Syntax : **`.falive`\
         \n**Function : **__ Fridays's Alive.__\
         \n\n**Syntax : **`.malive`\
