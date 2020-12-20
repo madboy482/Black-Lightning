@@ -1,4 +1,3 @@
-  
 import os
 
 from cryptosteganography import CryptoSteganography
