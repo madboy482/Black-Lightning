@@ -21,11 +21,6 @@ if ALIVE_PIC is None:
 else:
     PM_iMG = ALIVE_PIC
 
-LIGHTNING_IMAGE = os.environ.get("LIGHTNING_IMAGE", None)
-if LIGHTNING_IMAGE is None:
-    LIGHTNING_IMG = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
-else:
-    LIGHTNING_IMG = LIGHTNING_IMAGE
 
 
 TELE_PIC = os.environ.get("TELE_PIC", None)
@@ -42,7 +37,7 @@ else:
     HELL_IMG = HELL_PIC
 
 CAT_IMGE = os.environ.get("CAT_IMGE", None)
-if TELE_PIC is None:
+if CAT_IMAGE is None:
     CAT_IMG = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
 else:
     CAT_IMG = CAT_IMGE
@@ -62,55 +57,6 @@ ALIVE_PHOTTO = os.environ.get("ALIVE_PHOTTO", None)
 # Made by @hellboi_atul ....and thanks to @Crackexy for the logos...
 # Kang with credits else gay...
 # alive.py for DC(DARK COBRA)
-global ghanti
-ghanti = borg.uid
-edit_time = 5
-""" =======================CONSTANTS====================== """
-file1 = "https://telegra.ph/file/b4f20d392bf8dcc50bdd9.mp4"
-file2 = "https://telegra.ph/file/b01cd4ef19edc14195648.mp4"
-file3 = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
-""" =======================CONSTANTS====================== """
-pm_caption = "** вℓα¢к ℓιgнтηιηg 𝙸𝚂 🅾🅽🅻🅸🅽🅴**\n\n"
-
-pm_caption += "➾ `ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀꜱɪᴏɴ` ☞ 1.17.5\n"
-pm_caption += "➾ `ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ` ☞ [ᴊᴏɪɴ](https://t.me/blacklightningot)\n"
-pm_caption += "➾ `ʟɪᴄᴇɴꜱᴇ`  ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin)\n"
-pm_caption += "➾ `ᴄᴏᴘʏʀɪɢʜᴛ ʙʏ` ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin/Black-Lightning)\n\n"
-pm_caption += f"➾ `ᴍʏ ᴍᴀsᴛᴇʀ` ☞ [{DEFAULTUSER}](tg://user?id={ghanti})\n"
-pm_caption += "➾ `🔥Creator🔥` ☞ [ᴊᴏɪɴ](https://t.me/krish1303y)\n"
-
-
-@borg.on(admin_cmd(pattern=r"alive"))
-@borg.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
-async def amireallyalive(yes):
-    await yes.get_chat()
-    global ghanti
-    ghanti = borg.uid
-    on = await borg.send_file(yes.chat_id, file=file1, caption=pm_caption)
-
-    await asyncio.sleep(edit_time)
-    ok = await borg.edit_message(yes.chat_id, on, file=file2)
-
-    await asyncio.sleep(edit_time)
-    ok2 = await borg.edit_message(yes.chat_id, ok, file=file3)
-
-    await asyncio.sleep(edit_time)
-    ok3 = await borg.edit_message(yes.chat_id, ok2, file=file1)
-
-    await asyncio.sleep(edit_time)
-    ok4 = await borg.edit_message(yes.chat_id, ok3, file=file3)
-
-    await asyncio.sleep(edit_time)
-    ok5 = await borg.edit_message(yes.chat_id, ok4, file=file2)
-
-    await asyncio.sleep(edit_time)
-    ok6 = await borg.edit_message(yes.chat_id, ok5, file=file1)
-
-    await alive.delete()
-
-    """ For .alive command, check if the bot is running.  """
-    await borg.send_file(alive.chat_id, LIGHTNING_IMG, caption=pm_caption)
-    await alive.delete()
 
 
 def get_readable_time(seconds: int) -> str:
@@ -143,7 +89,7 @@ def get_readable_time(seconds: int) -> str:
 
 @borg.on(admin_cmd(outgoing=True, pattern="salive"))
 @borg.on(sudo_cmd(pattern=r"salive", allow_sudo=True))
-async def amireallyalive(alive):
+async def amireallyalive(salive):
     """ For .alive command, check if the bot is running.  """
     if ALIVE_PHOTTO:
         pm_caption = "**вℓα¢к ℓιgнтηιηg 𝙸𝚂 🅾︎🅽🅻🅸🅽🅴**\n"
@@ -159,13 +105,13 @@ async def amireallyalive(alive):
         pm_caption += "𝘓𝘐𝘚𝘌𝘕𝘊𝘌                  : [AGPL-3.0  ʟɪᴄᴇɴꜱᴇ](https://jenaatul8.wixsite.com/hellboi-atul)\n"
         pm_caption += "𝘾𝙊𝙋𝙔𝙍𝙄𝙂𝙃𝙏 𝘽𝙔            : [ вℓα¢к ℓιgнтηιηg ](https://t.me/blacklightningot)\n"
         pm_caption += "[┏┓━┏┓━━━━┏┓━┏┓━━━━━\n ┃┃━┃┃━━━━┃┃━┃┃━━━━━\n ┃┗━┛┃┏━━┓┃┃━┃┃━┏━━┓\n ┃┏━┓┃┃┏┓┃┃┃━┃┃━┃┏┓┃ \n ┃┃━┃┃┃┃━┫┃┗┓┃┗┓┃┗┛┃ \n ┗┛━┗┛┗━━┛┗━┛┗━┛┗━━┛](https://t.me/blacklightningot)"
-        await alive.get_chat()
-        await alive.delete()
+        await salive.get_chat()
+        await salive.delete()
         """ For .allive command, check if the bot is running.  """
         await borg.send_file(
-            alive.chat_id, ALIVE_PHOTTO, caption=pm_caption, link_preview=False
+            salive.chat_id, ALIVE_PHOTTO, caption=pm_caption, link_preview=False
         )
-        await allive.delete()
+        await sallive.delete()
         return
     req = requests.get("")
     req.raise_for_status()
@@ -176,9 +122,9 @@ async def amireallyalive(alive):
         img.save(sticker, "webp")
         sticker.name = "sticker.webp"
         sticker.seek(0)
-        await borg.send_file(alive.chat_id, file=sticker)
+        await borg.send_file(salive.chat_id, file=sticker)
         await borg.send_message(
-            alive.chat_id,
+            salive.chat_id,
             "**вℓα¢к ℓιgнтηιηg 𝙸𝚂 🅾︎🅽🅻🅸🅽🅴**\n"
             f"**𝕄𝕪 𝔹𝕠𝕤𝕤**            : {DEFAULTUSER}\n"
             "𝚃𝙴𝙻𝙴𝚃𝙷𝙾𝙽 𝚅𝙴𝚁𝚂𝙸𝙾𝙽        : 1.17.5\n"
@@ -190,7 +136,7 @@ async def amireallyalive(alive):
             "[ ┏┓━┏┓━━━━┏┓━┏┓━━━━━\n ┃┃━┃┃━━━━┃┃━┃┃━━━━━\n ┃┗━┛┃┏━━┓┃┃━┃┃━┏━━┓\n ┃┏━┓┃┃┏┓┃┃┃━┃┃━┃┏┓┃ \n ┃┃━┃┃┃┃━┫┃┗┓┃┗┓┃┗┛┃ \n ┗┛━┗┛┗━━┛┗━┛┗━┛┗━━┛](https://t.me/blacklightningot)",
             link_preview=False,
         )
-        await alive.delete()
+        await salive.delete()
 
 
 # Hellbot's Alive Message
