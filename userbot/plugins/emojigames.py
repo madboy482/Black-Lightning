@@ -1,4 +1,3 @@
-  
 # imported from uniborg credit goes to spechide
 from telethon.tl.types import InputMediaDice
 
@@ -151,4 +150,3 @@ async def _(event):
             await event.edit(file=InputMediaDice(emoticon=emoticon))
         else:
             await event.reply(file=InputMediaDice(emoticon=emoticon))
-
