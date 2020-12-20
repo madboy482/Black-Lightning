@@ -52,7 +52,7 @@ elif Var.LOAD_MYBOT == "False":
         )
     )
 
-CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "𝔅")
+CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "⨴")
 NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD = int(
     os.environ.get("NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD", 10)
 )
@@ -71,7 +71,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             rev_text = query[::-1]
             buttons = paginate_help(0, CMD_LIST, "helpme")
             result = builder.article(
-                "© 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 Help",
+                "© вℓα¢к ℓιgнтηιηg Help",
                 text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_LIST)),
                 buttons=buttons,
                 link_preview=False,
@@ -79,7 +79,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         elif event.query.user_id == bot.uid and query == "stats":
             result = builder.article(
                 title="Stats",
-                text=f"**𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 Stats For [{DEFAULTUSER}](tg://user?id={myid})**\n\n__Bot is functioning normally, master!__\n\n(c) @blacklightningot",
+                text=f"**вℓα¢к ℓιgнтηιηg Stats For [{DEFAULTUSER}](tg://user?id={myid})**\n\n__Bot is functioning normally, master!__\n\n(c) @blacklightningot",
                 buttons=[
                     [custom.Button.inline("Stats", data="statcheck")],
                     [Button.url("Repo", "https://github.com/KeinShin/Black-Lightning")],
@@ -108,7 +108,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         elif event.query.user_id == bot.uid and query == "repo":
             result = builder.article(
                 title="Repository",
-                text=f"𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 - Telegram Userbot.",
+                text=f"вℓα¢к ℓιgнтηιηg - Telegram Userbot.",
                 buttons=[
                     [
                         Button.url(
@@ -125,7 +125,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             result = builder.article(
                 "Source Code",
-                text="**Welcome to 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤**\n\n`Click below buttons for more`",
+                text="**Welcome to вℓα¢к ℓιgнтηιηg**\n\n`Click below buttons for more`",
                 buttons=[
                     [custom.Button.url("Creator👨‍🦱", "https://t.me/krish1303y")],
                     [
@@ -263,7 +263,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 "Menu Closed!!", buttons=[Button.inline("Re-open Menu", data="reopen")]
             )
         else:
-            reply_pop_up_alert = "Bhak Bsdk Kya Tapa Tap Daba Rha Rha Nikal Leya Apna 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 from @blacklightningot , and don't use mine!( ͡ಥ ͜ʖ ͡ಥ)"
+            reply_pop_up_alert = "Bhak Bsdk Kya Tapa Tap Daba Rha Rha Nikal Leya Apna вℓα¢к ℓιgнтηιηg from @blacklightningot , and don't use mine!( ͡ಥ ͜ʖ ͡ಥ)"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"statcheck")))
@@ -318,7 +318,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             else:
                 reply_pop_up_alert = help_string
             reply_pop_up_alert += "\n Use .unload {} to remove this plugin\n\
-                © 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤".format(
+                © вℓα¢к ℓιgнтηιηg".format(
                 plugin_name
             )
             if len(help_string) >= 140:
@@ -364,11 +364,11 @@ def paginate_help(page_number, loaded_plugins, prefix):
         ] + [
             (
                 custom.Button.inline(
-                    "⫷ Previous", data="{}_prev({})".format(prefix, modulo_page)
+                    "⫷ ⨴Previous⨴", data="{}_prev({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline("║ Close ║", data="close"),
                 custom.Button.inline(
-                    "Next ⫸", data="{}_next({})".format(prefix, modulo_page)
+                    "⨴Next⨵ ⫸", data="{}_next({})".format(prefix, modulo_page)
                 ),
             )
         ]
