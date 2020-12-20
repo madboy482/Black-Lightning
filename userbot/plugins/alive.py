@@ -53,16 +53,15 @@ file1 = "https://telegra.ph/file/b4f20d392bf8dcc50bdd9.mp4"
 file2 = "https://telegra.ph/file/b01cd4ef19edc14195648.mp4"
 file3 = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
 """ =======================CONSTANTS====================== """
-pm_caption = "** 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 𝙸𝚂 🅾🅽🅻🅸🅽🅴**\n\n"
+pm_caption = "** вℓα¢к ℓιgнтηιηg 𝙸𝚂 🅾🅽🅻🅸🅽🅴**\n\n"
 
 pm_caption += "✘ About My System ✘\n\n"
-pm_caption += "➾ **`ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀꜱɪᴏɴ`** ☞ 1.17.5\n"
-pm_caption += "➾ **`ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ`** ☞ [ᴊᴏɪɴ](https://t.me/blacklightningot)\n"
-pm_caption += "➾ **`ʟɪᴄᴇɴꜱᴇ`**  ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin)\n"
-pm_caption += "➾ **`ᴄᴏᴘʏʀɪɢʜᴛ ʙʏ`** ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin/Black-Lightning)\n\n"
-pm_caption += "➾ **Spammer Go Away Im His Assitant"
-pm_caption += f"➾ **ᴍʏ ᴍᴀsᴛᴇʀ** ☞ [{DEFAULTUSER}](tg://user?id={ghanti})\n"
-
+pm_caption += "➾ `ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀꜱɪᴏɴ` ☞ 1.17.5\n"
+pm_caption += "➾ `ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ` ☞ [ᴊᴏɪɴ](https://t.me/blacklightningot)\n"
+pm_caption += "➾ `ʟɪᴄᴇɴꜱᴇ`  ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin)\n"
+pm_caption += "➾ `ᴄᴏᴘʏʀɪɢʜᴛ ʙʏ` ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin/Black-Lightning)\n\n"
+pm_caption += f"➾ `ᴍʏ ᴍᴀsᴛᴇʀ` ☞ [{DEFAULTUSER}](tg://user?id={ghanti})\n"
+pm_caption += "➾ `🔥Creator🔥` ☞ [ᴊᴏɪɴ](https://t.me/krish1303y)\n"
 
 @borg.on(admin_cmd(pattern=r"alive"))
 @borg.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
