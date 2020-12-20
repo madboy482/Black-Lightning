@@ -40,8 +40,8 @@ pm_caption += "➾ **Spammer Go Away Im His Assitant"
 pm_caption += f"➾ **ᴍʏ ᴍᴀsᴛᴇʀ** ☞ [{DEFAULTUSER}](tg://user?id={ghanti})\n"
 
 
-@borg.on(admin_cmd(pattern=r"alive"))
-@borg.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
+@borg.on(admin_cmd(pattern=r"dalive"))
+@borg.on(sudo_cmd(pattern=r"dalive", allow_sudo=True))
 async def amireallyalive(yes):
     await yes.get_chat()
     global ghanti
