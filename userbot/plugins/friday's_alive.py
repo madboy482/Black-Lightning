@@ -1,13 +1,11 @@
 """Check if userbot alive. If you change these, you become the gayest gay such that even the gay world will disown you."""
 # CREDITS: @WhySooSerious, @Sur_vivor
-import time
 import os
-from userbot.utils import admin_cmd, sudo_cmd
+import time
 
 from userbot import ALIVE_NAME, Lastupdate
-from userbot.Config import Config
 from userbot.plugins import currentversion
-
+from userbot.utils import admin_cmd, sudo_cmd
 
 FRI_IMAGE = os.environ.get("FRI_IMAGE", None)
 if FRI_IMAGE is None:
@@ -61,7 +59,9 @@ pm_caption += "➥ **Heroku Database** : `AWS - Working Properly`\n\n"
 pm_caption += "➥ **License** : [GNU General Public License v3.0](https://github.com/KeinShin/Black-Lightning/master/LICENSE)\n"
 pm_caption += "➥ **Copyright** : By [KeinSHin@Github](GitHub.com/KeinShin)\n"
 pm_caption += "➥ **Check Stats By Doing** `.stat`. \n\n"
-pm_caption += "[🇮🇳 Deploy Black Lightning 🇮🇳](https://telegra.ph/file/63abc60224dc567e3d441.jpg)"
+pm_caption += (
+    "[🇮🇳 Deploy Black Lightning 🇮🇳](https://telegra.ph/file/63abc60224dc567e3d441.jpg)"
+)
 
 
 @borg.on(admin_cmd(pattern=r"falive"))
@@ -71,5 +71,3 @@ async def friday(falive):
     """ For .alive command, check if the bot is running.  """
     await borg.send_file(falive.chat_id, FRI_IMG, caption=pm_caption)
     await falive.delete()
-
-
