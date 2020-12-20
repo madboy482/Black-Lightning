@@ -15,10 +15,10 @@ from pymediainfo import MediaInfo
 from telethon.tl.types import MessageMediaPhoto
 
 BASE_URL = "https://isubtitles.org"
-from fridaybot.Configs import Config
+from userbot.thunderconfig import Config
 
-sedpath = Config.TEMP_DOWNLOAD_DIRECTORY
-from fridaybot import logging
+sedpath = Config.TMP_DOWNLOAD_DIRECTORY
+from userbot import logging
 
 logger = logging.getLogger("[--WARNING--]")
 if not os.path.isdir(sedpath):
