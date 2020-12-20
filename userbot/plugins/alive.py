@@ -15,10 +15,6 @@ from userbot.Config import Var
 from userbot.thunderconfig import Config
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
-
-
-
-
 ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
 if ALIVE_PIC is None:
     PM_iMG = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
@@ -27,9 +23,9 @@ else:
 
 LIGHTNING_IMAGE = os.environ.get("LIGHTNING_IMAGE", None)
 if LIGHTNING_IMAGE is None:
-   LIGHTNING_IMG = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
+    LIGHTNING_IMG = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
 else:
-   LIGHTNING_IMG = LIGHTNING_IMAGE    
+    LIGHTNING_IMG = LIGHTNING_IMAGE
 
 
 TELE_PIC = os.environ.get("TELE_PIC", None)
@@ -41,11 +37,9 @@ else:
 
 HELL_PIC = os.environ.get("HELL_PIC", None)
 if HELL_PIC is None:
-   HELL_IMG = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
+    HELL_IMG = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
 else:
-   HELL_IMG = HELL_PIC    
-
-
+    HELL_IMG = HELL_PIC
 
 
 version = "4.5"
@@ -79,6 +73,7 @@ pm_caption += "➾ `ʟɪᴄᴇɴꜱᴇ`  ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤�
 pm_caption += "➾ `ᴄᴏᴘʏʀɪɢʜᴛ ʙʏ` ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin/Black-Lightning)\n\n"
 pm_caption += f"➾ `ᴍʏ ᴍᴀsᴛᴇʀ` ☞ [{DEFAULTUSER}](tg://user?id={ghanti})\n"
 pm_caption += "➾ `🔥Creator🔥` ☞ [ᴊᴏɪɴ](https://t.me/krish1303y)\n"
+
 
 @borg.on(admin_cmd(pattern=r"alive"))
 @borg.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
