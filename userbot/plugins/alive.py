@@ -200,8 +200,8 @@ pm_caption += "🔥CREATOR🔥    : [Nub Here](https://t.me/krish1303y)\n\n"
 pm_caption += "    [✨REPO✨](https://github.com/KeinShin/Black-Lightningt) 🔹 [📜License📜](https://github.com/KeinShin/Black-Lightning/blob/master/LICENSE)"
 
 
-@bot.on(admin_cmd(outgoing=True, pattern="halive$"))
-@bot.on(sudo_cmd(pattern="halive$", allow_sudo=True))
+@borg.on(admin_cmd(outgoing=True, pattern="halive$"))
+@borg.on(sudo_cmd(pattern="halive$", allow_sudo=True))
 async def amireallyalive(alive):
     await alive.get_chat()
     await alive.delete()
@@ -214,8 +214,8 @@ async def amireallyalive(alive):
 # Credits To catbot And Sandi
 
 
-@bot.on(admin_cmd(outgoing=True, pattern="calive$"))
-@bot.on(sudo_cmd(pattern="calive$", allow_sudo=True))
+@borg.on(admin_cmd(outgoing=True, pattern="calive$"))
+@borg.on(sudo_cmd(pattern="calive$", allow_sudo=True))
 async def amireallyalive(calive):
     if calive.fwd_from:
         return
