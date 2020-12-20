@@ -15,11 +15,26 @@ from userbot.Config import Var
 from userbot.thunderconfig import Config
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
-PM_IMG = Config.ALIVE_PIC
-LIGHTNING_IMG = Config.LIGHtNING_IMAGE
-ALV_PIC = Var.TELE_PIC if Var.TELE_PIC else None
 
-HELL_IMG = Config.HELL_PIC
+
+
+
+ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
+if ALIVE_PIC is None:
+    PM_iMG = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
+else:
+    PM_iMG = ALIVE_PIC
+
+LIGHTNING_IMAGE = os.environ.get("LIGHTNING_IMAGE", None)
+if LIGHTNING_IMAGE is None:
+   LIGHTNING_IMG = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
+else:
+   LIGHTNING_IMG = LIGHTNING_IMAGE    
+
+
+
+ALV_PIC = Var.TELE_PIC if Var.TELE_PIC else None
+HELL_IMG = Config.HELL_PIC if Config.HELL_PIC else None
 version = "4.5"
 python_version = "3.8.5"
 catversion = "3.0"
@@ -279,7 +294,7 @@ CUSTOM_ALIVE = (
     if Var.CUSTOM_ALIVE
     else "Hey! I'm alive. All systems online and functioning normally!"
 )
-ALV_PIC = Var.ALIVE_PIC if Var.ALIVE_PIC else None
+
 
 from userbot import telever
 
