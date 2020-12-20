@@ -1,4 +1,7 @@
 #  Oh really?! Thanks to the real owner...
+# credits to @mrconfused
+# @TeleBotSupport
+
 import io
 import sys
 import traceback
