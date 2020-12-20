@@ -41,6 +41,11 @@ if HELL_PIC is None:
 else:
     HELL_IMG = HELL_PIC
 
+CAT_IMGE = os.environ.get("CAT_IMGE", None)
+if TELE_PIC is None:
+    CAT_IMG = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
+else:
+    CAT_IMG = CAT_IMGE
 
 version = "4.5"
 python_version = "3.8.5"
@@ -201,7 +206,7 @@ else:
 
 kraken = bot.uid
 
-PM_IMG = "https://telegra.ph/file/b01cd4ef19edc14195648.mp4"
+
 pm_caption = "__**🔥🔥ɮʟǟƈӄ ʟɨɢɦȶռɨռɢ ɨs օռʟɨռɛ🔥🔥**__\n\n"
 
 pm_caption += (
@@ -223,12 +228,12 @@ pm_caption += "    [✨REPO✨](https://github.com/KeinShin/Black-Lightningt) �
 
 @borg.on(admin_cmd(outgoing=True, pattern="halive$"))
 @borg.on(sudo_cmd(pattern="halive$", allow_sudo=True))
-async def amireallyalive(alive):
-    await alive.get_chat()
-    await alive.delete()
+async def amireallyalive(halive):
+    await halive.get_chat()
+    await halive.delete()
     """ For .halive command, check if the bot is running.  """
-    await borg.send_file(alive.chat_id, HELL_IMG, caption=pm_caption)
-    await alive.delete()
+    await borg.send_file(halive.chat_id, HELL_IMG, caption=pm_caption)
+    await halive.delete()
 
 
 # catuserbot's Alive
@@ -252,7 +257,7 @@ async def amireallyalive(calive):
         pm_caption += f"**{EMOJI} Uptime :** `{uptime}\n`"
         pm_caption += f"**{EMOJI} Master:** {DEFAULTUSER}\n"
         await calive.client.send_file(
-            calive.chat_id, PM_IMG, caption=pm_caption, reply_to=reply_to_id
+            calive.chat_id, CAT_IMG, caption=pm_caption, reply_to=reply_to_id
         )
         await calive.delete()
     else:
