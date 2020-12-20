@@ -137,7 +137,10 @@ class Config(object):
     PM_LOGGR_BOT_API_ID = os.environ.get("PM_LOGGR_BOT_API_ID", None)
     if PM_LOGGR_BOT_API_ID:
         PM_LOGGR_BOT_API_ID = int(PM_LOGGR_BOT_API_ID)
-
+    BAN_GROUP_ID = os.environ.get("FBAN_GROUP_ID", None)
+    if FBAN_GROUP_ID:
+        FBAN_GROUP_ID = int(FBAN_GROUP_ID)
+    EXCLUDE_FED = os.environ.get("EXCLUDE_FED", None)
 
 class Development(Config):
     LOGGER = True
