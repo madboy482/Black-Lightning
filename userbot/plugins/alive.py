@@ -35,7 +35,7 @@ else:
     HELL_IMG = HELL_PIC
 
 CAT_IMGE = os.environ.get("CAT_IMGE", None)
-if CAT_IMAGE is None:
+if CAT_IMGE is None:
     CAT_IMG = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
 else:
     CAT_IMG = CAT_IMGE
