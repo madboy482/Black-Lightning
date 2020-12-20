@@ -15,10 +15,6 @@ from userbot.Config import Var
 from userbot.thunderconfig import Config
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
-
-
-
-
 ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
 if ALIVE_PIC is None:
     PM_iMG = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
@@ -27,10 +23,9 @@ else:
 
 LIGHTNING_IMAGE = os.environ.get("LIGHTNING_IMAGE", None)
 if LIGHTNING_IMAGE is None:
-   LIGHTNING_IMG = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
+    LIGHTNING_IMG = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
 else:
-   LIGHTNING_IMG = LIGHTNING_IMAGE    
-
+    LIGHTNING_IMG = LIGHTNING_IMAGE
 
 
 ALV_PIC = Var.TELE_PIC if Var.TELE_PIC else None
