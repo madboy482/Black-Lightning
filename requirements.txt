@@ -159,3 +159,5 @@ youtube-search-python==1.3.2
 pymediainfo==5.0.3
 deep_translator==1.3.2
 pokedex.py==1.1.2
+cryptosteganography==0.8.3
+yahoo_fin==0.8.6
