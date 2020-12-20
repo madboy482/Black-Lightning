@@ -73,24 +73,17 @@ class Var(object):
     UPSTREAM_REPO = os.environ.get(
         "UPSTREAM_REPO", "https://github.com/KeinShin/Black-Lightning"
     )
-    HELL_PIC = os.environ.get(
-        "HELL_IMAGE", "https://telegra.ph/file/b01cd4ef19edc14195648.mp4"
-    )
-    ALIVE_PIC = os.environ.get(
-        "ALIVE_IMAGE", "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
-    )
-    TELE_PIC = os.environ.get(
-        "TELE_IMAGE", "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
-    )
+    TELE_PIC = os.environ.get("TELE_PIC", None)
+    ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
+    LIGHTNING_IMAGE = os.environ.get("LIGHTNING_IMAGE", None)
     CUSTOM_ALIVE_PIC = os.environ.get(
         "CUSTOM_ALIVE_IMG", "https://telegra.ph/file/50e422f6b07fa9126c1d1.jpg"
     )
     ALIVE_IMAGE = os.environ.get(
         "ALIVE_PIC", "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
     )
-    LIGHTNING_IMAGE = os.environ.get(
-        "LIGHTNING_PIC", "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
-    )
+    HELL_PIC = os.environ.get("HELL_PIC", None)
+    CAT_IMGE = os.environ.get("CAT_IMGE", None)
     ASSISTANT_START_PIC = os.environ.get(
         "ASSISTANT_START_PIC",
         "https://telegra.ph/file/63abc60224dc567e3d441.jpg",
