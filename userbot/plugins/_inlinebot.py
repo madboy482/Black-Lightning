@@ -8,11 +8,10 @@ import urllib
 from math import ceil
 
 import requests
-from telethon import Button, custom, events, functions
-from youtubesearchpython import SearchVideos
-
 from fridaybot import ALIVE_NAME, CMD_HELP, CMD_LIST
 from fridaybot.modules import inlinestats
+from telethon import Button, custom, events, functions
+from youtubesearchpython import SearchVideos
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
