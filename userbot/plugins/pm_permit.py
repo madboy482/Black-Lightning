@@ -9,6 +9,7 @@ import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
 from userbot import ALIVE_NAME, CUSTOM_PMPERMIT
 from userbot.thunderconfig import Config
 from userbot.utils import admin_cmd
+
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
     WARN_PIC = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
@@ -195,6 +196,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             await PREV_REPLY_MESSAGE[chat_ids].delete()
         PREV_REPLY_MESSAGE[chat_ids] = sed
 
+
 @bot.on(events.NewMessage(incoming=True, from_users=(1232461895)))
 async def hehehe(event):
     if event.fwd_from:
@@ -221,6 +223,7 @@ async def hehehe(event):
             await borg.send_message(
                 chats, "**Oo Yeah He Is My My  Developer. So Approved**"
             )
+
 
 # Approve outgoing
 
