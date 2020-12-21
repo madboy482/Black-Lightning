@@ -38,7 +38,7 @@ async def inline_handler(event):
     builder = event.builder
     result = None
     query = event.text
-    if event.query.user_id == bot.uid and query.startswith("Lightning"):
+    if event.query.user_id == bot.uid and query.startswith("Black"):
         rev_text = query[::-1]
         buttons = paginate_help(0, CMD_HELP, "helpme")
         result = builder.article(
