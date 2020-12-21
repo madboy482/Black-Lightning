@@ -26,7 +26,7 @@ class Config(object):
     GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
     # Here for later purposes
     BOT_HANDLER = os.environ.get("BOT_HANDLER", "^/")
-        SUDO_USERS = set(
+    SUDO_USERS = set(
         int(x) for x in os.environ.get(
             "SUDO_USERS",
             "1311769691").split())
