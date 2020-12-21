@@ -31,7 +31,7 @@ async def cmd_list(event):
                         out_file,
                         force_document=True,
                         allow_cache=False,
-                        caption="**COMMANDS** In __**Hêllẞø†**__",
+                        caption="**COMMANDS** In __**вℓα¢к ℓιgнтηιηg**__",
                         reply_to=reply_to_id,
                     )
                     await event.delete()
@@ -73,7 +73,7 @@ async def _(event):
     result = await borg(functions.help.GetConfigRequest())  # pylint:disable=E0602
     result = result.stringify()
     logger.info(result)  # pylint:disable=E0602
-    await event.edit("""Telethon UserBot Powered by @HellBot_Official""")
+    await event.edit("""Telethon UserBot Powered by @lightningsupport""")
 
 
 @borg.on(admin_cmd(pattern="syntax (.*)"))
