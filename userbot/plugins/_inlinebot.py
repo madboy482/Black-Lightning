@@ -1,5 +1,5 @@
 # Inspired By Telebot
-
+# Credit To Fridaybot
 
 import os
 import re
