@@ -9,7 +9,7 @@ from userbot.utils import admin_cmd, sudo_cmd
 
 FRI_IMAGE = os.environ.get("FRI_IMAGE", None)
 if FRI_IMAGE is None:
-    FRI_IMG = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
+    FRI_IMG = "https://telegra.ph/file/00f60d92a8e02db2a9877.mp4"
 else:
     FRI_IMG = FRI_IMAGE
 
