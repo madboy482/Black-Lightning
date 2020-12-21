@@ -142,9 +142,6 @@ async def rip(event):
     )
 
 
-import os
-import random
-import re
 
 # ABEE O KANGAR  BACK OPEN CLSE BTN KANG KIYA TO YE LONE CHIPKA DENA AUR GLOBALS K BINA NAHI CHALAGA aur global 5 gaja diff name and manipulation se imported hai
 # Making The Back Command Was The Toughest Work #by @Shivam_Patel,@The_Siddharth_Nigam,@danish_00,@ProgrammingError also v changed Pop up or inline help to text
@@ -415,31 +412,23 @@ def paginate_help(page_number, loaded_plugins, prefix):
         if not p.startswith("_"):
             helpable_plugins.append(p)
     helpable_plugins = sorted(helpable_plugins)
-    modules = [
-        custom.Button.inline(
-            "{} {}".format(random.choice(list(multi)), x), data="us_plugin_{}".format(x)
-        )
-        for x in helpable_plugins
-    ]
+    modules = [custom.Button.inline(
+        "{} {}".format(random.choice(list(multi)), x),
+        data="us_plugin_{}".format(x))
+        for x in helpable_plugins]
     pairs = list(zip(modules[::number_of_cols], modules[1::number_of_cols]))
     if len(modules) % number_of_cols == 1:
         pairs.append((modules[-1],))
     max_num_pages = ceil(len(pairs) / number_of_rows)
     global shivam
     modulo_page = page_number % max_num_pages
-    shivam = modulo_page
+    shivam=modulo_page
     if len(pairs) > number_of_rows:
-        pairs = pairs[
-            modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
-        ] + [
-            (
-                custom.Button.inline(
-                    "◃:✮ρяєν.❃", data="{}_prev({})".format(prefix, modulo_page)
-                ),
-                custom.Button.inline("⋇⋆𝙲𝙻✦𝚂𝙴⋆⋇", data="close"),
-                custom.Button.inline(
-                    "❃.иєχт✮:▹", data="{}_next({})".format(prefix, modulo_page)
-                ),
-            )
+        pairs = pairs[modulo_page * number_of_rows:number_of_rows * (modulo_page + 1)] + \
+            [
+            (custom.Button.inline("◃:✮𝙿𝚁𝙴𝚅.❃", data="{}_prev({})".format(prefix, modulo_page)),
+             custom.Button.inline("⋇⋆𝙲𝙻✦𝚂𝙴⋆⋇", data="close"),
+             custom.Button.inline("❃.𝙽𝙴𝚇𝚃✮:▹", data="{}_next({})".format(prefix, modulo_page)))
         ]
     return pairs
+
