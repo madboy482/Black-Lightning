@@ -656,35 +656,6 @@ def start_assistant(shortname):
         mod.peru_only = peru_only()
         mod.only_pvt = only_pvt()
         spec.loader.exec_module(mod)
-        sys.modules["userbot.plugins.assistant" + shortname] = mod
+        sys.modules["userbot.plugins.assistant" + "Initialising Lightning" + shortname] = mod
         sedprint.info("Lightning Has imported " + shortname)
 
-
-def load_assistant(shortname):
-    if shortname.startswith("__"):
-        pass
-    elif shortname.endswith("_"):
-        import importlib
-        import sys
-        from pathlib import Path
-
-        path = Path(f"userbot/plugins/assistant/{shortname}.py")
-        name = "userbot.plugins.assistant.{}".format(shortname)
-        spec = importlib.util.spec_from_file_location(name, path)
-        mod = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(mod)
-        print("Initialising Lightning.")
-        print("Lightning - Imported " + shortname)
-    else:
-        import importlib
-        import sys
-        from pathlib import Path
-
-        path = Path(f"userbot/plugins/assistant/{shortname}.py")
-        name = "userbot.plugins.assistant.{}".format(shortname)
-        spec = importlib.util.spec_from_file_location(name, path)
-        mod = importlib.util.module_from_spec(spec)
-        mod.tgbot = bot.tgbot
-        spec.loader.exec_module(mod)
-        sys.modules["userbot.plugins.assistant." + shortname] = mod
-        print("Lightning Has imported " + shortname)
