@@ -13,7 +13,6 @@
 
 import asyncio
 import io
-import os
 import re
 
 from telethon import Button, custom, events
@@ -31,7 +30,6 @@ from userbot.plugins.sql_helper.idadder_sql import (
     already_added,
     get_all_users,
 )
-from userbot.utils import assistant_cmd
 
 
 @tgbot.on(events.NewMessage(pattern="^/start"))

@@ -1,4 +1,3 @@
-  
 # Ascii module by @kraken_the_badass for @hellbot_official
 # A over powerful bot
 # I know u will kang...

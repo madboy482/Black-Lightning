@@ -21,7 +21,6 @@ else:
     PM_iMG = ALIVE_PIC
 
 
-
 HELL_PIC = os.environ.get("HELL_PIC", None)
 if HELL_PIC is None:
     HELL_IMG = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
@@ -231,8 +230,6 @@ def check_data_base_heal_th():
     return is_database_working, output
 
 
-from datetime import datetime
-
 # Telebot's Alive
 # Credits To Telbot And xditya
 from userbot.Config import Var
@@ -244,8 +241,6 @@ CUSTOM_ALIVE = (
     else "Hey! I'm alive. All systems online and functioning normally!"
 )
 
-
-from userbot import telever
 
 telemoji = Var.CUSTOM_ALIVE_EMOJI if Var.CUSTOM_ALIVE_EMOJI else "**✵**"
 
