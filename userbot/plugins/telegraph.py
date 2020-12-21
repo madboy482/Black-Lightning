@@ -1,4 +1,4 @@
-"""@telegraph Utilities Fix by @hellboi_atul
+"""@telegraph Utilities Fix by @Kraken_The_BadASS
 Available Commands:
 .telegraph media as reply to a media
 .telegraph text as reply to a large text"""
@@ -8,11 +8,10 @@ from datetime import datetime
 from PIL import Image
 from telegraph import Telegraph, exceptions, upload_file
 
-from userbot.Config import Var
 from userbot.utils import admin_cmd
 
 telegraph = Telegraph()
-r = telegraph.create_account(short_name=Var.TELEGRAPH_SHORT_NAME)
+r = telegraph.create_account(short_name=Config.TELEGRAPH_SHORT_NAME)
 auth_url = r["auth_url"]
 
 
@@ -20,15 +19,15 @@ auth_url = r["auth_url"]
 async def _(event):
     if event.fwd_from:
         return
-    if Var.PLUGIN_CHANNEL is None:
+    if Config.PLUGIN_CHANNEL is None:
         await event.edit(
             "Please set the required environment variable `PLUGIN_CHANNEL` for this plugin to work"
         )
         return
-    if not os.path.isdir(Var.TEMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Var.TEMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     await borg.send_message(
-        Var.PLUGIN_CHANNEL,
+        Config.PLUGIN_CHANNEL,
         "Created New Telegraph account {} for the current session. \n**Do not give this url to anyone, even if they say they are from Telegram!**".format(
             auth_url
         ),
@@ -40,7 +39,7 @@ async def _(event):
         input_str = event.pattern_match.group(1)
         if input_str == "media":
             downloaded_file_name = await borg.download_media(
-                r_message, Var.TEMP_DOWNLOAD_DIRECTORY
+                r_message, Config.TMP_DOWNLOAD_DIRECTORY
             )
             end = datetime.now()
             ms = (end - start).seconds
@@ -60,7 +59,7 @@ async def _(event):
                 ms_two = (end - start).seconds
                 os.remove(downloaded_file_name)
                 await event.edit(
-                    "File uploaded ser By Black Lightning ᴛʜᴇ ʙᴇsᴛ ᴜsᴇʀʙᴏᴛ.. https://telegra.ph{} ".format(
+                    "File uploaded ser By Hêllẞø† https://telegra.ph{} ".format(
                         media_urls[0], (ms + ms_two)
                     ),
                     link_preview=True,
@@ -76,7 +75,7 @@ async def _(event):
                 if page_content != "":
                     title_of_page = page_content
                 downloaded_file_name = await borg.download_media(
-                    r_message, Var.TEMP_DOWNLOAD_DIRECTORY
+                    r_message, Config.TMP_DOWNLOAD_DIRECTORY
                 )
                 m_list = None
                 with open(downloaded_file_name, "rb") as fd:
