@@ -94,3 +94,4 @@ CMD_HELP.update(
 \n\n**Syntax : **`.autoname`\
 \n**Usage :** Change your Name With Time"
     }
+)
