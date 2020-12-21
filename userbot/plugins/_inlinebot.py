@@ -8,8 +8,8 @@ import urllib
 from math import ceil
 
 import requests
-from fridaybot import ALIVE_NAME, CMD_HELP, CMD_LIST
-from fridaybot.modules import inlinestats
+from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
+from userbot.plugins import inlinestats
 from telethon import Button, custom, events, functions
 from youtubesearchpython import SearchVideos
 
