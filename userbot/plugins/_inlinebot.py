@@ -13,20 +13,18 @@
 # aur  unload load back close open kang kara ya idea bhi le to credit dena pehli 6 line nahi to bhut bura hoga tumara sath
 
 
-from math import ceil
-import asyncio
-import json
+import os
 import random
-import os,re
-import urllib
+import re
+from math import ceil
 
-import requests
 from telethon import Button, custom, events, functions
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
+from userbot.Config import Var
 from userbot.plugins import inlinestats
 from userbot.thunderconfig import Config
-from userbot.Config import  Var
+
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
     WARN_PIC = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
@@ -80,11 +78,6 @@ async def inline_handler(event):
         await event.answer([result])
 
 
-
-
-
-
-
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"terminator")))
 async def rip(event):
     if event.query.user_id == bot.uid:
@@ -111,7 +104,6 @@ async def rip(event):
         LOG_CHAT,
         f"Hello, A Noob [Nibba](tg://user?id={him_id}) Selected Probhited Option, Therefore Blocked.",
     )
-
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"whattalk")))
@@ -154,6 +146,10 @@ import os
 import random
 import re
 
+# ABEE O KANGAR  BACK OPEN CLSE BTN KANG KIYA TO YE LONE CHIPKA DENA AUR GLOBALS K BINA NAHI CHALAGA aur global 5 gaja diff name and manipulation se imported hai
+# Making The Back Command Was The Toughest Work #by @Shivam_Patel,@The_Siddharth_Nigam,@danish_00,@ProgrammingError also v changed Pop up or inline help to text
+from userbot.utils import load_module, remove_plugin
+
 # DARK COBRAOriginal 🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍
 # kangers Keep Credits 😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒
 # Made by Dc-Team
@@ -166,10 +162,6 @@ import re
 # Agar stark nahi ho to kon hai be tu jo bhi hai kang karna he aaya hai mera back , open btn so get lost
 # aur  unload load back close open kang kara ya idea bhi le to credit dena pehli 6 line nahi to bhut bura hoga tumara sath
 
-
-# ABEE O KANGAR  BACK OPEN CLSE BTN KANG KIYA TO YE LONE CHIPKA DENA AUR GLOBALS K BINA NAHI CHALAGA aur global 5 gaja diff name and manipulation se imported hai
-# Making The Back Command Was The Toughest Work #by @Shivam_Patel,@The_Siddharth_Nigam,@danish_00,@ProgrammingError also v changed Pop up or inline help to text
-from userbot.utils import load_module, remove_plugin
 
 # Making The Back Command Was The Toughest Work #by @Shivam_Patel,@The_Siddharth_Nigam,@danish_00,@ProgrammingError also v changed Pop up or inline help to text
 # A stark bhai chori karna aaya ho kya friday me ek bar back btn kang kar k man nahi bhara
