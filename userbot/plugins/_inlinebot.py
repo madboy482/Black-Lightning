@@ -1,6 +1,7 @@
 # Inspired By Telebot
 # Credit To Fridaybot
 
+
 import os
 import re
 import urllib
@@ -10,8 +11,8 @@ import requests
 from telethon import Button, custom, events, functions
 from youtubesearchpython import SearchVideos
 
-from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
-from userbot.plugins import inlinestats
+from fridaybot import ALIVE_NAME, CMD_HELP, CMD_LIST
+from fridaybot.modules import inlinestats
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
@@ -334,7 +335,7 @@ async def inline_id_handler(event: events.InlineQuery.Event):
     if event.query.user_id != bot.uid:
         resultm = builder.article(
             title="Not Allowded",
-            text=f"You Can't Use This Bot. \nDeploy Friday To Get Your Own Assistant, Repo Link [Here](https://github.com/StarkGang/FridayUserbot)",
+            text=f"You Can't Use This Bot. \nDeploy Lightning To Get Your Own Assistant, Repo Link [Here](https://github.com/KeinShin/Black-Lightning)",
         )
         await event.answer([resultm])
         return
