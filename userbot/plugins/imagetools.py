@@ -1,3 +1,6 @@
+
+
+
 import os
 from shutil import rmtree
 
@@ -12,7 +15,7 @@ from userbot import CMD_HELP
 from userbot.function import convert_to_image, crop_vid, runcmd
 from userbot.utils import admin_cmd, sudo_cmd
 
-sedpath = "./starkgangz/"
+sedpath = "./keinshin/"
 if not os.path.isdir(sedpath):
     os.makedirs(sedpath)
 
@@ -265,10 +268,10 @@ async def hmm(event):
     fg_resized = foreground.resize((width, height))
     background.paste(fg_resized, box=(0, 0), mask=fg_resized)
 
-    background.save("./starkgangz/testing.png")
+    background.save("./keinshin/testing.png")
 
     file_name = "testing.png"
-    ok = "./starkgangz/" + file_name
+    ok = "./keinshin/" + file_name
     await borg.send_file(event.chat_id, ok)
     await hmmu.delete()
     for files in (ok, img):
@@ -289,9 +292,9 @@ async def hmm(event):
 
     gray_img = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
 
-    cv2.imwrite("./starkgangz/testing.png", gray_img)
+    cv2.imwrite("./keinshin/testing.png", gray_img)
     file_name = "testing.png"
-    ok = "./starkgangz/" + file_name
+    ok = "./keinshin/" + file_name
     await borg.send_file(event.chat_id, ok)
     await hmmu.delete()
     for files in (ok, img):
@@ -382,9 +385,9 @@ async def img(event):
 
     d1.text((12, 1000), texto, font=myFont, fill=(203, 202, 202))
 
-    img.save("./starkgangz/testpb.jpg")
+    img.save("./keinshin/testpb.jpg")
     file_name = "testpb.jpg"
-    ok = "./starkgangz/" + file_name
+    ok = "./keinshin/" + file_name
     await borg.send_file(event.chat_id, ok)
     for files in (ok, img):
         if files and os.path.exists(files):
