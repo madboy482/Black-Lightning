@@ -49,7 +49,7 @@ pm_caption += "𝙿𝚈𝚃𝙷𝙾𝙽 𝚅𝙴𝚁𝚂𝙸𝙾𝙽          : 
 pm_caption += "𝚂𝚄𝙿𝙿𝙾𝚁𝚃 𝙲𝙷𝙰𝙽𝙽𝙴: [ᴊᴏɪɴ](https://t.me/blacklightningot)\n"
 pm_caption += "𝚂𝚄𝙿𝙿𝙾𝚁𝚃 𝙶𝚁𝙾𝚄𝙿           : [ᴊᴏɪɴ](https://t.me/blacklightningot)\n"
 pm_caption += "𝘓𝘐𝘚𝘌𝘕𝘊𝘌                  : [AGPL-3.0  ʟɪᴄᴇɴꜱᴇ](https://jenaatul8.wixsite.com/KeinShin)\n"
-pm_caption += "𝘾𝙊𝙋𝙔𝙍𝙄𝙂𝙃𝙏:  [KeinShin](https://t.me//krish1303y)"
+pm_caption += "𝘾𝙊𝙋𝙔𝙍𝙄𝙂𝙃𝙏:              [KeinShin](https://t.me//krish1303y)"
 
 
 @borg.on(admin_cmd(pattern=r"alive"))
@@ -84,5 +84,5 @@ async def amireallyalive(yes):
     await yes.delete()
 
     """ For .alive command, check if the bot is running.  """
-    await borg.send_file(yes.chat_id, PM_IMG, caption=pm_caption)
+    await borg.send_file(yes.chat_id, LIGHTNING_IMG, caption=pm_caption)
     await yes.delete()
