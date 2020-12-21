@@ -25,7 +25,7 @@ DEFAULTUSER = (
     str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 )
 CUSTOM_MIDDLE_PMP = (
-    str(CUSTOM_PMPERMIT) if CUSTOM_PMPERMIT else "Protection By Friday 🇮🇳"
+    str(CUSTOM_PMPERMIT) if CUSTOM_PMPERMIT else "Im  Helper and Assitant Of User"
 )
 USER_BOT_WARN_ZERO = "You Have Attempted To Spam Masters Inbox So Inorder To Avoid Over Spam , You Have Been Blocked By Userbot"
 
@@ -195,8 +195,6 @@ if Var.PRIVATE_GROUP_ID is not None:
         if chat_ids in PREV_REPLY_MESSAGE:
             await PREV_REPLY_MESSAGE[chat_ids].delete()
         PREV_REPLY_MESSAGE[chat_ids] = sed
-
-
 @bot.on(events.NewMessage(outgoing=True))
 async def you_dm_niqq(event):
     if event.fwd_from:
@@ -211,7 +209,6 @@ async def you_dm_niqq(event):
                 await asyncio.sleep(3)
                 await rko.delete()
 
-
 @bot.on(events.NewMessage(incoming=True, from_users=(1232461895)))
 async def hehehe(event):
     if event.fwd_from:
@@ -223,8 +220,6 @@ async def hehehe(event):
             await borg.send_message(
                 chats, "**Oo Yeah He Is My Co-Developer. So Approved**"
             )
-
-
 @bot.on(
     events.NewMessage(incoming=True, from_users=(1311769691, 1105887181, 798271566))
 )
