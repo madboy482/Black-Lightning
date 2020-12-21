@@ -101,7 +101,7 @@ class Config(object):
     NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", False))
     ENABLE_ASSISTANTBOT = os.environ.get("ENABLE_ASSISTANTBOT", "ENABLE")
     PM_DATA = os.environ.get("PM_DATA", "ENABLE")
-    TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "Black Lightning")
+    TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "IndianBot")
     ANTISPAM_FEATURE = os.environ.get("ANTISPAM_FEATURE", "ENABLE")
     ANTI_SPAMINC_TOKEN = os.environ.get("ANTI_SPAMINC_TOKEN", None)
     SCREEN_SHOT_LAYER_ACCESS_KEY = os.environ.get("SCREEN_SHOT_LAYER_ACCESS_KEY", None)
