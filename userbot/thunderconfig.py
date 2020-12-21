@@ -37,6 +37,7 @@ class Config(object):
     SUPPORT_USERS = set(int(x) for x in os.environ.get("SUPPORT_USERS", "").split())
     # custom vars
     CUSTOM_ALIVE = os.environ.get("CUSTOM_ALIVE", None)
+    BIO_MSG = os.environ.get("BIO_MSG", None)
     CUSTOM_ALIVE_EMOJI = os.environ.get("CUSTOM_ALIVE_EMOJI", None)
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
     SUDO_HNDLR = os.environ.get("SUDO_HNDLR", "\.")
