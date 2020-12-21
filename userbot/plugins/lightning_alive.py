@@ -11,7 +11,7 @@ from userbot.utils import admin_cmd, sudo_cmd
 
 LIGHTNING_IMAGE = os.environ.get("LIGHTNING_IMAGE", None)
 if LIGHTNING_IMAGE is None:
-    LIGHTNING_IMG = "https://telegra.ph/file/c828d5c695b4cf95c814e.mp4"
+    LIGHTNING_IMG = "https://telegra.ph/file/5db4087d9de9b738ad0fc.mp4"
 else:
     LIGHTNING_IMG = LIGHTNING_IMAGE
 
