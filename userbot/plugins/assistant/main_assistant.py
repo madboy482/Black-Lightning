@@ -34,18 +34,15 @@ from userbot.plugins.sql_helper.idadder_sql import (
 from userbot.utils import assistant_cmd
 
 
-@assistant_cmd("start", is_args=False)
+@tgbot.on(events.NewMessage(pattern="^/start"))
 async def start(event):
     starkbot = await tgbot.get_me()
     bot_id = starkbot.first_name
     bot_username = starkbot.username
     replied_user = await event.client(GetFullUserRequest(event.sender_id))
     firstname = replied_user.user.first_name
-    devlop = await bot.get_me()
-    hmmwow = devlop.first_name
     vent = event.chat_id
-    mypic = Config.ASSISTANT_START_PIC
-    starttext = f"Hello, {firstname} ! Nice To Meet You, Well I Am {bot_id}, An Powerfull Assistant Bot. \n\nMy Master [{hmmwow}](tg://user?id={bot.uid}) \nYou Can Talk/Contact My Master Using This Bot. \n\nIf You Want Your Own Assistant You Can Deploy From Button Below. \n\nPowered By [Friday Userbot](t.me/FridayOT)"
+    starttext = f"Hello, {firstname} ! Nice To Meet You, Well I Am {bot_id}, An Powerfull Assistant Bot. \n\nMy [➤ Master](tg://user?id={bot.uid}) \nYou Can Talk/Contact My Master Using This Bot. \n\nIf You Want Your Own Assistant You Can Deploy From Button Below. \n\nPowered By [вℓα¢к ℓιgнтηιηg](https://t.me/lightningsupport)"
     if event.sender_id == bot.uid:
         await tgbot.send_message(
             vent,
@@ -65,18 +62,15 @@ async def start(event):
             pass
         elif not already_added(event.sender_id):
             add_usersid_in_db(event.sender_id)
-        await tgbot.send_file(
+        await tgbot.send_message(
             event.chat_id,
-            file=mypic,
-            caption=starttext,
+            message=starttext,
             link_preview=False,
             buttons=[
-                [custom.Button.inline("Deploy your Friday 🇮🇳", data="deploy")],
-                [Button.url("Help Me ❓", "t.me/Fridayot")],
+                [custom.Button.inline("Deploy your Black Lightning ", data="deploy")],
+                [Button.url("Help Me ❓", "https://t.me/lightningsupport")],
             ],
         )
-        if os.path.exists(mypic):
-            os.remove(mypic)
 
 
 # Data's
