@@ -59,6 +59,7 @@ class Var(object):
     GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", "root")
     CMD_HNDLR = os.environ.get("CMD_HNDLR", "\.")
     TAG_FEATURE = os.environ.get("TAG_FEATURE", "DISABLE")
+    PM_DATA = os.environ.get("PM_DATA", "ENABLE")
     MAX_SPAM = int(os.environ.get("MAX_FLOOD_IN_P_M_s", 5))
     SPOTIFY_USERNAME = os.environ.get("SPOTIFY_USERNAME", None)
     NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD = int(
