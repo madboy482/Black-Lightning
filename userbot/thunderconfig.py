@@ -84,9 +84,9 @@ class Config(object):
         os.environ.get("NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD", 10)
     )
     NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(
-        os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 7)
+        os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 10)
     )
-    EMOJI_TO_DISPLAY_IN_HELP = os.environ.get("EMOJI_TO_DISPLAY_IN_HELP", "〄𝕭〄")
+    EMOJI_TO_DISPLAY_IN_HELP = os.environ.get("EMOJI_TO_DISPLAY_IN_HELP", "⨴⨵")
     SPOTIFY_PASS = os.environ.get("SPOTIFY_PASS", None)
     G_BAN_LOGGER_GROUP = int(os.environ.get("G_BAN_LOGGER_GROUP", -1001291663564))
     SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX", None)
