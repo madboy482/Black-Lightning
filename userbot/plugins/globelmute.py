@@ -5,8 +5,9 @@ added speciality for sudos if u kang give me credits
 import asyncio
 
 from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot.thunderconfig import Config
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+
 
 # @command(outgoing=True, pattern=r"^.gmute ?(\d+)?")
 @borg.on(admin_cmd(pattern=r"gmute ?(\d+)?", outgoing=True))
