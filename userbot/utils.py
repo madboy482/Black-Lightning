@@ -661,8 +661,7 @@ def start_assistant(shortname):
         ] = mod
         sedprint.info("Lightning Has imported " + shortname)
 
-        
-        
+
 def load_assistant(shortname):
     if shortname.startswith("__"):
         pass
