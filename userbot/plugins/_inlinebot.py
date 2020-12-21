@@ -13,17 +13,20 @@
 # aur  unload load back close open kang kara ya idea bhi le to credit dena pehli 6 line nahi to bhut bura hoga tumara sath
 
 
-import os
-import random
-import re
 from math import ceil
+import asyncio
+import json
+import random
+import os,re
+import urllib
 
 import requests
 from telethon import Button, custom, events, functions
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
 from userbot.plugins import inlinestats
-
+from userbot.thunderconfig import Config
+from userbot.Config import  Var
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
     WARN_PIC = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
@@ -77,72 +80,9 @@ async def inline_handler(event):
         await event.answer([result])
 
 
-@tgbot.on(
-    events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"helpme_next\((.+?)\)")
-    )
-)
-async def on_plug_in_callback_query_handler(event):
-    if event.query.user_id == bot.uid:
-        current_page_number = int(event.data_match.group(1).decode("UTF-8"))
-        buttons = paginate_help(current_page_number + 1, CMD_HELP, "helpme")
-        # https://t.me/TelethonChat/115200
-        await event.edit(buttons=buttons)
-    else:
-        reply_popp_up_alert = "Chala Ja Bsdk Tere Baap Ka Ni Jaa Khud Bana!!!!"
-        await event.answer(reply_popp_up_alert, cache_time=0, alert=True)
 
 
-@tgbot.on(
-    events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"helpme_prev\((.+?)\)")
-    )
-)
-async def on_plug_in_callback_query_handler(event):
-    if event.query.user_id == bot.uid:  # pylint:disable=E0602
-        current_page_number = int(event.data_match.group(1).decode("UTF-8"))
-        buttons = paginate_help(
-            current_page_number - 1, CMD_HELP, "helpme"  # pylint:disable=E0602
-        )
-        # https://t.me/TelethonChat/115200
-        await event.edit(buttons=buttons)
-    else:
-        reply_pop_up_alert = "Chala Ja Bsdk Tere Baap Ka Ni Jaa Khud Bana!!!!"
-        await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-
-@tgbot.on(
-    events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"us_plugin_(.*)")
-    )
-)
-async def on_plug_in_callback_query_handler(event):
-    if not event.query.user_id == bot.uid:
-        lighto = "Baar Sare Button Kyu Daba Rha BSDK Bhakk Yaha Se."
-        await event.answer(lighto, cache_time=0, alert=True)
-        return
-    plugin_name = event.data_match.group(1).decode("UTF-8")
-    if plugin_name in CMD_HELP:
-        help_string = f"**💡 PLUGIN NAME 💡 :** `{plugin_name}` \n{CMD_HELP[plugin_name]}"
-    reply_pop_up_alert = help_string
-    reply_pop_up_alert += "\n\n**(C) @lightningsupport** ".format(plugin_name)
-    if len(reply_pop_up_alert) >= 4096:
-        crackexy = "`Pasting Your Help Menu.`"
-        await event.answer(crackexy, cache_time=0, alert=True)
-        out_file = reply_pop_up_alert
-        url = "https://del.dog/documents"
-        r = requests.post(url, data=out_file.encode("UTF-8")).json()
-        url = f"https://del.dog/{r['key']}"
-        await event.edit(
-            f"Pasted {plugin_name} to {url}",
-            link_preview=False,
-            buttons=[[custom.Button.inline("Go Back", data="backme")]],
-        )
-    else:
-        await event.edit(
-            message=reply_pop_up_alert,
-            buttons=[[custom.Button.inline("Go Back", data="backme")]],
-        )
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"terminator")))
@@ -151,7 +91,7 @@ async def rip(event):
         text = inlinestats
         await event.answer(text, alert=True)
     else:
-        txt = "You Can't View My Masters Stats"
+        txt = "Noii Noii Dont Use This Sir ( ͡ಥ ͜ʖ ͡ಥ)"
         await event.answer(txt, alert=True)
 
 
@@ -172,19 +112,6 @@ async def rip(event):
         f"Hello, A Noob [Nibba](tg://user?id={him_id}) Selected Probhited Option, Therefore Blocked.",
     )
 
-
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"backme")))
-async def sed(event):
-    if event.query.user_id != bot.uid:
-        lighto = "Who The Fuck Are You? Get Your Own вℓα¢к ℓιgнтηιηg."
-        await event.answer(lighto, cache_time=0, alert=True)
-        return
-    await event.answer("Back", cache_time=0, alert=False)
-    # This Is Copy of Above Code. (C) @SpEcHiDe
-    buttons = paginate_help(0, CMD_HELP, "helpme")
-    sed = f"""вℓα¢к ℓιgнтηιηg Userbot Modules Are Listed Here !\n
-For More Help or Support Visit @lightningsupport \nCurrently Loaded Plugins: {len(CMD_LIST)}"""
-    await event.edit(message=sed, buttons=buttons)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"whattalk")))
@@ -238,12 +165,7 @@ import re
 # A stark bhai chori karna aaya ho kya friday me ek bar back btn kang kar k man nahi bhara
 # Agar stark nahi ho to kon hai be tu jo bhi hai kang karna he aaya hai mera back , open btn so get lost
 # aur  unload load back close open kang kara ya idea bhi le to credit dena pehli 6 line nahi to bhut bura hoga tumara sath
-from math import ceil
 
-from telethon import custom, events, functions
-from telethon.tl.custom import Button
-
-from userbot import CMD_HELP, CMD_LIST
 
 # ABEE O KANGAR  BACK OPEN CLSE BTN KANG KIYA TO YE LONE CHIPKA DENA AUR GLOBALS K BINA NAHI CHALAGA aur global 5 gaja diff name and manipulation se imported hai
 # Making The Back Command Was The Toughest Work #by @Shivam_Patel,@The_Siddharth_Nigam,@danish_00,@ProgrammingError also v changed Pop up or inline help to text
@@ -368,8 +290,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         try:
             if event.query.user_id == bot.uid:
                 dc = [
-                    custom.Button.inline(" 𝕭𝖆𝖈𝖐 ", data="back({})".format(shivam)),
-                    custom.Button.inline(" 𝕮𝖑𝖔𝖘𝖊 ", data="close"),
+                    custom.Button.inline(" вα¢к ", data="back({})".format(shivam)),
+                    custom.Button.inline(" ¢ℓσѕє ", data="close"),
                     custom.Button.inline(
                         " 𝖀𝖓𝖑𝖔𝖆𝖉 ", data="unload({})".format(shivam_sh1vam)
                     ),
@@ -382,9 +304,9 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             if event.query.user_id == bot.uid:
                 sh1vam = [
                     custom.Button.inline(
-                        "◤✞ 𝕲𝖔 𝕭𝖆𝖈𝖐 ✞◥", data="back({})".format(shivam)
+                        "◤✞ 𝕲𝖔 вα¢к ✞◥", data="back({})".format(shivam)
                     ),
-                    custom.Button.inline("◤✞ 𝕮𝖑𝖔𝖘𝖊 ✞◥", data="close"),
+                    custom.Button.inline("◤✞ ¢ℓσѕє ✞◥", data="close"),
                 ]
                 halps = "Do .help {} to get the list of commands.".format(plugin_name)
                 await event.edit(halps, buttons=sh1vam)
@@ -400,8 +322,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
             try:
                 fcix = [
-                    custom.Button.inline("  𝕭𝖆𝖈𝖐 ", data="back({})".format(shivam)),
-                    custom.Button.inline(" 𝕮𝖑𝖔𝖘𝖊 ", data="close"),
+                    custom.Button.inline("  вα¢к ", data="back({})".format(shivam)),
+                    custom.Button.inline(" ¢ℓσѕє ", data="close"),
                     custom.Button.inline(
                         " 𝖀𝖓𝖑𝖔𝖆𝖉 ", data="unload({})".format(shivam_sh1vam)
                     ),
@@ -424,8 +346,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             event.data_match.group(1).decode("UTF-8")
             fcix = [
-                custom.Button.inline("  𝕭𝖆𝖈𝖐 ", data="back({})".format(shivam)),
-                custom.Button.inline(" 𝕮𝖑𝖔𝖘𝖊 ", data="close"),
+                custom.Button.inline("  вα¢к ", data="back({})".format(shivam)),
+                custom.Button.inline(" ¢ℓσѕє ", data="close"),
                 custom.Button.inline(
                     " 𝖀𝖓𝖑𝖔𝖆𝖉 ", data="unload({})".format(shivam_sh1vam)
                 ),
@@ -439,10 +361,10 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
             try:
                 fcix = [
-                    custom.Button.inline(" 𝕭𝖆𝖈𝖐 ", data="back({})".format(shivam)),
-                    custom.Button.inline(" 𝕮𝖑𝖔𝖘𝖊 ", data="close"),
+                    custom.Button.inline(" вα¢к ", data="back({})".format(shivam)),
+                    custom.Button.inline(" ¢ℓσѕє ", data="close"),
                     custom.Button.inline(
-                        " 𝕷𝖔𝖆𝖉 ", data="load({})".format(shivam_sh1vam)
+                        " ℓσα∂ ", data="load({})".format(shivam_sh1vam)
                     ),
                 ]
                 remove_plugin(
@@ -463,9 +385,9 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             event.data_match.group(1).decode("UTF-8")
             fcix = [
-                custom.Button.inline("  𝕭𝖆𝖈𝖐 ", data="back({})".format(shivam)),
-                custom.Button.inline(" 𝕮𝖑𝖔𝖘𝖊 ", data="close"),
-                custom.Button.inline(" 𝕷𝖔𝖆𝖉 ", data="load({})".format(shivam_sh1vam)),
+                custom.Button.inline("  вα¢к ", data="back({})".format(shivam)),
+                custom.Button.inline(" ¢ℓσѕє ", data="close"),
+                custom.Button.inline(" ℓσα∂ ", data="load({})".format(shivam_sh1vam)),
             ]
             reply_pop_up_alert = "Noii Noii Dont Use This Sir ( ͡ಥ ͜ʖ ͡ಥ)"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)  # hehehe
@@ -478,13 +400,13 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 current_page_number = int(event.data_match.group(1).decode("UTF-8"))
                 buttons = paginate_help(current_page_number - 2, CMD_HELP, "helpme")
                 await event.edit(
-                    "`>>> Here Is The Main Menu of\n\n©BLACK LIGHTNING`",
+                    "`>>> Here Is The Main Menu of \nCurrently Loaded Plugins 478 \n\n©BLACK LIGHTNING`",
                     buttons=buttons,
                 )
             except:
                 buttons = paginate_help(0, CMD_HELP, "helpme")
                 await event.edit(
-                    "`>>> Here Is The Main Menu Of\n\n©BLACK LIGHTNING`",
+                    "`>>> Here Is The Main Menu of` \nCurrently Loaded Plugins 478 \n\n©BLACK LIGHTNING",
                     buttons=buttons,
                 )
         else:
@@ -520,11 +442,11 @@ def paginate_help(page_number, loaded_plugins, prefix):
         ] + [
             (
                 custom.Button.inline(
-                    "◃:✮𝙿𝚁𝙴𝚅.❃", data="{}_prev({})".format(prefix, modulo_page)
+                    "◃:✮ρяєν.❃", data="{}_prev({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline("⋇⋆𝙲𝙻✦𝚂𝙴⋆⋇", data="close"),
                 custom.Button.inline(
-                    "❃.𝙽𝙴𝚇𝚃✮:▹", data="{}_next({})".format(prefix, modulo_page)
+                    "❃.иєχт✮:▹", data="{}_next({})".format(prefix, modulo_page)
                 ),
             )
         ]
