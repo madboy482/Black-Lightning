@@ -16,7 +16,7 @@ from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
 if ALIVE_PIC is None:
-    PM_iMG = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
+    PM_iMG = "https://telegra.ph/file/5db4087d9de9b738ad0fc.mp4"
 else:
     PM_iMG = ALIVE_PIC
 
