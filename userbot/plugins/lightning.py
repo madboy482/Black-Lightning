@@ -1,17 +1,12 @@
-from math import ceil
-import asyncio
-import json
-import random
-import os,re
-import urllib
+import os
+import re
 
-import requests
 from telethon import Button, custom, events, functions
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
 from userbot.plugins import inlinestats
 from userbot.thunderconfig import Config
-from userbot.Config import  Var
+
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
     WARN_PIC = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
@@ -65,11 +60,6 @@ async def inline_handler(event):
         await event.answer([result])
 
 
-
-
-
-
-
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"terminator")))
 async def rip(event):
     if event.query.user_id == bot.uid:
@@ -96,7 +86,6 @@ async def rip(event):
         LOG_CHAT,
         f"Hello, A Noob [Nibba](tg://user?id={him_id}) Selected Probhited Option, Therefore Blocked.",
     )
-
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"whattalk")))
