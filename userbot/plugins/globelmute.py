@@ -31,7 +31,7 @@ async def startgmute(event):
         await event.reply(
             "**He has more immunity.**\nPerhaps I can't gmute him.\n\n"
             "**Tip:** He iz a Developer Of Black Lightning."
-        )   
+        )
         return
     if user_id in Config.SUPPORT_USERS:
         await event.reply(
