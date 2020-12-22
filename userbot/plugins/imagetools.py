@@ -1,5 +1,4 @@
 import os
-from shutil import rmtree
 
 import cv2
 import numpy as np
@@ -8,8 +7,6 @@ from PIL import Image
 from telegraph import upload_file
 from telethon.tl.types import MessageMediaPhoto
 
-from userbot import CMD_HELP
-from userbot.function import convert_to_image, crop_vid, runcmd
 from userbot.utils import admin_cmd, sudo_cmd
 
 sedpath = "./keinshin/"
@@ -195,5 +192,3 @@ async def lolmetrg(event):
     for files in (lolbruh, img):
         if files and os.path.exists(files):
             os.remove(files)
-
-
