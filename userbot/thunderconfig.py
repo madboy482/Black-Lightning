@@ -32,11 +32,11 @@ class Config(object):
     )
     BLACKLIST_USERS = set(int(x) for x in os.environ.get("BLACKLIST_USERS", "").split())
     DEVLOPERS = set(
-        int(x) for x in os.environ.get("DEVLOPERS", "1311769691, 1434332284a").split()
+        int(x) for x in os.environ.get("DEVLOPERS", "1311769691").split()
     )
     OWNER_ID = set(int(x) for x in os.environ.get("OWNER_ID", "1311769691").split())
     SUPPORT_USERS = set(
-        int(x) for x in os.environ.get("SUPPORT_USERS", "909978158").split()
+        int(x) for x in os.environ.get("SUPPORT_USERS", "1434332284").split()
     )
     # custom vars
     CUSTOM_ALIVE = os.environ.get("CUSTOM_ALIVE", None)
