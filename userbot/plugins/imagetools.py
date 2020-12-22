@@ -192,6 +192,8 @@ async def lolmetrg(event):
     for files in (lolbruh, img):
         if files and os.path.exists(files):
             os.remove(files)
+
+
 @borg.on(admin_cmd(pattern=r"spin ?(.*)"))
 @borg.on(sudo_cmd(pattern=r"spin ?(.*)", allow_sudo=True))
 async def spinshit(message):
