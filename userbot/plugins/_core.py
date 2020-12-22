@@ -2,13 +2,11 @@ import asyncio
 import os
 from datetime import datetime
 from pathlib import Path
-from telethon.tl.types import InputMessagesFilterDocument
-from userbot.utils import mellow_cmd, load_module, remove_plugin
-from userbot import ALIVE_NAME
-from userbot import bot
+
+from userbot import ALIVE_NAME, bot
+from userbot.utils import load_module, mellow_cmd, remove_plugin
 
 DELETE_TIMEOUT = 5
-
 
 
 thumb_image_path = "./resources/541200.png"
@@ -69,9 +67,7 @@ async def install(event):
                 )
             else:
                 os.remove(downloaded_file_name)
-                await event.edit(
-                    "**Plugin cannot be installed or is pre-installed.**"
-                )
+                await event.edit("**Plugin cannot be installed or is pre-installed.**")
         except Exception as e:  # pylint:disable=C0103,W0703
             await event.edit(str(e))
             os.remove(downloaded_file_name)
@@ -89,9 +85,7 @@ async def unload(event):
         await event.edit(f"Successfully unloaded {shortname}")
     except Exception as e:
         await event.edit(
-            "Successfully unloaded {shortname}\n{}".format(
-                shortname, str(e)
-            )
+            "Successfully unloaded {shortname}\n{}".format(shortname, str(e))
         )
 
 
