@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 
 from userbot import ALIVE_NAME, bot
-from userbot.utils import load_module, mellow_cmd, remove_plugin
+from userbot.utils import load_module, admin_cmd, remove_plugin
 
 DELETE_TIMEOUT = 5
 
@@ -14,7 +14,7 @@ thumb_image_path = "./resources/541200.png"
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Marshmellow"
 
 
-@bot.on(mellow_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
+@bot.on(admin_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
 async def send(event):
     if event.fwd_from:
         return
@@ -44,7 +44,7 @@ async def send(event):
         await edit_or_reply(event, "**404**: Write correct file name")
 
 
-@bot.on(mellow_cmd(pattern="install"))
+@bot.on(admin_cmd(pattern="install"))
 async def install(event):
     if event.fwd_from:
         return
@@ -75,7 +75,7 @@ async def install(event):
     await event.delete()
 
 
-@bot.on(mellow_cmd(pattern=r"unload (?P<shortname>\w+)$"))
+@bot.on(admin_cmd(pattern=r"unload (?P<shortname>\w+)$"))
 async def unload(event):
     if event.fwd_from:
         return
@@ -89,7 +89,7 @@ async def unload(event):
         )
 
 
-@bot.on(mellow_cmd(pattern=r"load (?P<shortname>\w+)$"))
+@bot.on(admin_cmd(pattern=r"load (?P<shortname>\w+)$"))
 async def load(event):
     if event.fwd_from:
         return
