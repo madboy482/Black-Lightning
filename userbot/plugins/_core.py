@@ -2,16 +2,21 @@ import asyncio
 import os
 from datetime import datetime
 from pathlib import Path
-
-from userbot import ALIVE_NAME, bot
-from userbot.utils import admin_cmd, edit_or_reply, load_module, remove_plugin
+from telethon.tl.types import InputMessagesFilterDocument
+from userbot.utils import mellow_cmd, load_module, remove_plugin
+from userbot import ALIVE_NAME
+from userbot import bot
 
 DELETE_TIMEOUT = 5
+
+
+
 thumb_image_path = "./resources/541200.png"
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
+
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Marshmellow"
 
 
-@borg.on(admin_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
+@bot.on(mellow_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
 async def send(event):
     if event.fwd_from:
         return
@@ -33,15 +38,15 @@ async def send(event):
         end = datetime.now()
         time_taken_in_ms = (end - start).seconds
         await pro.edit(
-            f"**==> Plugin name:** `{input_str}`\n**==> Uploaded in {time_taken_in_ms} seconds only.**\n**==> Uploaded by:Black Lightning's** [{DEFAULTUSER}](tg://user?id={hmm})\n"
+            f"**==> Plugin name:** `{input_str}`\n**==> Uploaded in {time_taken_in_ms} seconds only.**\n**==> Uploaded by:** [{DEFAULTUSER}](tg://user?id={hmm})\n"
         )
         await asyncio.sleep(DELETE_TIMEOUT)
         await event.delete()
     else:
-        await edit_or_reply(event, "**404**: __File Not Found__")
+        await edit_or_reply(event, "**404**: Write correct file name")
 
 
-@borg.on(admin_cmd(pattern="install"))
+@bot.on(mellow_cmd(pattern="install"))
 async def install(event):
     if event.fwd_from:
         return
@@ -58,14 +63,14 @@ async def install(event):
                 shortname = path1.stem
                 load_module(shortname.replace(".py", ""))
                 await event.edit(
-                    "Lightning  successfully installed this plguin\n @blacklightningot `{}`".format(
+                    "`{}` successfully installed\nJoin @marshmellowuserbot".format(
                         os.path.basename(downloaded_file_name)
                     )
                 )
             else:
                 os.remove(downloaded_file_name)
                 await event.edit(
-                    "**Error!**\nPlugin cannot be installed!\n Or may have been pre-installed."
+                    "**Plugin cannot be installed or is pre-installed.**"
                 )
         except Exception as e:  # pylint:disable=C0103,W0703
             await event.edit(str(e))
@@ -74,7 +79,7 @@ async def install(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern=r"unload (?P<shortname>\w+)$"))
+@bot.on(mellow_cmd(pattern=r"unload (?P<shortname>\w+)$"))
 async def unload(event):
     if event.fwd_from:
         return
@@ -84,11 +89,13 @@ async def unload(event):
         await event.edit(f"Successfully unloaded {shortname}")
     except Exception as e:
         await event.edit(
-            "Successfully unloaded {shortname}\n{}".format(shortname, str(e))
+            "Successfully unloaded {shortname}\n{}".format(
+                shortname, str(e)
+            )
         )
 
 
-@borg.on(admin_cmd(pattern=r"load (?P<shortname>\w+)$"))
+@bot.on(mellow_cmd(pattern=r"load (?P<shortname>\w+)$"))
 async def load(event):
     if event.fwd_from:
         return
@@ -102,5 +109,5 @@ async def load(event):
         await event.edit(f"Successfully loaded {shortname}")
     except Exception as e:
         await event.edit(
-            f"Sorry, could not load {shortname} because of the following error.\n{str(e)}"
+            f"Sorry,{shortname} can not be loaded\nbecause of the following error.\n{str(e)}"
         )
