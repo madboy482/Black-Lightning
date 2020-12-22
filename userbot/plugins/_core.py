@@ -6,6 +6,7 @@ from pathlib import Path
 from userbot import ALIVE_NAME, bot
 from userbot.utils import admin_cmd, load_module, remove_plugin
 
+
 DELETE_TIMEOUT = 5
 
 
@@ -14,35 +15,29 @@ thumb_image_path = "./resources/541200.png"
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
 
 
-@bot.on(admin_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
+
+@bot.on(admin_cmd(pattern=r"send (?P<shortname>\w+)$")) 
 async def send(event):
     if event.fwd_from:
         return
-    hmm = bot.uid
     message_id = event.message.id
-    thumb = thumb_image_path
     input_str = event.pattern_match.group(1)
+    start = datetime.now()
     the_plugin_file = "./userbot/plugins/{}.py".format(input_str)
-    if os.path.exists(the_plugin_file):
-        start = datetime.now()
-        pro = await event.client.send_file(
-            event.chat_id,
-            the_plugin_file,
-            force_document=True,
-            allow_cache=False,
-            thumb=thumb,
-            reply_to=message_id,
-        )
-        end = datetime.now()
-        time_taken_in_ms = (end - start).seconds
-        await pro.edit(
-            f"**==> Plugin name:** `{input_str}`\n**==> Uploaded in {time_taken_in_ms} seconds only.**\n**==> Uploaded by:** [{DEFAULTUSER}](tg://user?id={hmm})\n"
-        )
-        await asyncio.sleep(DELETE_TIMEOUT)
-        await event.delete()
-    else:
-        await edit_or_reply(event, "**404**: Write correct file name")
-
+    end = datetime.now()
+    (end - start).seconds
+    men = f"Plugin Name - {input_str}.py \nUploaded By Black Lightning Userbot"
+    await event.client.send_file(  # pylint:disable=E0602
+        event.chat_id,
+        the_plugin_file,
+        thumb=thumb_image_path,
+        caption=men,
+        force_document=True,
+        allow_cache=False,
+        reply_to=message_id,
+    )
+    await asyncio.sleep(5)
+    await event.delete()
 
 @bot.on(admin_cmd(pattern="install"))
 async def install(event):
