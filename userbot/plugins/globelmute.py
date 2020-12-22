@@ -21,10 +21,10 @@ async def startgmute(event):
     if user_id == (await borg.get_me()).id:
         await event.reply(r"LoL. Why would I Gmute u. You are my owner")
         return
-    if user_id in Config.SUDO_USERS:
+    if user_id in Config.BEST_USERS:
         await event.reply(
             "**He has more power than me.**\nPerhaps I can't gmute him.\n\n"
-            "**Tip:** He iz a sudo user."
+            "**Tip:** He iz my Developer Friend."
         )
         return
     if user_id in Config.WHITELIST_USERS:
@@ -42,7 +42,7 @@ async def startgmute(event):
     if user_id in Config.DEVLOPERS:
         await event.reply(
             "**He Is The Developer My God.**\nPerhaps I can't gmute him.\n\n"
-            "**Tip:** He iz a devloper."
+            "**Tip:** He iz The Developer Of Black Lightning ."
         )
         return
     elif event.is_private:
