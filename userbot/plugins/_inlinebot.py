@@ -84,7 +84,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             rev_text = query[::-1]
             dc = paginate_help(0, CMD_LIST, "helpme")
             result = builder.article(
-                "© Dark Cobra Userbot Help",
+                "© Black Lightning Userbot Help",
                 text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_LIST)),
                 buttons=dc,
                 link_preview=False,
