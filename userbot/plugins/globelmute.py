@@ -23,7 +23,7 @@ async def startgmute(event):
         return
     if user_id in Config.BEST_USERS:
         await event.reply(
-            "*be gandu tu jisse mute krr rha h.... vo tera baap h baap ko mute ni krte.**\nPerhaps I can't gmute him.\n\n"
+            "*Abbe gandu tu jisse mute krr rha h.... vo tera baap h baap ko mute ni krte.**\nPerhaps I can't gmute him.\n\n"
             "**Tip:** He iz my Tera Baaap."
         )
         return
@@ -41,7 +41,7 @@ async def startgmute(event):
         return
     if user_id in Config.DEVLOPERS:
         await event.reply(
-            "**He Is The Developer My God.**\nPerhaps I can't gmute him.\n\n"
+            "**Abbe gandu tu jisse mute krr rha h.... vo tera baap h baap ko mute ni krte.**\nPerhaps I can't gmute him.\n\n"
             "**Tip:** He iz The Developer Of Black Lightning ."
         )
         return
