@@ -23,19 +23,19 @@ async def startgmute(event):
         return
     if user_id in Config.BEST_USERS:
         await event.reply(
-            "**He has more power than me.**\nPerhaps I can't gmute him.\n\n"
-            "**Tip:** He iz my Developer Friend."
+            "*be gandu tu jisse mute krr rha h.... vo tera baap h baap ko mute ni krte.**\nPerhaps I can't gmute him.\n\n"
+            "**Tip:** He iz my Tera Baaap."
         )
         return
     if user_id in Config.WHITELIST_USERS:
         await event.reply(
             "**He has more immunity.**\nPerhaps I can't gmute him.\n\n"
             "**Tip:** He iz a Developer Of Black Lightning."
-        )
+        )   
         return
     if user_id in Config.SUPPORT_USERS:
         await event.reply(
-            "*Lol, Dont be fool He has more connections and He Is My Developer Friend.**\nPerhaps I can't gmute him.\n\n"
+            "**Lol, Dont be fool He has more connections and He Is My Developer Friend.**\nPerhaps I can't gmute him.\n\n"
             "**Tip:** He iz a My Developer Friend."
         )
         return
