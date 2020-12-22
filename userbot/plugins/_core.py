@@ -11,7 +11,7 @@ DELETE_TIMEOUT = 5
 
 thumb_image_path = "./resources/541200.png"
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Marshmellow"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
 
 
 @bot.on(admin_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
