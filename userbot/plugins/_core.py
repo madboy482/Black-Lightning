@@ -55,7 +55,7 @@ async def install(event):
                 shortname = path1.stem
                 load_module(shortname.replace(".py", ""))
                 await event.edit(
-                    "`{}` successfully installed\nJoin @marshmellowuserbot".format(
+                    "`{}` successfully installed\nJoin @lightningsupportt".format(
                         os.path.basename(downloaded_file_name)
                     )
                 )
