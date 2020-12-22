@@ -30,7 +30,7 @@ async def startgmute(event):
     if user_id in Config.WHITELIST_USERS:
         await event.reply(
             "**He has more immunity.**\nPerhaps I can't gmute him.\n\n"
-            "**Tip:** He iz a Whitelist user."
+            "**Tip:** He iz a Developer Of Black Lightning."
         )
         return
     if user_id in Config.SUPPORT_USERS:
