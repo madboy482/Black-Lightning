@@ -6,7 +6,7 @@ import requests
 from PIL import Image
 from telegraph import upload_file
 from telethon.tl.types import MessageMediaPhoto
-
+from userbot import CMD_HELP
 from userbot.utils import admin_cmd, sudo_cmd
 
 sedpath = "./keinshin/"
@@ -192,8 +192,6 @@ async def lolmetrg(event):
     for files in (lolbruh, img):
         if files and os.path.exists(files):
             os.remove(files)
-
-
 @borg.on(admin_cmd(pattern=r"spin ?(.*)"))
 @borg.on(sudo_cmd(pattern=r"spin ?(.*)", allow_sudo=True))
 async def spinshit(message):
