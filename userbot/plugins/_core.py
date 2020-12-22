@@ -6,7 +6,6 @@ from pathlib import Path
 from userbot import ALIVE_NAME, bot
 from userbot.utils import admin_cmd, load_module, remove_plugin
 
-
 DELETE_TIMEOUT = 5
 
 
@@ -15,8 +14,7 @@ thumb_image_path = "./resources/541200.png"
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
 
 
-
-@bot.on(admin_cmd(pattern=r"send (?P<shortname>\w+)$")) 
+@bot.on(admin_cmd(pattern=r"send (?P<shortname>\w+)$"))
 async def send(event):
     if event.fwd_from:
         return
@@ -38,6 +36,7 @@ async def send(event):
     )
     await asyncio.sleep(5)
     await event.delete()
+
 
 @bot.on(admin_cmd(pattern="install"))
 async def install(event):
