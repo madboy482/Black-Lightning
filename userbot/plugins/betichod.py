@@ -1,18 +1,19 @@
-import asyncio
-import html
 import os
-import re
-import urllib
-from math import ceil
 import random
-from telethon.tl.custom import Button 
-from telethon import events, errors, custom, functions
+import re
+from math import ceil
+
+from telethon import custom, events, functions
+from telethon.tl.custom import Button
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, bot
-from telethon.tl.functions.users import GetFullUserRequest
-
 from userbot.plugins import inlinestats
 from userbot.thunderconfig import Config
+
+# ABEE O KANGAR  BACK OPEN CLSE BTN KANG KIYA TO YE LONE CHIPKA DENA AUR GLOBALS K BINA NAHI CHALAGA aur global 5 gaja diff name and manipulation se imported hai
+# Making The Back Command Was The Toughest Work #by @Shivam_Patel,@The_Siddharth_Nigam,@danish_00,@ProgrammingError also v changed Pop up or inline help to text
+from userbot.utils import load_module, remove_plugin
+
 # Made With Efforts By Team DC and If Are Using This Give Credits TO Them
 
 # DARK COBRAOriginal 🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍
@@ -41,8 +42,6 @@ from userbot.thunderconfig import Config
 # A stark bhai chori karna aaya ho kya friday me ek bar back btn kang kar k man nahi bhara
 # Agar stark nahi ho to kon hai be tu jo bhi hai kang karna he aaya hai mera back , open btn so get lost
 # aur  unload load back close open kang kara ya idea bhi le to credit dena pehli 6 line nahi to bhut bura hoga tumara sath
-
-
 
 
 # BlackLightning Original 🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍
@@ -57,13 +56,6 @@ from userbot.thunderconfig import Config
 # Agar stark nahi ho to kon hai be tu jo bhi hai kang karna he aaya hai mera back , open btn so get lost
 # aur  unload load back close open kang kara ya idea bhi le to credit dena pehli 6 line nahi to bhut bura hoga tumara sath
 
-
-
-
-
-# ABEE O KANGAR  BACK OPEN CLSE BTN KANG KIYA TO YE LONE CHIPKA DENA AUR GLOBALS K BINA NAHI CHALAGA aur global 5 gaja diff name and manipulation se imported hai
-# Making The Back Command Was The Toughest Work #by @Shivam_Patel,@The_Siddharth_Nigam,@danish_00,@ProgrammingError also v changed Pop up or inline help to text
-from userbot.utils import load_module, remove_plugin
 
 # Making The Back Command Was The Toughest Work #by @Shivam_Patel,@The_Siddharth_Nigam,@danish_00,@ProgrammingError also v changed Pop up or inline help to text
 # A stark bhai chori karna aaya ho kya friday me ek bar back btn kang kar k man nahi bhara
@@ -439,7 +431,9 @@ async def rip(event):
         return
     await event.get_chat()
     him_id = event.query.user_id
-    await event.edit(f"Oh So You Wanna Do Casual Talk With {DEFAULTUSER}. \n **Btw Approved** ✔️")
+    await event.edit(
+        f"Oh So You Wanna Do Casual Talk With {DEFAULTUSER}. \n **Btw Approved** ✔️"
+    )
     text2 = "Ok. Please Wait Until My Master Approves. Don't Spam Or Try Anything Stupid. \nThank You For Contacting Me."
     await borg.send_message(event.query.user_id, text2)
     await tgbot.send_message(
