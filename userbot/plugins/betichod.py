@@ -43,8 +43,7 @@ from userbot.utils import load_module, remove_plugin
 # Agar stark nahi ho to kon hai be tu jo bhi hai kang karna he aaya hai mera back , open btn so get lost
 # aur  unload load back close open kang kara ya idea bhi le to credit dena pehli 6 line nahi to bhut bura hoga tumara sath
 
-
-# BlackLightning Original 🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍
+# Dark Cobra Original 🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍
 # kangers Keep Credits 😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒
 # Made by Dc-Team
 # Don't remove these lines u fool ,,,
