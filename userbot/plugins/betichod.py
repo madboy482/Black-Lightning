@@ -352,7 +352,6 @@ LOG_CHAT = Config.PRIVATE_GROUP_ID
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black"
 
 
-  
 #    TeleBot - UserBot
 #    Copyright (C) 2020 TeleBot
 
@@ -373,9 +372,9 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black"
 from telethon import Button
 from telethon.tl.functions.users import GetFullUserRequest
 
-from userbot import  CUSTOM_PMPERMIT, bot
-from userbot.plugins import inlinestats
+from userbot import CUSTOM_PMPERMIT, bot
 from userbot.Config import Var
+from userbot.plugins import inlinestats
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 TELEPIC = (
@@ -473,7 +472,9 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 text=f"ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ - Telegram Userbot.",
                 buttons=[
                     [
-                        Button.url("Repo", "https://github.com/KeinShin/Black-Lightning"),
+                        Button.url(
+                            "Repo", "https://github.com/KeinShin/Black-Lightning"
+                        ),
                         Button.url(
                             "Deploy",
                             "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning&template=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning",
@@ -490,7 +491,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     [custom.Button.url("Creator👨‍🦱", "https://t.me/krish1303y")],
                     [
                         custom.Button.url(
-                            "👨‍💻Source Code‍💻", "https://github.com/KeinShin/Black-Lightning"
+                            "👨‍💻Source Code‍💻",
+                            "https://github.com/KeinShin/Black-Lightning",
                         ),
                         custom.Button.url(
                             "Deploy 🌀",
@@ -499,7 +501,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     ],
                     [
                         custom.Button.url(
-                            "Updates and Support Group↗️", "https://t.me/lightningsupport"
+                            "Updates and Support Group↗️",
+                            "https://t.me/lightningsupport",
                         )
                     ],
                 ],
@@ -519,9 +522,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = (
-                "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ) "
-            )
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ) "
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pmclick")))
@@ -616,13 +617,10 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 f"[{first_name}](tg://user?id={ok}) tried to **spam** your inbox.\nHenceforth, **blocked**",
             )
 
-
-
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"statcheck")))
     async def rip(event):
         text = inlinestats
         await event.answer(text, alert=True)
-
 
     async def on_plug_in_callback_query_handler(event):
         if event.query.user_id == bot.uid:  # pylint:disable=E0602
@@ -682,12 +680,9 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
-
-
 async def userinfo(event):
     target = await event.client(GetFullUserRequest(event.query.user_id))
     first_name = html.escape(target.user.first_name)
     if first_name is not None:
         first_name = first_name.replace("\u2060", "")
     return first_name
-   
