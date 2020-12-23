@@ -1,3 +1,5 @@
+import asyncio
+import html
 import os
 import random
 import re
@@ -217,7 +219,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     event.data_match.group(1).decode("UTF-8")
                 )  # kyu sir kang krne m musil aa rhi h kya ... Bolo help kr du kya 😂😂😂
                 await event.edit(
-                    "`Your BlackLightning Has Successfully loaded` >>>"
+                    "`Your Black Lightning Has Successfully loaded` >>>"
                     + str(event.data_match.group(1).decode("UTF-8")),
                     buttons=fcix,
                 )
@@ -350,111 +352,342 @@ LOG_CHAT = Config.PRIVATE_GROUP_ID
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black"
 
 
-@tgbot.on(events.InlineQuery)
-async def inline_handler(event):
-    builder = event.builder
-    result = None
-    query = event.text
-    if event.query.user_id == bot.uid and query.startswith("Userbot"):
-        rev_text = query[::-1]
-        buttons = paginate_help(0, CMD_HELP, "helpme")
-        result = builder.article(
-            "© Userbot Help",
-            text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_LIST)),
-            buttons=buttons,
-            link_preview=False,
+  
+#    TeleBot - UserBot
+#    Copyright (C) 2020 TeleBot
+
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+from telethon import Button
+from telethon.tl.functions.users import GetFullUserRequest
+
+from userbot import  CUSTOM_PMPERMIT, bot
+from userbot.plugins import inlinestats
+from userbot.Config import Var
+
+PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
+TELEPIC = (
+    PMPERMIT_PIC
+    if PMPERMIT_PIC
+    else "https://telegra.ph/file/92cfbab6598148837c2e4.jpg"
+)
+PM_WARNS = {}
+PREV_REPLY_MESSAGE = {}
+myid = bot.uid
+mybot = Var.TG_BOT_USER_NAME_BF_HER
+if mybot.startswith("@"):
+    botname = mybot
+else:
+    botname = f"@{mybot}"
+LOG_GP = Var.PRIVATE_GROUP_ID
+MESAG = (
+    str(CUSTOM_PMPERMIT)
+    if CUSTOM_PMPERMIT
+    else "`ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ PM security! Please wait for me to approve you. 😊"
+)
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ User"
+USER_BOT_WARN_ZERO = "`I had warned you not to spam. Now you have been blocked and reported until further notice.`\n\n**GoodBye!** "
+
+if Var.LOAD_MYBOT == "True":
+    USER_BOT_NO_WARN = (
+        "**PM Security of [{}](tg://user?id={})**\n\n"
+        "{}\n\n"
+        "For immediate help, PM me via {}"
+        "\nPlease choose why you are here, from the available options\n\n".format(
+            DEFAULTUSER, myid, MESAG, botname
         )
-        await event.answer([result])
-    elif event.query.user_id == bot.uid and query == "stats":
-        result = builder.article(
-            title="Stats",
-            text=f"**Showing Stats For {DEFAULTUSER}'s Lightning** \nNote --> Only Owner Can Check This \n(C) @lightningsupport",
-            buttons=[
-                [custom.Button.inline("Show Stats ?", data="terminator")],
-                [Button.url("Repo 🇮🇳", "https://github.com/KeinShin/Black-Lightning")],
-                [Button.url("Join Channel ❤️", "t.me/lightningsupport")],
-            ],
+    )
+elif Var.LOAD_MYBOT == "False":
+    USER_BOT_NO_WARN = (
+        "**PM Security of [{}](tg://user?id={})**\n\n"
+        "{}\n"
+        "\nPlease choose why you are here, from the available options\n".format(
+            DEFAULTUSER, myid, MESAG
         )
-        await event.answer([result])
-    elif event.query.user_id == bot.uid and query.startswith("**Hello"):
-        result = builder.photo(
-            file=WARN_PIC,
-            text=query,
-            buttons=[
-                [custom.Button.inline("Spamming", data="dontspamnigga")],
-                [
-                    custom.Button.inline(
-                        "Casual Talk",
-                        data="whattalk",
-                    )
+    )
+
+CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "⨵")
+HELP_ROWS = int(os.environ.get("HELP_ROWS", 5))
+HELP_COLOUMNS = int(os.environ.get("HELP_COLOUMNS", 3))
+
+if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
+
+    @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
+    async def inline_handler(event):
+        builder = event.builder
+        result = None
+        query = event.text
+        if event.query.user_id == bot.uid and query.startswith("`Userbot"):
+            rev_text = query[::-1]
+            buttons = paginate_help(0, CMD_LIST, "helpme")
+            result = builder.article(
+                "© ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ Help",
+                text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_LIST)),
+                buttons=buttons,
+                link_preview=False,
+            )
+        elif event.query.user_id == bot.uid and query == "stats":
+            result = builder.article(
+                title="Stats",
+                text=f"**ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ Stats For [{DEFAULTUSER}](tg://user?id={myid})**\n\n__Bot is functioning normally, master!__\n\n(c) @lightningsupport",
+                buttons=[
+                    [custom.Button.inline("Stats", data="statcheck")],
+                    [Button.url("Repo", "https://github.com/KeinShin/Black-Lightning")],
+                    [
+                        Button.url(
+                            "Deploy Now!",
+                            "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning&template=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning",
+                        )
+                    ],
                 ],
-                [custom.Button.inline("Requesting", data="askme")],
-            ],
-        )
+            )
+        elif event.query.user_id == bot.uid and query.startswith("**PM"):
+            TELEBT = USER_BOT_NO_WARN.format(DEFAULTUSER, myid, MESAG)
+            result = builder.photo(
+                file=TELEPIC,
+                text=TELEBT,
+                buttons=[
+                    [
+                        custom.Button.inline("Request ", data="req"),
+                        custom.Button.inline("Chat 💭", data="chat"),
+                    ],
+                    [custom.Button.inline("To spam 🚫", data="heheboi")],
+                    [custom.Button.inline("What is this ❓", data="pmclick")],
+                ],
+            )
+        elif event.query.user_id == bot.uid and query == "repo":
+            result = builder.article(
+                title="Repository",
+                text=f"ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ - Telegram Userbot.",
+                buttons=[
+                    [
+                        Button.url("Repo", "https://github.com/KeinShin/Black-Lightning"),
+                        Button.url(
+                            "Deploy",
+                            "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning&template=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning",
+                        ),
+                    ],
+                    [Button.url("Support", "https://t.me/lightningsupport")],
+                ],
+            )
+        else:
+            result = builder.article(
+                "Source Code",
+                text="**Welcome to ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ**\n\n`Click below buttons for more`",
+                buttons=[
+                    [custom.Button.url("Creator👨‍🦱", "https://t.me/krish1303y")],
+                    [
+                        custom.Button.url(
+                            "👨‍💻Source Code‍💻", "https://github.com/KeinShin/Black-Lightning"
+                        ),
+                        custom.Button.url(
+                            "Deploy 🌀",
+                            "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning&template=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning",
+                        ),
+                    ],
+                    [
+                        custom.Button.url(
+                            "Updates and Support Group↗️", "https://t.me/lightningsupport"
+                        )
+                    ],
+                ],
+                link_preview=False,
+            )
         await event.answer([result] if result else None)
 
+    @tgbot.on(
+        events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+            data=re.compile(rb"helpme_next\((.+?)\)")
+        )
+    )
+    async def on_plug_in_callback_query_handler(event):
+        if event.query.user_id == bot.uid:  # pylint:disable=E0602
+            current_page_number = int(event.data_match.group(1).decode("UTF-8"))
+            buttons = paginate_help(current_page_number + 1, CMD_LIST, "helpme")
+            # https://t.me/TelethonChat/115200
+            await event.edit(buttons=buttons)
+        else:
+            reply_pop_up_alert = (
+                "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ) "
+            )
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"terminator")))
-async def rip(event):
-    if event.query.user_id == bot.uid:
+    @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pmclick")))
+    async def on_pm_click(event):
+        if event.query.user_id == bot.uid:
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ) "
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+        else:
+            await event.edit(
+                f"This is the PM Security for {DEFAULTUSER} to keep away spammers and retards.\n\nProtected by [ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ](t.me/lightningsupport)"
+            )
+
+    @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"reopen")))
+    async def megic(event):
+        if event.query.user_id == bot.uid:
+            buttons = paginate_help(0, CMD_LIST, "helpme")
+            await event.edit("Menu Re-opened", buttons=buttons)
+        else:
+            reply_pop_up_alert = "This bot ain't for u!!"
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+    @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"req")))
+    async def on_pm_click(event):
+        if event.query.user_id == bot.uid:
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ) "
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+        else:
+            await event.edit(
+                f"Okay, `{DEFAULTUSER}` would get back to you soon!\nTill then please **wait patienly and don't spam here.**"
+            )
+            target = await event.client(GetFullUserRequest(event.query.user_id))
+            first_name = html.escape(target.user.first_name)
+            ok = event.query.user_id
+            if first_name is not None:
+                first_name = first_name.replace("\u2060", "")
+            tosend = f"Hey {DEFAULTUSER}, [{first_name}](tg://user?id={ok}) is **requesting** something in PM!"
+            await tgbot.send_message(LOG_GP, tosend)
+
+    @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"chat")))
+    async def on_pm_click(event):
+        event.query.user_id
+        if event.query.user_id == bot.uid:
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ) "
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+        else:
+            await event.edit(
+                f"Oho, you want to chat...\nPlease wait and see if {DEFAULTUSER} is in a mood to chat, if yes, he will be replying soon!\nTill then, **do not spam.**"
+            )
+            target = await event.client(GetFullUserRequest(event.query.user_id))
+            ok = event.query.user_id
+            first_name = html.escape(target.user.first_name)
+            if first_name is not None:
+                first_name = first_name.replace("\u2060", "")
+            tosend = f"Hey {DEFAULTUSER}, [{first_name}](tg://user?id={ok}) wants to PM you for **Random Chatting**!"
+            await tgbot.send_message(LOG_GP, tosend)
+
+    @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"plshelpme")))
+    async def on_pm_click(event):
+        if event.query.user_id == bot.uid:
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ) "
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+        else:
+            await event.edit(
+                f"Oh!\n{DEFAULTUSER} would be glad to help you out...\nPlease leave your message here **in a single line** and wait till I respond 😊"
+            )
+            target = await event.client(GetFullUserRequest(event.query.user_id))
+            first_name = html.escape(target.user.first_name)
+            ok = event.query.user_id
+            if first_name is not None:
+                first_name = first_name.replace("\u2060", "")
+            tosend = f"Hey {DEFAULTUSER}, [{first_name}](tg://user?id={ok}) wants to PM you for **help**!"
+            await tgbot.send_message(LOG_GP, tosend)
+
+    @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"heheboi")))
+    async def on_pm_click(event):
+        if event.query.user_id == bot.uid:
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ) "
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+        else:
+            await event.edit(
+                f"Oh, so you are here to spam 😤\nFuck Off and Dont Come .\n\n**Btw Your message has been read and successfully ignored**."
+            )
+            await borg(functions.contacts.BlockRequest(event.query.user_id))
+            target = await event.client(GetFullUserRequest(event.query.user_id))
+            ok = event.query.user_id
+            first_name = html.escape(target.user.first_name)
+            if first_name is not None:
+                first_name = first_name.replace("\u2060", "")
+            first_name = html.escape(target.user.first_name)
+            await tgbot.send_message(
+                LOG_GP,
+                f"[{first_name}](tg://user?id={ok}) tried to **spam** your inbox.\nHenceforth, **blocked**",
+            )
+
+
+
+    @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"statcheck")))
+    async def rip(event):
         text = inlinestats
         await event.answer(text, alert=True)
-    else:
-        txt = "Noii Noii!!!! Dont Use This Sir ( ͡ಥ ͜ʖ ͡ಥ)"
-        await event.answer(txt, alert=True)
 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"dontspamnigga")))
-async def rip(event):
-    if event.query.user_id == bot.uid:
-        lighto = "Noii Noii!!!! Dont Use This Sir ( ͡ಥ ͜ʖ ͡ಥ)."
-        await event.answer(lighto, cache_time=0, alert=True)
-        return
-    await event.get_chat()
-    him_id = event.query.user_id
-    text1 = "You Have Chosed A Probhited Option. Therefore, You Have Been Blocked By UserBot. "
-    await event.edit("Fuck you Dont Try To Be Samrt \n**Btw Choice Not Accepted** ❌")
-    await borg.send_message(event.query.user_id, text1)
-    await borg(functions.contacts.BlockRequest(event.query.user_id))
-    await tgbot.send_message(
-        LOG_CHAT,
-        f"Hello, A Noob [Nibba](tg://user?id={him_id}) Selected Probhited Option, Therefore Blocked.",
+    async def on_plug_in_callback_query_handler(event):
+        if event.query.user_id == bot.uid:  # pylint:disable=E0602
+            current_page_number = int(event.data_match.group(1).decode("UTF-8"))
+            buttons = paginate_help(
+                current_page_number - 1, CMD_LIST, "helpme"  # pylint:disable=E0602
+            )
+            # https://t.me/TelethonChat/115200
+            await event.edit(buttons=buttons)
+        else:
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ) "
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+    @tgbot.on(
+        events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+            data=re.compile(b"us_plugin_(.*)")
+        )
     )
+    async def on_plug_in_callback_query_handler(event):
+        if event.query.user_id == bot.uid:
+            plugin_name = event.data_match.group(1).decode("UTF-8")
+            help_string = ""
+            help_string += f"Commands Available in {plugin_name} - \n"
+            try:
+                if plugin_name in CMD_HELP:
+                    for i in CMD_HELP[plugin_name]:
+                        help_string += i
+                    help_string += "\n"
+                else:
+                    for i in CMD_LIST[plugin_name]:
+                        help_string += i
+                        help_string += "\n"
+            except BaseException:
+                pass
+            if help_string == "":
+                reply_pop_up_alert = "{} has no detailed info.\nUse .help {}".format(
+                    plugin_name, plugin_name
+                )
+            else:
+                reply_pop_up_alert = help_string
+            reply_pop_up_alert += "\n Use .unload {} to remove this plugin\n\
+                © Black Lightning".format(
+                plugin_name
+            )
+            if len(help_string) >= 140:
+                oops = "List too long!\nCheck your saved messages!"
+                await event.answer(oops, cache_time=0, alert=True)
+                help_string += "\n\nThis will be auto-deleted in 1 minute!"
+                if bot is not None and event.query.user_id == bot.uid:
+                    ok = await bot.send_message("me", help_string)
+                    await asyncio.sleep(60)
+                    await ok.delete()
+            else:
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+        else:
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ) "
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"whattalk")))
-async def rip(event):
-    if event.query.user_id == bot.uid:
-        lighto = "Noii Noii!!!! Dont Use This Sir ( ͡ಥ ͜ʖ ͡ಥ)."
-        await event.answer(lighto, cache_time=0, alert=True)
-        return
-    await event.get_chat()
-    him_id = event.query.user_id
-    await event.edit(
-        f"Oh So You Wanna Do Casual Talk With {DEFAULTUSER}. \n **Btw Approved** ✔️"
-    )
-    text2 = "Ok. Please Wait Until My Master Approves. Don't Spam Or Try Anything Stupid. \nThank You For Contacting Me."
-    await borg.send_message(event.query.user_id, text2)
-    await tgbot.send_message(
-        LOG_CHAT,
-        message=f"Hello, A [New User](tg://user?id={him_id}). Wants To Talk With You.",
-        buttons=[Button.url("Contact Him", f"tg://user?id={him_id}")],
-    )
 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"askme")))
-async def rip(event):
-    if event.query.user_id == bot.uid:
-        lighto = "Noii Noii!!!! Dont Use This Sir ( ͡ಥ ͜ʖ ͡ಥ)."
-        await event.answer(lighto, cache_time=0, alert=True)
-        return
-    await event.get_chat()
-    him_id = event.query.user_id
-    await event.edit(f"Ok {DEFAULTUSER} Will Respond To You 👍👍")
-    text3 = "He Is Very Helpfull, Pls Wait. You can Ask After Master Approves You. Kindly, Wait."
-    await borg.send_message(event.query.user_id, text3)
-    await tgbot.send_message(
-        LOG_CHAT,
-        message=f"Hello, A [New User](tg://user?id={him_id}). Wants To Ask You Something.",
-        buttons=[Button.url("Contact Him", f"tg://user?id={him_id}")],
-    )
+async def userinfo(event):
+    target = await event.client(GetFullUserRequest(event.query.user_id))
+    first_name = html.escape(target.user.first_name)
+    if first_name is not None:
+        first_name = first_name.replace("\u2060", "")
+    return first_name
+   
