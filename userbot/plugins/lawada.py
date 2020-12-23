@@ -342,7 +342,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             else:
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
-            reply_pop_up_alert = "Please get your own Userbot, and don't use mine!"
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ) ""
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
