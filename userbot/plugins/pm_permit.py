@@ -39,7 +39,25 @@ USER_BOT_NO_WARN = (
 )
 
 if Var.PRIVATE_GROUP_ID is not None:
+# Approve outgoing
 
+
+
+
+  @bot.on(events.NewMessage(outgoing=True))
+  async def you_dm_niqq(event):
+    if event.fwd_from:
+        return
+    chat = await event.get_chat()
+    if event.is_private:
+        if not pmpermit_sql.is_approved(chat.id):
+            if not chat.id in PM_WARNS:
+                pmpermit_sql.approve(chat.id, "outgoing")
+                bruh = "__Auto-approved bcuz outgoing 🚶__"
+                rko = await borg.send_message(event.chat_id, bruh)
+                await asyncio.sleep(3)
+                await rko.delete()
+                
     @borg.on(admin_cmd(pattern="(a|approve)"))
     async def block(event):
         if event.fwd_from:
@@ -230,19 +248,4 @@ async def hehehe(event):
             )
 
 
-# Approve outgoing
 
-
-@bot.on(events.NewMessage(outgoing=True))
-async def you_dm_niqq(event):
-    if event.fwd_from:
-        return
-    chat = await event.get_chat()
-    if event.is_private:
-        if not pmpermit_sql.is_approved(chat.id):
-            if not chat.id in PM_WARNS:
-                pmpermit_sql.approve(chat.id, "outgoing")
-                bruh = "__Auto-approved bcuz outgoing 🚶__"
-                rko = await borg.send_message(event.chat_id, bruh)
-                await asyncio.sleep(3)
-                await rko.delete()
