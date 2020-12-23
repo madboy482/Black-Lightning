@@ -16,8 +16,8 @@
 
 import os
 
-from userbotlightningsupport import ALIVE_NAME, CMD_HELP, CMD_HNDLR, CMD_LIST
-from userbotlightningsupport.Config import Config
+from userbot import ALIVE_NAME, CMD_HELP, CMD_HNDLR, CMD_LIST
+from userbot.Config import Config
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning User"
 CMD_HNDLR = Config.CMD_HNDLR
