@@ -1,4 +1,3 @@
-  
 #    TeleBot - UserBot
 #    Copyright (C) 2020 TeleBot
 
@@ -25,8 +24,8 @@ from telethon import Button, custom, events, functions
 from telethon.tl.functions.users import GetFullUserRequest
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, CUSTOM_PMPERMIT, bot
-from userbot.plugins import inlinestats
 from userbot.Config import Var
+from userbot.plugins import inlinestats
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 TELEPIC = (
@@ -124,7 +123,9 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 text=f"ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ - Telegram Userbot.",
                 buttons=[
                     [
-                        Button.url("Repo", "https://github.com/KeinShin/Black-Lightning"),
+                        Button.url(
+                            "Repo", "https://github.com/KeinShin/Black-Lightning"
+                        ),
                         Button.url(
                             "Deploy",
                             "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning&template=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning",
@@ -141,7 +142,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     [custom.Button.url("Creator👨‍🦱", "https://t.me/krish1303y")],
                     [
                         custom.Button.url(
-                            "👨‍💻Source Code‍💻", "https://github.com/KeinShin/Black-Lightning"
+                            "👨‍💻Source Code‍💻",
+                            "https://github.com/KeinShin/Black-Lightning",
                         ),
                         custom.Button.url(
                             "Deploy 🌀",
@@ -150,7 +152,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     ],
                     [
                         custom.Button.url(
-                            "Updates and Support Group↗️", "https://t.me/lightningsupport"
+                            "Updates and Support Group↗️",
+                            "https://t.me/lightningsupport",
                         )
                     ],
                 ],
@@ -170,9 +173,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = (
-                "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ)"
-            )
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ)"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pmclick")))
@@ -296,7 +297,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ)" 
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ)"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(
