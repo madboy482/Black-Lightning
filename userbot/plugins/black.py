@@ -1,4 +1,3 @@
-
 #    TeleBot - UserBot
 #    Copyright (C) 2020 TeleBot
 
