@@ -69,8 +69,8 @@ elif Var.LOAD_MYBOT == "False":
     )
 
 CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "⨵")
-HELP_ROWS = int(os.environ.get("HELP_ROWS", 5))
-HELP_COLOUMNS = int(os.environ.get("HELP_COLOUMNS", 3))
+HELP_ROWS = int(os.environ.get("HELP_ROWS", 10))
+HELP_COLOUMNS = int(os.environ.get("HELP_COLOUMNS", 7))
 
 if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
@@ -137,7 +137,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             result = builder.article(
                 "Source Code",
-                text="**Welcome to TeleBot**\n\n`Click below buttons for more`",
+                text="**Welcome to Black Lightning**\n\n`Click below buttons for more`",
                 buttons=[
                     [custom.Button.url("Creator👨‍🦱", "https://t.me/krish1303y")],
                     [
