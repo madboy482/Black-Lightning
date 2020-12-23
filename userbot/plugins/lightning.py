@@ -1,11 +1,7 @@
-import asyncio
-import html
 import os
 import re
-from math import ceil
 
 from telethon import Button, custom, events, functions
-from telethon.tl.functions.users import GetFullUserRequest
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
 from userbot.plugins import inlinestats
