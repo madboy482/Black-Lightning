@@ -65,7 +65,9 @@ else:
 
 
 inlinestats = (
-    f"✘ SHOWING Black Lightning STATS ✘\n"
+    f"Sorry Sir In Some Plugin There Is A Telegram Bug\n"
+    f"Pls Try To Understad\n"
+    f"Instead Do .help <cmd name>\n\n"
     f"VERSION = {currentversion} \n"
     f"DATABASE = {dbstats} \n"
     f"SUDO = {amiusingsudo} \n"
