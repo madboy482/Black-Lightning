@@ -143,31 +143,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     ],
                     [Button.url("Support", "https://t.me/lightningsupport")],
                 ],
-            )
-        else:
-            result = builder.article(
-                "Source Code",
-                text="**Welcome to  ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ**\n\n`Click below buttons for more`",
-                buttons=[
-                    [custom.Button.url("Creator👨‍🦱", "https://t.me/krish1303y")],
-                    [
-                        custom.Button.url(
-                            "👨‍💻Source Code‍💻",
-                            "https://github.com/KeinShin/Black-Lightning",
-                        ),
-                        custom.Button.url(
-                            "Deploy 🌀",
-                            "https://heroku.com/deploy?template=https://github.com/KeinShin/Black-Lightning",
-                        ),
-                    ],
-                    [
-                        custom.Button.url(
-                            "Updates and Support Group↗️",
-                            "https://t.me/lightningsupport",
-                        )
-                    ],
-                ],
-                link_preview=False,
+            
+              link_preview=False,
             )
         await event.answer([result] if result else None)
 
