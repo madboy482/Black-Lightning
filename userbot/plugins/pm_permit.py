@@ -147,6 +147,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             else:
                 await event.edit(APPROVED_PMs)
 
+
 @bot.on(events.NewMessage(incoming=True))
 async def on_new_private_message(event):
     if event.sender_id == bot.uid:
@@ -189,7 +190,6 @@ async def on_new_private_message(event):
     if not pmpermit_sql.is_approved(chat_id):
         # pm permit
         await do_pm_permit_action(chat_id, event)
-
 
         async def do_pm_permit_action(chat_ids, event):
             if chat_ids not in PM_WARNS:
