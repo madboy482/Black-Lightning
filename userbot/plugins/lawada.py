@@ -108,7 +108,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                         ),
                     ],
                     [custom.Button.inline("Friend😘", data="goodfriend")],
-                    [custom.Butoon.inline("Its Urgent", data="urgentlo")],
+                    [custom.Button.inline("Its Urgent", data="urgentlo")],
                 ],
             )
         elif event.query.user_id == bot.uid and query == "stats":
@@ -365,7 +365,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 def paginate_help(page_number, loaded_plugins, prefix):
     number_of_rows = NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD
     number_of_cols = NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD
-    tele = CUSTOM_HELP_EMOJI
+    nooblight = CUSTOM_HELP_EMOJI
     helpable_plugins = []
     for p in loaded_plugins:
         if not p.startswith("_"):
@@ -373,7 +373,7 @@ def paginate_help(page_number, loaded_plugins, prefix):
     helpable_plugins = sorted(helpable_plugins)
     modules = [
         custom.Button.inline(
-            "{} {} {}".format(tele, x, tele), data="us_plugin_{}".format(x)
+            "{} {} {}".format(nooblight, x, nooblight), data="us_plugin_{}".format(x)
         )
         for x in helpable_plugins
     ]
