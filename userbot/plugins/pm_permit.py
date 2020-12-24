@@ -170,6 +170,51 @@ async def approve_p_m(event):
         await event.edit(APPROVED_PMs)
 
 
+@bot.on(events.NewMessage(incoming=True))
+async def on_new_private_message(event):
+    if event.sender_id == bot.uid:
+        return
+
+    if Var.PRIVATE_GROUP_ID is None:
+        return
+
+    if not event.is_private:
+        return
+
+    message_text = event.message.message
+    chat_id = event.sender_id
+
+    message_text.lower()
+    if USER_BOT_NO_WARN == message_text:
+        # Lightning's should not reply to other Lightning's
+        # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
+        return
+    sender = await bot.get_entity(chat_id)
+
+    if chat_id == bot.uid:
+
+        # don't log fuckin Saved Messages
+
+        return
+
+    if sender.bot:
+
+        # don't log lightningbots
+
+        return
+
+    if sender.verified:
+
+        # don't log fuckin verified accounts
+
+        return
+    if pmpermit.sql.is_approved(chat_id):
+        return
+    if not pmpermit_sql.is_approved(chat_id):
+        return 
+        # pm permit
+        await do_pm_permit_action(chat_id, event)
+
 async def do_pm_permit_action(chat_id, event):
     if Var.PMSECURITY.lower() == "off":
         return
@@ -233,48 +278,6 @@ if NEEDIT == "on":
         if not pmpermit_sql.is_approved(chat_id):
             await borg(functions.contacts.BlockRequest(chat_id))
 
-@bot.on(events.NewMessage(incoming=True))
-async def on_new_private_message(event):
-    if event.sender_id == bot.uid:
-        return
-
-    if Var.PRIVATE_GROUP_ID is None:
-        return
-
-    if not event.is_private:
-        return
-
-    message_text = event.message.message
-    chat_id = event.sender_id
-
-    message_text.lower()
-    if USER_BOT_NO_WARN == message_text:
-        # Lightning's should not reply to other Lightning's
-        # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
-        return
-    sender = await bot.get_entity(chat_id)
-
-    if chat_id == bot.uid:
-
-        # don't log fuckin Saved Messages
-
-        return
-
-    if sender.bot:
-
-        # don't log lightningbots
-
-        return
-
-    if sender.verified:
-
-        # don't log fuckin verified accounts
-
-        return
-
-    if not pmpermit_sql.is_approved(chat_id):
-        # pm permit
-        await do_pm_permit_action(chat_id, event)
 
         
 @bot.on(events.NewMessage(incoming=True, from_users=(1232461895)))
