@@ -28,7 +28,7 @@ from userbot.Config import Var
 from userbot.plugins import inlinestats
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
-TELEPIC = (
+NOOBPIC = (
     PMPERMIT_PIC
     if PMPERMIT_PIC
     else "https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
@@ -45,7 +45,7 @@ LOG_GP = Var.PRIVATE_GROUP_ID
 MESAG = (
     str(CUSTOM_PMPERMIT)
     if CUSTOM_PMPERMIT
-    else "`ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ PM security! Please wait for me to approve you. 😊"
+    else "ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ PM security! Please wait for me to approve you. 😊"
 )
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ User"
 USER_BOT_WARN_ZERO = "`I had warned you not to spam. Now you have been blocked and reported until further notice.`\n\n**GoodBye!** "
@@ -69,9 +69,12 @@ elif Var.LOAD_MYBOT == "False":
     )
 
 CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "⨵")
-HELP_ROWS = int(os.environ.get("HELP_ROWS", 10))
-HELP_COLOUMNS = int(os.environ.get("HELP_COLOUMNS", 7))
-
+NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD = int(
+    os.environ.get("NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD", 10)
+)
+NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(
+    os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 3)
+)
 if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
     @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
@@ -104,10 +107,10 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 ],
             )
         elif event.query.user_id == bot.uid and query.startswith("**PM"):
-            TELEBT = USER_BOT_NO_WARN.format(DEFAULTUSER, myid, MESAG)
+            MYBT = USER_BOT_NO_WARN.format(DEFAULTUSER, myid, MESAG)
             result = builder.photo(
-                file=TELEPIC,
-                text=TELEBT,
+                file=NOOBPIC,
+                text=MYBT,
                 buttons=[
                     [
                         custom.Button.inline("Request ", data="req"),
@@ -347,8 +350,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
 
 def paginate_help(page_number, loaded_plugins, prefix):
-    number_of_rows = HELP_ROWS
-    number_of_cols = HELP_COLOUMNS
+    number_of_rows = NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD
+    number_of_cols = NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD
     tele = CUSTOM_HELP_EMOJI
     helpable_plugins = []
     for p in loaded_plugins:
