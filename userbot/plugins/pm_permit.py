@@ -147,42 +147,49 @@ if Var.PRIVATE_GROUP_ID is not None:
             else:
                 await event.edit(APPROVED_PMs)
 
-        @bot.on(events.NewMessage(incoming=True))
-        async def on_new_private_message(event):
-            if event.sender_id == bot.uid:
-                return
+@bot.on(events.NewMessage(incoming=True))
+async def on_new_private_message(event):
+    if event.sender_id == bot.uid:
+        return
 
-            if Var.PRIVATE_GROUP_ID is None:
-                return
+    if Var.PRIVATE_GROUP_ID is None:
+        return
 
-            if not event.is_private:
-                return
+    if not event.is_private:
+        return
 
-            message_text = event.message.message
-            chat_ids = event.sender_id
+    message_text = event.message.message
+    chat_id = event.sender_id
 
-            message_text.lower()
-            if USER_BOT_NO_WARN == message_text:
-                # fridaybot's should not reply to other fridaybot's
-                # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
-                return
-            sender = await bot.get_entity(event.sender_id)
-            if chat_ids == bot.uid:
-                # don't log Saved Messages
-                return
-            if sender.bot:
-                # don't log bots
-                return
-            if sender.verified:
-                # don't log verified accounts
-                return
-            if PM_ON_OFF == "DISABLE":
-                return
-            if pmpermit_sql.is_approved(chat_ids):
-                return
-            if not pmpermit_sql.is_approved(chat_ids):
-                # pm permit
-                await do_pm_permit_action(chat_ids, event)
+    message_text.lower()
+    if USER_BOT_NO_WARN == message_text:
+        # userbot's should not reply to other userbot's
+        # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
+        return
+    sender = await bot.get_entity(chat_id)
+
+    if chat_id == bot.uid:
+
+        # don't log Saved Messages
+
+        return
+
+    if sender.bot:
+
+        # don't log bots
+
+        return
+
+    if sender.verified:
+
+        # don't log verified accounts
+
+        return
+
+    if not pmpermit_sql.is_approved(chat_id):
+        # pm permit
+        await do_pm_permit_action(chat_id, event)
+
 
         async def do_pm_permit_action(chat_ids, event):
             if chat_ids not in PM_WARNS:
