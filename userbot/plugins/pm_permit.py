@@ -30,7 +30,7 @@ if PMPERMIT_PIC is None:
     WARN_PIC = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
 else:
     WARN_PIC = PMPERMIT_PIC
-
+myid = bot.uid
 PM_WARNS = {}
 PREV_REPLY_MESSAGE = {}
 
@@ -43,7 +43,11 @@ CUSTOM_MIDDLE_PMP = (
     str(CUSTOM_PMPERMIT) if CUSTOM_PMPERMIT else "⚜ Im  Helper and Assitant Of User ⚜"
 )
 USER_BOT_WARN_ZERO = "You Have Attempted To Spam Masters Inbox So Inorder To Avoid Over Spam , You Have Been Blocked By Userbot"
-
+MESAG = (
+    str(CUSTOM_PMPERMIT)
+    if CUSTOM_PMPERMIT
+    else "`Im  Helper and Assitant Of User😊"
+)
 botisnoob = Var.TG_BOT_USER_NAME_BF_HER
 USER_BOT_NO_WARN = (
     "**Hello, This is Black Lightning ⚠️**\n\n"
