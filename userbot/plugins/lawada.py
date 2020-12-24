@@ -102,14 +102,15 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                         custom.Button.inline("Request ", data="req"),
                         custom.Button.inline("Chat 💭", data="chat"),
                     ],
-                    [custom.Button.inline("To spam 🚫", data="heheboi"),
-                     custom.Button.inline("For Spamming Porn and Abusive Things", data="pmclick"),
-                    
+                    [
+                        custom.Button.inline("To spam 🚫", data="heheboi"),
+                        custom.Button.inline(
+                            "For Spamming Porn and Abusive Things", data="pmclick"
+                        ),
                     ],
-                    [custom.Button.inline("Friend😘",data="goodfriend")],
-                    [custom.Butoon.inline("Its Urgent",data="urgentlo")],
-                ]   
-
+                    [custom.Button.inline("Friend😘", data="goodfriend")],
+                    [custom.Butoon.inline("Its Urgent", data="urgentlo")],
+                ],
             )
         elif event.query.user_id == bot.uid and query == "stats":
             result = builder.article(
@@ -126,7 +127,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     ],
                 ],
             )
-        
+
         elif event.query.user_id == bot.uid and query == "repo":
             result = builder.article(
                 title="Repository",
@@ -257,7 +258,6 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             tosend = f"Hey {DEFAULTUSER}, [{first_name}](tg://user?id={ok}) wants to PM you for **help**!"
             await tgbot.send_message(LOG_GP, tosend)
 
-
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"goodfriend")))
     async def on_pm_click(event):
         if event.query.user_id == bot.uid:
@@ -274,7 +274,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 first_name = first_name.replace("\u2060", "")
             tosend = f"Hey {DEFAULTUSER}, [{first_name}](tg://user?id={ok}) wants to PM you for **help**!"
             await tgbot.send_message(LOG_GP, tosend)
-    
+
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"urgentlo")))
     async def on_pm_click(event):
         if event.query.user_id == bot.uid:
@@ -290,7 +290,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             if first_name is not None:
                 first_name = first_name.replace("\u2060", "")
             tosend = f"Hey {DEFAULTUSER}, [{first_name}](tg://user?id={ok}) wants to PM you for **help**!"
-            await tgbot.send_message(LOG_GP, tosend) 
+            await tgbot.send_message(LOG_GP, tosend)
+
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"heheboi")))
     async def on_pm_click(event):
         if event.query.user_id == bot.uid:
