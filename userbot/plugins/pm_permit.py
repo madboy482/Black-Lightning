@@ -207,10 +207,6 @@ async def on_new_private_message(event):
 
         # don't log fuckin verified accounts
 
-        return
-    if pmpermit_sql.is_approved(chat_id):
-        return
-    if not pmpermit_sql.is_approved(chat_id):
         return 
         # pm permit
         await do_pm_permit_action(chat_id, event)
