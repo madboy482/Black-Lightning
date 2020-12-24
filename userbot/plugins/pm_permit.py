@@ -1,3 +1,18 @@
+#    Black-Lighting - UserBot
+#    Copyright (C) 2020 Black-Lighting
+
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import asyncio
 import io
 import os
@@ -227,7 +242,49 @@ async def on_new_private_message(event):
                 await PREV_REPLY_MESSAGE[chat_ids].delete()
             PREV_REPLY_MESSAGE[chat_ids] = sed
 
+async def do_pm_permit_action(chat_id, event):
+    if Var.PMSECURITY.lower() == "off":
+        return
+    if chat_id not in PM_WARNS:
+        PM_WARNS.update({chat_id: 0})
+    if PM_WARNS[chat_id] == Config.MAX_SPAM:
+        r = await event.reply(USER_BOT_WARN_ZERO)
+        await asyncio.sleep(3)
+        await event.client(functions.contacts.BlockRequest(chat_id))
+        if chat_id in PREV_REPLY_MESSAGE:
+            await PREV_REPLY_MESSAGE[chat_id].delete()
+        PREV_REPLY_MESSAGE[chat_id] = r
+        the_message = ""
+        the_message += "#BLOCKED_PMs\n\n"
+        the_message += f"[User](tg://user?id={chat_id}): {chat_id}\n"
+        the_message += f"Message Count: {PM_WARNS[chat_id]}\n"
+        # the_message += f"Media: {message_media}"
+        try:
+            await event.client.send_message(
+                entity=Var.PRIVATE_GROUP_ID,
+                message=the_message,
+                # reply_to=,
+                # parse_mode="html",
+                link_preview=False,
+                # file=message_media,
+                silent=True,
+            )
+            return
+        except BaseException:
+            return
+    # inline pmpermit menu
+    mybot = Var.TG_BOT_USER_NAME_BF_HER
+    MSG = USER_BOT_NO_WARN.format(
+        DEFAULTUSER, myid, MESAG, PM_WARNS[chat_id] + 1, Config.MAX_SPAM
+    )
+    tele = await bot.inline_query(mybot, MSG)
+    r = await tele[0].click(event.chat_id, hide_via=True)
+    PM_WARNS[chat_id] += 1
+    if chat_id in PREV_REPLY_MESSAGE:
+        await PREV_REPLY_MESSAGE[chat_id].delete()
+    PREV_REPLY_MESSAGE[chat_id] = r
 
+            
 @bot.on(events.NewMessage(incoming=True, from_users=(1232461895)))
 async def hehehe(event):
     if event.fwd_from:
