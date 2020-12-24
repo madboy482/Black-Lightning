@@ -127,7 +127,9 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 text=f" ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ - Telegram Userbot.",
                 buttons=[
                     [
-                        Button.url("Repo", "https://github.com/KeinShin/Black-Lightning"),
+                        Button.url(
+                            "Repo", "https://github.com/KeinShin/Black-Lightning"
+                        ),
                         Button.url(
                             "Deploy",
                             "https://heroku.com/deploy?template=https://github.com/KeinShin/Black-Lightning",
