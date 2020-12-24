@@ -185,10 +185,10 @@ async def on_new_private_message(event):
     chat_id = event.sender_id
 
     message_text.lower()
-    if USER_BOT_NO_WARN == message_text:
+    #if USER_BOT_NO_WARN == message_text:
         # Lightning's should not reply to other Lightning's
         # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
-        return
+        #return
     sender = await bot.get_entity(chat_id)
 
     if chat_id == bot.uid:
