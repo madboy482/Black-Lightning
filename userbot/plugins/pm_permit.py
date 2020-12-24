@@ -205,8 +205,8 @@ async def do_pm_permit_action(chat_id, event):
     MSG = USER_BOT_NO_WARN.format(
         DEFAULTUSER, myid, LIGHT, PM_WARNS[chat_id] + 1, Config.MAX_SPAM
     )
-    tele = await bot.inline_query(mybot, MSG)
-    r = await tele[0].click(event.chat_id, hide_via=True)
+    nooblight = await bot.inline_query(mybot, MSG)
+    r = await nooblight[0].click(event.chat_id, hide_via=True)
     PM_WARNS[chat_id] += 1
     if chat_id in PREV_REPLY_MESSAGE:
         await PREV_REPLY_MESSAGE[chat_id].delete()
@@ -249,26 +249,26 @@ async def on_new_private_message(event):
 
     message_text.lower()
     if USER_BOT_NO_WARN == message_text:
-        # userbot's should not reply to other userbot's
+        # Lightning's should not reply to other Lightning's
         # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
         return
     sender = await bot.get_entity(chat_id)
 
     if chat_id == bot.uid:
 
-        # don't log Saved Messages
+        # don't log fuckin Saved Messages
 
         return
 
     if sender.bot:
 
-        # don't log bots
+        # don't log lightningbots
 
         return
 
     if sender.verified:
 
-        # don't log verified accounts
+        # don't log fuckin verified accounts
 
         return
 
