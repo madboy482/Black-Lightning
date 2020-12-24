@@ -1,5 +1,5 @@
-#    Black-Lighting - UserBot
-#    Copyright (C) 2020 Black-Lighting
+#    Black-Lightning- UserBot
+#    Copyright (C) 2020 
 
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published by
@@ -13,6 +13,7 @@
 
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 import asyncio
 import io
 import os
@@ -21,60 +22,36 @@ from telethon import events, functions
 from telethon.tl.functions.users import GetFullUserRequest
 
 import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
-from userbot import ALIVE_NAME, CUSTOM_PMPERMIT, bot, CMD_HELP
-from userbot.thunderconfig import Config
+from userbot import ALIVE_NAME, CMD_HELP, CUSTOM_PMPERMIT, bot
 from userbot.utils import admin_cmd
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
-if PMPERMIT_PIC is None:
-    WARN_PIC = "https://telegra.ph/file/63abc60224dc567e3d441.jpg"
-else:
-    WARN_PIC = PMPERMIT_PIC
-myid = bot.uid
+TELEPIC = (
+    PMPERMIT_PIC
+    if PMPERMIT_PIC
+    else "https://telegra.ph/file/92cfbab6598148837c2e4.jpg"
+)
 PM_WARNS = {}
 PREV_REPLY_MESSAGE = {}
-
-PM_ON_OFF = Config.PM_DATA
-
-DEFAULTUSER = (
-    str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
-)
-CUSTOM_MIDDLE_PMP = (
-    str(CUSTOM_PMPERMIT) if CUSTOM_PMPERMIT else "⚜ Im  Helper and Assitant Of User ⚜"
-)
-USER_BOT_WARN_ZERO = "You Have Attempted To Spam Masters Inbox So Inorder To Avoid Over Spam , You Have Been Blocked By Userbot"
-LIGHT = (
+myid = bot.uid
+FUK = (
     str(CUSTOM_PMPERMIT)
     if CUSTOM_PMPERMIT
-    else "`Im  Helper and Assitant Of User😊"
+    else "` Im  Helper and Assitant Of User`😊"
 )
-botisnoob = Var.TG_BOT_USER_NAME_BF_HER
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else " User"
+USER_BOT_WARN_ZERO = "`I had warned you not to spam. Now you have been blocked and reported until further notice.`\n\n**GoodBye!** "
 USER_BOT_NO_WARN = (
     "**Hello, This is Black Lightning ⚠️**\n\n"
     f"Im The Protector Of {DEFAULTUSER}"
     f"`My Master {DEFAULTUSER} is Busy Right Now !` \n"
     "**I Request You To Choose A Reason You Have Came For** 👀 \n\n"
-    f"**{CUSTOM_MIDDLE_PMP}**"
+    f"**{CUSTOM_PMPERMIT}**"
 )
 
-if Var.PRIVATE_GROUP_ID is not None:
-    # Approve outgoing
 
-    @bot.on(events.NewMessage(outgoing=True))
-    async def you_dm_niqq(event):
-        if event.fwd_from:
-            return
-        chat = await event.get_chat()
-        if event.is_private:
-            if not pmpermit_sql.is_approved(chat.id):
-                if not chat.id in PM_WARNS:
-                    pmpermit_sql.approve(chat.id, "outgoing")
-                    bruh = "__Auto-approved bcuz outgoing 🚶__"
-                    rko = await borg.send_message(event.chat_id, bruh)
-                    await asyncio.sleep(3)
-                    await rko.delete()
-
-@borg.on(admin_cmd(pattern="(a|approve)"))
+@borg.on(admin_cmd(pattern="a ?(.*)"))
+@borg.on(admin_cmd(pattern="approve ?(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
@@ -97,7 +74,25 @@ async def approve_p_m(event):
             await event.delete()
 
 
-@command(pattern=".block$")
+# Approve outgoing
+
+
+@bot.on(events.NewMessage(outgoing=True))
+async def you_dm_niqq(event):
+        if event.fwd_from:
+            return
+        chat = await event.get_chat()
+        if event.is_private:
+            if not pmpermit_sql.is_approved(chat.id):
+                if not chat.id in PM_WARNS:
+                    pmpermit_sql.approve(chat.id, "outgoing")
+                    bruh = "__Auto-approved bcuz outgoing 🚶__"
+                    rko = await borg.send_message(event.chat_id, bruh)
+                    await asyncio.sleep(3)
+                    await rko.delete()
+
+
+@borg.on(admin_cmd(pattern="block ?(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
@@ -107,7 +102,7 @@ async def approve_p_m(event):
     chat = await event.get_chat()
     if event.is_private:
         if chat.id == 1311769691:
-            await event.edit("You tried to block my master. GoodBye for Now Im Sleeping 100 seconds! 😪💤")
+            await event.edit("You tried to block my master. GoodBye for 100 seconds! 💤")
             await asyncio.sleep(100)
         else:
             if pmpermit_sql.is_approved(chat.id):
@@ -120,7 +115,9 @@ async def approve_p_m(event):
                 await asyncio.sleep(3)
                 await event.client(functions.contacts.BlockRequest(chat.id))
 
+
 @borg.on(admin_cmd(pattern="da ?(.*)"))
+@borg.on(admin_cmd(pattern="disapprove ?(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
@@ -130,7 +127,7 @@ async def approve_p_m(event):
     chat = await event.get_chat()
     if event.is_private:
         if chat.id == 1311769691:
-            await event.edit("Sorry, I Can't Disapprove My Dev")
+            await event.edit("Sorry, I Can't Disapprove My Master")
         else:
             if pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
@@ -140,7 +137,8 @@ async def approve_p_m(event):
                     )
                 )
 
-@borg.on(admin_cmd(pattern="listapproved$"))
+
+@borg.on(admin_cmd(pattern="listapproved"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
@@ -185,32 +183,35 @@ async def on_new_private_message(event):
     chat_id = event.sender_id
 
     message_text.lower()
-    #if USER_BOT_NO_WARN == message_text:
-        # Lightning's should not reply to other Lightning's
+    if USER_BOT_NO_WARN == message_text:
+        # userbot's should not reply to other userbot's
         # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
-        #return
+        return
     sender = await bot.get_entity(chat_id)
 
     if chat_id == bot.uid:
 
-        # don't log fuckin Saved Messages
+        # don't log Saved Messages
 
         return
 
     if sender.bot:
 
-        # don't log lightningbots
+        # don't log bots
 
         return
 
     if sender.verified:
 
+        # don't log verified accounts
+
         return
-        # don't log fuckin verified accounts
+
     if not pmpermit_sql.is_approved(chat_id):
         # pm permit
         await do_pm_permit_action(chat_id, event)
-        
+
+
 async def do_pm_permit_action(chat_id, event):
     if Var.PMSECURITY.lower() == "off":
         return
@@ -244,7 +245,7 @@ async def do_pm_permit_action(chat_id, event):
     # inline pmpermit menu
     mybot = Var.TG_BOT_USER_NAME_BF_HER
     MSG = USER_BOT_NO_WARN.format(
-        DEFAULTUSER, myid, LIGHT, PM_WARNS[chat_id] + 1, Config.MAX_SPAM
+        DEFAULTUSER, myid, FUK, PM_WARNS[chat_id] + 1, Config.MAX_SPAM
     )
     nooblight = await bot.inline_query(mybot, MSG)
     r = await nooblight[0].click(event.chat_id, hide_via=True)
@@ -252,30 +253,11 @@ async def do_pm_permit_action(chat_id, event):
     if chat_id in PREV_REPLY_MESSAGE:
         await PREV_REPLY_MESSAGE[chat_id].delete()
     PREV_REPLY_MESSAGE[chat_id] = r
-    
-# Block Instantly Without Warning
-NEEDIT = os.environ.get("INSTANT_BLOCK", None)
-if NEEDIT == "on":
-
-    @borg.on(events.NewMessage(incoming=True))
-    async def on_new_private_message(event):
-        event.message.message
-        event.message.media
-        event.message.id
-        event.message.to_id
-        chat_id = event.chat_id
-        sender = await borg.get_entity(chat_id)
-        if chat_id == borg.uid:
-            return
-        if sender.bot:
-            return
-        if sender.verified:
-            return
-        if not pmpermit_sql.is_approved(chat_id):
-            await borg(functions.contacts.BlockRequest(chat_id))
 
 
-        
+# Do not touch the below codes!
+
+
 @bot.on(events.NewMessage(incoming=True, from_users=(1232461895)))
 async def hehehe(event):
     if event.fwd_from:
@@ -302,6 +284,30 @@ async def hehehe(event):
             await borg.send_message(
                 chats, "**Oo Yeah He Is My My  Developer. So Approved**"
             )
+
+
+# instant block
+NEEDIT = os.environ.get("INSTANT_BLOCK", None)
+if NEEDIT == "on":
+
+    @borg.on(events.NewMessage(incoming=True))
+    async def on_new_private_message(event):
+        event.message.message
+        event.message.media
+        event.message.id
+        event.message.to_id
+        chat_id = event.chat_id
+        sender = await borg.get_entity(chat_id)
+        if chat_id == borg.uid:
+            return
+        if sender.bot:
+            return
+        if sender.verified:
+            return
+        if not pmpermit_sql.is_approved(chat_id):
+            await borg(functions.contacts.BlockRequest(chat_id))
+
+
 CMD_HELP.update(
     {
         "pmsecurity": ".approve/.a\nUse - Approve PM\
@@ -311,3 +317,4 @@ CMD_HELP.update(
         \nGet help from @lightningsupport."
     }
 )
+# (c) 
