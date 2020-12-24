@@ -28,7 +28,7 @@ from userbot.Config import Var
 from userbot.plugins import inlinestats
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
-NOOBPIC = (
+TELEPIC = (
     PMPERMIT_PIC
     if PMPERMIT_PIC
     else "https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
@@ -45,9 +45,9 @@ LOG_GP = Var.PRIVATE_GROUP_ID
 MESAG = (
     str(CUSTOM_PMPERMIT)
     if CUSTOM_PMPERMIT
-    else "ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ PM security! Please wait for me to approve you. 😊"
+    else "` ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ Hey Im The Warrior Who Protects Him And Help Him\n So Dont Spam Or Abuse. 😊"
 )
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ User"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else " ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ User"
 USER_BOT_WARN_ZERO = "`I had warned you not to spam. Now you have been blocked and reported until further notice.`\n\n**GoodBye!** "
 
 if Var.LOAD_MYBOT == "True":
@@ -68,13 +68,14 @@ elif Var.LOAD_MYBOT == "False":
         )
     )
 
-CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "⨵")
+CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "𝔅")
 NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD = int(
     os.environ.get("NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD", 10)
 )
 NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(
     os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 3)
 )
+
 if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
     @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
@@ -86,7 +87,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             rev_text = query[::-1]
             buttons = paginate_help(0, CMD_LIST, "helpme")
             result = builder.article(
-                "© Black Lightning Help",
+                "©  ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ Help",
                 text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_LIST)),
                 buttons=buttons,
                 link_preview=False,
@@ -94,23 +95,23 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         elif event.query.user_id == bot.uid and query == "stats":
             result = builder.article(
                 title="Stats",
-                text=f"**ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ Stats For [{DEFAULTUSER}](tg://user?id={myid})**\n\n__Bot is functioning normally, master!__\n\n(c) @lightningsupport",
+                text=f"** ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ Stats For [{DEFAULTUSER}](tg://user?id={myid})**\n\n__Bot is functioning normally, master!__\n\n(c) @lightningsupport",
                 buttons=[
                     [custom.Button.inline("Stats", data="statcheck")],
                     [Button.url("Repo", "https://github.com/KeinShin/Black-Lightning")],
                     [
                         Button.url(
                             "Deploy Now!",
-                            "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning&template=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning",
+                            "https://heroku.com/deploy?template=https://github.com/KeinShin/Black-Lightning",
                         )
                     ],
                 ],
             )
         elif event.query.user_id == bot.uid and query.startswith("**PM"):
-            MYBT = USER_BOT_NO_WARN.format(DEFAULTUSER, myid, MESAG)
+            TELEBT = USER_BOT_NO_WARN.format(DEFAULTUSER, myid, MESAG)
             result = builder.photo(
-                file=NOOBPIC,
-                text=MYBT,
+                file=TELEPIC,
+                text=TELEBT,
                 buttons=[
                     [
                         custom.Button.inline("Request ", data="req"),
@@ -123,15 +124,13 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         elif event.query.user_id == bot.uid and query == "repo":
             result = builder.article(
                 title="Repository",
-                text=f"ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ - Telegram Userbot.",
+                text=f" ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ - Telegram Userbot.",
                 buttons=[
                     [
-                        Button.url(
-                            "Repo", "https://github.com/KeinShin/Black-Lightning"
-                        ),
+                        Button.url("Repo", "https://github.com/KeinShin/Black-Lightning"),
                         Button.url(
                             "Deploy",
-                            "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning&template=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning",
+                            "https://heroku.com/deploy?template=https://github.com/KeinShin/Black-Lightning",
                         ),
                     ],
                     [Button.url("Support", "https://t.me/lightningsupport")],
@@ -140,7 +139,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             result = builder.article(
                 "Source Code",
-                text="**Welcome to ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ**\n\n`Click below buttons for more`",
+                text="**Welcome to  ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ**\n\n`Click below buttons for more`",
                 buttons=[
                     [custom.Button.url("Creator👨‍🦱", "https://t.me/krish1303y")],
                     [
@@ -150,7 +149,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                         ),
                         custom.Button.url(
                             "Deploy 🌀",
-                            "https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2Fxditya%2FTeleBot",
+                            "https://heroku.com/deploy?template=https://github.com/KeinShin/Black-Lightning",
                         ),
                     ],
                     [
@@ -176,7 +175,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ)"
+            reply_pop_up_alert = "Bhak Bsdk Kya Tapa Tap Daba Rha Rha Nikal Leya Apna  ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ from @lightningsupport , and don't use mine!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pmclick")))
@@ -186,7 +185,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"This is the PM Security for {DEFAULTUSER} to keep away spammers and retards.\n\nProtected by [ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ](t.me/lightningsupport)"
+                f"This is the PM Security for {DEFAULTUSER} to keep away spammers and retards and Can Ban Fuckin Spammers.\n\nProtected by [ ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ](t.me/lightningsupport)"
             )
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"reopen")))
@@ -195,7 +194,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             buttons = paginate_help(0, CMD_LIST, "helpme")
             await event.edit("Menu Re-opened", buttons=buttons)
         else:
-            reply_pop_up_alert = "This bot ain't for u!!"
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ)!!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"req")))
@@ -223,7 +222,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"Oho, you want to chat...\nPlease wait and see if {DEFAULTUSER} is in a mood to chat, if yes, he will be replying soon!\nTill then, **do not spam.**"
+                f"Oh, you want to chat...\nPlease wait and see if {DEFAULTUSER} is in a mood to chat, if yes, he will be replying soon!\nTill then, **do not spam.**"
             )
             target = await event.client(GetFullUserRequest(event.query.user_id))
             ok = event.query.user_id
@@ -278,7 +277,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 "Menu Closed!!", buttons=[Button.inline("Re-open Menu", data="reopen")]
             )
         else:
-            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ) "
+            reply_pop_up_alert = "Bhak Bsdk Kya Tapa Tap Daba Rha Rha Nikal Leya Apna  ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ from @lightningsupport , and don't use mine!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"statcheck")))
@@ -300,7 +299,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ)"
+            reply_pop_up_alert = "Abbe Lode Tera Baap Ka Hai Ye Butto Mat Tabba!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(
@@ -331,7 +330,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             else:
                 reply_pop_up_alert = help_string
             reply_pop_up_alert += "\n Use .unload {} to remove this plugin\n\
-                © ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ".format(
+                ©  ʙʟᴀᴄᴋ ʟɪɢʜᴛɴɪɴɢ".format(
                 plugin_name
             )
             if len(help_string) >= 140:
@@ -345,7 +344,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             else:
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
-            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ) "
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ)"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
@@ -379,7 +378,7 @@ def paginate_help(page_number, loaded_plugins, prefix):
                 ),
                 custom.Button.inline("║ Close ║", data="close"),
                 custom.Button.inline(
-                    "иєχт ⫸", data="{}_next({})".format(prefix, modulo_page)
+                    "иєχт  ⫸", data="{}_next({})".format(prefix, modulo_page)
                 ),
             )
         ]
