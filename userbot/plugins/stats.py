@@ -6,7 +6,7 @@ from uniborg.util import admin_cmd
 from userbot import bot
 
 
-@bot.on(admin_cmd(pattern=r"stats"))
+@bot.on(admin_cmd(pattern=r"gstats"))
 async def _(event):
     if event.fwd_from:
         return
