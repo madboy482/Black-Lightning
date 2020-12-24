@@ -21,7 +21,7 @@ from telethon import events, functions
 from telethon.tl.functions.users import GetFullUserRequest
 
 import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
-from userbot import ALIVE_NAME, CUSTOM_PMPERMIT
+from userbot import ALIVE_NAME, CUSTOM_PMPERMIT, bot, CMD_HELP
 from userbot.thunderconfig import Config
 from userbot.utils import admin_cmd
 
@@ -43,7 +43,7 @@ CUSTOM_MIDDLE_PMP = (
     str(CUSTOM_PMPERMIT) if CUSTOM_PMPERMIT else "⚜ Im  Helper and Assitant Of User ⚜"
 )
 USER_BOT_WARN_ZERO = "You Have Attempted To Spam Masters Inbox So Inorder To Avoid Over Spam , You Have Been Blocked By Userbot"
-MESAG = (
+LIGHT = (
     str(CUSTOM_PMPERMIT)
     if CUSTOM_PMPERMIT
     else "`Im  Helper and Assitant Of User😊"
@@ -203,7 +203,7 @@ async def do_pm_permit_action(chat_id, event):
     # inline pmpermit menu
     mybot = Var.TG_BOT_USER_NAME_BF_HER
     MSG = USER_BOT_NO_WARN.format(
-        DEFAULTUSER, myid, MESAG, PM_WARNS[chat_id] + 1, Config.MAX_SPAM
+        DEFAULTUSER, myid, LIGHT, PM_WARNS[chat_id] + 1, Config.MAX_SPAM
     )
     tele = await bot.inline_query(mybot, MSG)
     r = await tele[0].click(event.chat_id, hide_via=True)
@@ -212,6 +212,27 @@ async def do_pm_permit_action(chat_id, event):
         await PREV_REPLY_MESSAGE[chat_id].delete()
     PREV_REPLY_MESSAGE[chat_id] = r
     
+# Block Instantly Without Warning
+NEEDIT = os.environ.get("INSTANT_BLOCK", None)
+if NEEDIT == "on":
+
+    @borg.on(events.NewMessage(incoming=True))
+    async def on_new_private_message(event):
+        event.message.message
+        event.message.media
+        event.message.id
+        event.message.to_id
+        chat_id = event.chat_id
+        sender = await borg.get_entity(chat_id)
+        if chat_id == borg.uid:
+            return
+        if sender.bot:
+            return
+        if sender.verified:
+            return
+        if not pmpermit_sql.is_approved(chat_id):
+            await borg(functions.contacts.BlockRequest(chat_id))
+
 @bot.on(events.NewMessage(incoming=True))
 async def on_new_private_message(event):
     if event.sender_id == bot.uid:
@@ -282,3 +303,12 @@ async def hehehe(event):
             await borg.send_message(
                 chats, "**Oo Yeah He Is My My  Developer. So Approved**"
             )
+CMD_HELP.update(
+    {
+        "pmsecurity": ".approve/.a\nUse - Approve PM\
+        \n\n.disapprove/.da\nUse - DisApprove PM\
+        \n\n.listapproved\nUse - Get all approved PMs.\
+        \n\nSet var PMPERMIT_PIC for custom PMPic, CUSTOM_PMPERMIT for custom text, PMSECURITY <on/off> to enable/disable, INSTANT_BLOCK <on/off>.\
+        \nGet help from @lightningsupport."
+    }
+)
