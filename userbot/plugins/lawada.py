@@ -28,7 +28,7 @@ from userbot.Config import Var
 from userbot.plugins import inlinestats
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
-TELEPIC = (
+NOOBPIC = (
     PMPERMIT_PIC
     if PMPERMIT_PIC
     else "https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
@@ -68,7 +68,7 @@ elif Var.LOAD_MYBOT == "False":
         )
     )
 
-CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "𝔅")
+CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "⨵")
 NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD = int(
     os.environ.get("NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD", 10)
 )
@@ -108,18 +108,23 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 ],
             )
         elif event.query.user_id == bot.uid and query.startswith("**PM"):
-            TELEBT = USER_BOT_NO_WARN.format(DEFAULTUSER, myid, MESAG)
+            NOOBOT = USER_BOT_NO_WARN.format(DEFAULTUSER, myid, MESAG)
             result = builder.photo(
-                file=TELEPIC,
-                text=TELEBT,
+                file=NOOBPIC,
+                text=NOOBOT,
                 buttons=[
                     [
                         custom.Button.inline("Request ", data="req"),
                         custom.Button.inline("Chat 💭", data="chat"),
                     ],
-                    [custom.Button.inline("To spam 🚫", data="heheboi")],
-                    [custom.Button.inline("What is this ❓", data="pmclick")],
-                ],
+                    [custom.Button.inline("To spam 🚫", data="heheboi"),
+                     custom.Button.inline("For Spamming Porn and Abusive Things", data="pmclick"),
+                    
+                    ],
+                    [custom.Button.inline("Friend😘",data="goodfriend")],
+                    [custom.Butoon.inline("Its Urgent",data="urgentlo")],
+                ]   
+
             )
         elif event.query.user_id == bot.uid and query == "repo":
             result = builder.article(
@@ -251,6 +256,40 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             tosend = f"Hey {DEFAULTUSER}, [{first_name}](tg://user?id={ok}) wants to PM you for **help**!"
             await tgbot.send_message(LOG_GP, tosend)
 
+
+    @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"goodfriend")))
+    async def on_pm_click(event):
+        if event.query.user_id == bot.uid:
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ)"
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+        else:
+            await event.edit(
+                f"Oh!\n{DEFAULTUSER}Told Me To Sake You...\nHe Is Very desperate for talk with you\n**He Is Not Online Pls Wait ** and wait till  respond 😊"
+            )
+            target = await event.client(GetFullUserRequest(event.query.user_id))
+            first_name = html.escape(target.user.first_name)
+            ok = event.query.user_id
+            if first_name is not None:
+                first_name = first_name.replace("\u2060", "")
+            tosend = f"Hey {DEFAULTUSER}, [{first_name}](tg://user?id={ok}) wants to PM you for **help**!"
+            await tgbot.send_message(LOG_GP, tosend)
+    
+    @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"urgentlo")))
+    async def on_pm_click(event):
+        if event.query.user_id == bot.uid:
+            reply_pop_up_alert = "Noi Noi!!! Not For You Sar( ͡ಥ ͜ʖ ͡ಥ)"
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+        else:
+            await event.edit(
+                f"Oh!So Its Very Urgent Sorry😓😓\n{DEFAULTUSER}Is Not Online Pls Wait...\n{DEFAULTUSER}** Is Not Online Very Help Full ** and wait till  respond 😊"
+            )
+            target = await event.client(GetFullUserRequest(event.query.user_id))
+            first_name = html.escape(target.user.first_name)
+            ok = event.query.user_id
+            if first_name is not None:
+                first_name = first_name.replace("\u2060", "")
+            tosend = f"Hey {DEFAULTUSER}, [{first_name}](tg://user?id={ok}) wants to PM you for **help**!"
+            await tgbot.send_message(LOG_GP, tosend) 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"heheboi")))
     async def on_pm_click(event):
         if event.query.user_id == bot.uid:
