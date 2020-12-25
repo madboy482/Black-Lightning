@@ -1,5 +1,5 @@
 # You Are Free To Use This Im Not Like Some Over Prouded Bot Owners😂😂 But Pls Gib The Credits
-# Made By @krish1303y For black lightning  🔥🔥🔥
+# Made By @krish1303y,@cyper666, @ For black lightning  🔥🔥🔥
 
 
 import os
