@@ -1,6 +1,6 @@
 from  userbot import CMD_LIST, ALIVE_NAME
 from userbot.utils import lightning_command
-
+from telethon import events, functions
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
 
 @lightning_command(pattern="^.help ?(.*)")
@@ -34,9 +34,21 @@ async def cmd_list(event):
             help_string = f"""Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n
 {DEFAULTUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport"""
             results = await bot.inline_query(  # pylint:disable=E0602
-                lightning_userbot_name, help_string
+                lightning_userbot_name,
+                help_string
             )
             await results[0].click(
-                event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
+                event.chat_id,
+                reply_to=event.reply_to_msg_id,
+                hide_via=True
             )
             await event.delete()
+
+@borg.on(admin_cmd(pattern="lightningconfig"))  # pylint:disable=E0602
+async def config(event):
+    if event.fwd_from:
+        return
+    result = await borg(functions.help.GetConfigRequest())  # pylint:disable=E0602
+    result = result.stringify()
+    logger.info(result)  # pylint:disable=E0602
+    await event.edit("Telethon UserBot powered byDark_cobra")
