@@ -3,7 +3,7 @@ from userbot.utils import admin_cmd
 from telethon import events, functions
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
 
-@borg.on(admin_cmd(pattern=r"help ?(.*)", outgoing=True))
+@bot.on(admin_cmd(pattern=r"help ?(.*)", outgoing=True))
 async def cmd_list(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         lightning_userbot_name = Var.TG_BOT_USER_NAME_BF_HER
@@ -51,4 +51,4 @@ async def config(event):
     result = await borg(functions.help.GetConfigRequest())  # pylint:disable=E0602
     result = result.stringify()
     logger.info(result)  # pylint:disable=E0602
-    await event.edit("Telethon UserBot powered byDark_cobra")
+    await event.edit("Telethon UserBot powered by Black Lightning")
