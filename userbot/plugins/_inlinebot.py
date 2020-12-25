@@ -13,11 +13,7 @@ from telethon import Button, custom, events, functions
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
 from userbot.plugins import lightning_status
 
-LIGHtNING_BOT_PIC = os.environ.get("LIGHtNING_BOT_PIC", None)
-if LIGHtNING_BOT_PIC is None:
-    LIGHTNING_WARNING = "https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
-else:
-    LIGHTNING_WARNING = LIGHtNING_BOT_PIC
+
 LIGHT_LOGS = Config.PRIVATE_GROUP_ID
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
 lightning_bot = Var.TG_BOT_USER_NAME_BF_HER
@@ -208,6 +204,11 @@ async def _(event):
             await event.delete()
             await event.client.send_file(event.chat_id, response.message)
 
+LIGHtNING_BOT_PIC = os.environ.get("LIGHtNING_BOT_PIC", None)
+if LIGHtNING_BOT_PIC is None:
+    LIGHTNING_WARNING = "https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
+else:
+    LIGHTNING_WARNING = LIGHtNING_BOT_PIC
 
 @bot.on(events.InlineQuery)
 async def lightning_hands_button(event):
