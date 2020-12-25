@@ -18,7 +18,7 @@ jobs:
 
         with:
 
-          find: "lightning_cmd"
+          find: "admin_cmd"
 
           replace: "lightning_cmd"
 
@@ -28,7 +28,7 @@ jobs:
 
         with:
 
-          commit_message: 'Replace admin_cmd to lightning_cmd'
+          commit_message: 'Replace That Dependencies'
 
           commit_options: '--no-verify'
 
