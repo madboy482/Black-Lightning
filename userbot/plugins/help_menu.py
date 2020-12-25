@@ -1,9 +1,9 @@
 from  userbot import CMD_LIST, ALIVE_NAME
-from userbot.utils import lightning_command
+from userbot.utils import admin_cmd
 from telethon import events, functions
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
 
-@lightning_command(pattern="^.help ?(.*)")
+@borg.on(admin_cmd(pattern=r"help ?(.*)", outgoing=True))
 async def cmd_list(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         lightning_userbot_name = Var.TG_BOT_USER_NAME_BF_HER
