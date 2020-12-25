@@ -1,5 +1,5 @@
 from  userbot import CMD_LIST, ALIVE_NAME
-
+from userbot.utils import lightning_command
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
 
