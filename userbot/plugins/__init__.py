@@ -64,7 +64,7 @@ else:
     BOTLOG_CHATID = Config.PRIVATE_GROUP_BOT_API_ID
 
 
-inlinestats = (
+lightning_status = (
     f"Sorry Sir In Some Plugin There Is A Telegram Bug\n"
     f"Pls Try To Understad\n"
     f"Instead Do .help <cmd name>\n\n"
