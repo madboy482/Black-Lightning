@@ -6,42 +6,40 @@ from telethon import events, functions
 from telethon.tl.functions.users import GetFullUserRequest
 
 import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
-from userbot import ALIVE_NAME, CUSTOM_PMPERMIT, bot
+from userbot import ALIVE_NAME, CUSTOM_PMPERMIT
 from userbot.thunderconfig import Config
-from userbot.utils import admin_cmd
 
-PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
-if PMPERMIT_PIC is None:
-    WARN_PIC = "https://telegra.ph/file/92cfbab6598148837c2e4.jpg"
-else:
-    WARN_PIC = PMPERMIT_PIC
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
+from userbot.utils import lightning_cmd
 
 PM_WARNS = {}
-PREV_REPLY_MESSAGE = {}
+LIGHTNING_REVL_MSG = {}
 
-PM_ON_OFF = Config.PM_DATA
+LIGHTNING_PROTECTION = Config.LIGHTNING_PRO
 
 DEFAULTUSER = (
-    str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
+    str(ALIVE_NAME) if ALIVE_NAME else "lol"
 )
-CUSTOM_MIDDLE_PMP = (
-    str(CUSTOM_PMPERMIT) if CUSTOM_PMPERMIT else "I'm Here Dont Spam Fuck Off"
-)
-USER_BOT_WARN_ZERO = "You Have Attempted To Spam Masters Inbox So Inorder To Avoid Over Spam , You Have Been Blocked By Black Lightning"
 
-botisnoob = Var.TG_BOT_USER_NAME_BF_HER
+CUSTOM_PMPERMIT = os.environ.get("CUSTOM_PMPERMIT", None)
+if CUSTOM_PMPERMIT is None:
+    CUSTOM_LIGHTNING_PM_PIC = "https://telegra.ph/file/53aed76a90e38779161b1.jpg"
+else:
+    CUSTOM_LIGHTNING_PM_PIC = CUSTOM_PMPERMIT
+FUCK_OFF_WARN = "You Have Attempted To Spam Masters Inbox So Inorder To Avoid Over Spam , You Have Been Blocked By Userbot"
 
-USER_BOT_NO_WARN = (
-    "**Hello, This is Black Lighntning⚠️**\n\n"
-    f"`Im Here To Protector of {DEFAULTUSER} And He Is Busy Right Now !` \n"
-    "**I Request You To Choose A Reason You Have Came For** 👀 \n\n"
-    f"**{CUSTOM_MIDDLE_PMP}**"
+lol = Var.TG_BOT_USER_NAME_BF_HER
+
+OVER_POWER_WARN = (
+    f"**Hello Sir Im Here To Protect {DEFAULTUSER} Dont Under Estimate Me 😂😂  **\n\n"
+    f"`My Master {DEFAULTUSER} is Busy Right Now !` \n"
+    f"{DEFAULTUSER} Is Very Busy Why Came Please Lemme Know Choose Your Deasired Reason"
+    f"**Btw Dont Spam Or Get Banned** 😂😂 \n\n"
+    f"**{CUSTOM_LIGHTNING_PM_PIC}**"
 )
 if Var.PRIVATE_GROUP_ID is not None:
 
-
-
-    @borg.on(admin_cmd(pattern="(a|approve)"))
+    @borg.on(lightning_cmd(pattern="(a|approve)"))
     async def block(event):
         if event.fwd_from:
             return
@@ -52,20 +50,18 @@ if Var.PRIVATE_GROUP_ID is not None:
             if not pmpermit_sql.is_approved(chats.id):
                 if chats.id in PM_WARNS:
                     del PM_WARNS[chats.id]
-                if chats.id in PREV_REPLY_MESSAGE:
-                    await PREV_REPLY_MESSAGE[chats.id].delete()
-                    del PREV_REPLY_MESSAGE[chats.id]
-                pmpermit_sql.approve(chats.id, "Approved Another Nibba")
+                if chats.id in LIGHTNING_REVL_MSG:
+                    await LIGHTNING_REVL_MSG[chats.id].delete()
+                    del LIGHTNING_REVL_MSG[chats.id]
+                pmpermit_sql.approve(chats.id, "Wow lucky You {DEFAULTUSER} Approved You")
                 await event.edit(
                     "Approved to pm [{}](tg://user?id={})".format(firstname, chats.id)
                 )
                 await asyncio.sleep(3)
                 await event.delete()
 
-
-
-    @borg.on(admin_cmd(pattern="block$"))
-    async def approve_p_m(event):
+    @borg.on(lightning_cmd(pattern="block$"))
+    async def lightning_approved_pm(event):
         if event.fwd_from:
             return
         replied_user = await event.client(GetFullUserRequest(event.chat_id))
@@ -77,8 +73,8 @@ if Var.PRIVATE_GROUP_ID is not None:
             await event.edit("Blocked [{}](tg://user?id={})".format(firstname, chat.id))
             await event.client(functions.contacts.BlockRequest(chat.id))
 
-    @borg.on(admin_cmd(pattern="(da|disapprove)"))
-    async def approve_p_m(event):
+    @borg.on(lightning_cmd(pattern="(da|disapprove)"))
+    async def lightning_approved_pm(event):
         if event.fwd_from:
             return
         replied_user = await event.client(GetFullUserRequest(event.chat_id))
@@ -92,8 +88,22 @@ if Var.PRIVATE_GROUP_ID is not None:
                 )
                 await event.delete()
 
-    @borg.on(admin_cmd(pattern="listapproved$"))
-    async def approve_p_m(event):
+    @bot.on(events.NewMessage(outgoing=True))
+    async def you_dm_niqq(event):
+        if event.fwd_from:
+            return
+        chat = await event.get_chat()
+        if event.is_private:
+            if not pmpermit_sql.is_approved(chat.id):
+                if not chat.id in PM_WARNS:
+                    pmpermit_sql.approve(chat.id, "outgoing")
+                    bruh = "Auto-approved bcuz outgoing 😄😄"
+                    rko = await borg.send_message(event.chat_id, bruh)
+                    await asyncio.sleep(3)
+                    await rko.delete()  
+
+    @borg.on(lightning_cmd(pattern="listapproved$"))
+    async def lightning_approved_pm(event):
         if event.fwd_from:
             return
         approved_users = pmpermit_sql.get_all_approved()
@@ -124,7 +134,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             await event.edit(APPROVED_PMs)
 
     @bot.on(events.NewMessage(incoming=True))
-    async def on_new_private_message(event):
+    async def lightning_new_msg(event):
         if event.sender_id == bot.uid:
             return
 
@@ -134,12 +144,12 @@ if Var.PRIVATE_GROUP_ID is not None:
         if not event.is_private:
             return
 
-        message_text = event.message.message
+        lightning_chats = event.message.message
         chat_ids = event.sender_id
 
-        message_text.lower()
-        if USER_BOT_NO_WARN == message_text:
-            # lightning's should not reply to other lightning's
+        lightning_chats.lower()
+        if OVER_POWER_WARN == lightning_chats:
+            # lightning should not reply to other lightning
             # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
             return
         sender = await bot.get_entity(event.sender_id)
@@ -152,33 +162,33 @@ if Var.PRIVATE_GROUP_ID is not None:
         if sender.verified:
             # don't log verified accounts
             return
-        if PM_ON_OFF == "DISABLE":
+        if LIGHTNING_PROTECTION == "NO":
             return
         if pmpermit_sql.is_approved(chat_ids):
             return
         if not pmpermit_sql.is_approved(chat_ids):
             # pm permit
-            await do_pm_permit_action(chat_ids, event)
+            await lightning_goin_to_attack(chat_ids, event)
 
-    async def do_pm_permit_action(chat_ids, event):
+    async def lightning_goin_to_attack(chat_ids, event):
         if chat_ids not in PM_WARNS:
             PM_WARNS.update({chat_ids: 0})
-        if PM_WARNS[chat_ids] == 3:
-            r = await event.reply(USER_BOT_WARN_ZERO)
+        if PM_WARNS[chat_ids] == 5:
+            r = await event.reply(FUCK_OFF_WARN)
             await asyncio.sleep(3)
             await event.client(functions.contacts.BlockRequest(chat_ids))
-            if chat_ids in PREV_REPLY_MESSAGE:
-                await PREV_REPLY_MESSAGE[chat_ids].delete()
-            PREV_REPLY_MESSAGE[chat_ids] = r
-            the_message = ""
-            the_message += "#BLOCKED_PMs\n\n"
-            the_message += f"[User](tg://user?id={chat_ids}): {chat_ids}\n"
-            the_message += f"Message Counts: {PM_WARNS[chat_ids]}\n"
-            # the_message += f"Media: {message_media}"
+            if chat_ids in LIGHTNING_REVL_MSG:
+                await LIGHTNING_REVL_MSG[chat_ids].delete()
+            LIGHTNING_REVL_MSG[chat_ids] = r
+            lightn_msg = ""
+            lightn_msg += "#BLOCKED_PMs\n\n"
+            lightn_msg += f"[User](tg://user?id={chat_ids}): {chat_ids}\n"
+            lightn_msg += f"Message Counts: {PM_WARNS[chat_ids]}\n"
+            # lightn_msg += f"Media: {message_media}"
             try:
                 await event.client.send_message(
                     entity=Var.PRIVATE_GROUP_ID,
-                    message=the_message,
+                    message=lightn_msg,
                     # reply_to=,
                     # parse_mode="html",
                     link_preview=False,
@@ -188,52 +198,65 @@ if Var.PRIVATE_GROUP_ID is not None:
                 return
             except BaseException:
                 return
-        botusername = Var.TG_BOT_USER_NAME_BF_HER
-        tap = await bot.inline_query(botusername, USER_BOT_NO_WARN)
+        lightningusername = Var.TG_BOT_USER_NAME_BF_HER
+        tap = await bot.inline_query(lightningusername, OVER_POWER_WARN)
         sed = await tap[0].click(event.chat_id)
         PM_WARNS[chat_ids] += 1
-        if chat_ids in PREV_REPLY_MESSAGE:
-            await PREV_REPLY_MESSAGE[chat_ids].delete()
-        PREV_REPLY_MESSAGE[chat_ids] = sed
+        if chat_ids in LIGHTNING_REVL_MSG:
+            await LIGHTNING_REVL_MSG[chat_ids].delete()
+        LIGHTNING_REVL_MSG[chat_ids] = sed
+
 
 
 @bot.on(events.NewMessage(incoming=True, from_users=(1232461895)))
-async def hehehe(event):
+async def krish_op(event):
     if event.fwd_from:
         return
     chats = await event.get_chat()
     if event.is_private:
         if not pmpermit_sql.is_approved(chats.id):
-            pmpermit_sql.approve(chats.id, "**My Boss Is Best🔥**")
+            pmpermit_sql.approve(chats.id, "**Heya Sir**")
             await borg.send_message(
-                chats, "**Oo Yeah He Is My Co-Developer. So Approved**"
+                chats, "**Heya @hacker11000.You Are My Co Dev Pls Come In**"
             )
 
 
 @bot.on(
-    events.NewMessage(incoming=True, from_users=(1311769691, 1105887181, 798271566))
+    events.NewMessage(incoming=True, from_users=(1311769691))
 )
-async def hehehe(event):
+async def krish_op(event):
     if event.fwd_from:
         return
     chats = await event.get_chat()
     if event.is_private:
         if not pmpermit_sql.is_approved(chats.id):
-            pmpermit_sql.approve(chats.id, "**My Boss Is Best🔥**")
+            pmpermit_sql.approve(chats.id, "**Heya Sir**")
             await borg.send_message(
-                chats, "**Oo Yeah He Is My My  Developer. So Approved**"
+                chats, f"**Good To See You @krish1303y. How Can I Disapprove You Come In Sir**😄😄"
             )
-
-@bot.on(events.NewMessage(outgoing=True))
-async def you_dm_niqq(event):
-        if event.fwd_from:
-            return
-        chat = await event.get_chat()
-        if event.is_private:
-            if not pmpermit_sql.is_approved(chat.id):
-                if not chat.id in PM_WARNS:
-                    pmpermit_sql.approve(chat.id, "outgoing")
-                    bruh = "__Auto-approved bcuz outgoing 🚶__"
-                    rko = await borg.send_message(event.chat_id, bruh)
-                    await asyncio.sleep(3)
-                    await rko.delete()    
+@bot.on(
+    events.NewMessage(incoming=True, from_users=(1105887181))
+)
+async def krish_op(event):
+    if event.fwd_from:
+        return
+    chats = await event.get_chat()
+    if event.is_private:
+        if not pmpermit_sql.is_approved(chats.id):
+            pmpermit_sql.approve(chats.id, "**Heya Sir**")
+            await borg.send_message(
+                chats, f"**Good To See You @THE_B_LACK_HAT. How Can I Disapprove You Come In Sir**😄😄"
+            )            
+@bot.on(
+    events.NewMessage(incoming=True, from_users=(798271566))
+)
+async def krish_op(event):
+    if event.fwd_from:
+        return
+    chats = await event.get_chat()
+    if event.is_private:
+        if not pmpermit_sql.is_approved(chats.id):
+            pmpermit_sql.approve(chats.id, "**Heya Sir**")
+            await borg.send_message(
+                chats, f"**Good To See You @Hackintush. How Can I Disapprove You Come In Sir**😄😄"
+            )               
