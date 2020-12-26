@@ -56,6 +56,39 @@ def admin_cmd(**args):
         args["chats"] = black_list_chats
 
     return events.NewMessage(**args)
+def lightning_cmd(**args):
+    args["func"] = lambda e: e.via_bot_id is None
+
+    pattern = args.get("pattern", None)
+    allow_sudo = args.get("allow_sudo", False)
+
+    # get the pattern from the decorator
+    if pattern is not None:
+        if pattern.startswith("\#"):
+            # special fix for snip.py
+            args["pattern"] = re.compile(pattern)
+        else:
+            args["pattern"] = re.compile(Var.CMD_HNDLR + pattern)
+
+    args["outgoing"] = True
+    # should this command be available for other users?
+    if allow_sudo:
+        args["from_users"] = list(Var.SUDO_USERS)
+        # Mutually exclusive with outgoing (can only set one of either).
+        args["incoming"] = True
+        del args["allow_sudo"]
+
+    # error handling condition check
+    elif "incoming" in args and not args["incoming"]:
+        args["outgoing"] = True
+
+    # add blacklist chats, UB should not respond in these chats
+    args["blacklist_chats"] = True
+    black_list_chats = list(Var.UB_BLACK_LIST_CHAT)
+    if black_list_chats:
+        args["chats"] = black_list_chats
+
+    return events.NewMessage(**args)
 
 
 async def is_read(borg, entity, message, is_out=None):
