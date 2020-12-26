@@ -1,4 +1,4 @@
-# You Are Free To Use This Im Not Like Some Over Prouded Bot Owners😂😂 But Pls Gib The Credits
+# You Are Free To Use  But Pls Gib The Credits
 # Made By @krish1303y,@cyper666, @ For black lightning  🔥🔥🔥
 
 
