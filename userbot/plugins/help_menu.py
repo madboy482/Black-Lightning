@@ -1,9 +1,10 @@
-from  userbot import CMD_LIST, ALIVE_NAME
+from  userbot import CMD_LIST, ALIVE_NAME, bot
 from userbot.utils import admin_cmd
-from telethon import events, functions
+from telethon import  functions
+import asyncio
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
 
-@bot.on(admin_cmd(pattern=r"help ?(.*)", outgoing=True))
+@borg.on(admin_cmd(pattern=r"help ?(.*)", outgoing=True))
 async def cmd_list(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         lightning_userbot_name = Var.TG_BOT_USER_NAME_BF_HER
@@ -31,11 +32,11 @@ async def cmd_list(event):
             else:
                 await event.edit(input_str + " is not a valid plugin!")
         else:
-            help_string = f"""Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n
+            lightn_string = f"""Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n
 {DEFAULTUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport"""
             results = await bot.inline_query(  # pylint:disable=E0602
                 lightning_userbot_name,
-                help_string
+                lightn_string
             )
             await results[0].click(
                 event.chat_id,
