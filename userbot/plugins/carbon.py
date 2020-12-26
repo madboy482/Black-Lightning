@@ -115,7 +115,7 @@ async def carbon_api(e):
         await e.client.send_file(
             e.chat_id,
             file,
-            caption="<< Here's your carbon, \n Carbonised by [DARKCOBRA](https://www.github.com/hellboi-atul/hellboi-atul)>> ",
+            caption="<< Here's your carbon, \n Carbonised by [Black Lightning](https://www.github.com/hellboi-atul/hellboi-atul)>> ",
             force_document=True,
             reply_to=e.message.reply_to_msg_id,
         )
