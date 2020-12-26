@@ -24,23 +24,23 @@ from userbot import CMD_HELP
 from userbot.function import convert_to_image, crop_vid, runcmd
 from userbot.utils import admin_cmd, sudo_cmd
 
-sedpath = "./keinshin/"
-if not os.path.isdir(sedpath):
-    os.makedirs(sedpath)
+lovepath = "./keinshin/"
+if not os.path.isdir(lovepath):
+    os.makedirs(lovepath)
 
 
 @borg.on(admin_cmd(pattern=r"cit"))
 @borg.on(sudo_cmd(pattern=r"cit", allow_sudo=True))
-async def hmm(event):
+async def lightning(event):
     if not event.reply_to_msg_id:
         await event.reply("Reply to any Image.")
         return
-    hmmu = await event.edit("Colourzing..")
+    lightningu = await event.edit("Colourzing..")
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
-        img = await borg.download_media(sed.media, sedpath)
+        img = await borg.download_media(sed.media, lovepath)
     elif "image" in sed.media.document.mime_type.split("/"):
-        img = await borg.download_media(sed.media, sedpath)
+        img = await borg.download_media(sed.media, lovepath)
     else:
         await event.edit("Reply To Image")
         return
@@ -69,10 +69,10 @@ async def hmm(event):
     colorized = np.clip(colorized, 0, 1)
     colorized = (255 * colorized).astype("uint8")
     file_name = "Colour.png"
-    ok = sedpath + "/" + file_name
+    ok = lovepath + "/" + file_name
     cv2.imwrite(ok, colorized)
     await borg.send_file(event.chat_id, ok)
-    await hmmu.delete()
+    await lightningu.delete()
     for files in (ok, img):
         if files and os.path.exists(files):
             os.remove(files)
@@ -80,7 +80,7 @@ async def hmm(event):
 
 @borg.on(admin_cmd(pattern=r"toon"))
 @borg.on(sudo_cmd(pattern=r"toon", allow_sudo=True))
-async def hmm(event):
+async def lightning(event):
     life = Config.DEEP_API_KEY
     if life == None:
         life = "quickstart-QUdJIGlzIGNvbWluZy4uLi4K"
@@ -89,12 +89,12 @@ async def hmm(event):
         await event.reply("Reply to any Image.")
         return
     headers = {"api-key": life}
-    hmm = await event.edit("Toooning.....")
+    lightning = await event.edit("Toooning.....")
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
-        img = await borg.download_media(sed.media, sedpath)
+        img = await borg.download_media(sed.media, lovepath)
     elif "image" in sed.media.document.mime_type.split("/"):
-        img = await borg.download_media(sed.media, sedpath)
+        img = await borg.download_media(sed.media, lovepath)
     else:
         await event.edit("Reply To Image")
         return
@@ -105,14 +105,14 @@ async def hmm(event):
     r = requests.post(url=url, files=img_file, headers=headers).json()
     sedimg = r["output_url"]
     await borg.send_file(event.chat_id, sedimg)
-    await hmm.delete()
+    await lightning.delete()
     if os.path.exists(img):
         os.remove(img)
 
 
 @borg.on(admin_cmd(pattern=r"nst"))
 @borg.on(sudo_cmd(pattern=r"nst", allow_sudo=True))
-async def hmm(event):
+async def lightning(event):
     life = Config.DEEP_API_KEY
     if life == None:
         life = "quickstart-QUdJIGlzIGNvbWluZy4uLi4K"
@@ -121,12 +121,12 @@ async def hmm(event):
         await event.reply("Reply to any Image.")
         return
     headers = {"api-key": life}
-    hmm = await event.edit("Colourzing..")
+    lightning = await event.edit("Colourzing..")
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
-        img = await borg.download_media(sed.media, sedpath)
+        img = await borg.download_media(sed.media, lovepath)
     elif "image" in sed.media.document.mime_type.split("/"):
-        img = await borg.download_media(sed.media, sedpath)
+        img = await borg.download_media(sed.media, lovepath)
     else:
         await event.edit("Reply To Image")
         return
@@ -136,27 +136,27 @@ async def hmm(event):
     url = "https://api.deepai.org/api/nsfw-detector"
     r = requests.post(url=url, files=img_file, headers=headers).json()
     sedcopy = r["output"]
-    hmmyes = sedcopy["detections"]
+    lightningyes = sedcopy["detections"]
     game = sedcopy["nsfw_score"]
-    final = f"**IMG RESULT** \n**Detections :** `{hmmyes}` \n**NSFW SCORE :** `{game}`"
+    final = f"**IMG RESULT** \n**Detections :** `{lightningyes}` \n**NSFW SCORE :** `{game}`"
     await borg.send_message(event.chat_id, final)
-    await hmm.delete()
+    await lightning.delete()
     if os.path.exists(img):
         os.remove(img)
 
 
 @borg.on(admin_cmd(pattern=r"thug"))
 @borg.on(sudo_cmd(pattern=r"thug", allow_sudo=True))
-async def iamthug(event):
+async def fuck_thugs(event):
     if not event.reply_to_msg_id:
         await event.reply("Reply to any Image.")
         return
-    hmm = await event.edit("`Converting To thug Image..`")
+    lightning = await event.edit("`Converting To thug Image..`")
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
-        img = await borg.download_media(sed.media, sedpath)
+        img = await borg.download_media(sed.media, lovepath)
     elif "image" in sed.media.document.mime_type.split("/"):
-        img = await borg.download_media(sed.media, sedpath)
+        img = await borg.download_media(sed.media, lovepath)
     else:
         await event.edit("Reply To Image")
         return
@@ -173,11 +173,11 @@ async def iamthug(event):
         mask = mask.resize((w, h), Image.ANTIALIAS)
         offset = (x, y)
         background.paste(mask, offset, mask=mask)
-    file_name = "fridaythug.png"
-    ok = sedpath + "/" + file_name
+    file_name = "lightnning.png"
+    ok = lovepath + "/" + file_name
     background.save(ok, "PNG")
     await borg.send_file(event.chat_id, ok)
-    await hmm.delete()
+    await lightning.delete()
     for files in (ok, img):
         if files and os.path.exists(files):
             os.remove(files)
@@ -189,9 +189,9 @@ async def lolmetrg(event):
     await event.edit("`Triggered This Image`")
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
-        img = await borg.download_media(sed.media, sedpath)
+        img = await borg.download_media(sed.media, lovepath)
     elif "image" in sed.media.document.mime_type.split("/"):
-        img = await borg.download_media(sed.media, sedpath)
+        img = await borg.download_media(sed.media, lovepath)
     else:
         await event.edit("Reply To Image")
         return
@@ -261,14 +261,14 @@ async def spinshit(message):
 
 @borg.on(admin_cmd(pattern=r"jail"))
 @borg.on(sudo_cmd(pattern=r"jail", allow_sudo=True))
-async def hmm(event):
+async def lightning(event):
     if not event.reply_to_msg_id:
         await event.reply("Reply to any Image.")
         return
-    hmmu = await event.edit("hmm... Sending him to jail...🚶")
+    lightningu = await event.edit("lightning... Sending him to jail...🚶")
     await event.get_reply_message()
     img = await convert_to_image(event, borg)
-    mon = "./resources/jail/hmm.png"
+    mon = "./resources/jail/lightning.png"
     foreground = Image.open(mon).convert("RGBA")
 
     background = Image.open(img).convert("RGB")
@@ -282,7 +282,7 @@ async def hmm(event):
     file_name = "testing.png"
     ok = "./keinshin/" + file_name
     await borg.send_file(event.chat_id, ok)
-    await hmmu.delete()
+    await lightningu.delete()
     for files in (ok, img):
         if files and os.path.exists(files):
             os.remove(files)
@@ -290,11 +290,11 @@ async def hmm(event):
 
 @borg.on(admin_cmd(pattern=r"greyscale"))
 @borg.on(sudo_cmd(pattern=r"greyscale", allow_sudo=True))
-async def hmm(event):
+async def lightning(event):
     if not event.reply_to_msg_id:
         await event.reply("Reply to any Image.")
         return
-    hmmu = await event.edit("hmm.. Creating a black&White image...")
+    lightningu = await event.edit("lightning.. Creating a black&White image...")
     await event.get_reply_message()
     img = await convert_to_image(event, borg)
     img1 = cv2.imread(img)
@@ -305,7 +305,7 @@ async def hmm(event):
     file_name = "testing.png"
     ok = "./keinshin/" + file_name
     await borg.send_file(event.chat_id, ok)
-    await hmmu.delete()
+    await lightningu.delete()
     for files in (ok, img):
         if files and os.path.exists(files):
             os.remove(files)
@@ -335,17 +335,17 @@ async def img(event):
     drawing.text((450, 258), result, fill=blue, font=font1)
     drawing.text((270, 37), search, fill=black, font=font2)
     file_name = "fgs.jpg"
-    ok = sedpath + "/" + file_name
+    ok = lovepath + "/" + file_name
     photo.save(ok)
     await event.delete()
-    await friday.send_file(event.chat_id, ok)
+    await lightningfuck.send_file(event.chat_id, ok)
     if os.path.exists(ok):
         os.remove(ok)
 
 
 @borg.on(admin_cmd(pattern=r"lg"))
 @borg.on(sudo_cmd(pattern=r"lg", allow_sudo=True))
-async def lottiepie(event):
+async def lightninnnnnnnnnnnnn(event):
     await event.edit("`Prooooooccccesssssssinggggg.....`")
     message = await event.get_reply_message()
     if message.media and message.media.document:
