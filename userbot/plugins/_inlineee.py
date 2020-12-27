@@ -212,6 +212,9 @@ if LIGHtNING_BOT_PIC is None:
 else:
     LIGHTNING_WARNING = LIGHtNING_BOT_PIC
 
+
+    
+
 @tgbot.on(events.InlineQuery)
 async def lightning_hands_button(event):
     builder = event.builder
