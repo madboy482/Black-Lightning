@@ -1,5 +1,5 @@
 # You Are Free To Use  But Pls Gib The Credits
-# Made By @krish1303y,@cyper666, @Atank_ka_devata ( Never Gonna Forgive Hom 😑😑 nvm thx)   For black lightning  🔥🔥🔥
+# Made By @krish1303y,@cyper666, @Atank_ka_devata( Never Gonna Forgive Him 😑😑 nvm thx)   For black lightning  🔥🔥🔥
 # Thanks @xditya Mujhe Samjhane Ke Liye 
 # Thanks @xditya For Your kind Help Sir 😘😘❤️
 
@@ -230,7 +230,7 @@ async def lightning_hands_button(event):
     elif event.query.user_id == bot.uid and query == "My Stats":
         result = builder.article(
             title="My Stats",
-            text=f"** {DEFAULTUSER}'s Black Lightning** \nNote --> Only {DEFAULTUSER} Can Check This ",
+            text=f"** {DEFAULTUSER}'s Black Lightning Stats** \nNote --> Only {DEFAULTUSER} Can Check This ",
             lightning_button=[
                 [custom.Button.inline("Show Stats ?", data="fuck_spying")],
                 [Button.url("Repo 😍", "https://github.com/KeinShin/Black-Lightning")],
