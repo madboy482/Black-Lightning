@@ -1,4 +1,4 @@
-from  userbot import CMD_LIST, ALIVE_NAME, bot
+from  userbot import CMD_LIST, ALIVE_NAME
 from userbot.utils import admin_cmd
 from telethon import  functions
 import asyncio
@@ -18,7 +18,7 @@ async def cmd_list(event):
                     string += "\n"
                 string += "\n"
             if len(string) > 4095:
-                await borg.send_message(event.chat_id, "Do .help cmd")
+                await tgbot.send_message(event.chat_id, "Do .help cmd")
                 await asyncio.sleep(5)
             else:
                 await event.edit(string)
