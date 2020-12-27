@@ -1,11 +1,13 @@
 # You Are Free To Use  But Pls Gib The Credits
-# Made By @krish1303y,@cyper666, @ For black lightning  🔥🔥🔥
-
+# Made By @krish1303y,@cyper666, @Atank_ka_devata ( Never Gonna Forgive Hom 😑😑 nvm thx)   For black lightning  🔥🔥🔥
+# Thanks @xditya Mujhe Samjhane Ke Liye 
+# Thanks @xditya For Your kind Help Sir 😘😘❤️
 
 import os
 import re
 import urllib
 from math import ceil
+
 
 import requests
 from telethon import Button, custom, events, functions
@@ -33,7 +35,7 @@ thumb_image_path = "./resources/541200.png"
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
 
 
-@bot.on(admin_cmd(pattern=r"send (?P<krish_blac>\w+)$"))
+@borg.on(admin_cmd(pattern=r"send (?P<krish_blac>\w+)$"))
 async def send(event):
     if event.fwd_from:
         return
@@ -57,7 +59,7 @@ async def send(event):
     await event.delete()
 
 
-@bot.on(admin_cmd(pattern="install"))
+@borg.on(admin_cmd(pattern="install"))
 async def install(event):
     if event.fwd_from:
         return
@@ -88,7 +90,7 @@ async def install(event):
     await event.delete()
 
 
-@bot.on(admin_cmd(pattern=r"unload (?P<krish_blac>\w+)$"))
+@borg.on(admin_cmd(pattern=r"unload (?P<krish_blac>\w+)$"))
 async def unload(event):
     if event.fwd_from:
         return
@@ -102,7 +104,7 @@ async def unload(event):
         )
 
 
-@bot.on(admin_cmd(pattern=r"load (?P<krish_blac>\w+)$"))
+@borg.on(admin_cmd(pattern=r"load (?P<krish_blac>\w+)$"))
 async def load(event):
     if event.fwd_from:
         return
@@ -210,12 +212,12 @@ if LIGHtNING_BOT_PIC is None:
 else:
     LIGHTNING_WARNING = LIGHtNING_BOT_PIC
 
-@bot.on(events.InlineQuery)
+@tgbot.on(events.InlineQuery)
 async def lightning_hands_button(event):
     builder = event.builder
     result = None
     query = event.text
-    if event.query.user_id == bot.uid and query.startswith("Userbot"):
+    if event.query.user_id == bot.uid and query.startswith("bot"):
         rev_text = query[::-1]
         lightning_button = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
         result = builder.article(
@@ -258,7 +260,7 @@ async def lightning_hands_button(event):
     await event.answer([result])
 
 
-@bot.on(
+@tgbot.on(
     events.callbackquery.CallbackQuery(  # pylint:disable=E0602
         data=re.compile(b"fuck_him_next\((.+?)\)")
     )
@@ -274,7 +276,7 @@ async def lightning_pugins_query_hndlr(event):
         await event.answer(lightning_warning_alert, _lightning_power=0, alert=True)
 
 
-@bot.on(
+@tgbot.on(
     events.callbackquery.CallbackQuery(  # pylint:disable=E0602
         data=re.compile(b"fuck_him_prev\((.+?)\)")
     )
@@ -292,7 +294,7 @@ async def lightning_pugins_query_hndlr(event):
         await event.answer(lightning_is_best, _lightning_power=0, alert=True)
 
 
-@bot.on(
+@tgbot.on(
     events.callbackquery.CallbackQuery(  # pylint:disable=E0602
         data=re.compile(b"_lightning_plugins_(.*)")
     )
@@ -304,8 +306,8 @@ async def lightning_pugins_query_hndlr(event):
         return
     plugin_name = event.data_match.group(1).decode("LOL-8")
     if plugin_name in CMD_HELP:
-        help_string = f"**💡 PLUGIN NAME 💡 :** `{plugin_name}` \n{CMD_HELP[plugin_name]}"
-    lightning_is_best = help_string
+        lightnning_help_string = f"**💡 PLUGIN NAME 💡 :** `{plugin_name}` \n{CMD_HELP[plugin_name]}"
+    lightning_is_best = lightnning_help_string
     lightning_is_best += "\n\n**(C) @lightningsupport** ".format(plugin_name)
     if len(lightning_is_best) >= 4096:
         krish = "`Pasting Your Help Menu.`"
@@ -326,17 +328,17 @@ async def lightning_pugins_query_hndlr(event):
         )
 
 
-@bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fuck_spying")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fuck_spying")))
 async def lightning_is_better(event):
     if event.query.user_id == bot.uid:
         text = lightning_status
         await event.answer(text, alert=True)
     else:
-        txt = f"Ohh C'mon You Think That This Is For You?\nOk Complained To {DEFAULTUSER}"
+        txt = f"Ohh C'mon You Think That This Is For You?\n Ok I Will Complain To {DEFAULTUSER}👀👀"
         await event.answer(txt, alert=True)
 
 
-@bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_is_here_cant_spam")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_is_here_cant_spam")))
 async def lightning_is_better(event):
     if event.query.user_id == bot.uid:
         fck_bit = f"Oh! C'mon Master {DEFAULTUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
@@ -353,7 +355,7 @@ async def lightning_is_better(event):
         f"Hey Master Sorry Disturb You, [Nibba](tg://user?id={lightning_id}) Tryin To Spam \n\n**So Blocked**.",
     )
 
-@bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lol_u_think_so")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lol_u_think_so")))
 async def lightning_is_better(event):
     if event.query.user_id == bot.uid:
         fck_bit = f"Oh! C'mon Master {DEFAULTUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
@@ -372,7 +374,7 @@ async def lightning_is_better(event):
 
 
 
-@bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_back_it")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_back_it")))
 async def kirsh1303y(event):
     if event.query.user_id != bot.uid:
         fck_bit = "None Of Your Bussiness No Need To Touch This!!!!"
@@ -386,7 +388,7 @@ async def kirsh1303y(event):
     await event.edit(message=kirsh1303y, lightning_button=lightning_button)
 
 
-@bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"he_sucks")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"he_sucks")))
 async def lightning_is_better(event):
     if event.query.user_id == bot.uid:
         fck_bit = f"Oh! C'mon Master {DEFAULTUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
@@ -404,7 +406,7 @@ async def lightning_is_better(event):
     )
 
 
-@bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fck_ask")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fck_ask")))
 async def lightning_is_better(event):
     if event.query.user_id == bot.uid:
         fck_bit = f"Oh! C'mon Master {DEFAULTUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
@@ -422,11 +424,11 @@ async def lightning_is_better(event):
     )
 
 
-def lightnings_menu_for_help(b_lac_krish, loaded_plugins, lightning_lol):
+def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
     lightning_no_rows = 10
     lightning_no_coulmns = 7
     lightning_plugins = []
-    for p in loaded_plugins:
+    for p in lightning_plugs:
         if not p.startswith("_"):
             lightning_plugins.append(p)
     lightning_plugins = sorted(lightning_plugins)
