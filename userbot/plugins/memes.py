@@ -23,8 +23,13 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 
 from uniborg.util import admin_cmd
-from userbot import CMD_HELP
+from userbot import CMD_HELP, ALIVE_NAME
+
+
 from userbot.utils import register
+
+
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
 
 # ================= CONSTANT =================
 RENDISTR = [
@@ -905,7 +910,7 @@ async def vapor(vpr):
 async def source(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
-            "Hello , User I Am Using [Lightningt](https://github.com/KeinShin/Black-Lightning) ! Worth A Try 😌"
+            f"**Hello , {DEFAULTUSER} Is Givin A Opportunity To Use Lighting [Lightningt](https://github.com/KeinShin/Black-Lightning) !\n Try Now😉"
         )
 
 
