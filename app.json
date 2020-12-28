@@ -131,7 +131,17 @@
     "description": "Your Telegram Username. ",
     "value": "",
     "required": false
-   },  
+   },
+   "YT_NAME": {
+    "description": "YT Channel Name, If No Name Leave It Default. ",
+    "value": "Not Yet😁😁",
+    "required": true
+   }, 
+   "YT_LINK": {
+    "description": "YT Channel Link, If No Channel Leave It Default. ",
+    "value": "Not Yet😁😁",
+    "required": true
+   }, 
    "MAX_SPAM": {
     "description": "Number of messages one can send in your PM before being approved. By default, it is 3.",
     "value": "3",
