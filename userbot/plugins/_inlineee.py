@@ -24,7 +24,7 @@ import asyncio
 from datetime import datetime
 from pathlib import Path
 
-from userbot import ALIVE_NAME, bot
+from userbot import ALIVE_NAME
 from userbot.utils import admin_cmd, load_module, remove_plugin
 
 DELETE_TIMEOUT = 5
