@@ -76,7 +76,7 @@ async def install(event):
                 krish_blac = path1.stem
                 load_module(krish_blac.replace(".py", ""))
                 await event.edit(
-                    "`{}Woo This Plugin Looks Cool  Successfully Snstalled\nBtw Thanks For This Plugins Sir:D ".format(
+                    "`{}`Woo This Plugin Looks Cool  Successfully Snstalled`\n**Btw Thanks For This Plugins Sir**:D ".format(
                         os.path.basename(downloaded_file_name)
                     )
                 )
