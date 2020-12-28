@@ -1,13 +1,12 @@
 # Changes Fixed By @krish1303y  
 import asyncio
+from userbot import ALIVE_NAME
 import os
 from datetime import datetime
 from pathlib import Path
 DELETE_TIMEOUT = 3
 lightningsss_image_path = "./resources/541200.png"
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
-
-from userbot import ALIVE_NAME
 from userbot import bot 
 from userbot.utils import admin_cmd, sudo_cmd
 from userbot.utils import edit_or_reply as eor
