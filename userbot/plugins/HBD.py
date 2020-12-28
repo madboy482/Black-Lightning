@@ -18,7 +18,7 @@ async def _(event):
     animation_chars = [
         "**Hello!👋**",
         "**How Are You?**",
-        "**{DEFAULTUSER}Happy Birthday**"
+        f"**{DEFAULTUSER}Happy Birthday**"
         "[Happy Birthday](http://2.bp.blogspot.com/-WGLaIVbpK6U/WT4sr0LG2TI/AAAAAAAAVX0/1t0F3gECRh4okN6zJzq6fMwQ7dA4Qw8AwCLcB/s1600/happy-birthday-to-you.png)",
         "**Wishing you 👈 a 👌 day 🌞 filled 😏 with 👏 happiness and 👏 a 👌 year 🎉 filled 😏 with 👏 joy 😁.**",
         "**Sending you 👈 smiles 😀 for  every 👏 moment 🏆 of your special 😲 day 🌞*",
