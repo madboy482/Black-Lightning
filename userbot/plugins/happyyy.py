@@ -2,8 +2,8 @@
 # If you steal this without credits You will be the geyest gey ever in the world that you will suck cat's dick.
 import asyncio
 
-from .. import ALIVE_NAME
-from ..utils import admin_cmd
+from  userbot import ALIVE_NAME
+from userbot.utils import admin_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
 
@@ -33,6 +33,7 @@ async def _(event):
         "[Some Gifts](https://wallpapercave.com/wp/wp7891467.jpg)",
         "[Some Gifts](https://media.giphy.com/media/3j4QTXSIKRfPCgvVIL/giphy.gif)",
         "[Some Gifts](https://media.giphy.com/media/s2qXK8wAvkHTO/giphy.gif)",
+        "[Some Gifts](https://telegra.ph/file/0c3f83a170e28b30316ae.mp4)",
         f"**Once Again Happy New Year To All By {DEFAULTUSER}**❤️❤️❤️",  
         f"**Once Again Happy New Year To All By {DEFAULTUSER}**😘😘😘",
         f"**Once Again Happy New Year To All By {DEFAULTUSER}**❤️❤️❤️", 
