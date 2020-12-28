@@ -46,13 +46,7 @@ LOAD_PLUG = {}
 ENV = os.environ.get("ENV", False)
 """ PPE initialization. """
 
-import asyncio
-from distutils.util import strtobool as sb
-from logging import DEBUG, INFO, basicConfig, getLogger
 
-import pylast
-from pySmartDL import SmartDL
-from requests import get
 
 # Bot Logs setup:
 if bool(ENV):
