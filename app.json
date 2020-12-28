@@ -133,12 +133,12 @@
     "required": false
    },
    "TG_GRUP": {
-    "description": "Telegram Grup Name Starts With """@""" like @lightningsupport, If No Name Leave It Default. Required For Alive ",
+    "description": "Telegram Grup Name Starts With @ like, @lightningsupport, If No Name Leave It Default. Required For Alive ",
     "value": "Not Yet😁😁",
     "required": true
    }, 
    "TG_CHANNEL": {
-    "description": "Telegram Channel  Starts With """@""" like @blacklightningot, If No Channel Leave It Default. Required For Alive ",
+    "description": "Telegram Channel  Starts With @ like @blacklightningot, If No Channel Leave It Default. Required For Alive ",
     "value": "Not Yet😁😁",
     "required": true
    }, 
