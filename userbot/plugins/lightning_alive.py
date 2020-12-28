@@ -10,11 +10,11 @@ from userbot import ALIVE_NAME, TG_CHANNEL, TG_GRUP
 from userbot.thunderconfig import Config
 from userbot.utils import admin_cmd
 
-LIGHTNING_IMAGE = os.environ.get("LIGHTNING_IMAGE", None)
-if LIGHTNING_IMAGE is None:
-    LIGHTNING_IMG = "https://telegra.ph/file/5db4087d9de9b738ad0fc.mp4"
+LIGHTNING_ALV_IMG = os.environ.get("LIGHTNING_IMAGE", None)
+if LIGHTNING_ALV_IMG is None:
+    ALV_LIGHTNING = "https://telegra.ph/file/5db4087d9de9b738ad0fc.mp4"
 else:
-    LIGHTNING_IMG = LIGHTNING_IMAGE
+    ALV_LIGHTNING = LIGHTNING_ALV_IMG
 
 
 version = "4.5"
@@ -52,12 +52,8 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "вℓα¢к ℓιgнтηιηg"
 
 TG = str(TG_GRUP) if TG_GRUP else "No  YT Yet😁😁"
 TG_CHANN = str(TG_CHANNEL) if TG_CHANNEL else "No YT Yet😁😁"
-LIGHTNING_ALV_IMG = os.environ.get("LIGHTNING_ALV_IMG", None)
 
-if LIGHTNING_ALV_IMG is None:
-    ALV_LIGHTNING = "https://telegra.ph/file/b01cd4ef19edc14195648.mp4"
-else:
-    ALV_LIGHTNING = LIGHTNING_ALV_IMG
+
 
 lightning_cap = "**вℓα¢к ℓιgнтηιηg 𝙸𝚂 🅾🅽🅻🅸🅽🅴**\n\n"
 lightning_cap += f"**𝕄𝕪 𝔹𝕠𝕤𝕤**            : {DEFAULTUSER}\n"
@@ -76,5 +72,5 @@ lightning_cap += "𝘾𝙊𝙋𝙔𝙍𝙄𝙂𝙃𝙏:              [KeinShin](
 async def lightning(alive):
     await alive.get_chat()
     """ For .alive command, check if the bot is running.  """
-    await borg.send_file(alive.chat_id, LIGHTNING_ALV_IMG, caption=lightning_cap)
+    await borg.send_file(alive.chat_id, ALV_LIGHTNING, caption=lightning_cap)
     await alive.delete()
