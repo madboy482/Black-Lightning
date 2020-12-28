@@ -51,7 +51,7 @@ def lightning_Read_time(seconds: int) -> str:
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "вℓα¢к ℓιgнтηιηg"
 
 TG = str(TG_GRUP) if TG_GRUP else "No  YT Yet😁😁"
-TG = str(TG_CHANNEL) if TG_CHANNEL else "No YT Yet😁😁"
+TG_CHANN = str(TG_CHANNEL) if TG_CHANNEL else "No YT Yet😁😁"
 LIGHTNING_ALV_IMG = os.environ.get("LIGHTNING_ALV_IMG", None)
 
 if LIGHTNING_ALV_IMG is None:
@@ -62,7 +62,7 @@ else:
 lightning_cap = "**вℓα¢к ℓιgнтηιηg 𝙸𝚂 🅾🅽🅻🅸🅽🅴**\n\n"
 lightning_cap += f"**𝕄𝕪 𝔹𝕠𝕤𝕤**            : {DEFAULTUSER}\n"
 lightning_cap += f"{DEFAULTUSER}'s ɢʀօʊք       : {TG}\n"  
-lightning_cap += f"{DEFAULTUSER}'s ƈɦǟռռɛʟ                  : {TG_CHANNEL}"
+lightning_cap += f"{DEFAULTUSER}'s ƈɦǟռռɛʟ                  : {TG_CHANN}"
 lightning_cap += f"тєℓєтнσи νєяѕισи        : {__version__}\n"
 lightning_cap += "ρყƚԋσɳ ʋҽɾʂισɳ           : 3.9.0\n"
 lightning_cap += "ֆʊքքօʀƭ ƈɦǟռռɛʟ          : [ᴊᴏɪɴ](https://t.me/blacklightningot)\n"
