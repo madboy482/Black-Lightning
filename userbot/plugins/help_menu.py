@@ -22,7 +22,7 @@ async def lightning_cmd_list(event):
                     string += "\n"
                 string += "\n"
             if len(string) > 4095:
-                await borg.send_message(event.chat_id, "Do .help cmd")
+                await tgbot.send_message(event.chat_id, "Do .help cmd")
                 await asyncio.sleep(5)
             else:
                 await event.edit(string)
