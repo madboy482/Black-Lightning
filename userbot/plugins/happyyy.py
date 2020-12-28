@@ -1,7 +1,6 @@
 # By @krish1303y for Black Lightning
 # If you steal this without credits You will be the geyest gey ever in the world that you will suck cat's dick.
 import asyncio
-
 from  userbot import ALIVE_NAME
 from userbot.utils import admin_cmd
 
@@ -52,5 +51,5 @@ async def _(event):
 
         await asyncio.sleep(lightning_anmation_interval)
         await event.edit(
-            chars[i % 29], link_preview=True
+            chars[i % 30], link_preview=True
         )  
