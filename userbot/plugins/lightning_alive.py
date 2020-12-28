@@ -67,7 +67,7 @@ lightning_cap += f"тєℓєтнσи νєяѕισи        : {__version__}\n"
 lightning_cap += "ρყƚԋσɳ ʋҽɾʂισɳ           : 3.9.0\n"
 lightning_cap += "ֆʊքքօʀƭ ƈɦǟռռɛʟ          : [ᴊᴏɪɴ](https://t.me/blacklightningot)\n"
 lightning_cap += "ֆʊքքօʀƭ ɢʀօʊք            : [ᴊᴏɪɴ](https://t.me/lightningsupport)\n\n"
-lightning_cap += "𝘓𝘐𝘚𝘌𝘕𝘊𝘌                  : [AGPL-3.0  ʟɪᴄᴇɴꜱᴇ](https://jenaatul8.wixsite.com/KeinShin)\n"
+lightning_cap += "𝘓𝘐𝘚𝘌𝘕𝘊𝘌                  : [AGPL-3.0  ʟɪᴄᴇɴꜱᴇ](https://github.com/KeinShin/Black-Lightning/blob/master/License)\n"
 lightning_cap += "𝘾𝙊𝙋𝙔𝙍𝙄𝙂𝙃𝙏:              [KeinShin](https://t.me//krish1303y)\n"
 
 
