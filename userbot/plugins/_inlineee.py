@@ -1,7 +1,7 @@
 # You Are Free To Use  But Pls Gib The Credits
 # Made By @krish1303y,@cyper666, @Atank_ka_devata( Never Gonna Forgive Him 😑😑 nvm thx)   For black lightning  🔥🔥🔥
-# Thanks @xditya Mujhe Samjhane Ke Liye 
-# Thanks @xditya For Your kind Help Sir 😘😘❤️
+# Thanks @Shivam_Patel Mujhe Samjhane Ke Liye 
+# Thanks @Shivam_Patel For Your kind Help Sir 😘😘❤️
 
 import os
 import re
