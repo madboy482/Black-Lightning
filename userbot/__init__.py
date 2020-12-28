@@ -142,6 +142,15 @@ if bool(ENV):
     # Default .alive name
     ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
     AUTONAME = os.environ.get("AUTONAME", None)
+    
+    # Personal Info
+    YT_NAME = os.environ.get("YT_NAME", None)
+    YT_NAME = os.environ.get("YT_NAME", None)
+    YT_LINK = os.environ.get("YT_LINK", None)
+    TG_GRUP = os.environ.get("TG_GRUP", None)
+    TG_CHANNEL = os.environ.get("TG_CHANNEL", None)
+
+
     # Custom pm permi
     CUSTOM_PMPERMIT = os.environ.get("CUSTOM_PMPERMIT", None)
     # Time & Date - Country and Time Zone
