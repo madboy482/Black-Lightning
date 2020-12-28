@@ -35,28 +35,6 @@ thumb_image_path = "./resources/541200.png"
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
 
 
-@borg.on(admin_cmd(pattern=r"send (?P<krish_blac>\w+)$"))
-async def send(event):
-    if event.fwd_from:
-        return
-    message_id = event.message.id
-    input_str = event.pattern_match.group(1)
-    start = datetime.now()
-    the_plugin_file = "./userbot/plugins/{}.py".format(input_str)
-    end = datetime.now()
-    (end - start).seconds
-    men = f"Plugin Name - {input_str}.py \nUploaded By Black Lightning Userbot"
-    await event.client.send_file(  # pylint:disable=E0602
-        event.chat_id,
-        the_plugin_file,
-        thumb=thumb_image_path,
-        caption=men,
-        force_document=True,
-        allow_cache=False,
-        reply_to=message_id,
-    )
-    await asyncio.sleep(5)
-    await event.delete()
 
 
 @borg.on(admin_cmd(pattern="install"))
