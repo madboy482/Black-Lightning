@@ -66,7 +66,7 @@ else:
 
 lightning_status = (
     f"Sorry Sir In Some Plugin There Is A Telegram Bug\n"
-    f"Pls Try To Understad\n"
+    f"Pls Try To Understand\n"
     f"Instead Do .help <cmd name>\n\n"
     f"VERSION = {currentversion} \n"
     f"DATABASE = {dbstats} \n"
