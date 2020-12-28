@@ -91,52 +91,56 @@ def lightning_command(**args):
     file_test = Path(previous_stack_frame.filename)
     file_test = file_test.stem.replace(".py", "")
     if 1 == 0:
-        return print("Lightning Is Always Best")
+        return print("stupidity at its best")
     else:
         pattern = args.get("pattern", None)
-        allow_sudo = args.get("allow_sudo", False)
-        allow_edited_updates = args.get("allow_edited_updates", False)
+        allow_sudo = args.get("allow_sudo", None)
+        allow_edited_updates = args.get('allow_edited_updates', False)
         args["incoming"] = args.get("incoming", False)
         args["outgoing"] = True
         if bool(args["incoming"]):
             args["outgoing"] = False
 
         try:
-            if pattern is not None and not pattern.startswith("(?i)"):
-                args["pattern"] = "(?i)" + pattern
-        except:
+            if pattern is not None and not pattern.startswith('(?i)'):
+                args['pattern'] = '(?i)' + pattern
+        except BaseException:
             pass
 
-        reg = re.compile("(.*)")
-        if not pattern == None:
+        reg = re.compile('(.*)')
+        if pattern is not None:
             try:
                 cmd = re.search(reg, pattern)
                 try:
-                    cmd = (
-                        cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
-                    )
-                except:
+                    cmd = cmd.group(1).replace(
+                        "$",
+                        "").replace(
+                        "\\",
+                        "").replace(
+                        "^",
+                        "")
+                except BaseException:
                     pass
 
                 try:
                     CMD_LIST[file_test].append(cmd)
-                except:
+                except BaseException:
                     CMD_LIST.update({file_test: [cmd]})
-            except:
+            except BaseException:
                 pass
 
         if allow_sudo:
-            args["from_users"] = list(Config.SUDO_USERS)
+            args["from_users"] = list(Var.SUDO_USERS)
             # Mutually exclusive with outgoing (can only set one of either).
             args["incoming"] = True
         del allow_sudo
         try:
             del args["allow_sudo"]
-        except:
+        except BaseException:
             pass
 
         if "allow_edited_updates" in args:
-            del args["allow_edited_updates"]
+            del args['allow_edited_updates']
 
         def decorator(func):
             if allow_edited_updates:
@@ -144,11 +148,12 @@ def lightning_command(**args):
             bot.add_event_handler(func, events.NewMessage(**args))
             try:
                 LOAD_PLUG[file_test].append(func)
-            except:
+            except BaseException:
                 LOAD_PLUG.update({file_test: [func]})
             return func
 
         return decorator
+
 
 def load_module(shortname):
     if shortname.startswith("__"):
