@@ -1,11 +1,15 @@
+# Rewritten by @krish1303y
+
 from  userbot import CMD_LIST, ALIVE_NAME
 from userbot.utils import admin_cmd
 from telethon import  functions
 import asyncio
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
+
+
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Pls Go To Heroku Vars Then in  `ALIVE_NAME`place You Telegram `Username` "
 
 @borg.on(admin_cmd(pattern=r"help ?(.*)", outgoing=True))
-async def cmd_list(event):
+async def lightning_cmd_list(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         lightning_userbot_name = Var.TG_BOT_USER_NAME_BF_HER
         input_str = event.pattern_match.group(1)
@@ -18,7 +22,7 @@ async def cmd_list(event):
                     string += "\n"
                 string += "\n"
             if len(string) > 4095:
-                await tgbot.send_message(event.chat_id, "Do .help cmd")
+                await borg.send_message(event.chat_id, "Do .help cmd")
                 await asyncio.sleep(5)
             else:
                 await event.edit(string)
@@ -30,7 +34,7 @@ async def cmd_list(event):
                     string += "\n"
                 await event.edit(string)
             else:
-                await event.edit(input_str + " is not a valid plugin!")
+                await event.edit(input_str + "  ☹️ is not a valid plugin😞😞!")
         else:
             lightn_string = f"""Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n
 {DEFAULTUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport"""
