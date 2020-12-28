@@ -208,19 +208,6 @@ async def lightning_hands_button(event):
             link_preview=False,
         )
         await event.answer([result])
-    elif event.query.user_id == bot.uid and query == "My Stats":
-        result = builder.article(
-            title="My Stats",
-            text=f"** {DEFAULTUSER}'s Black Lightning Stats** \nNote --> Only {DEFAULTUSER} Can Check This ",
-            lightning_button=[
-                [custom.Button.inline("Show Stats ?", data="fuck_spying")],
-                [Button.url("Repo 😍", "https://github.com/KeinShin/Black-Lightning")],
-                [Button.url("Something Wrong In Stats", "t.me/lightningsupport")],
-                [Button.url("Some Bug", "t.me/lightningsupport")],
-                [Button.url("Deploy Link", "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning&template=https%3A%2F%2Fgithub.com%2FKeinShin%2FBlack-Lightning")],  
-            ],
-        )
-        await event.answer([result])
     elif event.query.user_id == bot.uid and query.startswith("**Hi"):
         result = builder.photo(
             file=LIGHTNING_WARNING,
