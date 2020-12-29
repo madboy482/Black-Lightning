@@ -1,3 +1,0 @@
-class Constants(object):
-  MAX_DISTANCE_FORT_IS_REACHABLE = 38 # meters
-  MAX_DISTANCE_POKEMON_IS_REACHABLE = 48
