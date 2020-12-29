@@ -161,3 +161,4 @@ pokedex.py==1.1.2
 cryptosteganography==0.8.3
 yahoo_fin==0.8.6
 langdetect==1.0.8
+pybase64==1.0.2
