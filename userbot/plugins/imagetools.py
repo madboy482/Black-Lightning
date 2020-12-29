@@ -390,11 +390,11 @@ async def lightninnnnnnnnnnnnn(event):
         os.remove("tgs.tgs")
 
 
-@bot.on(admin_cmd(pattern="ph(?: |$)(.*)"))
+@borg.on(admin_cmd(pattern="ph(?: |$)(.*)"))
 async def lightningbot(lightnig):
     input_str = lightnig.pattern_match.group(1)
     input_str = deEmojify(input_str)
-    if "|" in input_str:
+    if "," in input_str:
         username, text = input_str.split("|")
     else:
         await lightnig.edit(
