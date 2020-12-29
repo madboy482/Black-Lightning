@@ -3,11 +3,13 @@
 """
 from userbot import ALIVE_NAME
 from userbot.Config import Var
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
-ALIVE_PIC = Var.ALIVE_PHOTTO
-if ALIVE_PIC is None:
-    ALIVE_PIC = "https://telegra.ph/file/2f2b8d40e3f2fa4acdc8f.mp4"
+ALIVE_PHOTTO = os.environ.get("ALIVE_PHOTTO", None)
+if ALIVE_PHOTTO is None:
+    ALIVE_ME = "https://telegra.ph/file/b01cd4ef19edc14195648.mp4"
+else:
+    ALIVE_ME = ALIVE_PHOTTO
 
 
 DEFAULTUSER = (
@@ -26,8 +28,8 @@ if ALIVE_MESSAGE is None:
 
 
 # @command(outgoing=True, pattern="^.awake$")
-@borg.on(admin_cmd(pattern=r"awake"))
+@borg.on(lightning_cmd(pattern=r"awake"))
 async def amireallyalive(awake):
     """ For .awake command, check if the bot is running.  """
     await awake.delete()
-    await borg.send_file(awake.chat_id, ALIVE_PIC, caption=ALIVE_MESSAGE)
+    await borg.send_file(awake.chat_id, ALIVE_ME, caption=ALIVE_MESSAGE)
