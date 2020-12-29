@@ -99,6 +99,11 @@ def time_formatter(milliseconds: int) -> str:
     )
     return tmp[:-2]
 
+# LOL
+def deEmojify(inputString: str) -> str:
+    """Remove emojis and other non-safe characters from string"""
+    return re.sub(EMOJI_PATTERN, "", inputString)
+
 
 # Thanks To Userge-X
 # Ported By @STARKXD
