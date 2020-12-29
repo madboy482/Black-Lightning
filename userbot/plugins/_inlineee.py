@@ -5,9 +5,9 @@
 
 import os
 import re
-import urllib
+import json
 from math import ceil
-
+import time
 
 import requests
 from telethon import Button, custom, events, functions
@@ -54,7 +54,7 @@ async def install(event):
                 krish_blac = path1.stem
                 load_module(krish_blac.replace(".py", ""))
                 await event.edit(
-                    "`{}`Woo This Plugin Looks Cool  Successfully Snstalled`\n**Btw Thanks For This Plugins Sir**:D ".format(
+                    "`{}` Woo This Plugin Looks Cool  Successfully installed`\n**Btw** Thanks For This Plugins Sir :D ".format(
                         os.path.basename(downloaded_file_name)
                     )
                 )
@@ -221,7 +221,14 @@ async def lightning_hands_button(event):
                     )
                 ],
                 [custom.Button.inline("Requesting", data="fck_ask")],
-                [custom.Button.inline("Fuck Lemme In", data="lol_u_think_so")],
+                [
+                    custom.Button.inline(
+                        "Fuck Lemme In", 
+                        data="lol_u_think_so",
+                        
+                    )
+                        
+                ],
 
             ],
             )
@@ -425,3 +432,67 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
             )
         ]
     return pairs
+
+@tgbot.on(events.InlineQuery)  
+async def inline_handler(event):
+  me = await client.get_me()  
+  builder = event.builder
+  query = event.text
+  split = query.split(' ', 1) 
+  result = None 
+  what = re.compile("secret (.*) (.*)") 
+  match = re.findall(what, query)
+  if event.query.user_id == me.id and match:
+            query = query[7:]
+            user, txct = query.split(" ", 1)
+            builder = event.builder
+            secret = os.path.join("./userbot", "secrets.txt")
+            try:
+                jsondata = json.load(open(secret))
+            except:
+                jsondata = False
+            try:
+                # if u is user id
+                u = int(user)
+                try:
+                    u = await event.client.get_entity(u)
+                    if u.username:
+                        kirsh = f"@{u.username}"
+                    else:
+                        kirsh = f"[{u.first_name}](tg://user?id={u.id})"
+                except ValueError:
+                    # ValueError: Could not find the input entity
+                    kirsh = f"[user](tg://user?id={u})"
+            except ValueError:
+                # if u is username
+                try:
+                    u = await event.client.get_entity(user)
+                except ValueError:
+                    return
+                if u.username:
+                    kirsh = f"@{u.username}"
+                else:
+                    kirsh = f"[{u.first_name}](tg://user?id={u.id})"
+                u = int(u.id)
+            except:
+                return
+            timestamp = int(time.time() * 2)
+            newsecret = {str(timestamp): {"userid": u, "text": txct}}
+
+            buttons = [
+                custom.Button.inline("Show Message 🔐", data=f"secret_{timestamp}")
+            ]
+            result = builder.article(
+                title=f"Whisper To {kirsh}",
+                text=f"🔒 A whisper message to {kirsh}, Only he/she can open it.",
+                buttons=buttons,
+            )
+            await event.answer([result] if result else None)
+            if jsondata:
+                jsondata.update(newsecret)
+                json.dump(jsondata, open(secret, "w"))
+            else:
+                json.dump(newsecret, open(secret, "w"))  
+ 
+    
+    #some codes taken form Cat bot Fixing them to javes was a task #Shivam
