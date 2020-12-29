@@ -13,12 +13,12 @@ import telebot
 import configparser
 from tinydb_interface import TinyDbInterface
 import random
-
+from var import Var
 # Parse config file to get the API key
 config = configparser.ConfigParser()
 config.read("pokebot.cfg")
-
-TOKEN = config['telegram_bot_API']['API_TOKEN']
+from userbot import admin_cmd
+TOKEN = Var.TG_BOT_TOKEN_BF_HER
 
 # Declare bot
 bot = telebot.TeleBot(TOKEN)
@@ -65,7 +65,7 @@ def join_action(message):
 
 
 # Message handler for when a user will /catch a pokemon
-@bot.message_handler(commands=['pokecatch'])
+@bot.on(admin_cmd("pokecatch ?(.*)"))
 def send_catch_action(message):
     db = TinyDbInterface()
     global active
@@ -101,7 +101,7 @@ def send_catch_action(message):
 
 
 # Message handler for when a user will /check all pokemon
-@bot.message_handler(commands=['pokedex'])
+@bot.on(admin_cmd("pokedex ?(.*)"))
 def send_pokedex_action(message):
     pokedex = ''
     db = TinyDbInterface()
@@ -128,7 +128,7 @@ def send_pokedex_action(message):
 
 
 # Message handler for when a user will /join the pokemon ...quest? .......
-@bot.message_handler(commands=['pokespawn'])
+@bot.on(admin_cmd("pokespawn ?(.*)"))
 def force_appear(message):
     db = TinyDbInterface()
     global curPokemon
