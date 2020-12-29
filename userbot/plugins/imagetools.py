@@ -390,7 +390,7 @@ async def lightninnnnnnnnnnnnn(event):
         os.remove("tgs.tgs")
 
 
-@bot.on(admin_cmd(pattern="phub(?: |$)(.*)"))
+@bot.on(admin_cmd(pattern="ph(?: |$)(.*)"))
 async def lightningbot(lightnig):
     input_str = lightnig.pattern_match.group(1)
     input_str = deEmojify(input_str)
