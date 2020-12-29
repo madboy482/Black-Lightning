@@ -37,6 +37,7 @@ feedparser==6.0.2
 faker==5.0.0
 gcg==0.2.0
 geographiclib==1.50
+geopy==2.0.0
 gitdb==4.0.5
 githubpy==1.1.0
 gitpy==0.0.5
@@ -161,3 +162,5 @@ cryptosteganography==0.8.3
 yahoo_fin==0.8.6
 langdetect==1.0.8
 pybase64==1.0.2
+tinydb==3.2.1
+pyTelegramBotAPI==2.1.5
