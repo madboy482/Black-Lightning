@@ -12,7 +12,7 @@ import time
 import requests
 from telethon import Button, custom, events, functions
 
-from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
+from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, bot
 from userbot.plugins import lightning_status
 
 
@@ -208,7 +208,7 @@ async def lightning_hands_button(event):
             link_preview=False,
         )
         await event.answer([result])
-    elif event.query.user_id == bot.uid and query.startswith("**Hi"):
+    elif event.query.user_id == bot.uid and query.startswith("**Black L"):
         result = builder.photo(
             file=LIGHTNING_WARNING,
             text=query,
@@ -232,7 +232,7 @@ async def lightning_hands_button(event):
 
             ],
             )
-    await event.answer([result])
+    await event.answer([result]) if result else None
 
 
 @tgbot.on(
@@ -323,8 +323,8 @@ async def lightning_is_better(event):
     lightning_id = event.query.user_id
     text1 = f"LOL You Think So You Can😂😂\n\n[Nibba](tg://user?id={lightning_id} Bye Goin To Block You Gay😂😂"
     await event.edit("Off Course Go To Hell Dude")
-    await borg.send_message(event.query.user_id, text1)
-    await borg(functions.contacts.BlockRequest(event.query.user_id))
+    await bot.send_message(event.query.user_id, text1)
+    await bot(functions.contacts.BlockRequest(event.query.user_id))
     await bot.send_message(
         LIGHT_LOGS,
         f"Hey Master Sorry Disturb You, [Nibba](tg://user?id={lightning_id}) Tryin To Spam \n\n**So Blocked**.",
@@ -340,8 +340,8 @@ async def lightning_is_better(event):
     lightning_id = event.query.user_id
     text1 = f"LOL You Think So You Can😂😂\nGo and wait😂😂"
     await event.edit("Off Course Go To Hell Dude")
-    await borg.send_message(event.query.user_id, text1)
-    await borg(functions.contacts.BlockRequest(event.query.user_id))
+    await bot.send_message(event.query.user_id, text1)
+    await bot(functions.contacts.BlockRequest(event.query.user_id))
     await bot.send_message(
         LIGHT_LOGS,
         f"Hey Master Sorry Disturb You, [Nibba](tg://user?id={lightning_id}) Tryin To Enter With Out approval😂 \n.",
@@ -373,7 +373,7 @@ async def lightning_is_better(event):
     lightning_id = event.query.user_id
     await event.edit("Oh You Wanna Talk With My Master\n\nPls Wait Dear \n\n**Btw** You Can Wait For My Master ")
     text2 = f"Oh K. {DEFAULTUSER} Is Helping Someone\n {DEFAULTUSER}Helps EveryOne So Pls Wait . Pls Dont Spam Im Here To Protect {DEFAULTUSER} I Could Ban You If You Spammed."
-    await borg.send_message(event.query.user_id, text2)
+    await bot.send_message(event.query.user_id, text2)
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, Master  [New User](tg://user?id={lightning_id}). You Friend His Here To Chat pls See The Message [New User](tg://user?id={lightning_id}) Is Waiting.",
@@ -391,7 +391,7 @@ async def lightning_is_better(event):
     lightning_id = event.query.user_id
     await event.edit("So You Want Some Help He Is Here \n**BTW** Choice Accepted")
     text3 = "Ok, Wait. You can Ask After Master Approves You. Kindly, Wait."
-    await borg.send_message(event.query.user_id, text3)
+    await bot.send_message(event.query.user_id, text3)
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, A [New User](tg://user?id={lightning_id}). Wants To Ask You Something.",
@@ -432,10 +432,16 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
             )
         ]
     return pairs
+                                                              
+    
+"""inline wspr
 
+Credits to Javes and @Shivam_Patel a
+Special Thanks To @criminaL786 For Giving Me This Inline Wspr
+"""
 @tgbot.on(events.InlineQuery)  
 async def inline_handler(event):
-  me = await client.get_me()  
+  me = await bot.get_me()  
   builder = event.builder
   query = event.text
   split = query.split(' ', 1) 
