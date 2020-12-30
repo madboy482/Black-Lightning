@@ -21,7 +21,7 @@ from telethon import events, functions
 from telethon.tl.functions.users import GetFullUserRequest
 
 import userbot.plugins.sql_helper.pmpermit_sql as lightning_sql
-from userbot import ALIVE_NAME, CUSTOM_PMPERMIT, bot
+from userbot import ALIVE_NAME, bot
 from userbot.thunderconfig import Config
 from var import Var
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
@@ -34,11 +34,11 @@ LIGHTNING_PROTECTION = Config.LIGHTNING_PRO
 
 
 
-CUSTOM_PMPERMIT = os.environ.get("CUSTOM_PMPERMIT", None)
-if CUSTOM_PMPERMIT is None:
+LIGHTNING_PM = os.environ.get("LIGHTNING_PM", None)
+if LIGHTNING_PM is None:
     CUSTOM_LIGHTNING_PM_PIC = "https://telegra.ph/file/53aed76a90e38779161b1.jpg"
 else:
-    CUSTOM_LIGHTNING_PM_PIC = CUSTOM_PMPERMIT
+    CUSTOM_LIGHTNING_PM_PIC = LIGHTNING_PM
 FUCK_OFF_WARN = "You Have Attempted To Spam Masters Inbox So Inorder To Avoid Over Spam , You Have Been Blocked By Userbot"
 
 lol = Var.TG_BOT_USER_NAME_BF_HER
