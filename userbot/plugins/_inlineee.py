@@ -13,6 +13,7 @@ from telethon import Button, custom, events, functions
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, bot
 from userbot.plugins import lightning_status
+from var import Var
 
 
 LIGHT_LOGS = Config.PRIVATE_GROUP_ID
@@ -267,7 +268,7 @@ async def lightning_pugins_query_hndlr(event):
         # https://t.me/TelethonChat/115200
         await event.edit(lightning_button=lightning_button)
     else:
-        lightning_warning_alert = "Oh C'mon You Think You Can Touch This?!"
+        lightning_warning_alert = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
         await event.answer(lightning_warning_alert, _lightning_power=0, alert=True)
 
 
@@ -285,7 +286,7 @@ async def lightning_pugins_query_hndlr(event):
         # https://t.me/TelethonChat/115200
         await event.edit(lightning_button=lightning_button)
     else:
-        lightning_is_best = "Oh C'mon You Think You Can Touch This?!"
+        lightning_is_best = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
         await event.answer(lightning_is_best, _lightning_power=0, alert=True)
 
 @tgbot.on(
@@ -425,7 +426,7 @@ async def lightning_is_better(event):
     await event.get_chat()
     lightning_id = event.query.user_id
     await event.edit("So You Want Some Help He Is Here \n**BTW** Choice Accepted")
-    text3 = "Ok, Wait. You can Ask After Master Approves You. Kindly, Wait."
+    text3 = f"Ok, Wait. You can Ask After {LIGHTNINGUSER} Approves You. Kindly, Wait."
     await bot.send_message(event.query.user_id, text3)
     await bot.send_message(
         LIGHT_LOGS,
@@ -536,4 +537,4 @@ async def inline_handler(event):
                 json.dump(newsecret, open(secret, "w"))  
  
     
-    #some codes taken form Cat bot Fixing them to javes was a task #Shivam
+    #some codes taken form Cat For Inline wspr  Fixing them to javes was a task #Shivam
