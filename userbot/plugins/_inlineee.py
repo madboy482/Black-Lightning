@@ -2,14 +2,13 @@
 # Made By @krish1303y,@cyper666, @Atank_ka_devata( Never Gonna Forgive Him 😑😑 nvm thx)   For black lightning  🔥🔥🔥
 # Thanks @Shivam_Patel Mujhe Samjhane Ke Liye 
 # Thanks @Shivam_Patel For Your kind Help Sir 😘😘❤️
-
+# Special Credits to @Shivam_Patel For Helping Us
 import os
 import re
 import json
 from math import ceil
 import time
 
-import requests
 from telethon import Button, custom, events, functions
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, bot
@@ -17,14 +16,14 @@ from userbot.plugins import lightning_status
 
 
 LIGHT_LOGS = Config.PRIVATE_GROUP_ID
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
+LIGHTNINGUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
 lightning_bot = Var.TG_BOT_USER_NAME_BF_HER
 import asyncio
 
 from datetime import datetime
 from pathlib import Path
 
-from userbot import ALIVE_NAME
+
 from userbot.utils import admin_cmd, load_module, remove_plugin
 
 DELETE_TIMEOUT = 5
@@ -32,7 +31,7 @@ DELETE_TIMEOUT = 5
 
 thumb_image_path = "./resources/541200.png"
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
+LIGHTNINGUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
 
 
 
@@ -204,7 +203,7 @@ async def lightning_hands_button(event):
         rev_text = query[::-1]
         lightning_button = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
         result = builder.article(
-            f"Hey {DEFAULTUSER} Heres The Help Menu",
+            f"Hey {LIGHTNINGUSER} Heres The Help Menu",
             text="{}\nI Have Tottal  Loaded Plugins: {}".format(query, len(CMD_LIST)),
             lightning_button=lightning_button,
             link_preview=False,
@@ -213,7 +212,7 @@ async def lightning_hands_button(event):
     elif event.query.user_id == bot.uid and query == "Help":
         result = builder.article(
             title="Help",
-            text=f"**How If Face Problem \n{DEFAULTUSER}** \nChoose Your Problem For Help ",
+            text=f"**How If Face Problem \n{LIGHTNINGUSER}** \nChoose Your Problem For Help ",
             buttons=[
                 [custom.Button.inline("Help", data="what?")],
                 [Button.url("Commands Not Working🥺", "https://t.me/lightningsupport")],
@@ -294,6 +293,9 @@ async def lightning_pugins_query_hndlr(event):
         data=re.compile(b"_lightning_plugins_(.*)")
     )
 )
+
+
+# Some Inspiration From Telelbot
 async def lightning_pugins_query_hndlr(event):
         if event.query.user_id == bot.uid:
             lightning_plug_name = event.data_match.group(1).decode("LOL-8")
@@ -313,14 +315,14 @@ async def lightning_pugins_query_hndlr(event):
             if lightning_help_strin == "":
                 lightning_strike = "{} In Case In Problem.\nUse .help {}".format(
                     lightning_plug_name, lightning_plug_name
-                )
+                ) # This Code Was Clashing My pm_permit 
             else:
                 lightning_strike = lightning_help_strin
             lightning_strike += "\n Use .unload {} to remove this plugin\n\
                 If In Case Some Problem Contact @lightningsupport".format(
                 lightning_plug_name
-            )
-            if len(lightning_help_strin) >= 140:
+            ) # Some Inspiration From Telelbot
+            if len(lightning_help_strin) >= 200:
                 lightning = "Check your saved messages!"
                 await event.answer(lightning, _lightning_power=0, alert=True)
                 lightning_help_strin += "\n\nThis will be auto-deleted in 1 minute!"
@@ -331,7 +333,7 @@ async def lightning_pugins_query_hndlr(event):
             else:
                 await event.answer(lightning_strike, _lightning_power=0, alert=True)
         else:
-            lightning_strike = f"Please Dont Touch This {DEFAULTUSER} Im Tryin To Get Rid Of This !!"
+            lightning_strike = f"Please Dont Touch This {LIGHTNINGUSER} Im Tryin To Get Rid Of This !!"
             await event.answer(lightning_strike, _lightning_power=0, alert=True)
 
 
@@ -339,17 +341,17 @@ async def lightning_pugins_query_hndlr(event):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"what?")))
 async def lightning_is_better(event):
     if event.query.user_id == bot.uid:
-        fck_bit = f"{DEFAULTUSER} Dont Use This Pls 🥺 "
+        fck_bit = f"{LIGHTNINGUSER} Dont Use This Pls 🥺 "
         await event.answer(fck_bit, alert=True)
     else:
-        txt = f"Ohh C'mon You Think That This Is For You?\n Ok I Will Complain To {DEFAULTUSER}👀👀"
+        txt = f"Ohh C'mon You Think That This Is For You?\n Ok I Will Complain To {LIGHTNINGUSER}👀👀"
         await event.answer(txt, alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_is_here_cant_spam")))
 async def lightning_is_better(event):
     if event.query.user_id == bot.uid:
-        fck_bit = f"Oh! C'mon Master {DEFAULTUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
+        fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
         await event.answer(fck_bit, _lightning_power=0, alert=True)
         return
     await event.get_chat()
@@ -366,7 +368,7 @@ async def lightning_is_better(event):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lol_u_think_so")))
 async def lightning_is_better(event):
     if event.query.user_id == bot.uid:
-        fck_bit = f"Oh! C'mon Master {DEFAULTUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
+        fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
         await event.answer(fck_bit, _lightning_power=0, alert=True)
         return
     await event.get_chat()
@@ -392,20 +394,20 @@ async def krish1303y(event):
     # This Is Copy of Above Code. (C) @SpEcHiDe
     lightning_button = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
     krish1303y = f"""Black Lightning  Listed The Plugins Read This Info Pls!\n
-{DEFAULTUSER}If You Faced Problem Regarding Pls Contact For Help  @lightningsupport \n**Btw**Currently Loaded Plugins: {len(CMD_LIST)}"""
+{LIGHTNINGUSER}If You Faced Problem Regarding Pls Contact For Help  @lightningsupport \n**Btw**Currently Loaded Plugins: {len(CMD_LIST)}"""
     await event.edit(message=krish1303y, lightning_button=lightning_button)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"he_sucks")))
 async def lightning_is_better(event):
     if event.query.user_id == bot.uid:
-        fck_bit = f"Oh! C'mon Master {DEFAULTUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
+        fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
         await event.answer(fck_bit, _lightning_power=0, alert=True)
         return
     await event.get_chat()
     lightning_id = event.query.user_id
     await event.edit("Oh You Wanna Talk With My Master\n\nPls Wait Dear \n\n**Btw** You Can Wait For My Master ")
-    text2 = f"Oh K. {DEFAULTUSER} Is Helping Someone\n {DEFAULTUSER}Helps EveryOne So Pls Wait . Pls Dont Spam Im Here To Protect {DEFAULTUSER} I Could Ban You If You Spammed."
+    text2 = f"Oh K. {LIGHTNINGUSER} Is Helping Someone\n {LIGHTNINGUSER}Helps EveryOne So Pls Wait . Pls Dont Spam Im Here To Protect {LIGHTNINGUSER} I Could Ban You If You Spammed."
     await bot.send_message(event.query.user_id, text2)
     await bot.send_message(
         LIGHT_LOGS,
@@ -417,7 +419,7 @@ async def lightning_is_better(event):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fck_ask")))
 async def lightning_is_better(event):
     if event.query.user_id == bot.uid:
-        fck_bit = f"Oh! C'mon Master {DEFAULTUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
+        fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
         await event.answer(fck_bit, _lightning_power=0, alert=True)
         return
     await event.get_chat()
