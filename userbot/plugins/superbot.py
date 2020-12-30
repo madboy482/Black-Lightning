@@ -1,5 +1,5 @@
 # Created By @krish1303y For Black Lightning
-# Makes You Bot Super Bot
+# Makes Your Bot Super Bot Something Like Livegram but Better
 
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
