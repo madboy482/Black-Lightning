@@ -34,13 +34,16 @@ async def lightning_cmd_list(event):
                     string += "\n"
                 await event.edit(string)
             else:
+                await event.edit("`Wait Checking..`")
+                await asyncio.sleep(2)
                 await event.edit(input_str + "  ☹️ is not a valid plugin😞😞!")
+        
         else:
-            lightn_string = f"""Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n
+            lightning_help_strin = f"""Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n
 {DEFAULTUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport"""
             results = await bot.inline_query(  # pylint:disable=E0602
                 lightning_userbot_name,
-                lightn_string
+                lightning_help_strin
             )
             await results[0].click(
                 event.chat_id,
