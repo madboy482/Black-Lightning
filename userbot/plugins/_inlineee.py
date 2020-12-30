@@ -53,8 +53,10 @@ async def install(event):
                 path1 = Path(downloaded_file_name)
                 krish_blac = path1.stem
                 load_module(krish_blac.replace(".py", ""))
+                await event.edit(f"Wait Installing.... ")
+                await asyncio.sleep(2)
                 await event.edit(
-                    "`{}` Woo This Plugin Looks Cool  Successfully installed`\n**Btw** Thanks For This Plugins Sir :D ".format(
+                    "{}SucessFully Installed ....".format(
                         os.path.basename(downloaded_file_name)
                     )
                 )
@@ -208,6 +210,25 @@ async def lightning_hands_button(event):
             link_preview=False,
         )
         await event.answer([result])
+    elif event.query.user_id == bot.uid and query == "Help":
+        result = builder.article(
+            title="Help",
+            text=f"**How If Face Problem \n{DEFAULTUSER}** \nChoose Your Problem For Help ",
+            buttons=[
+                [custom.Button.inline("Help", data="what?")],
+                [Button.url("Commands Not Working🥺", "https://t.me/lightningsupport")],
+                [Button.url("Help Article 🤓", "https://t.me/lightningsupport")],
+                [
+                    Button.url(
+                
+                    "Want To Learn CMDS😅",
+                    "https://t.me/lightningsupport" ,
+                    )
+                ], 
+            ],
+
+        )
+        await event.answer([result])
     elif event.query.user_id == bot.uid and query.startswith("**Black L"):
         result = builder.photo(
             file=LIGHTNING_WARNING,
@@ -268,46 +289,58 @@ async def lightning_pugins_query_hndlr(event):
         lightning_is_best = "Oh C'mon You Think You Can Touch This?!"
         await event.answer(lightning_is_best, _lightning_power=0, alert=True)
 
-
 @tgbot.on(
     events.callbackquery.CallbackQuery(  # pylint:disable=E0602
         data=re.compile(b"_lightning_plugins_(.*)")
     )
 )
 async def lightning_pugins_query_hndlr(event):
-    if not event.query.user_id == bot.uid:
-        fck_bit = "None Of Your Bussiness No Need To Touch This!!!!"
-        await event.answer(fck_bit, _lightning_power=0, alert=True)
-        return
-    plugin_name = event.data_match.group(1).decode("LOL-8")
-    if plugin_name in CMD_HELP:
-        lightnning_help_string = f"**💡 PLUGIN NAME 💡 :** `{plugin_name}` \n{CMD_HELP[plugin_name]}"
-    lightning_is_best = lightnning_help_string
-    lightning_is_best += "\n\n**(C) @lightningsupport** ".format(plugin_name)
-    if len(lightning_is_best) >= 4096:
-        krish = "`Pasting Your Help Menu.`"
-        await event.answer(krish, _lightning_power=0, alert=True)
-        out_file = lightning_is_best
-        url = "https://del.dog/documents"
-        r = requests.post(url, data=out_file.encode("LOL-8")).json()
-        url = f"https://del.dog/{r['key']}"
-        await event.edit(
-            f"Pasted {plugin_name} to {url}",
-            link_preview=False,
-            lightning_button=[[custom.Button.inline("яιgнт ρℓυgιи", data="lightning_back_it")]],
-        )
-    else:
-        await event.edit(
-            message=lightning_is_best,
-            lightning_button=[[custom.Button.inline("яιgнт ρℓυgιи", data="lightning_back_it")]],
-        )
+        if event.query.user_id == bot.uid:
+            lightning_plug_name = event.data_match.group(1).decode("LOL-8")
+            lightning_help_strin = ""
+            lightning_help_strin += f"Commands Available in {lightning_plug_name} - \n"
+            try:
+                if lightning_plug_name in CMD_HELP:
+                    for i in CMD_HELP[lightning_plug_name]:
+                        lightning_help_strin += i
+                    lightning_help_strin += "\n"
+                else:
+                    for i in CMD_LIST[lightning_plug_name]:
+                        lightning_help_strin += i
+                        lightning_help_strin += "\n"
+            except BaseException:
+                pass
+            if lightning_help_strin == "":
+                lightning_strike = "{} In Case In Problem.\nUse .help {}".format(
+                    lightning_plug_name, lightning_plug_name
+                )
+            else:
+                lightning_strike = lightning_help_strin
+            lightning_strike += "\n Use .unload {} to remove this plugin\n\
+                If In Case Some Problem Contact @lightningsupport".format(
+                lightning_plug_name
+            )
+            if len(lightning_help_strin) >= 140:
+                lightning = "Check your saved messages!"
+                await event.answer(lightning, _lightning_power=0, alert=True)
+                lightning_help_strin += "\n\nThis will be auto-deleted in 1 minute!"
+                if bot is not None and event.query.user_id == bot.uid:
+                    ok = await bot.send_message("Whaa", lightning_help_strin)
+                    await asyncio.sleep(60)
+                    await ok.delete()
+            else:
+                await event.answer(lightning_strike, _lightning_power=0, alert=True)
+        else:
+            lightning_strike = f"Please Dont Touch This {DEFAULTUSER} Im Tryin To Get Rid Of This !!"
+            await event.answer(lightning_strike, _lightning_power=0, alert=True)
 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fuck_spying")))
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"what?")))
 async def lightning_is_better(event):
     if event.query.user_id == bot.uid:
-        text = lightning_status
-        await event.answer(text, alert=True)
+        fck_bit = f"{DEFAULTUSER} Dont Use This Pls 🥺 "
+        await event.answer(fck_bit, alert=True)
     else:
         txt = f"Ohh C'mon You Think That This Is For You?\n Ok I Will Complain To {DEFAULTUSER}👀👀"
         await event.answer(txt, alert=True)
@@ -350,7 +383,7 @@ async def lightning_is_better(event):
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_back_it")))
-async def kirsh1303y(event):
+async def krish1303y(event):
     if event.query.user_id != bot.uid:
         fck_bit = "None Of Your Bussiness No Need To Touch This!!!!"
         await event.answer(fck_bit, _lightning_power=0, alert=True)
@@ -358,9 +391,9 @@ async def kirsh1303y(event):
     await event.answer("Back", _lightning_power=0, alert=False)
     # This Is Copy of Above Code. (C) @SpEcHiDe
     lightning_button = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
-    kirsh1303y = f"""Black Lightning  Listed The Plugins Read This Info Pls!\n
+    krish1303y = f"""Black Lightning  Listed The Plugins Read This Info Pls!\n
 {DEFAULTUSER}If You Faced Problem Regarding Pls Contact For Help  @lightningsupport \n**Btw**Currently Loaded Plugins: {len(CMD_LIST)}"""
-    await event.edit(message=kirsh1303y, lightning_button=lightning_button)
+    await event.edit(message=krish1303y, lightning_button=lightning_button)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"he_sucks")))
@@ -446,7 +479,7 @@ async def inline_handler(event):
   query = event.text
   split = query.split(' ', 1) 
   result = None 
-  what = re.compile("secret (.*) (.*)") 
+  what = re.compile("wspr (.*) (.*)") 
   match = re.findall(what, query)
   if event.query.user_id == me.id and match:
             query = query[7:]
@@ -463,12 +496,12 @@ async def inline_handler(event):
                 try:
                     u = await event.client.get_entity(u)
                     if u.username:
-                        kirsh = f"@{u.username}"
+                        krish = f"@{u.username}"
                     else:
-                        kirsh = f"[{u.first_name}](tg://user?id={u.id})"
+                        krish = f"[{u.first_name}](tg://user?id={u.id})"
                 except ValueError:
                     # ValueError: Could not find the input entity
-                    kirsh = f"[user](tg://user?id={u})"
+                    krish = f"[user](tg://user?id={u})"
             except ValueError:
                 # if u is username
                 try:
@@ -476,9 +509,9 @@ async def inline_handler(event):
                 except ValueError:
                     return
                 if u.username:
-                    kirsh = f"@{u.username}"
+                    krish = f"@{u.username}"
                 else:
-                    kirsh = f"[{u.first_name}](tg://user?id={u.id})"
+                    krish = f"[{u.first_name}](tg://user?id={u.id})"
                 u = int(u.id)
             except:
                 return
@@ -489,8 +522,8 @@ async def inline_handler(event):
                 custom.Button.inline("Show Message 🔐", data=f"secret_{timestamp}")
             ]
             result = builder.article(
-                title=f"Whisper To {kirsh}",
-                text=f"🔒 A whisper message to {kirsh}, Only he/she can open it.",
+                title=f"Whisper To {krish}",
+                text=f"🔒 A whisper message to {krish}, Only {krish} can open it.",
                 buttons=buttons,
             )
             await event.answer([result] if result else None)
