@@ -31,6 +31,8 @@ async def _(event):
     await event.edit("```Done```")
     await asyncio.sleep(2)
     await event.edit(f"**Done Bot Is Now A Superbot**   `{input_str}`")
+    await asyncio.sleep(4)
+    await event.edit(f"```Go To {input_str} To Manage Your Bot ``")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -45,9 +47,9 @@ async def _(event):
             await conv.send_message(input_str)
             await conv.get_response()
             await conv.send_messafe("Skip")
+            await conv.get_response()
             audio = await conv.get_response()
             await borg.send_message(event.chat_id, audio.text)
-            await event.edit(f"```Go To {input_str} To Manage Your Bot ``")
             await event.delete()
             response = await response
         except YouBlockedUserError:
