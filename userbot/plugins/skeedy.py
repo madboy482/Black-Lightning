@@ -3,7 +3,7 @@
 
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-
+import asyncio 
 from userbot.utils import admin_cmd
 
 @borg.on(admin_cmd(pattern="skeedy?(.*)"))
@@ -14,6 +14,10 @@ async def _(event):
     await event.get_reply_message()
     chat = "@SkeddyBot"
     await event.edit("```Wait...```")
+    await asyncio.sleep(2)
+    await event.edit("```Setting You Remainder.........```")
+    await asyncio.sleep(3)
+    await event.edit(f"Done Remainder Set For  {input_str}")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -25,6 +29,7 @@ async def _(event):
             await conv.get_response()
             await conv.send_message("➕Add" + input_str)
             await conv.get_response()
+            audio = await conv.get_response()
             await borg.send_message(event.chat_id, audio.text)
             await event.delete()
             response = await response
@@ -36,3 +41,4 @@ async def _(event):
         else:
             await event.delete()
             await event.client.send_file(event.chat_id, response.message)   
+        
