@@ -24,7 +24,7 @@ import userbot.plugins.sql_helper.pmpermit_sql as lightning_sql
 from userbot import ALIVE_NAME, bot
 from userbot.thunderconfig import Config
 from var import Var
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
+LIGHTNINGUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
 from userbot.utils import lightning_cmd
 
 LIGHTNING_WRN = {}
@@ -39,16 +39,23 @@ if LIGHTNING_PM is None:
     CUSTOM_LIGHTNING_PM_PIC = "https://telegra.ph/file/53aed76a90e38779161b1.jpg"
 else:
     CUSTOM_LIGHTNING_PM_PIC = LIGHTNING_PM
-FUCK_OFF_WARN = "You Have Attempted To Spam Masters Inbox So Inorder To Avoid Over Spam , You Have Been Blocked By Userbot"
+FUCK_OFF_WARN = f"Blocked You Bitch You Spammed {LIGHTNINGUSER} IDC Why You Are Here Just Fuck Off 🖕"
+
+FUCK_OFF_EMOJI = "🖕🖕"
+
 
 lol = Var.TG_BOT_USER_NAME_BF_HER
 
 OVER_POWER_WARN = (
-    f"**Hello Sir Im Here To Protect {DEFAULTUSER} Dont Under Estimate Me 😂😂  **\n\n"
-    f"`My Master {DEFAULTUSER} is Busy Right Now !` \n"
-    f"{DEFAULTUSER} Is Very Busy Why Came Please Lemme Know Choose Your Deasired Reason"
+    f"**Hello Sir Im Here To Protect {LIGHTNINGUSER} Dont Under Estimate Me 😂😂  **\n\n"
+    f"`My Master {LIGHTNINGUSER} is Busy Right Now !` \n"
+    f"{LIGHTNINGUSER} Is Very Busy Why Came Please Lemme Know Choose Your Deasired Reason"
     f"**Btw Dont Spam Or Get Banned** 😂😂 \n\n"
     f"**{CUSTOM_LIGHTNING_PM_PIC}**\n"
+)
+
+LIGHTNING_STOP_EMOJI = (
+    "✋"
 )
 if Var.PRIVATE_GROUP_ID is not None:
     @bot.on(events.NewMessage(outgoing=True))
@@ -79,7 +86,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                 if chats.id in LIGHTNING_REVL_MSG:
                     await LIGHTNING_REVL_MSG[chats.id].delete()
                     del LIGHTNING_REVL_MSG[chats.id]
-                lightning_sql.approve(chats.id, f"Wow lucky You {DEFAULTUSER} Approved You")
+                lightning_sql.approve(chats.id, f"Wow lucky You {LIGHTNINGUSER} Approved You")
                 await event.edit(
                     "Approved to pm [{}](tg://user?id={})".format(firstname, chats.id)
                 )
@@ -118,7 +125,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             if lightning_sql.is_approved(chat.id):
                 lightning_sql.disapprove(chat.id)
             await event.edit("Disapproved [{}](tg://user?id={})".format(firstname, chat.id))
-            await asyncio.sleep(2)
+            await asyncio.sleep(3)
             await event.edit("Now Get Lost Retard [{}](tg://user?id={})".format(firstname, chat.id ))
             await asyncio.sleep(4)
             await event.edit("One Thing For You [{}](tg://user?id={})".format(firstname, chat.id ))
@@ -136,7 +143,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         if event.fwd_from:
             return
         approved_users = lightning_sql.get_all_approved()
-        PM_VIA_LIGHT = f"♥‿♥ {DEFAULTUSER} Approved PMs\n"
+        PM_VIA_LIGHT = f"♥‿♥ {LIGHTNINGUSER} Approved PMs\n"
         if len(approved_users) > 0:
             for a_user in approved_users:
                 if a_user.reason:
@@ -203,7 +210,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         if chat_ids not in LIGHTNING_WRN:
             LIGHTNING_WRN.update({chat_ids: 0})
         if LIGHTNING_WRN[chat_ids] == 5:
-            r = await event.reply(FUCK_OFF_WARN)
+            r = await event.reply(FUCK_OFF_WARN, FUCK_OFF_EMOJI)
             await asyncio.sleep(3)
             await event.client(functions.contacts.BlockRequest(chat_ids))
             if chat_ids in LIGHTNING_REVL_MSG:
@@ -228,12 +235,12 @@ if Var.PRIVATE_GROUP_ID is not None:
             except BaseException:
                 return
         lightningusername = Var.TG_BOT_USER_NAME_BF_HER
-        tap = await bot.inline_query(lightningusername, OVER_POWER_WARN)
-        sed = await tap[0].click(event.chat_id)
+        tap = await bot.inline_query(lightningusername, OVER_POWER_WARN, LIGHTNING_STOP_EMOJI)
+        yas_ser = await tap[0].click(event.chat_id)
         LIGHTNING_WRN[chat_ids] += 1
         if chat_ids in LIGHTNING_REVL_MSG:
             await LIGHTNING_REVL_MSG[chat_ids].delete()
-        LIGHTNING_REVL_MSG[chat_ids] = sed
+        LIGHTNING_REVL_MSG[chat_ids] = yas_ser
 
 
 
