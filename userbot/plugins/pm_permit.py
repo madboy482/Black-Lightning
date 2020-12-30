@@ -12,14 +12,12 @@ from userbot.thunderconfig import Config
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
 from userbot.utils import lightning_cmd
 
-PM_WARNS = {}
+LIGHTNING_WRN = {}
 LIGHTNING_REVL_MSG = {}
 
 LIGHTNING_PROTECTION = Config.LIGHTNING_PRO
 
-DEFAULTUSER = (
-    str(ALIVE_NAME) if ALIVE_NAME else "lol"
-)
+
 
 CUSTOM_PMPERMIT = os.environ.get("CUSTOM_PMPERMIT", None)
 if CUSTOM_PMPERMIT is None:
@@ -48,8 +46,8 @@ if Var.PRIVATE_GROUP_ID is not None:
         chats = await event.get_chat()
         if event.is_private:
             if not pmpermit_sql.is_approved(chats.id):
-                if chats.id in PM_WARNS:
-                    del PM_WARNS[chats.id]
+                if chats.id in LIGHTNING_WRN:
+                    del LIGHTNING_WRN[chats.id]
                 if chats.id in LIGHTNING_REVL_MSG:
                     await LIGHTNING_REVL_MSG[chats.id].delete()
                     del LIGHTNING_REVL_MSG[chats.id]
@@ -95,7 +93,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         chat = await event.get_chat()
         if event.is_private:
             if not pmpermit_sql.is_approved(chat.id):
-                if not chat.id in PM_WARNS:
+                if not chat.id in LIGHTNING_WRN:
                     pmpermit_sql.approve(chat.id, "outgoing")
                     bruh = "Auto-approved bcuz outgoing 😄😄"
                     rko = await borg.send_message(event.chat_id, bruh)
@@ -171,9 +169,9 @@ if Var.PRIVATE_GROUP_ID is not None:
             await lightning_goin_to_attack(chat_ids, event)
 
     async def lightning_goin_to_attack(chat_ids, event):
-        if chat_ids not in PM_WARNS:
-            PM_WARNS.update({chat_ids: 0})
-        if PM_WARNS[chat_ids] == 5:
+        if chat_ids not in LIGHTNING_WRN:
+            LIGHTNING_WRN.update({chat_ids: 0})
+        if LIGHTNING_WRN[chat_ids] == 5:
             r = await event.reply(FUCK_OFF_WARN)
             await asyncio.sleep(3)
             await event.client(functions.contacts.BlockRequest(chat_ids))
@@ -183,7 +181,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             lightn_msg = ""
             lightn_msg += "#BLOCKED_PMs\n\n"
             lightn_msg += f"[User](tg://user?id={chat_ids}): {chat_ids}\n"
-            lightn_msg += f"Message Counts: {PM_WARNS[chat_ids]}\n"
+            lightn_msg += f"Message Counts: {LIGHTNING_WRN[chat_ids]}\n"
             # lightn_msg += f"Media: {message_media}"
             try:
                 await event.client.send_message(
@@ -201,7 +199,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         lightningusername = Var.TG_BOT_USER_NAME_BF_HER
         tap = await bot.inline_query(lightningusername, OVER_POWER_WARN)
         sed = await tap[0].click(event.chat_id)
-        PM_WARNS[chat_ids] += 1
+        LIGHTNING_WRN[chat_ids] += 1
         if chat_ids in LIGHTNING_REVL_MSG:
             await LIGHTNING_REVL_MSG[chat_ids].delete()
         LIGHTNING_REVL_MSG[chat_ids] = sed
