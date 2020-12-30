@@ -235,7 +235,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             except BaseException:
                 return
         lightningusername = Var.TG_BOT_USER_NAME_BF_HER
-        tap = await bot.inline_query(lightningusername, OVER_POWER_WARN, LIGHTNING_STOP_EMOJI)
+        tap = await bot.inline_query(lightningusername, OVER_POWER_WARN)
         yas_ser = await tap[0].click(event.chat_id)
         LIGHTNING_WRN[chat_ids] += 1
         if chat_ids in LIGHTNING_REVL_MSG:
