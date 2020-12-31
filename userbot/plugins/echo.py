@@ -35,7 +35,7 @@ from userbot.plugins.sql_helper.echo_sql import (
 from userbot.utils import admin_cmd, edit_or_reply
 
 
-@borg.on(admin_cmd(pattern="addecho$"))
+@borg.on(admin_cmd(pattern="echoadd$"))
 async def echo(cat):
     if cat.fwd_from:
         return
