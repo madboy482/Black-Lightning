@@ -261,15 +261,6 @@ async def lightning_hands_button(event):
         data=re.compile(b"fuck_him_next\((.+?)\)")
     )
 )
-async def lightning_pugins_query_hndlr(event):
-    if event.query.user_id == bot.uid:
-        lightning_page = int(event.data_match.group(1).decode("LOL-8"))
-        lightning_button = lightnings_menu_for_help(lightning_page + 1, CMD_HELP, "fuck_him")
-        # https://t.me/TelethonChat/115200
-        await event.edit(lightning_button=lightning_button)
-    else:
-        lightning_warning_alert = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
-        await event.answer(lightning_warning_alert, _lightning_power=0, alert=True)
 
 
 @tgbot.on(
@@ -290,9 +281,9 @@ async def lightning_pugins_query_hndlr(event):
         await event.answer(lightning_is_best, _lightning_power=0, alert=True)
 
 @tgbot.on(
-    events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"_lightning_plugins_(.*)")
-    )
+        events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+            data=re.compile(b"_lightning_plugins_(.*)")
+   )
 )
 
 
@@ -326,7 +317,7 @@ async def lightning_pugins_query_hndlr(event):
             if len(lightning_help_strin) >= 200:
                 lightning = "Check your saved messages!"
                 await event.answer(lightning, _lightning_power=0, alert=True)
-                lightning_help_strin += "\n\nThis will be auto-deleted in 1 minute!"
+                lightning_help_strin += "\n\nIm Here With Detailed Help Of Thi Plugin😉"
                 if bot is not None and event.query.user_id == bot.uid:
                     ok = await bot.send_message("Whaa", lightning_help_strin)
                     await asyncio.sleep(60)
@@ -340,7 +331,7 @@ async def lightning_pugins_query_hndlr(event):
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"what?")))
-async def lightning_is_better(event):
+async def what(event):
     if event.query.user_id == bot.uid:
         fck_bit = f"{LIGHTNINGUSER} Dont Use This Pls 🥺 "
         await event.answer(fck_bit, alert=True)
@@ -445,7 +436,7 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
     lightning_plugins = sorted(lightning_plugins)
     plugins = [
         custom.Button.inline(
-            "{} {} {}".format("🔥", x, "⨵"), data="_lightning_plugins_{}".format(x)
+            "{} {} {}".format("⨵", x, "⨵"), data="_lightning_plugins_{}".format(x)
         )
         for x in lightning_plugins
     ]
@@ -460,10 +451,10 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
         ] + [
             (
                 custom.Button.inline(
-                    "яιgнт ρℓυgιи", data="{}_prev({})".format(lightning_lol, lightning_plugins_pages)
+                    "🗡яιgнт ρℓυgιи", data="{}_prev({})".format(lightning_lol, lightning_plugins_pages)
                 ),
                 custom.Button.inline(
-                    "ℓєfт ρℓυgιи", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
+                    "ℓєfт ρℓυgιи🗡", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
                 ),
             )
         ]
