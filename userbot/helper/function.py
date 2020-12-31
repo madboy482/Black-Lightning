@@ -274,6 +274,14 @@ def convert_toimage(image):
     os.remove(image)
     return "./temp/temp.jpg"
 
+def lightning_convert_to_img(image, filename=None):
+    filename = filename or os.path.join("./temp/", "temp.jpg")
+    img = Image.open(image)
+    if img.mode != "RGB":
+        img = img.convert("RGB")
+    img.save(filename, "jpeg")
+    os.remove(image)
+    return filename
 
 async def convert_tosticker(image):
     img = Image.open(image)
