@@ -17,13 +17,14 @@ import cv2
 import numpy as np
 import requests
 from PIL import Image, ImageDraw, ImageFont
-from telegraph import upload_file
+
 from telethon.tl.types import MessageMediaPhoto
 import pybase64
 from userbot import CMD_HELP, bot
-from userbot.function import convert_to_image, crop_vid, runcmd, deEmojify
+from userbot.function import convert_to_image, crop_vid, runcmd, deEmojify, lightning_convert_to_img
 from userbot.utils import admin_cmd, sudo_cmd
-
+from telegraph import exceptions, upload_file
+from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 lovepath = "./keinshin/"
 if not os.path.isdir(lovepath):
     os.makedirs(lovepath)
@@ -398,7 +399,7 @@ async def lightningbot(lightnig):
         username, text = input_str.split(",")
     else:
         await lightnig.edit(
-            "**Syntax :** reply to image or sticker with `.phub (username)|(text in comment)`"
+            "**Syntax :** reply to image or sticker with `..ph (username),(text in comment)`"
                )
         return
     replied = await lightnig.get_reply_message()
@@ -408,7 +409,7 @@ async def lightningbot(lightnig):
         await lightnig.edit("reply to a supported media file")
         return
     if replied.media:
-        lightnig = await lightnig.edit("Lemme Search His Leak Ss.....🤔")
+        lightnig = await lightnig.edit("`Lemme Search His Leak Ss`.....🤔")
     else:
         await lightnig.edit("reply to a supported media file")
         return
@@ -420,7 +421,7 @@ async def lightningbot(lightnig):
         pass
     download_location = await lightnig.client.download_media(replied, "./temp/")
     if download_location.endswith((".webp")):
-        download_location = convert_to_image(download_location)
+        download_location = lightning_convert_to_img(download_location)
     size = os.stat(download_location).st_size
     if download_location.endswith((".jpg", ".jpeg", ".png", ".bmp", ".ico")):
         if size > 5242880:
@@ -462,7 +463,7 @@ CMD_HELP.update(
         \n**Usage :** Makes a jail image of the replied image.\
         \n\n**Syntax : ** `.fgs searchtext;fake text`\
         \n**Usage :** Makes a Fake Google Search Image.\
-        \n\n**Syntax : ** `.ph username:fake text`\
+        \n\n**Syntax : ** `.ph username,fake text`\
         \n**Usage :** Makes a Fake PornHub comment with given username and text.\
         \n\n**Syntax : ** `.greyscale`\
         \n**Usage :** Makes a black and white image of the replied image."
