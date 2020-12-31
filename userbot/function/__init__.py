@@ -194,6 +194,14 @@ async def convert_to_image(event, borg):
     await event.edit("`Almost Completed.`")
     return lmao_final
 
+def lightning_convert_to_img(image, filename=None):
+    filename = filename or os.path.join("./temp/", "temp.jpg")
+    img = Image.open(image)
+    if img.mode != "RGB":
+        img = img.convert("RGB")
+    img.save(filename, "jpeg")
+    os.remove(image)
+    return filename
 
 # Thanks To Userge-X
 async def crop_vid(input_vid: str, final_path: str):
