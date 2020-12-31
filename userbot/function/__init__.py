@@ -9,10 +9,13 @@ import time
 from os.path import basename
 from typing import List, Optional, Tuple
 
+import PIL.ImageOps
+from PIL import Image, ImageDraw, ImageFont
 import requests
 from bs4 import BeautifulSoup as bs
 from pymediainfo import MediaInfo
 from telethon.tl.types import MessageMediaPhoto
+from validators.url import url
 
 BASE_URL = "https://isubtitles.org"
 from userbot.thunderconfig import Config
