@@ -408,7 +408,7 @@ async def lightningbot(lightnig):
         await lightnig.edit("reply to a supported media file")
         return
     if replied.media:
-        lightnig = await lightnig.edit("passing to telegraph...")
+        lightnig = await lightnig.edit("Lemme Search His Leak Ss.....🤔")
     else:
         await lightnig.edit("reply to a supported media file")
         return
