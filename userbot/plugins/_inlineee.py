@@ -38,14 +38,14 @@ LIGHTNINGUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
 
 
 @borg.on(admin_cmd(pattern="install"))
-async def install(event):
-    if event.fwd_from:
+async def install(lightning):
+    if lightning.fwd_from:
         return
-    if event.reply_to_msg_id:
+    if lightning.reply_to_msg_id:
         try:
             downloaded_file_name = (
-                await event.client.download_media(  # pylint:disable=E0602
-                    await event.get_reply_message(),
+                await lightning.client.download_media(  # pylint:disable=E0602
+                    await lightning.get_reply_message(),
                     "userbot/plugins/",  # pylint:disable=E0602
                 )
             )
@@ -53,51 +53,51 @@ async def install(event):
                 path1 = Path(downloaded_file_name)
                 krish_blac = path1.stem
                 load_module(krish_blac.replace(".py", ""))
-                await event.edit(f"Wait Installing.... ")
+                await lightning.edit(f"Wait Installing.... ")
                 await asyncio.sleep(2)
-                await event.edit(
+                await lightning.edit(
                     "{}SucessFully Installed ....".format(
                         os.path.basename(downloaded_file_name)
                     )
                 )
             else:
                 os.remove(downloaded_file_name)
-                await event.edit("**Master You Already Have This Plugin \nPlz Try `.help <cmd name>` To See.**")
+                await lightning.edit("**Master You Already Have This Plugin \nPlz Try `.help <cmd name>` To See.**")
         except Exception as e:  # pylint:disable=C0103,W0703
-            await event.edit(str(e))
+            await lightning.edit(str(e))
             os.remove(downloaded_file_name)
     await asyncio.sleep(DELETE_TIMEOUT)
-    await event.delete()
+    await lightning.delete()
 
 
 @borg.on(admin_cmd(pattern=r"unload (?P<krish_blac>\w+)$"))
-async def unload(event):
-    if event.fwd_from:
+async def unload(lightning):
+    if lightning.fwd_from:
         return
-    krish_blac = event.pattern_match["krish_blac"]
+    krish_blac = lightning.pattern_match["krish_blac"]
     try:
         remove_plugin(krish_blac)
-        await event.edit(f"Successfully unloaded {krish_blac}")
+        await lightning.edit(f"Successfully unloaded {krish_blac}")
     except Exception as e:
-        await event.edit(
+        await lightning.edit(
             "Successfully unloaded {krish_blac}\n{}".format(krish_blac, str(e))
         )
 
 
 @borg.on(admin_cmd(pattern=r"load (?P<krish_blac>\w+)$"))
-async def load(event):
-    if event.fwd_from:
+async def load(lightning):
+    if lightning.fwd_from:
         return
-    krish_blac = event.pattern_match["krish_blac"]
+    krish_blac = lightning.pattern_match["krish_blac"]
     try:
         try:
             remove_plugin(krish_blac)
         except BaseException:
             pass
         load_module(krish_blac)
-        await event.edit(f"Successfully loaded {krish_blac}")
+        await lightning.edit(f"Successfully loaded {krish_blac}")
     except Exception as e:
-        await event.edit(
+        await lightning.edit(
             f"Sorry,{krish_blac} can not be loaded\nbecause of the following error.\n{str(e)}"
         )
 
@@ -196,11 +196,11 @@ else:
     
 
 @tgbot.on(events.InlineQuery)
-async def lightning_hands_button(event):
-    builder = event.builder
+async def lightning_hands_button(lightning):
+    builder = lightning.builder
     result = None
-    query = event.text
-    if event.query.user_id == bot.uid and query.startswith("bot"):
+    query = lightning.text
+    if lightning.query.user_id == bot.uid and query.startswith("bot"):
         rev_text = query[::-1]
         lightning_button = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
         result = builder.article(
@@ -209,8 +209,8 @@ async def lightning_hands_button(event):
             lightning_button=lightning_button,
             link_preview=False,
         )
-        await event.answer([result])
-    elif event.query.user_id == bot.uid and query == "Help":
+        await lightning.answer([result])
+    elif lightning.query.user_id == bot.uid and query == "Help":
         result = builder.article(
             title="Help",
             text=f"**How If Face Problem \n{LIGHTNINGUSER}** \nChoose Your Problem For Help ",
@@ -228,8 +228,8 @@ async def lightning_hands_button(event):
             ],
 
         )
-        await event.answer([result])
-    elif event.query.user_id == bot.uid and query.startswith("**Black L"):
+        await lightning.answer([result])
+    elif lightning.query.user_id == bot.uid and query.startswith("**Black L"):
         result = builder.photo(
             file=LIGHTNING_WARNING,
             text=query,
@@ -253,7 +253,7 @@ async def lightning_hands_button(event):
 
             ],
             )
-    await event.answer([result]) if result else None
+    await lightning.answer([result]) if result else None
 
 
 @tgbot.on(
@@ -268,17 +268,17 @@ async def lightning_hands_button(event):
         data=re.compile(b"fuck_him_prev\((.+?)\)")
     )
 )
-async def lightning_pugins_query_hndlr(event):
-    if event.query.user_id == bot.uid:  # pylint:disable=E0602
-        lightning_page = int(event.data_match.group(1).decode("LOL-8"))
+async def lightning_pugins_query_hndlr(lightning):
+    if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
+        lightning_page = int(lightning.data_match.group(1).decode("LOL-8"))
         lightning_button = lightnings_menu_for_help(
             lightning_page - 1, CMD_HELP, "fuck_him"  # pylint:disable=E0602
         )
         # https://t.me/TelethonChat/115200
-        await event.edit(lightning_button=lightning_button)
+        await lightning.edit(lightning_button=lightning_button)
     else:
         lightning_is_best = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
-        await event.answer(lightning_is_best, _lightning_power=0, alert=True)
+        await lightning.answer(lightning_is_best, _lightning_power=0, alert=True)
 
 @tgbot.on(
         events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -287,10 +287,10 @@ async def lightning_pugins_query_hndlr(event):
 )
 
 
-# Some Inspiration From Telelbot
-async def lightning_pugins_query_hndlr(event):
-        if event.query.user_id == bot.uid:
-            lightning_plug_name = event.data_match.group(1).decode("LOL-8")
+# Some Inspiration From Telebot
+async def lightning_pugins_query_hndlr(lightning):
+        if lightning.query.user_id == bot.uid:
+            lightning_plug_name = lightning.data_match.group(1).decode("LOL-8")
             lightning_help_strin = ""
             lightning_help_strin += f"Commands Available in {lightning_plug_name} - \n"
             try:
@@ -316,59 +316,59 @@ async def lightning_pugins_query_hndlr(event):
             ) # Some Inspiration From Telelbot
             if len(lightning_help_strin) >= 200:
                 lightning = "Check your saved messages!"
-                await event.answer(lightning, _lightning_power=0, alert=True)
+                await lightning.answer(lightning, _lightning_power=0, alert=True)
                 lightning_help_strin += "\n\nIm Here With Detailed Help Of Thi Plugin😉"
-                if bot is not None and event.query.user_id == bot.uid:
+                if bot is not None and lightning.query.user_id == bot.uid:
                     ok = await bot.send_message("Whaa", lightning_help_strin)
                     await asyncio.sleep(60)
                     await ok.delete()
             else:
-                await event.answer(lightning_strike, _lightning_power=0, alert=True)
+                await lightning.answer(lightning_strike, _lightning_power=0, alert=True)
         else:
             lightning_strike = f"Please Dont Touch This {LIGHTNINGUSER} Im Tryin To Get Rid Of This !!"
-            await event.answer(lightning_strike, _lightning_power=0, alert=True)
+            await lightning.answer(lightning_strike, _lightning_power=0, alert=True)
 
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"what?")))
-async def what(event):
-    if event.query.user_id == bot.uid:
+async def what(lightning):
+    if lightning.query.user_id == bot.uid:
         fck_bit = f"{LIGHTNINGUSER} Dont Use This Pls 🥺 "
-        await event.answer(fck_bit, alert=True)
+        await lightning.answer(fck_bit, alert=True)
     else:
         txt = f"Ohh C'mon You Think That This Is For You?\n Ok I Will Complain To {LIGHTNINGUSER}👀👀"
-        await event.answer(txt, alert=True)
+        await lightning.answer(txt, alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_is_here_cant_spam")))
-async def lightning_is_better(event):
-    if event.query.user_id == bot.uid:
+async def lightning_is_better(lightning):
+    if lightning.query.user_id == bot.uid:
         fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
-        await event.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
         return
-    await event.get_chat()
-    lightning_id = event.query.user_id
+    await lightning.get_chat()
+    lightning_id = lightning.query.user_id
     text1 = f"LOL You Think So You Can😂😂\n\n[Nibba](tg://user?id={lightning_id} Bye Goin To Block You Gay😂😂"
-    await event.edit("Off Course Go To Hell Dude")
-    await bot.send_message(event.query.user_id, text1)
-    await bot(functions.contacts.BlockRequest(event.query.user_id))
+    await lightning.edit("Off Course Go To Hell Dude")
+    await bot.send_message(lightning.query.user_id, text1)
+    await bot(functions.contacts.BlockRequest(lightning.query.user_id))
     await bot.send_message(
         LIGHT_LOGS,
         f"Hey Master Sorry Disturb You, [Nibba](tg://user?id={lightning_id}) Tryin To Spam \n\n**So Blocked**.",
     )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lol_u_think_so")))
-async def lightning_is_better(event):
-    if event.query.user_id == bot.uid:
+async def lightning_is_better(lightning):
+    if lightning.query.user_id == bot.uid:
         fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
-        await event.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
         return
-    await event.get_chat()
-    lightning_id = event.query.user_id
+    await lightning.get_chat()
+    lightning_id = lightning.query.user_id
     text1 = f"LOL You Think So You Can😂😂\nGo and wait😂😂"
-    await event.edit("Off Course Go To Hell Dude")
-    await bot.send_message(event.query.user_id, text1)
-    await bot(functions.contacts.BlockRequest(event.query.user_id))
+    await lightning.edit("Off Course Go To Hell Dude")
+    await bot.send_message(lightning.query.user_id, text1)
+    await bot(functions.contacts.BlockRequest(lightning.query.user_id))
     await bot.send_message(
         LIGHT_LOGS,
         f"Hey Master Sorry Disturb You, [Nibba](tg://user?id={lightning_id}) Tryin To Enter With Out approval😂 \n.",
@@ -377,30 +377,30 @@ async def lightning_is_better(event):
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_back_it")))
-async def krish1303y(event):
-    if event.query.user_id != bot.uid:
+async def krish1303y(lightning):
+    if lightning.query.user_id != bot.uid:
         fck_bit = "None Of Your Bussiness No Need To Touch This!!!!"
-        await event.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
         return
-    await event.answer("Back", _lightning_power=0, alert=False)
+    await lightning.answer("Back", _lightning_power=0, alert=False)
     # This Is Copy of Above Code. (C) @SpEcHiDe
     lightning_button = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
     krish1303y = f"""Black Lightning  Listed The Plugins Read This Info Pls!\n
 {LIGHTNINGUSER}If You Faced Problem Regarding Pls Contact For Help  @lightningsupport \n**Btw**Currently Loaded Plugins: {len(CMD_LIST)}"""
-    await event.edit(message=krish1303y, lightning_button=lightning_button)
+    await lightning.edit(message=krish1303y, lightning_button=lightning_button)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"he_sucks")))
-async def lightning_is_better(event):
-    if event.query.user_id == bot.uid:
+async def lightning_is_better(lightning):
+    if lightning.query.user_id == bot.uid:
         fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
-        await event.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
         return
-    await event.get_chat()
-    lightning_id = event.query.user_id
-    await event.edit("Oh You Wanna Talk With My Master\n\nPls Wait Dear \n\n**Btw** You Can Wait For My Master ")
+    await lightning.get_chat()
+    lightning_id = lightning.query.user_id
+    await lightning.edit("Oh You Wanna Talk With My Master\n\nPls Wait Dear \n\n**Btw** You Can Wait For My Master ")
     text2 = f"Oh K. {LIGHTNINGUSER} Is Helping Someone\n {LIGHTNINGUSER}Helps EveryOne So Pls Wait . Pls Dont Spam Im Here To Protect {LIGHTNINGUSER} I Could Ban You If You Spammed."
-    await bot.send_message(event.query.user_id, text2)
+    await bot.send_message(lightning.query.user_id, text2)
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, Master  [New User](tg://user?id={lightning_id}). You Friend His Here To Chat pls See The Message [New User](tg://user?id={lightning_id}) Is Waiting.",
@@ -409,16 +409,16 @@ async def lightning_is_better(event):
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fck_ask")))
-async def lightning_is_better(event):
-    if event.query.user_id == bot.uid:
+async def lightning_is_better(lightning):
+    if lightning.query.user_id == bot.uid:
         fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
-        await event.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
         return
-    await event.get_chat()
-    lightning_id = event.query.user_id
-    await event.edit("So You Want Some Help He Is Here \n**BTW** Choice Accepted")
+    await lightning.get_chat()
+    lightning_id = lightning.query.user_id
+    await lightning.edit("So You Want Some Help He Is Here \n**BTW** Choice Accepted")
     text3 = f"Ok, Wait. You can Ask After {LIGHTNINGUSER} Approves You. Kindly, Wait."
-    await bot.send_message(event.query.user_id, text3)
+    await bot.send_message(lightning.query.user_id, text3)
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, A [New User](tg://user?id={lightning_id}). Wants To Ask You Something.",
