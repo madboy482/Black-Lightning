@@ -395,7 +395,7 @@ async def lightningbot(lightnig):
     input_str = lightnig.pattern_match.group(1)
     input_str = deEmojify(input_str)
     if "," in input_str:
-        username, text = input_str.split("|")
+        username, text = input_str.split(",")
     else:
         await lightnig.edit(
             "**Syntax :** reply to image or sticker with `.phub (username)|(text in comment)`"
