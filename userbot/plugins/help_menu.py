@@ -38,14 +38,17 @@ async def lightning_cmd_list(lightning):
                 await asyncio.sleep(2)
                 await lightning.edit(input_str + "  ☹️ is not a valid plugin😞😞!")
                
-        else:
-            lightning_help_strin = f"""Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n
+    else:
+        lightning_help_strin = f"""Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n
 {DEFAULTUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport"""
+        try:
+            lightningusername = Var.TG_BOT_USER_NAME_BF_HER
             results = await bot.inline_query(  # pylint:disable=E0602
                 lightningusername,
                 lightning_help_strin
             )
             # Some Help Here From Telebot
+            
             await results[0].click(
                 lightning.chat_id, reply_to=lightning.reply_to_msg_id, hide_via=True
             )
