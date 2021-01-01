@@ -44,8 +44,7 @@ async def lightning_cmd_list(lightning):
         try:
             lightningusername = Var.TG_BOT_USER_NAME_BF_HER
             results = await bot.inline_query(  # pylint:disable=E0602
-                lightningusername,
-                lightning_help_strin
+                lightningusername, lightning_help_strin
             )
             # Some Help Here From Telebot
             
