@@ -15,7 +15,7 @@ import time
 from telethon import Button, custom, events, functions
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, bot
-from userbot.plugins import lightning_status
+
 from var import Var
 
 
