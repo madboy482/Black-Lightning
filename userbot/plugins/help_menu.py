@@ -9,10 +9,10 @@ import asyncio
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Pls Go To Heroku Vars Then in  `ALIVE_NAME`place You Telegram `Username` "
 
 @borg.on(admin_cmd(pattern="help ?(.*)"))
-async def lightning_cmd_list(event):
-    if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
+async def lightning_cmd_list(lightning):
+    if not lightning.text[0].isalpha() and lightning.text[0] not in ("/", "#", "@", "!"):
         lightning_userbot_name = Var.TG_BOT_USER_NAME_BF_HER
-        input_str = event.pattern_match.group(1)
+        input_str = lightning.pattern_match.group(1)
         if lightning_userbot_name is None or input_str == "text":
             string = ""
             for i in CMD_LIST:
@@ -22,22 +22,22 @@ async def lightning_cmd_list(event):
                     string += "\n"
                 string += "\n"
             if len(string) > 4095:
-                await bot.send_message(event.chat_id, "Do .help cmd")
+                await bot.send_message(lightning.chat_id, "Do .help cmd")
                 await asyncio.sleep(5)
             else:
-                await event.edit(string)
+                await lightning.edit(string)
         elif input_str:
             if input_str in CMD_LIST:
                 string = "Commands found in {}:\n".format(input_str)
                 for i in CMD_LIST[input_str]:
                     string += "    " + i
                     string += "\n"
-                await event.edit(string)
+                await lightning.edit(string)
             else:
-                await event.edit("`Wait Checking..`")
+                await lightning.edit("`Wait Checking..`")
                 await asyncio.sleep(2)
-                await event.edit(input_str + "  ☹️ is not a valid plugin😞😞!")
-        
+                await lightning.edit(input_str + "  ☹️ is not a valid plugin😞😞!")
+               
         else:
             lightning_help_strin = f"""Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n
 {DEFAULTUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport"""
@@ -46,17 +46,17 @@ async def lightning_cmd_list(event):
                 lightning_help_strin
             )
             await results[0].click(
-                event.chat_id,
-                reply_to=event.reply_to_msg_id,
+                lightning.chat_id,
+                reply_to=lightning.reply_to_msg_id,
                 hide_via=True
             )
-            await event.delete()
+            await lightning.delete()
 
 @borg.on(admin_cmd(pattern="lightningconfig"))  # pylint:disable=E0602
-async def config(event):
-    if event.fwd_from:
+async def config(lightning):
+    if lightning.fwd_from:
         return
     result = await borg(functions.help.GetConfigRequest())  # pylint:disable=E0602
     result = result.stringify()
     logger.info(result)  # pylint:disable=E0602
-    await event.edit("Telethon UserBot powered by Black Lightning")
+    await lightning.edit("Telethon UserBot powered by Black Lightning")
