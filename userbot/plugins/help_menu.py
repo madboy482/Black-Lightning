@@ -51,6 +51,8 @@ async def lightning_cmd_list(lightning):
             )
             await lightning.delete()
 
+           
+# By Team DC             
 @borg.on(admin_cmd(pattern="lightningconfig"))  # pylint:disable=E0602
 async def config(lightning):
     if lightning.fwd_from:
