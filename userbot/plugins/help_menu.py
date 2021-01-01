@@ -52,14 +52,5 @@ async def lightning_cmd_list(lightning):
                 lightning.chat_id, reply_to=lightning.reply_to_msg_id, hide_via=True
             )
             await lightning.delete()
-
-           
-           
-@borg.on(admin_cmd(pattern="lightningconfig"))  # pylint:disable=E0602
-async def config(lightning):
-    if lightning.fwd_from:
-        return
-    result = await borg(functions.help.GetConfigRequest())  # pylint:disable=E0602
-    result = result.stringify()
-    logger.info(result)  # pylint:disable=E0602
-    await lightning.edit("Telethon UserBot powered by Black Lightning")
+      
+     
