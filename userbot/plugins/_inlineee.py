@@ -1,8 +1,11 @@
-# You Are Free To Use  But Pls Gib The Credits
+
 # Made By @krish1303y,@cyper666, @Atank_ka_devata( Never Gonna Forgive Him 😑😑 nvm thx)   For black lightning  🔥🔥🔥
 # Thanks @Shivam_Patel Mujhe Samjhane Ke Liye 
 # Thanks @Shivam_Patel For Your kind Help Sir 😘😘❤️
 # Special Credits to @Shivam_Patel For Helping Us
+
+
+
 import os
 import re
 import json
@@ -418,8 +421,7 @@ async def lightning_is_better(lightning):
     lightning_id = lightning.query.user_id
     await lightning.edit("Okay let Me Think🤫")
     await asyncio.sleep(2)
-    await lightning.edit("So You Want Some Help He Is Here \n**BTW** Choice Accepted")
-    text3 = f"Ok, Wait. You can Ask After {LIGHTNINGUSER} Approves You. Kindly, Wait."
+    await lightning.edit("Okay Giving You A Chance🤨")
     text4 = f"Can I Trust You? [User](tg://user?id={lightning_id} "
     butt = [custom.Button.inline("Yes", data="hmm")],
     butt2 = [custom.Button.inline("No", data="kaos")]
@@ -455,7 +457,7 @@ async def testing_him(lightning):
     await bot.send_message(lightning.query.user_id, text6)
     await bot.send_message(
         LIGHT_LOGS,
-        message=f"Hello, A [New User](tg://user?id={lightning_id}). Wants To Ask You Something.",
+        message=f"Hello, A [New User](tg://user?id={lightning_id}). Wants To Ask You Something But He Pressed No So therefore Waiting.",
         lightning_buttons=[Button.url("Contact Him By", f"tg://user?id={lightning_bot} If Urgent")],
     )    
 def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
