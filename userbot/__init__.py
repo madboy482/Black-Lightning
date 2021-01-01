@@ -158,7 +158,8 @@ if bool(ENV):
     TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
     FBAN_REASON = os.environ.get("FBAN_REASON", None)
     FBAN_USER = os.environ.get("FBAN_USER", None)
-
+    # For Inline
+    TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
     # Clean Welcome
     CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
     # for Logging
