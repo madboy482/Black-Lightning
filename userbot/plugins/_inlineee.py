@@ -227,7 +227,6 @@ async def lightning_hands_button(lightning):
             ],
 
         )
-        await lightning.answer([result])
     elif lightning.query.user_id == bot.uid and query.startswith("**Black L"):
         result = builder.photo(
             file=LIGHTNING_WARNING,
@@ -252,7 +251,7 @@ async def lightning_hands_button(lightning):
 
             ],
             )
-    await lightning.answer([result]) 
+    await lightning.answer([result] if result else None)
 
 
 @tgbot.on(
