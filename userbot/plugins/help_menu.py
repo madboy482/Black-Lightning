@@ -52,5 +52,3 @@ async def lightning_cmd_list(lightning):
                 lightning.chat_id, reply_to=lightning.reply_to_msg_id, hide_via=True
             )
             await lightning.delete()
-      
-     
