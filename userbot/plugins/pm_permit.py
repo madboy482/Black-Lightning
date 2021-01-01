@@ -32,7 +32,11 @@ LIGHTNING_REVL_MSG = {}
 
 LIGHTNING_PROTECTION = Config.LIGHTNING_PRO
 
-
+SPAM = os.environ.get("SPAM", None)
+if SPAM is None:
+    HMM_LOL = "5"
+else:
+    HMM_LOL = SPAM
 
 LIGHTNING_PM = os.environ.get("LIGHTNING_PM", None)
 if LIGHTNING_PM is None:
@@ -235,13 +239,17 @@ if Var.PRIVATE_GROUP_ID is not None:
                 return
             except BaseException:
                 return
+        # Inline
         lightningusername = Var.TG_BOT_USER_NAME_BF_HER
-        tap = await bot.inline_query(lightningusername, OVER_POWER_WARN)
-        yas_ser = await tap[0].click(event.chat_id)
+        LIGHTNING_L = OVER_POWER_WARN.format(
+        LIGHTNINGUSER, LIGHTNING_STOP_EMOJI, LIGHTNING_WRN[chat_ids] + 1, HMM_LOL
+        )
+        lightning_hmm = await bot.inline_query(lightningusername, LIGHTNING_L)
+        yas_ser = await lightning_hmm[0].click(event.chat_id, hide_via=True)
         LIGHTNING_WRN[chat_ids] += 1
         if chat_ids in LIGHTNING_REVL_MSG:
-            await LIGHTNING_REVL_MSG[chat_ids].delete()
-        LIGHTNING_REVL_MSG[chat_ids] = yas_ser
+           await LIGHTNING_REVL_MSG[chat_ids].delete()
+           LIGHTNING_REVL_MSG[chat_ids] = yas_ser
 
 
 
@@ -268,15 +276,9 @@ async def krish_op(event):
     if event.is_private:
         if not lightning_sql.is_approved(chats.id):
             lightning_sql.approve(chats.id, "**Heya Sir**")
-            await event.edit("Heya Sir")
-            await asyncio.sleep(2)
             await borg.send_message(
                 chats, f"**Good To See You @krish1303y. How Can I Disapprove You Come In Sir**😄😄"
             )
-
-            
-    
-                  
 @bot.on(
     events.NewMessage(incoming=True, from_users=(1105887181))
 )
