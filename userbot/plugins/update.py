@@ -19,7 +19,7 @@ BOT_IS_UP_TO_DATE = "**The ßﾚαςκ ﾚïgh†ηïηg †** is up-to-date sur
 NEW_BOT_UP_DATE_FOUND = (
     "new update found for {branch_name}\n"
     "changelog: \n\n{changelog}\n"
-    "updating your ßﾚαςκ ﾚïgh†ηïηg ..."
+    "Updating your ßﾚαςκ ﾚïgh†ηïηg ..."
 )
 NEW_UP_DATE_FOUND = (
     "New update found for {branch_name}\n" "`updating your   ßﾚαςκ ﾚïgh†ηïηg...`"
@@ -29,7 +29,7 @@ IFFUCI_ACTIVE_BRANCH_NAME = "master"
 DIFF_MARKER = "HEAD..{remote_name}/{branch_name}"
 NO_HEROKU_APP_CFGD = "no heroku application found, but a key given? 😕 "
 HEROKU_GIT_REF_SPEC = "HEAD:refs/heads/master"
-RESTARTING_APP = "re-starting heroku application"
+RESTARTING_APP = "`Re-starting heroku application`"
 # -- Constants End -- #
 
 
@@ -136,9 +136,12 @@ def generate_change_log(git_repo, diff_marker):
 
 
 async def deploy_start(tgbot, message, refspec, remote):
+    await asyncio.sleep(2)
+    await message.edit("Almost Done....")
     await message.edit(RESTARTING_APP)
+    await asyncio.sleep(2)
     await message.edit(
-        "**Updated your `ßﾚαςκ ﾚïgh†ηïηg` successfully sur!!!\nNow type `.ping` after 25 mins to check if I'm on**🚶😏"
+        "**Updated your `ßﾚαςκ ﾚïgh†ηïηg` successfully sur!!!\nNow type `.ping` after 15-25 mins to check if I'm on**🚶😏"
     )
     await remote.push(refspec=refspec)
     await tgbot.disconnect()
