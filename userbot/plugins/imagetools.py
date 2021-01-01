@@ -18,6 +18,7 @@ import numpy as np
 import requests
 from PIL import Image, ImageDraw, ImageFont
 
+from validators.url import url
 from telethon.tl.types import MessageMediaPhoto
 import pybase64
 from userbot import CMD_HELP, bot
