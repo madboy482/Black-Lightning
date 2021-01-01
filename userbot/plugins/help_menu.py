@@ -11,9 +11,9 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Pls Go To Heroku Vars Then in 
 @borg.on(admin_cmd(pattern="help ?(.*)"))
 async def lightning_cmd_list(lightning):
     if not lightning.text[0].isalpha() and lightning.text[0] not in ("/", "#", "@", "!"):
-        lightning_userbot_name = Var.TG_BOT_USER_NAME_BF_HER
+        lightningusername = Var.TG_BOT_USER_NAME_BF_HER
         input_str = lightning.pattern_match.group(1)
-        if lightning_userbot_name is None or input_str == "text":
+        if lightningusername is None or input_str == "text":
             string = ""
             for i in CMD_LIST:
                 string += "ℹ️ " + i + "\n"
