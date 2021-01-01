@@ -196,13 +196,13 @@ else:
 
 @tgbot.on(events.InlineQuery)
 async def lightning_hands_button(lightning):
-    lightning_builder = lightning.lightning_builder
+    builder = lightning.builder
     result = None
     query = lightning.text
     if lightning.query.user_id == bot.uid and query.startswith("bot"):
         rev_text = query[::-1]
         lightning_buttons = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
-        result = lightning_builder.article(
+        result = builder.article(
             f"Hey {LIGHTNINGUSER} Heres The Help Menu",
             text="{}\nI Have Tottal  Loaded Plugins: {}".format(query, len(CMD_LIST)),
             lightning_buttons=lightning_buttons,
@@ -210,7 +210,7 @@ async def lightning_hands_button(lightning):
         )
         await lightning.answer([result])
     elif lightning.query.user_id == bot.uid and query == "Help":
-        result = lightning_builder.article(
+        result = builder.article(
             title="Help",
             text=f"**How If Face Problem \n{LIGHTNINGUSER}** \nChoose Your Problem For Help ",
             lightning_buttons=[
@@ -229,7 +229,7 @@ async def lightning_hands_button(lightning):
         )
         await lightning.answer([result])
     elif lightning.query.user_id == bot.uid and query.startswith("**Black L"):
-        result = lightning_builder.photo(
+        result = builder.photo(
             file=LIGHTNING_WARNING,
             text=query,
             lightning_buttons=[
@@ -495,71 +495,4 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
     return pairs
                                                               
     
-"""inline wspr
 
-Credits to Javes and @Shivam_Patel a
-Special Thanks To @criminaL786 For Giving Me This Inline Wspr
-"""
-@tgbot.on(events.InlineQuery)  
-async def inline_handler(event):
-  me = await bot.get_me()  
-  lightning_builder = event.lightning_builder
-  query = event.text
-  split = query.split(' ', 1) 
-  result = None 
-  what = re.compile("wspr (.*) (.*)") 
-  match = re.findall(what, query)
-  if event.query.user_id == me.id and match:
-            query = query[7:]
-            user, txct = query.split(" ", 1)
-            lightning_builder = event.lightning_builder
-            secret = os.path.join("./userbot", "secrets.txt")
-            try:
-                jsondata = json.load(open(secret))
-            except:
-                jsondata = False
-            try:
-                # if u is user id
-                u = int(user)
-                try:
-                    u = await event.client.get_entity(u)
-                    if u.username:
-                        krish = f"@{u.username}"
-                    else:
-                        krish = f"[{u.first_name}](tg://user?id={u.id})"
-                except ValueError:
-                    # ValueError: Could not find the input entity
-                    krish = f"[user](tg://user?id={u})"
-            except ValueError:
-                # if u is username
-                try:
-                    u = await event.client.get_entity(user)
-                except ValueError:
-                    return
-                if u.username:
-                    krish = f"@{u.username}"
-                else:
-                    krish = f"[{u.first_name}](tg://user?id={u.id})"
-                u = int(u.id)
-            except:
-                return
-            timestamp = int(time.time() * 2)
-            newsecret = {str(timestamp): {"userid": u, "text": txct}}
-
-            lightning_buttons = [
-                custom.Button.inline("Show Message 🔐", data=f"secret_{timestamp}")
-            ]
-            result = lightning_builder.article(
-                title=f"Whisper To {krish}",
-                text=f"🔒 A whisper message to {krish}, Only {krish} can open it.",
-                lightning_buttons=lightning_buttons,
-            )
-            await event.answer([result] if result else None)
-            if jsondata:
-                jsondata.update(newsecret)
-                json.dump(jsondata, open(secret, "w"))
-            else:
-                json.dump(newsecret, open(secret, "w"))  
- 
-    
-    #some codes taken form Cat For Inline wspr  Fixing them to javes was a task #Shivam
