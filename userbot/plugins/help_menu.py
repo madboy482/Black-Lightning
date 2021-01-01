@@ -1,7 +1,7 @@
 # Rewritten by @krish1303y
 
-from  userbot import CMD_LIST, ALIVE_NAME
-from userbot.utils import admin_cmd, bot
+from  userbot import CMD_LIST, ALIVE_NAME, bot
+from userbot.utils import admin_cmd
 from telethon import  functions
 import asyncio
 
@@ -22,8 +22,8 @@ async def lightning_cmd_list(lightning):
                     string += "\n"
                 string += "\n"
             if len(string) > 4095:
-                await bot.send_message(lightning.chat_id, "Do .help cmd")
-                await asyncio.sleep(5)
+                await bot.send_message(lightning.chat_id, lig_hmm=True, light_c=False, lightn_cap="**Some Help :)**", reply_to=reply_to_id,)
+                await lightning.delete()
             else:
                 await lightning.edit(string)
         elif input_str:
