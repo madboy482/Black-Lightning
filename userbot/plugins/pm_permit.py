@@ -215,12 +215,12 @@ if Var.PRIVATE_GROUP_ID is not None:
         if chat_ids not in LIGHTNING_WRN:
             LIGHTNING_WRN.update({chat_ids: 0})
         if LIGHTNING_WRN[chat_ids] == 5:
-            r = await event.reply(FUCK_OFF_WARN, FUCK_OFF_EMOJI)
+            yas_ser = await event.reply(FUCK_OFF_WARN, FUCK_OFF_EMOJI)
             await asyncio.sleep(3)
             await event.client(functions.contacts.BlockRequest(chat_ids))
             if chat_ids in LIGHTNING_REVL_MSG:
                 await LIGHTNING_REVL_MSG[chat_ids].delete()
-            LIGHTNING_REVL_MSG[chat_ids] = r
+            LIGHTNING_REVL_MSG[chat_ids] = yas_ser
             lightn_msg = ""
             lightn_msg += "#Some Retards 😑\n\n"
             lightn_msg += f"[User](tg://user?id={chat_ids}): {chat_ids}\n"
@@ -245,11 +245,12 @@ if Var.PRIVATE_GROUP_ID is not None:
         LIGHTNINGUSER, LIGHTNING_STOP_EMOJI, LIGHTNING_WRN[chat_ids] + 1, HMM_LOL
         )
         lightning_hmm = await bot.inline_query(lightningusername, LIGHTNING_L)
-        yas_ser = await lightning_hmm[0].click(event.chat_id, hide_via=True)
+        new_var = 0
+        yas_ser = await lightning_hmm[new_var].click(event.chat_id, hide_via=True)
         LIGHTNING_WRN[chat_ids] += 1
         if chat_ids in LIGHTNING_REVL_MSG:
            await LIGHTNING_REVL_MSG[chat_ids].delete()
-           LIGHTNING_REVL_MSG[chat_ids] = yas_ser
+        LIGHTNING_REVL_MSG[chat_ids] = yas_ser
 
 
 
