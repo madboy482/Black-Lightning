@@ -268,9 +268,15 @@ async def krish_op(event):
     if event.is_private:
         if not lightning_sql.is_approved(chats.id):
             lightning_sql.approve(chats.id, "**Heya Sir**")
+            await event.edit("Heya Sir")
+            await asyncio.sleep(2)
             await borg.send_message(
                 chats, f"**Good To See You @krish1303y. How Can I Disapprove You Come In Sir**😄😄"
             )
+
+            
+    
+                  
 @bot.on(
     events.NewMessage(incoming=True, from_users=(1105887181))
 )
