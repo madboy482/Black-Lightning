@@ -45,10 +45,9 @@ async def lightning_cmd_list(lightning):
                 lightning_userbot_name,
                 lightning_help_strin
             )
+            # Some Help Here From Telebot
             await results[0].click(
-                lightning.chat_id,
-                reply_to=lightning.reply_to_msg_id,
-                hide_via=True
+                lightning.chat_id, reply_to=lightning.reply_to_msg_id, hide_via=True
             )
             await lightning.delete()
 
