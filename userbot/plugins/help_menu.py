@@ -1,6 +1,6 @@
 # Rewritten by @krish1303y
 
-from  userbot import CMD_LIST, ALIVE_NAME, bot
+from  userbot import CMD_LIST, ALIVE_NAME
 from userbot.utils import admin_cmd
 from telethon import  functions
 import asyncio
@@ -42,7 +42,7 @@ async def lightning_cmd_list(lightning):
             lightning_help_strin = f"""Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n
 {DEFAULTUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport"""
             results = await bot.inline_query(  # pylint:disable=E0602
-                lightning_userbot_name,
+                lightningusername,
                 lightning_help_strin
             )
             # Some Help Here From Telebot
