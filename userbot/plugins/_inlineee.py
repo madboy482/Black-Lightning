@@ -309,8 +309,8 @@ async def lightning_pugins_query_hndlr(lightning):
                 ) # This Code Was Clashing My pm_permit 
             else:
                 lightning_strike = lightning_help_strin
-            lightning_strike += f"\n Use .unload {} to remove this plugin\n\
-                If In Case Some Problem Contact @lightningsupport\n From  {LIGHTNINGBOT}".format(
+            lightning_strike += "\n Use .unload {} to remove this plugin\n\
+                If In Case Some Problem Contact @lightningsupport\n From  [Here](https://t.me/lightningsupport)".format(
                 lightning_plug_name
             ) # Some Inspiration From Telelbot
             if len(lightning_help_strin) >= 200:
