@@ -42,7 +42,7 @@ async def lightning_cmd_list(lightning):
         lightning_help_strin = f"""Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n
 {DEFAULTUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport"""
         try:
-            
+            lightningusername = Var.TG_BOT_USER_NAME_BF_HER
             results = await bot.inline_query(  # pylint:disable=E0602
                 lightningusername,
                 lightning_help_strin
