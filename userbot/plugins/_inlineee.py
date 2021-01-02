@@ -275,7 +275,7 @@ async def lightning_pugins_query_hndlr(lightning):
     else:
         lightning_quote = "🤨"
         lightning_is_best = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
-        await lightning.answer(lightning_is_best, lightning_quote, _lightning_power=0, alert=True)
+        await lightning.answer(lightning_is_best, lightning_quote, cache_time=0, alert=True)
 
 @tgbot.on(
         events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -316,17 +316,17 @@ async def lightning_pugins_query_hndlr(lightning):
             ) # Some Inspiration From Telelbot
             if len(lightning_help_strin) >= 200:
                 lightning = "Check your saved messages!"
-                await lightning.answer(lightning, _lightning_power=0, alert=True)
+                await lightning.answer(lightning, cache_time=0, alert=True)
                 lightning_help_strin += f"\n\nIm Here With Detailed Help via {LIGHTNINGBOT} Of This Plugin😉"
                 if bot is not None and lightning.query.user_id == bot.uid:
                     ok = await bot.send_message("Whaa", lightning_help_strin)
                     await asyncio.sleep(60)
                     await ok.delete()
             else:
-                await lightning.answer(lightning_strike, _lightning_power=0, alert=True)
+                await lightning.answer(lightning_strike, cache_time=0, alert=True)
         else:
             lightning_strike = f"Please Dont Touch This {LIGHTNINGUSER} Im Tryin To Get Rid Of This !!"
-            await lightning.answer(lightning_strike, _lightning_power=0, alert=True)
+            await lightning.answer(lightning_strike, cache_time=0, alert=True)
 
 @tgbot.on(
     events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -348,11 +348,11 @@ async def what(lightning):
 async def lightning_is_better(lightning):
     if lightning.query.user_id == bot.uid:
         fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
-        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, cache_time=0, alert=True)
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
-    text1 = f"LOL You Think So You Can😂😂\n\n[Nibba](tg://user?id={lightning_id} Bye Goin To Block You Gay😂😂"
+    text1 = f"LOL You Think So You Can😂😂\n\n[Nibba](tg://user?id={lightning_id}) Bye Goin To Block You Gay😂😂"
     await lightning.edit("Off Course Go To Hell Dude")
     await bot.send_message(lightning.query.user_id, text1)
     await bot(functions.contacts.BlockRequest(lightning.query.user_id))
@@ -366,7 +366,7 @@ async def lightning_is_better(lightning):
 async def lightning_is_better(lightning):
     if lightning.query.user_id == bot.uid:
         fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
-        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, cache_time=0, alert=True)
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
@@ -385,9 +385,9 @@ async def lightning_is_better(lightning):
 async def krish1303y(lightning):
     if lightning.query.user_id != bot.uid:
         fck_bit = "What You Think That This Back Button You Can Touch Bitch🖕!!!!"
-        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, cache_time=0, alert=True)
         return
-    await lightning.answer("Back", _lightning_power=0, alert=False)
+    await lightning.answer("Back", cache_time=0, alert=False)
     # This Is Copy of Above Code. (C) @SpEcHiDe
     buttons = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
     krish1303y = f"""Black Lightning  Listed The Plugins Read This Info Pls!\n
@@ -399,7 +399,7 @@ async def krish1303y(lightning):
 async def lightning_is_better(lightning):
     if lightning.query.user_id == bot.uid:
         fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
-        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, cache_time=0, alert=True)
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
@@ -419,7 +419,7 @@ async def lightning_is_better(lightning):
 async def lemme_See(lightning):
     if lightning.query.user_id == bot.uid:
         fck_bit = f"Wait Lemme Ask"
-        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, cache_time=0, alert=True)
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
@@ -435,7 +435,7 @@ async def lemme_See(lightning):
 async def lemme_See(lightning):
     if lightning.query.user_id == bot.uid:
         fck_bit = f"Lemme See"
-        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, cache_time=0, alert=True)
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
@@ -451,7 +451,7 @@ async def lemme_See(lightning):
 async def lightning_is_better(lightning):
     if lightning.query.user_id == bot.uid:
         fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
-        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, cache_time=0, alert=True)
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
@@ -478,7 +478,7 @@ async def stats_checks(event):
 async def testing_him(lightning):
     if lightning.query.user_id == bot.uid:
         fck_bit = f"Wait Lemme Test Him"
-        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, cache_time=0, alert=True)
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
@@ -494,7 +494,7 @@ async def testing_him(lightning):
 async def testing_him(lightning):
     if lightning.query.user_id == bot.uid:
         fck_bit = f"Wait Lemme Test Him"
-        await lightning.answer(fck_bit, _lightning_power=0, alert=True)
+        await lightning.answer(fck_bit, cache_time=0, alert=True)
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
