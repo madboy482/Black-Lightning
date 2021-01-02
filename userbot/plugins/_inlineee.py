@@ -403,13 +403,15 @@ async def lightning_is_better(lightning):
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
-    await lightning.edit("Oh You Wanna Talk With My Master\n\nPls Wait Dear \n\n**Btw** You Can Wait For My Master ")
-    text7 = f"Name Which  Type Of  [Friend](tg://user?id={lightning_id} You're Of {LIGHTNINGUSER}"
-    butt3 = [custom.Button.inline("School Friend", data="school")],
-    butt4 = [custom.Button.inline("Causual Telegram Talk", data="tg_friend")]
+    await lightning.edit("Oh You Wanna Talk With My Master\n\nPls Wait Dear \n\n**Btw** **You Can Wait For My Master**")
+    text7 = f"Name Which  Type Of  [Friend](tg://user?id={lightning_id}) You're Of {LIGHTNINGUSER}"
     await bot.send_message(text7)
     await bot.send_message(
-        butt3, butt4
+        buttons=[
+        [custom.Button.inline("School Friend", data="school")], 
+        [custom.Button.inline("Causual Telegram Talk", data="tg_friend")
+        ],
+        ],
         )
     
     
@@ -466,7 +468,12 @@ async def lightning_is_better(lightning):
     butt2 = [custom.Button.inline("No", data="kaos")]
     await bot.send_message(text4)
     await bot.send_message(
-        butt, butt2
+        await bot.send_message(
+        buttons=[
+        [custom.Button.inline("Yes", data="hmm")],
+        [custom.Button.inline("No", data="kaos")]
+        ],
+        )
         )
 
     # Thanks To Friday userbot For This Idea
