@@ -228,7 +228,7 @@ async def lightning_hands_button(lightning):
             ],
 
         )
-    elif lightning.query.user_id == bot.uid and query.startswith("**Black L"):
+    elif lightning.query.user_id == bot.uid and query.startswith("**Hello Sir"):
         result = builder.photo(
             file=LIGHTNING_WARNING,
             text=f"**Hello Sir Im Here To Protect {LIGHTNINGUSER} Dont Under Estimate Me 😂😂**",
