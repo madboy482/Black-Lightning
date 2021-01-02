@@ -407,7 +407,10 @@ async def lightning_is_better(lightning):
     text7 = f"Name Which  Type Of  [Friend](tg://user?id={lightning_id} You're Of {LIGHTNINGUSER}"
     butt3 = [custom.Button.inline("School Friend", data="school")],
     butt4 = [custom.Button.inline("Causual Telegram Talk", data="tg_friend")]
-    await bot.send_message(text7, butt3, butt4)
+    await bot.send_message(text7)
+    await bot.send_message(
+        butt3, butt4
+        )
     
     
     
@@ -461,7 +464,10 @@ async def lightning_is_better(lightning):
     text4 = f"Can I Trust You? [User](tg://user?id={lightning_id} "
     butt = [custom.Button.inline("Yes", data="hmm")],
     butt2 = [custom.Button.inline("No", data="kaos")]
-    await bot.send_message(text4, butt, butt2)
+    await bot.send_message(text4)
+    await bot.send_message(
+        butt, butt2
+        )
 
     # Thanks To Friday userbot For This Idea
 
