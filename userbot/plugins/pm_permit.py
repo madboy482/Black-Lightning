@@ -14,7 +14,7 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import asyncio
-import io
+import ioa
 import os
 
 from telethon import events, functions
@@ -48,7 +48,6 @@ FUCK_OFF_WARN = f"Blocked You Bitch You Spammed {LIGHTNINGUSER} IDC Why You Are 
 FUCK_OFF_EMOJI = "🖕🖕"
 
 
-lol = Var.TG_BOT_USER_NAME_BF_HER
 
 OVER_POWER_WARN = (
     f"**Hello Sir Im Here To Protect {LIGHTNINGUSER} Dont Under Estimate Me 😂😂  **\n\n"
@@ -175,25 +174,25 @@ if Var.PRIVATE_GROUP_ID is not None:
             await event.edit(PM_VIA_LIGHT)
 
     @bot.on(events.NewMessage(incoming=True))
-    async def lightning_new_msg(event):
-        if event.sender_id == bot.uid:
+    async def lightning_new_msg(lightning):
+        if lightning.sender_id == bot.uid:
             return
 
         if Var.PRIVATE_GROUP_ID is None:
             return
 
-        if not event.is_private:
+        if not lightning.is_private:
             return
 
-        lightning_chats = event.message.message
-        chat_ids = event.sender_id
+        lightning_chats = lightning.message.message
+        chat_ids = lightning.sender_id
 
         lightning_chats.lower()
         if OVER_POWER_WARN == lightning_chats:
             # lightning should not reply to other lightning
             # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
             return
-        sender = await bot.get_entity(event.sender_id)
+        sender = await bot.get_entity(lightning.sender_id)
         if chat_ids == bot.uid:
             # don't log Saved Messages
             return
@@ -209,15 +208,15 @@ if Var.PRIVATE_GROUP_ID is not None:
             return
         if not lightning_sql.is_approved(chat_ids):
             # pm permit
-            await lightning_goin_to_attack(chat_ids, event)
+            await lightning_goin_to_attack(chat_ids, lightning)
 
-    async def lightning_goin_to_attack(chat_ids, event):
+    async def lightning_goin_to_attack(chat_ids, lightning):
         if chat_ids not in LIGHTNING_WRN:
             LIGHTNING_WRN.update({chat_ids: 0})
         if LIGHTNING_WRN[chat_ids] == 5:
-            lemme = await event.reply(FUCK_OFF_WARN, FUCK_OFF_EMOJI)
+            lemme = await lightning.reply(FUCK_OFF_WARN, FUCK_OFF_EMOJI)
             await asyncio.sleep(3)
-            await event.client(functions.contacts.BlockRequest(chat_ids))
+            await lightning.client(functions.contacts.BlockRequest(chat_ids))
             if chat_ids in LIGHTNING_REVL_MSG:
                 await LIGHTNING_REVL_MSG[chat_ids].delete()
             LIGHTNING_REVL_MSG[chat_ids] = lemme
@@ -227,7 +226,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             lightn_msg += f"Message Counts: {LIGHTNING_WRN[chat_ids]}\n"
             # lightn_msg += f"Media: {message_media}"
             try:
-                await event.client.send_message(
+                await lightning.client.send_message(
                     entity=Var.PRIVATE_GROUP_ID,
                     message=lightn_msg,
                     # reply_to=,
@@ -238,7 +237,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                 )
                 return
             except BaseException:
-                  await  event.edit("Something Went Wrong")
+                  await  lightning.edit("Something Went Wrong")
                   await asyncio.sleep(2) 
             return
 
@@ -249,7 +248,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         )
         lightning_hmm = await bot.inline_query(lightningusername, LIGHTNING_L)
         new_var = 0
-        yas_ser = await lightning_hmm[new_var].click(event.chat_id)
+        yas_ser = await lightning_hmm[new_var].click(lightning.chat_id)
         LIGHTNING_WRN[chat_ids] += 1
         if chat_ids in LIGHTNING_REVL_MSG:
            await LIGHTNING_REVL_MSG[chat_ids].delete()
