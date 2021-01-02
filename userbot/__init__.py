@@ -36,9 +36,7 @@ else:
     bot = TelegramClient(session_name, Var.APP_ID, Var.API_HASH)
 
 
-CMD_LIST = {}
-# for later purposes
-CMD_HELP = {}
+
 INT_PLUG = ""
 LOAD_PLUG = {}
 
@@ -227,6 +225,7 @@ COUNT_PM = {}
 LASTMSG = {}
 SUDO_LIST = {}
 CMD_HELP = {}
+CMD_LIST = {}
 CUSTOM_PMPERMIT_MSG = {}
 CUSTOM_BOTSTART = {}
 ISAFK = False
