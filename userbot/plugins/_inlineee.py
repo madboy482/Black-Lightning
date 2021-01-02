@@ -12,7 +12,7 @@ import os
 import re
 import json
 from math import ceil
-from userbot.thunderconfig import lightning_goin_to_attack
+from userbot.thunderconfig import Config
 
 from telethon import Button, custom, events, functions
 
