@@ -1,6 +1,6 @@
 # Rewritten by @krish1303y
 
-from  userbot import CMD_LIST, ALIVE_NAME, bot
+from  userbot import CMD_LIST, ALIVE_NAME
 from userbot.utils import admin_cmd
 from telethon import  functions
 import asyncio
