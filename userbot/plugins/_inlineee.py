@@ -12,6 +12,7 @@ import os
 import re
 import json
 from math import ceil
+from userbot.thunderconfig import lightning_goin_to_attack
 
 from telethon import Button, custom, events, functions
 
@@ -444,8 +445,11 @@ async def lemme_See(lightning):
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
-    text9 = f"Oh K. {LIGHTNINGUSER} Your Casual Telegram Friend :)\n {LIGHTNINGUSER} Will Soon Respond  . Pls Dont Spam In {LIGHTNINGUSER}'s IB."
-    await bot.send_message(lightning.query.user_id, text9)
+    await asyncio.sleep(2)
+    await lightning.edit("Okay You Are Telegram Friend")
+    await asyncio.sleep(3)
+    await lightning.edit("Ok Wait :)")
+    await bot.send_message(lightning.query.user_id)
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). Your Casual Telegram Friend His Here To Chat pls See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
@@ -459,14 +463,9 @@ async def lightning_is_better(lightning):
         await lightning.answer(fck_bit, cache_time=0, alert=True)
         return
     await lightning.get_chat()
-    lightning_id = lightning.query.user_id
     await lightning.edit("Okay let Me Think🤫")
     await asyncio.sleep(2)
     await lightning.edit("Okay Giving You A Chance🤨")
-    text4 = f"Can I Trust You? [User](tg://user?id={lightning_id} "
-    butt = [custom.Button.inline("Yes", data="hmm")],
-    butt2 = [custom.Button.inline("No", data="kaos")]
-    await bot.send_message(text4)
     await bot.send_message(
         await bot.send_message(
         buttons=[
@@ -500,7 +499,7 @@ async def testing_him(lightning):
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, A [New User](tg://user?id={lightning_id}). Wants To Ask You Something.",
-        buttons=[Button.url("Contact Him By", f"tg://user?id={lightning_bot} If Urgent")],
+        buttons=[Button.url("Contact Him By", f"tg://user?id={lightning_id} If Urgent")],
     )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"kaos")))
@@ -511,8 +510,9 @@ async def testing_him(lightning):
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
-    text6 = f"[Go To Hell](https://telegra.ph/file/c0b399f9e21a9da1b71ef.png)."
-    await bot.send_message(lightning.query.user_id, text6)
+    await asyncio.sleep(2)
+    await lightning.edit("Okay Fuck You Not Goin To Allow🖕")
+    await bot.send_message(lightning.query.user_id)
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, A [New User](tg://user?id={lightning_id}). Wants To Ask You Something But He Pressed No So therefore Waiting.",
