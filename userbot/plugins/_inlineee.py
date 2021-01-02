@@ -202,8 +202,8 @@ async def lightning_hands_button(lightning):
     result = None
     query = lightning.text
     if lightning.query.user_id == bot.uid and query.startswith("bot"):
-        rev_text = query[::-1] 
-        buttons = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
+        lim = query[::-1] 
+        buttons = lightnings_menu_for_help(0, CMD_HELP, "fukhim")
         result = builder.article(
             f"Hey {LIGHTNINGUSER} Heres The Help Menu",
             text="{}\nI Have Tottal  Loaded Plugins: {}".format(query, len(CMD_LIST)),
@@ -258,7 +258,7 @@ async def lightning_hands_button(lightning):
 
 @tgbot.on(
     events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"fuck_him_next\((.+?)\)")
+        data=re.compile(b"fukhim_next\((.+?)\)")
     )
 )
 
@@ -268,7 +268,7 @@ async def lightning_pugins_query_hndlr(lightning):
     if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
         buttons = lightnings_menu_for_help(
-            lightning_page - 1, CMD_HELP, "fuck_him"  # pylint:disable=E0602
+            lightning_page + 1, CMD_HELP, "fukhim"  # pylint:disable=E0602
         )
         # https://t.me/TelethonChat/115200
         await lightning.edit(buttons=buttons)
@@ -283,53 +283,11 @@ async def lightning_pugins_query_hndlr(lightning):
 )
 
 
-# Some Inspiration From Telebot
-async def lightning_pugins_query_hndlr(lightning):
-        if lightning.query.user_id == bot.uid:
-            lightning_plug_name = lightning.data_match.group(1).decode("UTF-8")
-            lightning_help_strin = ""
-            lightning_help_strin += f"Commands Available in {lightning_plug_name} - \n"
-            try:
-                if lightning_plug_name in CMD_HELP:
-                    for i in CMD_HELP[lightning_plug_name]:
-                        lightning_help_strin += i
-                    lightning_help_strin += "\n"
-                else:
-                    for i in CMD_LIST[lightning_plug_name]:
-                        lightning_help_strin += i
-                        lightning_help_strin += "\n"
-            except BaseException:
-                await lightning.edit(
-                    f"{LIGHTNINGUSER}'s  {LIGHTNINGBOT} Has Some Internal Problem Please Restart Dynos Or Ask [Lightning](https://t.me/lightningsupport)"
-                )  
-            pass
-            if lightning_help_strin == "":
-                lightning_strike = "{} In Case In Problem.\nUse .help {}".format(
-                    lightning_plug_name, lightning_plug_name
-                ) # This Code Was Clashing My pm_permit 
-            else:
-                lightning_strike = lightning_help_strin
-            lightning_strike += "\n Use .unload {} to remove this plugin\n\
-                If In Case Some Problem Contact @lightningsupport\n From  [Here](https://t.me/lightningsupport)".format(
-                lightning_plug_name
-            ) # Some Inspiration From Telelbot
-            if len(lightning_help_strin) >= 200:
-                lightning = "Check your saved messages!"
-                await lightning.answer(lightning, cache_time=0, alert=True)
-                lightning_help_strin += f"\n\nIm Here With Detailed Help via {LIGHTNINGBOT} Of This Plugin😉"
-                if bot is not None and lightning.query.user_id == bot.uid:
-                    ok = await bot.send_message("Whaa", lightning_help_strin)
-                    await asyncio.sleep(60)
-                    await ok.delete()
-            else:
-                await lightning.answer(lightning_strike, cache_time=0, alert=True)
-        else:
-            lightning_strike = f"Please Dont Touch This {LIGHTNINGUSER} Im Tryin To Get Rid Of This !!"
-            await lightning.answer(lightning_strike, cache_time=0, alert=True)
+
 
 @tgbot.on(
     events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"fuck_him_prev\((.+?)\)")
+        data=re.compile(b"fukhim_prev\((.+?)\)")
     )
 )
 
@@ -351,7 +309,7 @@ async def lightning_is_better(lightning):
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
-    text1 = f"LOL You Think So You Can😂😂\n\n[Nibba](tg://user?id={lightning_id}) Bye Goin To Block You Gay😂😂"
+    text1 = f"LOL **You Think So You Can**😂😂\n\n**[Nibba](tg://user?id={lightning_id}) Bye Goin To Block You Gay**😂😂"
     await lightning.edit("Off Course Go To Hell Dude")
     await bot.send_message(lightning.query.user_id, text1)
     await bot(functions.contacts.BlockRequest(lightning.query.user_id))
@@ -388,7 +346,7 @@ async def krish1303y(lightning):
         return
     await lightning.answer("Back", cache_time=0, alert=False)
     # This Is Copy of Above Code. (C) @SpEcHiDe
-    buttons = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
+    buttons = lightnings_menu_for_help(0, CMD_HELP, "fukhim")
     krish1303y = f"""Black Lightning  Listed The Plugins Read This Info Pls!\n
 {LIGHTNINGUSER}If You Faced Problem Regarding Pls Contact For Help  @lightningsupport \n**Btw**Currently Loaded Plugins: {len(CMD_LIST)}"""
     await lightning.edit(message=krish1303y, buttons=buttons)
@@ -403,10 +361,11 @@ async def lightning_is_better(lightning):
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
     await lightning.edit("Oh You Wanna Talk With My Master\n\nPls Wait Dear \n\n**Btw** **You Can Wait For My Master**")
-    ligt_text = "**So You Are Friend**Okay wait"
+    light_text = "**So You Are Friend**Okay wait"
     await lightning.edit(f"`Informing To Master {LIGHTNINGUSER}`")
     await asyncio.sleep(2)
     await lightning.edit("`Done Informed`")
+    await bot.send_message(light_text)
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). Your Casual Telegram Friend His Here To Chat pls See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
@@ -444,7 +403,49 @@ async def lightning_is_better(lightning):
        
 
     
-
+# Some Inspiration From Telebot
+async def lightning_pugins_query_hndlr(lightning):
+        if lightning.query.user_id == bot.uid:
+            lightning_plug_name = lightning.data_match.group(1).decode("UTF-8")
+            lightning_help_strin = ""
+            lightning_help_strin += f"Commands Available in {lightning_plug_name} - \n"
+            try:
+                if lightning_plug_name in CMD_HELP:
+                    for i in CMD_HELP[lightning_plug_name]:
+                        lightning_help_strin += i
+                    lightning_help_strin += "\n"
+                else:
+                    for i in CMD_LIST[lightning_plug_name]:
+                        lightning_help_strin += i
+                        lightning_help_strin += "\n"
+            except BaseException:
+                await lightning.edit(
+                    f"{LIGHTNINGUSER}'s  {LIGHTNINGBOT} Has Some Internal Problem Please Restart Dynos Or Ask [Lightning](https://t.me/lightningsupport)"
+                )  
+            pass
+            if lightning_help_strin == "":
+                lightning_strike = "{} In Case In Problem.\nUse .help {}".format(
+                    lightning_plug_name, lightning_plug_name
+                ) # This Code Was Clashing My pm_permit 
+            else:
+                lightning_strike = lightning_help_strin
+            lightning_strike += "\n Use .unload {} to remove this plugin\n\
+                If In Case Some Problem Contact @lightningsupport\n From  [Here](https://t.me/lightningsupport)".format(
+                lightning_plug_name
+            ) # Some Inspiration From Telelbot
+            if len(lightning_help_strin) >= 140:
+                lightning = "Check your saved messages!"
+                await lightning.answer(lightning, cache_time=0, alert=True)
+                lightning_help_strin += f"\n\nIm Here With Detailed Help via {LIGHTNINGBOT} Of This Plugin😉"
+                if bot is not None and lightning.query.user_id == bot.uid:
+                    heh = await bot.send_message("him", lightning_help_strin)
+                    await asyncio.sleep(60)
+                    await heh.delete()
+            else:
+                await lightning.answer(lightning_strike, cache_time=0, alert=True)
+        else:
+            lightning_strike = f"Why The Hell You Touched This Button? 😡"
+            await lightning.answer(lightning_strike, cache_time=0, alert=True)
 
  
 
