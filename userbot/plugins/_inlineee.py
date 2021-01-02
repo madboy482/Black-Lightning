@@ -229,19 +229,19 @@ async def lightning_hands_button(lightning):
     elif lightning.query.user_id == bot.uid and query.startswith("**Black L"):
         result = builder.photo(
             file=LIGHTNING_WARNING,
-            text=query,
+            text=f"**Hello Sir Im Here To Protect {LIGHTNINGUSER} Dont Under Estimate Me 😂😂**",
             lightning_buttons=[
                 [custom.Button.inline("Wanna Spam Some Porn Images😉", data="lightning_is_here_cant_spam")],
                 [
                     custom.Button.inline(
-                        "My Friend",
+                        "My Friend❤️❤️",
                         data="he_sucks",
                     )
                 ],
-                [custom.Button.inline("Requesting", data="fck_ask")],
+                [custom.Button.inline("Requesting🙏", data="fck_ask")],
                 [
                     custom.Button.inline(
-                        "Fuck Lemme In", 
+                        "Fuck Lemme In🖕", 
                         data="lol_u_think_so",
                         
                     )
@@ -353,6 +353,7 @@ async def lightning_is_better(lightning):
     await lightning.edit("Off Course Go To Hell Dude")
     await bot.send_message(lightning.query.user_id, text1)
     await bot(functions.contacts.BlockRequest(lightning.query.user_id))
+    await lightning.edit("🖕")
     await bot.send_message(
         LIGHT_LOGS,
         f"Hey Master Sorry Disturb You, [Noob](tg://user?id={lightning_id}) Tryin To Spam 😂\n\n**So Blocked**.",
