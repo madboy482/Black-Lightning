@@ -34,7 +34,7 @@ LIGHTNING_PROTECTION = Config.LIGHTNING_PRO
 
 SPAM = os.environ.get("SPAM", None)
 if SPAM is None:
-    HMM_LOL = "3"
+    HMM_LOL = "5"
 else:
     HMM_LOL = SPAM
 
