@@ -59,3 +59,4 @@ async def lightning_cmd_list(lightning):
             await lightning.edit(
                 f"Seems That Your {lightningusername} Is Wrong Check once"
                 )
+            await lightning.delete()
