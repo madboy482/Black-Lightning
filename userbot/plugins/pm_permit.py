@@ -14,7 +14,7 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import asyncio
-import ioa
+import io
 import os
 
 from telethon import events, functions
