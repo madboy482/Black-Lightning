@@ -443,16 +443,8 @@ async def lightning_is_better(lightning):
     )
        
 
-    # Thanks To Friday userbot For This Idea
+    
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stta")))
-async def stats_checks(event):
-    if event.query.user_id == bot.uid:
-        text = "🇲‌🇾‌ 🇭‌🇪‌🇱‌🇵‌ 🇸‌🇹‌🇦‌🇹‌🇸‌\n\n**ᴘʟᴜɢɪɴ**-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/"
-        await event.answer(text, alert=True)
-    else:
-        txt = "This Help Stats Not For You Dumb"
-        await event.answer(txt, alert=True)
 
  
 
@@ -485,7 +477,7 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
                     "🗡яιgнт ρℓυgιи", data="{}_prev({})".format(lightning_lol, lightning_plugins_pages)
                 ),
                # Thanks To Friday For This Idea
-               custom.Button.inline("Stats", data="stta"
+               Button.url("Stats", "🇲‌🇾‌ 🇭‌🇪‌🇱‌🇵‌ 🇸‌🇹‌🇦‌🇹‌🇸‌\n\n**ᴘʟᴜɢɪɴ**-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/"
                ),
                custom.Button.inline(
                     "ℓєfт ρℓυgιи🗡", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
