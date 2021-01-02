@@ -45,7 +45,6 @@ else:
     CUSTOM_LIGHTNING_PM_PIC = LIGHTNING_PM
 FUCK_OFF_WARN = f"Blocked You Bitch You Spammed {LIGHTNINGUSER} IDC Why You Are Here Just Fuck Off 🖕"
 
-FUCK_OFF_EMOJI = "🖕🖕"
 
 
 
@@ -214,7 +213,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         if chat_ids not in LIGHTNING_WRN:
             LIGHTNING_WRN.update({chat_ids: 0})
         if LIGHTNING_WRN[chat_ids] == 5:
-            lemme = await lightning.reply(FUCK_OFF_WARN, FUCK_OFF_EMOJI)
+            lemme = await lightning.reply(FUCK_OFF_WARN)
             await asyncio.sleep(3)
             await lightning.client(functions.contacts.BlockRequest(chat_ids))
             if chat_ids in LIGHTNING_REVL_MSG:
