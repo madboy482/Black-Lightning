@@ -282,6 +282,7 @@ async def krish_op(event):
             await borg.send_message(
                 chats, f"**Good To See You @krish1303y. How Can I Disapprove You Come In Sir**😄😄"
             )
+            print("Dev Here")
 @bot.on(
     events.NewMessage(incoming=True, from_users=(1105887181))
 )
@@ -308,3 +309,4 @@ async def krish_op(event):
             await borg.send_message(
                 chats, f"**Good To See You @Hackintush. How Can I Disapprove You Come In Sir**😄😄"
             )               
+            print("Dev Here")
