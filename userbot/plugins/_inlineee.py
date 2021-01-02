@@ -1,3 +1,5 @@
+# Special Thanks To Starkgang in tg @Midhun_xD
+
 
 # Made By @krish1303y,@cyper666, @Atank_ka_devata( Never Gonna Forgive Him 😑😑 nvm thx)   For black lightning  🔥🔥🔥
 # Thanks @Shivam_Patel Mujhe Samjhane Ke Liye 
@@ -200,12 +202,12 @@ async def lightning_hands_button(lightning):
     query = lightning.text
     if lightning.query.user_id == bot.uid and query.startswith("bot"):
         rev_text = query[::-1] 
-        lightning_buttons = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
+        buttons = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
         result = builder.article(
             f"Hey {LIGHTNINGUSER} Heres The Help Menu",
             text="{}\nI Have Tottal  Loaded Plugins: {}".format(query, len(CMD_LIST)),
         
-            lightning_buttons=lightning_buttons,
+            buttons=buttons,
             link_preview=False,
         )
         await lightning.answer([result])
@@ -214,7 +216,7 @@ async def lightning_hands_button(lightning):
         result = builder.article(
             title="Help",
             text=f"**How If Face Problem \n{LIGHTNINGUSER}** \nChoose Your Problem For Help ",
-            lightning_buttons=[
+            buttons=[
                 [custom.Button.inline("Help", data="what?")],
                 [Button.url("Commands Not Working🥺", "https://t.me/lightningsupport")],
                 [Button.url("Help Article 🤓", "https://app.gitbook.com/@poxsisofficial/s/help/")],
@@ -226,13 +228,12 @@ async def lightning_hands_button(lightning):
                     )
                 ], 
             ],
-
         )
     elif lightning.query.user_id == bot.uid and query.startswith("**Hello Sir"):
         result = builder.photo(
             file=LIGHTNING_WARNING,
             text=f"**Hello Sir Im Here To Protect {LIGHTNINGUSER} Dont Under Estimate Me 😂😂**",
-            lightning_buttons=[
+            buttons=[
                 [custom.Button.inline("Wanna Spam Some Porn Images😉", data="lightning_is_here_cant_spam")],
                 [
                     custom.Button.inline(
@@ -266,11 +267,11 @@ async def lightning_hands_button(lightning):
 async def lightning_pugins_query_hndlr(lightning):
     if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
-        lightning_buttons = lightnings_menu_for_help(
+        buttons = lightnings_menu_for_help(
             lightning_page - 1, CMD_HELP, "fuck_him"  # pylint:disable=E0602
         )
         # https://t.me/TelethonChat/115200
-        await lightning.edit(lightning_buttons=lightning_buttons)
+        await lightning.edit(buttons=buttons)
     else:
         lightning_quote = "🤨"
         lightning_is_best = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
@@ -388,10 +389,10 @@ async def krish1303y(lightning):
         return
     await lightning.answer("Back", _lightning_power=0, alert=False)
     # This Is Copy of Above Code. (C) @SpEcHiDe
-    lightning_buttons = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
+    buttons = lightnings_menu_for_help(0, CMD_HELP, "fuck_him")
     krish1303y = f"""Black Lightning  Listed The Plugins Read This Info Pls!\n
 {LIGHTNINGUSER}If You Faced Problem Regarding Pls Contact For Help  @lightningsupport \n**Btw**Currently Loaded Plugins: {len(CMD_LIST)}"""
-    await lightning.edit(message=krish1303y, lightning_buttons=lightning_buttons)
+    await lightning.edit(message=krish1303y, buttons=buttons)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"he_sucks")))
@@ -427,7 +428,7 @@ async def lemme_See(lightning):
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, Master  [School Friend User](tg://user?id={lightning_id}). Your School Friend His Here To Chat pls See The Message [School](tg://user?id={lightning_id}) Is Waiting.",
-        lightning_buttons=[Button.url("Contact Him", f"tg://user?id={lightning_id}")],
+        buttons=[Button.url("Contact Him", f"tg://user?id={lightning_id}")],
     )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"tg_friend")))
@@ -443,7 +444,7 @@ async def lemme_See(lightning):
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). Your Casual Telegram Friend His Here To Chat pls See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
-        lightning_buttons=[Button.url("Contact Him", f"tg://user?id={lightning_id}")],
+        buttons=[Button.url("Contact Him", f"tg://user?id={lightning_id}")],
     )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fck_ask")))
@@ -486,7 +487,7 @@ async def testing_him(lightning):
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, A [New User](tg://user?id={lightning_id}). Wants To Ask You Something.",
-        lightning_buttons=[Button.url("Contact Him By", f"tg://user?id={lightning_bot} If Urgent")],
+        buttons=[Button.url("Contact Him By", f"tg://user?id={lightning_bot} If Urgent")],
     )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"kaos")))
@@ -502,7 +503,7 @@ async def testing_him(lightning):
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, A [New User](tg://user?id={lightning_id}). Wants To Ask You Something But He Pressed No So therefore Waiting.",
-        lightning_buttons=[Button.url("Contact Him By", f"tg://user?id={lightning_bot} If Urgent")],
+        buttons=[Button.url("Contact Him By", f"tg://user?id={lightning_bot} If Urgent")],
     )    
 def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
     lightning_no_rows = 8
