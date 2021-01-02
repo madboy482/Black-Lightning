@@ -208,7 +208,6 @@ async def lightning_hands_button(lightning):
             lightning_buttons=lightning_buttons,
             link_preview=False,
         )
-        await lightning.answer([result])
     elif lightning.query.user_id == bot.uid and query == "Help":
         result = builder.article(
             title="Help",
