@@ -21,7 +21,7 @@ from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, bot
 from var import Var
 
 
-LIGHT_LOGS = Config.PRIVATE_GROUP_ID
+LIGHT_LOGS = Config.PM_LOGGR_BOT_API_ID 
 lightning_bot = Var.TG_BOT_USER_NAME_BF_HER
 import asyncio
 
@@ -403,54 +403,25 @@ async def lightning_is_better(lightning):
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
     await lightning.edit("Oh You Wanna Talk With My Master\n\nPls Wait Dear \n\n**Btw** **You Can Wait For My Master**")
-    await bot.send_message(
-        buttons=[
-        [custom.Button.inline("School Friend", data="school")], 
-        [custom.Button.inline("Causual Telegram Talk", data="tg_friend")
-        ],
-        ],
-        )
-    
-    
-    
-    
-    
-    
-    
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"school")))
-async def lemme_See(lightning):
-    if lightning.query.user_id == bot.uid:
-        fck_bit = f"Wait Lemme Ask"
-        await lightning.answer(fck_bit, cache_time=0, alert=True)
-        return
-    await lightning.get_chat()
-    lightning_id = lightning.query.user_id
-    text8 = f"Oh K. {LIGHTNINGUSER} Your School Friend :)\n {LIGHTNINGUSER} Will Soon Respond  . Pls Dont Spam In {LIGHTNINGUSER}'s IB."
-    await bot.send_message(lightning.query.user_id, text8)
-    await bot.send_message(
-        LIGHT_LOGS,
-        message=f"Hello, Master  [School Friend User](tg://user?id={lightning_id}). Your School Friend His Here To Chat pls See The Message [School](tg://user?id={lightning_id}) Is Waiting.",
-        buttons=[Button.url("Contact Him", f"tg://user?id={lightning_id}")],
-    )
-
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"tg_friend")))
-async def lemme_See(lightning):
-    if lightning.query.user_id == bot.uid:
-        fck_bit = f"Lemme See"
-        await lightning.answer(fck_bit, cache_time=0, alert=True)
-        return
-    await lightning.get_chat()
-    lightning_id = lightning.query.user_id
+    ligt_text = "**So You Are Friend**Okay wait"
+    await lightning.edit(f"`Informing To Master {LIGHTNINGUSER}`")
     await asyncio.sleep(2)
-    await lightning.edit("Okay You Are Telegram Friend")
-    await asyncio.sleep(3)
-    await lightning.edit("Ok Wait :)")
-    await bot.send_message(lightning.query.user_id)
+    await lightning.edit("`Done Informed`")
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). Your Casual Telegram Friend His Here To Chat pls See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
         buttons=[Button.url("Contact Him", f"tg://user?id={lightning_id}")],
     )
+    
+    
+    
+    
+    
+    
+    
+
+
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fck_ask")))
 async def lightning_is_better(lightning):
@@ -459,16 +430,17 @@ async def lightning_is_better(lightning):
         await lightning.answer(fck_bit, cache_time=0, alert=True)
         return
     await lightning.get_chat()
+    lightning_id = lightning.query.user_id
     await lightning.edit("Okay let Me Think🤫")
     await asyncio.sleep(2)
     await lightning.edit("Okay Giving You A Chance🤨")
+    reqws = "Okay Wait Kindly!!!"
+    await bot.send_message(lightning.query.user_id, reqws)
     await bot.send_message(
-    buttons=[
-        [custom.Button.inline("Yes", data="hmm")],
-        [custom.Button.inline("No", data="kaos")]
-        ],
-        )
-        
+        LIGHT_LOGS,
+        message=f"Hello, Master  [Nibba](tg://user?id={lightning_id}). Wants To Request Something.",
+        buttons=[Button.url("Contact Him", f"tg://user?id={lightning_id}")],
+    )
        
 
     # Thanks To Friday userbot For This Idea
@@ -482,38 +454,9 @@ async def stats_checks(event):
         txt = "This Help Stats Not For You Dumb"
         await event.answer(txt, alert=True)
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"hmm")))
-async def testing_him(lightning):
-    if lightning.query.user_id == bot.uid:
-        fck_bit = f"Wait Lemme Test Him"
-        await lightning.answer(fck_bit, cache_time=0, alert=True)
-        return
-    await lightning.get_chat()
-    lightning_id = lightning.query.user_id
-    text3 = f"Ok, Wait. You can Ask After {LIGHTNINGUSER} Approves You. Kindly, Wait."
-    await bot.send_message(lightning.query.user_id, text3)
-    await bot.send_message(
-        LIGHT_LOGS,
-        message=f"Hello, A [New User](tg://user?id={lightning_id}). Wants To Ask You Something.",
-        buttons=[Button.url("Contact Him By", f"tg://user?id={lightning_id} If Urgent")],
-    )
+ 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"kaos")))
-async def testing_him(lightning):
-    if lightning.query.user_id == bot.uid:
-        fck_bit = f"Wait Lemme Test Him"
-        await lightning.answer(fck_bit, cache_time=0, alert=True)
-        return
-    await lightning.get_chat()
-    lightning_id = lightning.query.user_id
-    await asyncio.sleep(2)
-    await lightning.edit("Okay Fuck You Not Goin To Allow🖕")
-    await bot.send_message(lightning.query.user_id)
-    await bot.send_message(
-        LIGHT_LOGS,
-        message=f"Hello, A [New User](tg://user?id={lightning_id}). Wants To Ask You Something But He Pressed No So therefore Waiting.",
-        buttons=[Button.url("Contact Him By", f"tg://user?id={lightning_bot} If Urgent")],
-    )    
+   
 def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
     lightning_no_rows = 8
     lightning_no_coulmns = 7
