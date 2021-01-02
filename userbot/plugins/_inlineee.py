@@ -207,7 +207,6 @@ async def lightning_hands_button(lightning):
         result = builder.article(
             f"Hey {LIGHTNINGUSER} Heres The Help Menu",
             text="{}\nI Have Tottal  Loaded Plugins: {}".format(query, len(CMD_LIST)),
-        
             buttons=buttons,
             link_preview=False,
         )
@@ -274,9 +273,8 @@ async def lightning_pugins_query_hndlr(lightning):
         # https://t.me/TelethonChat/115200
         await lightning.edit(buttons=buttons)
     else:
-        lightning_quote = "🤨"
         lightning_is_best = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
-        await lightning.answer(lightning_is_best, lightning_quote, cache_time=0, alert=True)
+        await lightning.answer(lightning_is_best, cache_time=0, alert=True)
 
 @tgbot.on(
         events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -555,6 +553,3 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
             )
         ]
     return pairs
-                                                              
-    
-
