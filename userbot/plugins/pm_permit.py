@@ -25,7 +25,7 @@ from userbot import ALIVE_NAME, bot
 from userbot.thunderconfig import Config
 from var import Var
 LIGHTNINGUSER = str(ALIVE_NAME) if ALIVE_NAME else "Userbot"
-from userbot.utils import lightning_cmd
+from userbot.utils import admin_cmd
 
 LIGHTNING_WRN = {}
 LIGHTNING_REVL_MSG = {}
@@ -75,7 +75,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                     await asyncio.sleep(3)
                     await rko.delete()  
 
-    @borg.on(lightning_cmd(pattern="(a|approve)"))
+    @borg.on(admin_cmd(pattern="(a|approve)"))
     async def block(event):
         if event.fwd_from:
             return
@@ -96,7 +96,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                 await asyncio.sleep(3)
                 await event.delete()
 
-    @borg.on(lightning_cmd(pattern="block$"))
+    @borg.on(admin_cmd(pattern="block$"))
     async def lightning_approved_pm(event):
         if event.fwd_from:
             return
@@ -117,7 +117,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             await event.delete()
 
             
-    @borg.on(lightning_cmd(pattern="(da|disapprove)"))
+    @borg.on(admin_cmd(pattern="(da|disapprove)"))
     async def lightning_approved_pm(event):
         if event.fwd_from:
             return
@@ -142,7 +142,7 @@ if Var.PRIVATE_GROUP_ID is not None:
 
     
 
-    @borg.on(lightning_cmd(pattern="listapproved$"))
+    @borg.on(admin_cmd(pattern="listapproved$"))
     async def lightning_approved_pm(event):
         if event.fwd_from:
             return
