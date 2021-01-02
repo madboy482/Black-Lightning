@@ -34,7 +34,7 @@ LIGHTNING_PROTECTION = Config.LIGHTNING_PRO
 
 SPAM = os.environ.get("SPAM", None)
 if SPAM is None:
-    HMM_LOL = "5"
+    HMM_LOL = "3"
 else:
     HMM_LOL = SPAM
 
@@ -212,7 +212,7 @@ if Var.PRIVATE_GROUP_ID is not None:
     async def lightning_goin_to_attack(chat_ids, lightning):
         if chat_ids not in LIGHTNING_WRN:
             LIGHTNING_WRN.update({chat_ids: 0})
-        if LIGHTNING_WRN[chat_ids] == 5:
+        if LIGHTNING_WRN[chat_ids] == 3:
             lemme = await lightning.reply(FUCK_OFF_WARN)
             await asyncio.sleep(3)
             await lightning.client(functions.contacts.BlockRequest(chat_ids))
