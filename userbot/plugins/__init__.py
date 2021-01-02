@@ -62,7 +62,10 @@ if Config.PRIVATE_GROUP_BOT_API_ID is None:
 else:
     BOTLOG = True
     BOTLOG_CHATID = Config.PRIVATE_GROUP_BOT_API_ID
-
+if Var.LIGHTNING_PRO.lower() == "NO":
+    light_pr = "NO"
+else:
+    lightning_pr = "YES"
 
 lightning_status = (
     f"Sorry Sir In Some Plugin There Is A Telegram Bug\n"
