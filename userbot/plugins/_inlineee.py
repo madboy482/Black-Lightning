@@ -364,7 +364,7 @@ async def what(lightning):
              ], 
         )
     else:
-        txt = f"Ohh C'mon You Think That This Is For You?\n Ok I Will Complain To {LIGHTNINGUSER}👀👀"
+        txt = f"Dont Touch\n Ok I Will Complain To {LIGHTNINGUSER}👀👀"
         await lightning.answer(txt, alert=True)
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_is_here_cant_spam")))
@@ -595,7 +595,9 @@ async def lightning_plugin_query_hndlr(lightning):
     else:
         await lightning.edit(
             message=pop_up_wrn,
-            buttons=[[custom.Button.inline("ɠσ Ⴆαƈƙ", data="lol_back")]],
+            buttons=[[custom.Button.inline("ɠσ Ⴆαƈƙ", data="lol_back")], 
+            [custom.Button.inline("Commands Help", data="hw?")],
+                    ],
         )
 
 
@@ -629,7 +631,7 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, prefix):
                     "🗡яιgнт ρℓυgιи", data="{}_prev({})".format(prefix, lightning_plugins_pages)
                 ),
                # Thanks To Friday For This Idea
-               Button.inline("Stats", data="stta"
+               custom.Button.inline("Stats", data="stta"
                ),
                custom.Button.inline(
                     "ℓєfт ρℓυgιи🗡", data="{}_next({})".format(prefix, lightning_plugins_pages)
