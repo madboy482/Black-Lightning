@@ -190,11 +190,33 @@ async def _(event):
             await event.delete()
             await event.client.send_file(event.chat_id, response.message)
 
-LIGHtNING_BOT_PIC = os.environ.get("LIGHtNING_BOT_PIC", None)
-if LIGHtNING_BOT_PIC is None:
+
+BOT_MSG = os.environ.get("BOT_MSG", None)
+if BOT_MSG is None:
+    BOT_LIT = f"Hello Sir MySelf Black Lightning Here For  {LIGHTNINGUSER}'s Protection "
+else:
+    BOT_LIT = BOT_MSG   
+
+
+LIGHTNING_WARN = os.environ.get("LIGHTNING_WARN", None)
+if LIGHTNING_WARN is None:
+    WARNING = (
+    f"**{BOT_LIT}"
+    f"** Im Here To Protect {LIGHTNINGUSER} Dont Under Estimate Me 😂😂  **\n\n"
+    f"**My Master {LIGHTNINGUSER} is Busy Right Now !** \n"
+    f"{LIGHTNINGUSER} Is Very Busy Why Came Please Lemme Know Choose Your Deasired Reason"
+    f"**Btw Dont Spam Or Get Banned** 😂😂 \n\n"
+    f"**Choose Any Reason Then Get Lost**\n"
+)
+else:
+    WARNING = LIGHTNING_WARN
+
+LIGHTNING_BOT_PIC = os.environ.get("LIGHTNING_BOT_PIC", None)
+if LIGHTNING_BOT_PIC is None:
     LIGHTNING_WARNING = "https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"
 else:
-    LIGHTNING_WARNING = LIGHtNING_BOT_PIC
+    LIGHTNING_WARNING = LIGHTNING_BOT_PIC
+
 
 @tgbot.on(events.InlineQuery)
 async def lightning_hands_button(lightning):
@@ -232,7 +254,7 @@ async def lightning_hands_button(lightning):
     elif lightning.query.user_id == bot.uid and query.startswith("**Hello Sir"):
         result = builder.photo(
             file=LIGHTNING_WARNING,
-            text=f"**Hello Sir Im Here To Protect {LIGHTNINGUSER} Dont Under Estimate Me 😂😂**",
+            text=WARNING,
             buttons=[
                 [custom.Button.inline("Wanna Spam Some Porn Images😉", data="lightning_is_here_cant_spam")],
                 [
@@ -361,11 +383,12 @@ async def lightning_is_better(lightning):
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
     await lightning.edit("Oh You Wanna Talk With My Master\n\nPls Wait Dear \n\n**Btw** **You Can Wait For My Master**")
+    await asyncio.sleep(2)
     light_text = "**So You Are Friend**Okay wait"
     await lightning.edit(f"`Informing To Master {LIGHTNINGUSER}`")
     await asyncio.sleep(2)
     await lightning.edit("`Done Informed`")
-    await bot.send_message(light_text)
+    await bot.send_message(lightning.query.user_id, light_text)
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). Your Casual Telegram Friend His Here To Chat pls See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
@@ -377,7 +400,17 @@ async def lightning_is_better(lightning):
     
     
     
-    
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"hmm")))
+async def yes_ucan(lightning):
+        if lightning.query.user_id == bot.uid:
+            await asyncio.sleep(2)
+            await lightning.edit("Okay You Can Wait Till Wait")
+            hmmmmm = "Okay Kindly wait  i will inform yo"
+            await bot.send_message(
+                lightning.query.user_id, hmmmmm)
+        else:
+            pop_up_Wrn = "Master Not For You 🥺"
+            await lightning.answer(pop_up_Wrn, cache_time=0, alert=True)   
 
 
 
@@ -393,14 +426,27 @@ async def lightning_is_better(lightning):
     await lightning.edit("Okay let Me Think🤫")
     await asyncio.sleep(2)
     await lightning.edit("Okay Giving You A Chance🤨")
+    await lightning.edit(
+        "You Will Spam", buttons=[Button.inline("Yes", data="hmm")]
+    )
+    
     reqws = "Okay Wait Kindly!!!"
+
+
     await bot.send_message(lightning.query.user_id, reqws)
     await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, Master  [Nibba](tg://user?id={lightning_id}). Wants To Request Something.",
         buttons=[Button.url("Contact Him", f"tg://user?id={lightning_id}")],
     )
-       
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stta")))
+async def hmm(lightning):
+    if lightning.query.user_id == bot.uid:
+        text = "🇲‌🇾‌ 🇭‌🇪‌🇱‌🇵‌ 🇸‌🇹‌🇦‌🇹‌🇸‌\n\n**ᴘʟᴜɢɪɴ**-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/"
+        await lightning.answer(text, alert=True)
+    else:
+        txt = f"Stats For {LIGHTNINGUSER} Not For You :)"
+        await lightning.answer(txt, alert=True)
 
     
 # Some Inspiration From Telebot
@@ -478,7 +524,7 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
                     "🗡яιgнт ρℓυgιи", data="{}_prev({})".format(lightning_lol, lightning_plugins_pages)
                 ),
                # Thanks To Friday For This Idea
-               Button.url("Stats", "🇲‌🇾‌ 🇭‌🇪‌🇱‌🇵‌ 🇸‌🇹‌🇦‌🇹‌🇸‌\n\n**ᴘʟᴜɢɪɴ**-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/"
+               custom.Button.inline("Stats", data="stta"
                ),
                custom.Button.inline(
                     "ℓєfт ρℓυgιи🗡", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
