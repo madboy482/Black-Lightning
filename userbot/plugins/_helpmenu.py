@@ -1,14 +1,13 @@
 # Rewritten by @krish1303y
-
-from  userbot import CMD_LIST, ALIVE_NAME
+import io
+from  userbot import CMD_LIST, ALIVE_NAME, bot as light
 from userbot.utils import admin_cmd
-from telethon import  functions
 import asyncio
-
+from var import Var
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Pls Go To Heroku Vars Then in  `ALIVE_NAME`place You Telegram `Username` "
 
-@borg.on(admin_cmd(pattern="help ?(.*)"))
+@light.on(admin_cmd(pattern="help ?(.*)"))
 async def lightning_cmd_list(lightning):
     if not lightning.text[0].isalpha() and lightning.text[0] not in ("/", "#", "@", "!"):
         lightningusername = Var.TG_BOT_USER_NAME_BF_HER
@@ -22,7 +21,10 @@ async def lightning_cmd_list(lightning):
                     string += "\n"
                 string += "\n"
             if len(string) > 4095:
-                await bot.send_message(lightning.chat_id, force_document=True, allow_cache=False, caption="**Some Help :)**", reply_to=reply_to_id,)
+                # Some Help From Telebot
+                with io.BytesIO(str.encode(string)) as out_file:
+                    out_file.name = "Some_cmds.txt"  # Some Help Here From Telebot
+                await light.send_message(lightning.chat_id, out_file, force_document=True, allow_cache=False, caption="**Some Help :)**", reply_to=reply_to_id,)
                 await lightning.delete()
             else:
                 await lightning.edit(string)
@@ -44,10 +46,10 @@ async def lightning_cmd_list(lightning):
         lightningusername = Var.TG_BOT_USER_NAME_BF_HER
         try:
             
-            results = await bot.inline_query(  # pylint:disable=E0602
+            results = await light.inline_query(  # pylint:disable=E0602
                 lightningusername, lightning_help_strin
             )
-            # Some Help Here From Telebot
+            
             
             await results[0].click(
                 lightning.chat_id, reply_to=lightning.reply_to_msg_id, hide_via=True
