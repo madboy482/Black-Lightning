@@ -1,7 +1,7 @@
 # Special Thanks To Starkgang in tg @Midhun_xD
-
-
-# Made By @krish1303y,@cyper666, @Atank_ka_devata( Never Gonna Forgive Him 😑😑 nvm thx)   For black lightning  🔥🔥🔥
+# Fixing inline was a task for @krish1303y
+# Kang With Credits
+# Made By @krish1303y, @Atank_ka_devata( Never Gonna Forgive Him 😑😑 nvm thx)   For Black Lightning  🔥🔥🔥
 # Thanks @Shivam_Patel Mujhe Samjhane Ke Liye 
 # Thanks @Shivam_Patel For Your kind Help Sir 😘😘❤️
 # Special Credits to @Shivam_Patel For Helping Us
@@ -417,8 +417,10 @@ async def lightning_is_better(lightning):
     await lightning.edit("Oh You Wanna Talk With My Master\n\nPls Wait Dear \n\n**Btw** **You Can Wait For My Master**")
     await asyncio.sleep(2)
     await lightning.edit(
-        " Name Which Type Of Friend?", buttons=[Button.inline("School", data="school")],
-         buttons=[Button.inline("Tg Causal Friend", data="tg_okay")],
+        "Name Which Type Of Friend?", buttons= [
+        [Button.inline("School", data="school")],
+        [Button.inline("Tg Causal Friend", data="tg_okay")],
+        ], 
     )
     light_text = "`Warning`- ❗️⚠️Dont Try Anything Stupid  Wait Kindly!!!❗️⚠️"
     await bot.send_message(lightning.query.user_id, light_text)
@@ -473,9 +475,12 @@ async def lightning_is_better(lightning):
     await asyncio.sleep(2)
     await lightning.edit("Okay Giving You A Chance🤨")
     await lightning.edit(
-        "You Will Spam?", buttons=[Button.inline("Yes", data="lemme_ban")],
-         buttons=[Button.inline("No", data="hmm")],
+        "You Will Spam?", buttons= [
+        [Button.inline("Yes", data="lemme_ban")],
+        [Button.inline("No", data="hmm")],
+        ],
     )
+
     
     reqws = "`Warning`- ❗️⚠️Dont Try Anything Stupid  Wait Kindly!!!❗️⚠️"
 
