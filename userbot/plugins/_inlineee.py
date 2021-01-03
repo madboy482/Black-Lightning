@@ -35,9 +35,10 @@
 
 import os
 import re
-import json
+import requests
 from math import ceil
-from userbot.thunderconfig import Config
+import urllib
+from userbot.thunderconfig import Config, krish_op
 
 from telethon import Button, custom, events, functions
 
@@ -348,6 +349,24 @@ async def what(lightning):
         await lightning.answer(txt, alert=True)
 
 
+
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"hw?")))
+async def what(lightning):
+    if lightning.query.user_id == bot.uid:
+        fck_bit = f"{LIGHTNINGUSER} Dont Use This Pls 🥺 "
+        await lightning.answer(fck_bit, alert=True)
+        await lightning.edit(
+             "If You faced Any Problem", buttons = [
+              [Button.url("Commands Not Working🥺", "https://t.me/lightningsupport")],
+              [Button.url("Help Article 🤓", "https://app.gitbook.com/@poxsisofficial/s/help/")],
+              [Button.url("If Article Is Not Enough", "https://t.me/lightningsupport")],
+             ], 
+        )
+    else:
+        txt = f"Ohh C'mon You Think That This Is For You?\n Ok I Will Complain To {LIGHTNINGUSER}👀👀"
+        await lightning.answer(txt, alert=True)
+
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_is_here_cant_spam")))
 async def lightning_is_better(lightning):
     if lightning.query.user_id == bot.uid:
@@ -520,6 +539,20 @@ async def yes_ucan(lightning):
     await bot.send_message(
          lightning.query.user_id, ban)
     await bot(functions.contacts.BlockRequest(lightning.query.user_id))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"backme")))
+async def happy(lightning):
+    if lightning.query.user_id != bot.uid:
+        lmaoo = "Who The Fuck Are You? Get Your Own Friday."
+        await lightning.answer(lmaoo, cache_time=0, alert=True)
+        return
+    await lightning.answer("Back", cache_time=0, alert=False)
+    # This Is Copy of Above Code. (C) @SpEcHiDe
+    buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
+    happy = f"""Hey {LIGHTNINGUSER} Heres The Help Menu!\n
+ If In Case Some Problem Contact @lightningsupport \nI Have Tottal  Loaded Plugins: {len(CMD_LIST)}"""
+    await lightning.edit(message=happy, buttons=buttons)
+
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stta")))
 async def hmm(lightning):
@@ -531,55 +564,45 @@ async def hmm(lightning):
         await lightning.answer(txt, alert=True)
 
     
-# Some Inspiration From Telebot
-async def lightning_pugins_query_hndlr(lightning):
-        if lightning.query.user_id == bot.uid:
-            lightning_plug_name = lightning.data_match.group(1).decode("UTF-8")
-            lightning_help_strin = ""
-            lightning_help_strin += f"Commands Available in {lightning_plug_name} - \n"
-            try:
-                if lightning_plug_name in CMD_HELP:
-                    for i in CMD_HELP[lightning_plug_name]:
-                        lightning_help_strin += i
-                    lightning_help_strin += "\n"
-                else:
-                    for i in CMD_LIST[lightning_plug_name]:
-                        lightning_help_strin += i
-                        lightning_help_strin += "\n"
-            except BaseException:
-                await lightning.edit(
-                    f"{LIGHTNINGUSER}'s  {LIGHTNINGBOT} Has Some Internal Problem Please Restart Dynos Or Ask [Lightning](https://t.me/lightningsupport)"
-                )  
-            pass
-            if lightning_help_strin == "":
-                lightning_strike = "{} In Case In Problem.\nUse .help {}".format(
-                    lightning_plug_name, lightning_plug_name
-                ) # This Code Was Clashing My pm_permit 
-            else:
-                lightning_strike = lightning_help_strin
-            lightning_strike += "\n Use .unload {} to remove this plugin\n\
-                If In Case Some Problem Contact @lightningsupport\n From  [Here](https://t.me/lightningsupport)".format(
-                lightning_plug_name
-            ) # Some Inspiration From Telelbot
-            if len(lightning_help_strin) >= 140:
-                lightning = "Check your saved messages!"
-                await lightning.answer(lightning, cache_time=0, alert=True)
-                lightning_help_strin += f"\n\nIm Here With Detailed Help via {LIGHTNINGBOT} Of This Plugin😉"
-                if bot is not None and lightning.query.user_id == bot.uid:
-                    heh = await bot.send_message("him", lightning_help_strin)
-                    await asyncio.sleep(60)
-                    await heh.delete()
-            else:
-                await lightning.answer(lightning_strike, cache_time=0, alert=True)
-        else:
-            lightning_strike = f"Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
-            await lightning.answer(lightning_strike, cache_time=0, alert=True)
 
- 
 
-   
-def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
-    lightning_no_rows = 8
+ # Thanks To Friday For This Idea
+async def lightning_plugin_query_hndlr(lightning):
+    if not lightning.query.user_id == bot.uid:
+        heheh = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!."
+        await lightning.answer(heheh, cache_time=0, alert=True)
+        return
+    lightning_plug_name = lightning.data_match.group(1).decode("UTF-8")
+    if lightning_plug_name in CMD_HELP:
+        lightning_help_strin = f"**💡 PLUGIN NAME 💡 :** `{lightning_plug_name}` \n{CMD_HELP[lightning_plug_name]}"
+    pop_up_wrn = lightning_help_strin
+    pop_up_wrn += "\n\n**(C) If In Case Some Problem Contact @lightningsupport** ".format(lightning_plug_name)
+    if len(pop_up_wrn) >= 4096:
+        krish_op = "`Pasting Your Help Menu.`"
+        await lightning.answer(krish_op, cache_time=0, alert=True)
+        out_file = pop_up_wrn
+        url = "https://del.dog/documents"
+        r = requests.post(url, data=out_file.encode("UTF-8")).json()
+        url = f"https://del.dog/{r['key']}"
+        await lightning.edit(
+            f"Pasted {lightning_plug_name} to {url}",
+            link_preview=False,
+            buttons=[[custom.Button.inline("ɠσ Ⴆαƈƙ", data="lol_back")],
+                    [custom.Button.inline("Commands Help", data="hw?")]
+                    ],
+        )
+    
+    else:
+        await lightning.edit(
+            message=pop_up_wrn,
+            buttons=[[custom.Button.inline("ɠσ Ⴆαƈƙ", data="lol_back")]],
+        )
+
+
+
+
+def lightnings_menu_for_help(b_lac_krish, lightning_plugs, prefix):
+    lightning_no_rows = 10
     lightning_no_coulmns = 7
     lightning_plugins = []
     for p in lightning_plugs:
@@ -603,13 +626,13 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
         ] + [
             (
                 custom.Button.inline(
-                    "🗡яιgнт ρℓυgιи", data="{}_prev({})".format(lightning_lol, lightning_plugins_pages)
+                    "🗡яιgнт ρℓυgιи", data="{}_prev({})".format(prefix, lightning_plugins_pages)
                 ),
                # Thanks To Friday For This Idea
-               custom.Button.inline("Stats", data="stta"
+               Button.inline("Stats", data="stta"
                ),
                custom.Button.inline(
-                    "ℓєfт ρℓυgιи🗡", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
+                    "ℓєfт ρℓυgιи🗡", data="{}_next({})".format(prefix, lightning_plugins_pages)
                 ),
                 
             )
