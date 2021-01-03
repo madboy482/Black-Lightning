@@ -38,7 +38,7 @@ import re
 import requests
 from math import ceil
 import urllib
-from userbot.thunderconfig import Config, krish_op
+from userbot.thunderconfig import Config
 
 from telethon import Button, custom, events, functions
 
@@ -588,7 +588,7 @@ async def lightning_plugin_query_hndlr(lightning):
             f"Pasted {lightning_plug_name} to {url}",
             link_preview=False,
             buttons=[[custom.Button.inline("ɠσ Ⴆαƈƙ", data="lol_back")],
-                    [custom.Button.inline("Commands Help", data="hw?")]
+                    [custom.Button.inline("Commands Help", data="hw?")],
                     ],
         )
     
