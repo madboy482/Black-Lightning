@@ -236,9 +236,9 @@ async def lightning_hands_button(lightning):
     builder = lightning.builder
     result = None
     query = lightning.text
-    if lightning.query.user_id == bot.uid and query.startswith("Black Lightning"):
+    if lightning.query.user_id == bot.uid and query.startswith("``Hey"):
         rev_text  = query[::-1] 
-        buttons = paginate_help(0, CMD_HELP, "fukhim")
+        buttons = paginate_help(0, CMD_HELP, "helpme")
         result = builder.article(
             f"Hey {LIGHTNINGUSER} Heres The Help Menu",
             text="{}\nI Have Tottal  Loaded Plugins: {}".format(query, len(CMD_LIST)),
@@ -247,9 +247,9 @@ async def lightning_hands_button(lightning):
         )
         await lightning.answer([result])
 
-    elif lightning.query.user_id == bot.uid and query == "Help":
+    elif lightning.query.user_id == bot.uid and query == "Hmm":
         result = builder.article(
-            title="Help",
+            title="LOL",
             text=f"**How If Face Problem \n{LIGHTNINGUSER}** \nChoose Your Problem For Help ",
             buttons=[
                 [custom.Button.inline("Help", data="what?")],
@@ -294,7 +294,7 @@ async def lightning_hands_button(lightning):
 
 @tgbot.on(
     events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"fukhim_next\((.+?)\)")
+        data=re.compile(b"helpme_next\((.+?)\)")
     )
 )
 
@@ -303,14 +303,14 @@ async def lightning_hands_button(lightning):
 async def lightning_pugins_query_hndlr(lightning):
     if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
-        buttons = paginate_help( lightning_page + 1, CMD_HELP, "fukhim")  
+        buttons = paginate_help( lightning_page + 1, CMD_HELP, "helpme")  
         # pylint:disable=E0602
 
         # https://t.me/TelethonChat/115200
         await lightning.edit(buttons=buttons)
     else:
-        reply_popp_up_alert  = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
-        await lightning.answer(reply_popp_up_alert , cache_time=0, alert=True)
+        wr_lightnn  = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
+        await lightning.answer(wr_lightnn , cache_time=0, alert=True)
 
 @tgbot.on(
         events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -323,18 +323,18 @@ async def lightning_pugins_query_hndlr(lightning):
     if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
         buttons = paginate_help(
-            lightning_page - 1, CMD_HELP, "fukhim"  # pylint:disable=E0602
+            lightning_page - 1, CMD_HELP, "helpme"  # pylint:disable=E0602
         )
         # https://t.me/TelethonChat/115200
         await lightning.edit(buttons=buttons)
     else:
-        reply_popp_up_alert  = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
-        await lightning.answer(reply_popp_up_alert , cache_time=0, alert=True)
+        wr_lightnn  = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
+        await lightning.answer(wr_lightnn , cache_time=0, alert=True)
 
 
 @tgbot.on(
     events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"fukhim_prev\((.+?)\)")
+        data=re.compile(b"helpme_prev\((.+?)\)")
     )
 )
 
@@ -349,7 +349,7 @@ async def lightning_plugin_query_hndlr(lightning):
         return
     lightning_plug_name = lightning.data_match.group(1).decode("UTF-8")
     if lightning_plug_name in CMD_HELP:
-         lightning_help_strin = f"**💡 PLUGIN NAME 💡 :** `{lightning_plug_name}` \n{CMD_HELP[lightning_plug_name]}"
+      lightning_help_strin = f"**〽️ PLUGIN NAME 〽️ :** `{lightning_plug_name}` \n{CMD_HELP[lightning_plug_name]}"
     reply_pop_up_alert = lightning_help_strin
     reply_pop_up_alert += "\n\n**(C) If In Case Some Problem Contact @lightningsupport** ".format(lightning_plug_name)
     if len(reply_pop_up_alert) >= 4095:
@@ -436,7 +436,7 @@ async def krish1303y(lightning):
         return
     await lightning.answer("Back", cache_time=0, alert=False)
     # This Is Copy of Above Code. (C) @SpEcHiDe
-    buttons = paginate_help(0, CMD_HELP, "fukhim")
+    buttons = paginate_help(0, CMD_HELP, "helpme")
     krish1303y = f"""Black Lightning  Listed The Plugins Read This Info Pls!\n
 {LIGHTNINGUSER}If You Faced Problem Regarding Pls Contact For Help  @lightningsupport \n**Btw**Currently Loaded Plugins: {len(CMD_LIST)}"""
     await lightning.edit(message=krish1303y, buttons=buttons)
@@ -446,15 +446,18 @@ async def krish1303y(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"tg_okay")))
 async def yeahbaba(lightning):
         if lightning.query.user_id == bot.uid:
-            lightning_id = lightning.query.user_id
-            await asyncio.sleep(2)
-            light_text = "**So You  Are TG Friend**Okay wait"
-            await asyncio.sleep(2)
-            await lightning.edit(f"`Informing To Master {LIGHTNINGUSER}`")
-            await asyncio.sleep(2)
-            await lightning.edit("`Done Informed`")
-            await bot.send_message(lightning.query.user_id, light_text)
-            await bot.send_message(
+              lmaoo = "You Are Not Requesting , Lol."
+              await lightning.answer(lmaoo,  alert=True)
+              return  
+        lightning_id = lightning.query.user_id
+        await asyncio.sleep(2)
+        light_text = "**So You  Are TG Friend**Okay wait"
+        await asyncio.sleep(2)
+        await lightning.edit(f"`Informing To Master {LIGHTNINGUSER}`")
+        await asyncio.sleep(2)
+        await lightning.edit("`Done Informed`")
+        await bot.send_message(lightning.query.user_id, light_text)
+        await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). Your Casual Telegram Friend His Here To Chat pls See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
     
@@ -462,15 +465,18 @@ async def yeahbaba(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"School")))
 async def yeahbaba(lightning):
         if lightning.query.user_id == bot.uid:
-            lightning_id = lightning.query.user_id
-            await asyncio.sleep(2)
-            light_text = "**So You  Are School Friend**Okay wait"
-            await asyncio.sleep(2)
-            await lightning.edit(f"`Informing To Master {LIGHTNINGUSER}`")
-            await asyncio.sleep(2)
-            await lightning.edit("`Done Informed`")
-            await bot.send_message(lightning.query.user_id, light_text)
-            await bot.send_message(
+              lmaoo = "You Are Not Requesting , Lol."
+              await lightning.answer(lmaoo,  alert=True)
+              return  
+        lightning_id = lightning.query.user_id
+        await asyncio.sleep(2)
+        light_text = "**So You  Are School Friend**Okay wait"
+        await asyncio.sleep(2)
+        await lightning.edit(f"`Informing To Master {LIGHTNINGUSER}`")
+        await asyncio.sleep(2)
+        await lightning.edit("`Done Informed`")
+        await bot.send_message(lightning.query.user_id, light_text)
+        await bot.send_message(
         LIGHT_LOGS,
         message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). Your Casual Telegram Friend His Here To Chat pls See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
     
