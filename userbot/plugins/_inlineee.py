@@ -12,26 +12,13 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
-
-
-
-
-# Special Thanks To Starkgang in tg @Midhun_xD
-# Fixing inline was a task for @krish1303y
-# Kang With Credits
-# Made By @krish1303y, @Atank_ka_devata( Never Gonna Forgive Him 😑😑 nvm thx)   For Black Lightning  🔥🔥🔥
-# Thanks @Shivam_Patel Mujhe Samjhane Ke Liye 
-# Thanks @Shivam_Patel For Your kind Help Sir 😘😘❤️
-# Special Credits to @Shivam_Patel For Helping Us
-
-
-
-
-
-
-
-
+"""
+THANKS TO :
+- @Midhun_xD
+- @krish1303y
+- @Atank_ka_devata
+- @Shivam_Patel
+"""
 
 import os
 import re
