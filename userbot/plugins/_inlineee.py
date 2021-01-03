@@ -256,7 +256,7 @@ async def lightning_hands_button(lightning):
             file=LIGHTNING_WARNING,
             text=WARNING,
             buttons=[
-                [custom.Button.inline("Wanna Spam Some Porn Images😉", data="lightning_is_here_cant_spam")],
+                [custom.Button.inline("Wanna Spam Some Porn Images?😉", data="lightning_is_here_cant_spam")],
                 [
                     custom.Button.inline(
                         "My Friend❤️❤️",
@@ -373,6 +373,36 @@ async def krish1303y(lightning):
 {LIGHTNINGUSER}If You Faced Problem Regarding Pls Contact For Help  @lightningsupport \n**Btw**Currently Loaded Plugins: {len(CMD_LIST)}"""
     await lightning.edit(message=krish1303y, buttons=buttons)
 
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"he_sucks")))
+async def lightning_is_better(lightning):
+    if lightning.query.user_id == bot.uid:
+        fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
+        await lightning.answer(fck_bit, cache_time=0, alert=True)
+        return
+    await lightning.get_chat()
+    lightning_id = lightning.query.user_id
+    await lightning.edit("Oh You Wanna Talk With My Master\n\nPls Wait Dear \n\n**Btw** **You Can Wait For My Master**")
+    await asyncio.sleep(2)
+    await lightning.edit(
+        "Name Which Type Of Friend?", buttons= [
+        [Button.inline("School", data="school")],
+        [Button.inline("Tg Causal Friend", data="tg_okay")],
+        ], 
+    )
+    light_text = "`Warning`- ❗️⚠️Dont Try Anything Stupid  Wait Kindly!!!❗️⚠️"
+    await bot.send_message(lightning.query.user_id, light_text)
+    await bot.send_message(
+        LIGHT_LOGS,
+        message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). Your Casual Telegram Friend His Here To Chat pls See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
+        buttons=[Button.url("Contact Him", f"tg://user?id={lightning_id}")],
+    )
+    
+    
+    
+    
+    
+    
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"tg_okay")))
 async def yeahbaba(lightning):
         if lightning.query.user_id == bot.uid:
@@ -406,7 +436,9 @@ async def yeahbaba(lightning):
     
     )    
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"he_sucks")))
+
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fck_ask")))
 async def lightning_is_better(lightning):
     if lightning.query.user_id == bot.uid:
         fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
@@ -414,27 +446,28 @@ async def lightning_is_better(lightning):
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
-    await lightning.edit("Oh You Wanna Talk With My Master\n\nPls Wait Dear \n\n**Btw** **You Can Wait For My Master**")
+    await lightning.edit("Okay let Me Think🤫")
+    await asyncio.sleep(2)
+    await lightning.edit("Okay Giving You A Chance🤨")
     await asyncio.sleep(2)
     await lightning.edit(
-        "Name Which Type Of Friend?", buttons= [
-        [Button.inline("School", data="school")],
-        [Button.inline("Tg Causal Friend", data="tg_okay")],
-        ], 
+        "You Will Spam?", buttons= [
+        [Button.inline("Yes", data="lemme_ban")],
+        [Button.inline("No", data="hmm")],
+        ],
     )
-    light_text = "`Warning`- ❗️⚠️Dont Try Anything Stupid  Wait Kindly!!!❗️⚠️"
-    await bot.send_message(lightning.query.user_id, light_text)
+
+    
+    reqws = "`Warning`- ❗️⚠️Dont Try Anything Stupid  Wait Kindly!!!❗️⚠️"
+
+
+    await bot.send_message(lightning.query.user_id, reqws)
     await bot.send_message(
         LIGHT_LOGS,
-        message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). Your Casual Telegram Friend His Here To Chat pls See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
+        message=f"Hello, Master  [Nibba](tg://user?id={lightning_id}). Wants To Request Something.",
         buttons=[Button.url("Contact Him", f"tg://user?id={lightning_id}")],
     )
-    
-    
-    
-    
-    
-    
+
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"hmm")))
 async def yes_ucan(lightning):
     if lightning.query.user_id == bot.uid:
@@ -462,35 +495,6 @@ async def yes_ucan(lightning):
          lightning.query.user_id, ban)
     await bot(functions.contacts.BlockRequest(lightning.query.user_id))
 
-
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fck_ask")))
-async def lightning_is_better(lightning):
-    if lightning.query.user_id == bot.uid:
-        fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
-        await lightning.answer(fck_bit, cache_time=0, alert=True)
-        return
-    await lightning.get_chat()
-    lightning_id = lightning.query.user_id
-    await lightning.edit("Okay let Me Think🤫")
-    await asyncio.sleep(2)
-    await lightning.edit("Okay Giving You A Chance🤨")
-    await lightning.edit(
-        "You Will Spam?", buttons= [
-        [Button.inline("Yes", data="lemme_ban")],
-        [Button.inline("No", data="hmm")],
-        ],
-    )
-
-    
-    reqws = "`Warning`- ❗️⚠️Dont Try Anything Stupid  Wait Kindly!!!❗️⚠️"
-
-
-    await bot.send_message(lightning.query.user_id, reqws)
-    await bot.send_message(
-        LIGHT_LOGS,
-        message=f"Hello, Master  [Nibba](tg://user?id={lightning_id}). Wants To Request Something.",
-        buttons=[Button.url("Contact Him", f"tg://user?id={lightning_id}")],
-    )
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stta")))
 async def hmm(lightning):
     if lightning.query.user_id == bot.uid:
