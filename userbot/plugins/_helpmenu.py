@@ -45,20 +45,17 @@ async def lightning_cmd_list(lightning):
 {DEFAULTUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport"""
         lightningusername = Var.TG_BOT_USER_NAME_BF_HER
         try:
-            
             results = await light.inline_query(  # pylint:disable=E0602
                 lightningusername, lightning_help_strin
             )
-            
-            
             await results[0].click(
                 lightning.chat_id, reply_to=lightning.reply_to_msg_id, hide_via=True
             )
             await lightning.delete()                                   
-        except BaseException:
+        except:
             await lightning.edit("`hmm`")
             await asyncio.sleep(2)
             await lightning.edit(
                 f"Seems That Your {lightningusername} Is Wrong Check once"
                 )
-            await lightning.delete()
+            
