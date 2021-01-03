@@ -338,21 +338,7 @@ async def what(lightning):
 
 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"hw?")))
-async def what(lightning):
-    if lightning.query.user_id == bot.uid:
-        fck_bit = f"{LIGHTNINGUSER} Dont Use This Pls 🥺 "
-        await lightning.answer(fck_bit, alert=True)
-        await lightning.edit(
-             "If You faced Any Problem", buttons = [
-              [Button.url("Commands Not Working🥺", "https://t.me/lightningsupport")],
-              [Button.url("Help Article 🤓", "https://app.gitbook.com/@poxsisofficial/s/help/")],
-              [Button.url("If Article Is Not Enough", "https://t.me/lightningsupport")],
-             ], 
-        )
-    else:
-        txt = f"Dont Touch\n Ok I Will Complain To {LIGHTNINGUSER}👀👀"
-        await lightning.answer(txt, alert=True)
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_is_here_cant_spam")))
 async def lightning_is_better(lightning):
@@ -588,7 +574,19 @@ async def lightning_plugin_query_hndlr(lightning):
         )
 
 
-
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"hw?")))
+async def what(lightning):
+    if lightning.query.user_id == bot.uid:
+        fck_bit = f"{LIGHTNINGUSER} Dont Use This Pls 🥺 "
+        await lightning.answer(fck_bit, cache_time=0, alert=True)
+        await lightning.edit(
+             "If You faced Any Problem\n[Commands Not Working🥺](https://t.me/lightningsupport)\n\n[Help Article 🤓](https://app.gitbook.com/@poxsisofficial/s/help/)\n\n[Want To Leanr Some Cmds]"
+               
+        )
+    else:
+        txt = f"Dont Touch\n Ok I Will Complain To {LIGHTNINGUSER}👀👀"
+        await lightning.answer(txt, cache_time=0, alert=True)
+  
 
 def lightnings_menu_for_help(b_lac_krish, lightning_plugs, prefix):
     lightning_no_rows = 10
