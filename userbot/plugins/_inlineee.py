@@ -471,6 +471,7 @@ async def lightning_is_better(lightning):
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
+    await asyncio.sleep(2)
     await lightning.edit("Okay let Me Think🤫")
     await asyncio.sleep(2)
     await lightning.edit("Okay Giving You A Chance🤨")
