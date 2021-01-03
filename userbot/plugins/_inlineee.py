@@ -404,7 +404,7 @@ async def lightning_is_better(lightning):
 
 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_back_it")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lol_back")))
 async def krish1303y(lightning):
     if lightning.query.user_id != bot.uid:
         fck_bit = "What You Think That This Back Button You Can Touch Bitch🖕!!!!"
