@@ -237,7 +237,7 @@ async def lightning_hands_button(lightning):
     result = None
     query = lightning.text
     if lightning.query.user_id == bot.uid and query.startswith("Black Lightning"):
-        lim = query[::-1] 
+        rev_text  = query[::-1] 
         buttons = lightnings_menu_for_help(0, CMD_HELP, "fukhim")
         result = builder.article(
             f"Hey {LIGHTNINGUSER} Heres The Help Menu",
@@ -302,14 +302,14 @@ async def lightning_hands_button(lightning):
 async def lightning_pugins_query_hndlr(lightning):
     if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
-        buttons = lightnings_menu_for_help(
-            lightning_page + 1, CMD_HELP, "fukhim"  # pylint:disable=E0602
-        )
+        buttons = lightnings_menu_for_help( lightning_page + 1, CMD_HELP, "fukhim")  
+        # pylint:disable=E0602
+
         # https://t.me/TelethonChat/115200
         await lightning.edit(buttons=buttons)
     else:
-        lightning_is_best = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
-        await lightning.answer(lightning_is_best, cache_time=0, alert=True)
+        reply_popp_up_alert  = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
+        await lightning.answer(reply_popp_up_alert , cache_time=0, alert=True)
 
 @tgbot.on(
         events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -318,6 +318,17 @@ async def lightning_pugins_query_hndlr(lightning):
 )
 
 
+async def lightning_pugins_query_hndlr(lightning):
+    if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
+        lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
+        buttons = lightnings_menu_for_help(
+            lightning_page - 1, CMD_HELP, "fukhim"  # pylint:disable=E0602
+        )
+        # https://t.me/TelethonChat/115200
+        await lightning.edit(buttons=buttons)
+    else:
+        reply_popp_up_alert  = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
+        await lightning.answer(reply_popp_up_alert , cache_time=0, alert=True)
 
 
 @tgbot.on(
@@ -325,6 +336,45 @@ async def lightning_pugins_query_hndlr(lightning):
         data=re.compile(b"fukhim_prev\((.+?)\)")
     )
 )
+
+
+
+
+ # Thanks To Friday For This Idea
+async def lightning_plugin_query_hndlr(lightning):
+    if not lightning.query.user_id == bot.uid:
+        heheh = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!."
+        await lightning.answer(heheh, cache_time=0, alert=True)
+        return
+    lightning_plug_name = lightning.data_match.group(1).decode("UTF-8")
+    if lightning_plug_name in CMD_HELP:
+         lightning_help_strin = f"**💡 PLUGIN NAME 💡 :** `{lightning_plug_name}` \n{CMD_HELP[lightning_plug_name]}"
+    reply_pop_up_alert = lightning_help_strin
+    reply_pop_up_alert += "\n\n**(C) If In Case Some Problem Contact @lightningsupport** ".format(lightning_plug_name)
+    if len(reply_pop_up_alert) >= 4095:
+        krish_op = "`Pasting Your Help Menu.`"
+        await lightning.answer(krish_op, cache_time=0, alert=True)
+        out_file = reply_pop_up_alert
+        url = "https://del.dog/documents"
+        r = requests.post(url, data=out_file.encode("UTF-8")).json()
+        url = f"https://del.dog/{r['key']}"
+        await lightning.edit(
+            f"Pasted {lightning_plug_name} to {url}",
+            link_preview=False,
+            buttons=[
+                [custom.Button.inline("ɠσ Ⴆαƈƙ", data="lol_back")],
+                    [custom.Button.inline("Commands Help", data="hw?")],
+                    ],
+        )
+    
+    else:
+        await lightning.edit(
+            message=reply_pop_up_alert,
+            buttons=[
+                [custom.Button.inline("ɠσ Ⴆαƈƙ", data="lol_back")], 
+            [custom.Button.inline("Commands Help", data="hw?")],
+                    ],
+        )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"what?")))
 async def what(lightning):
@@ -531,54 +581,20 @@ async def happy(lightning):
 async def hmm(lightning):
     if lightning.query.user_id == bot.uid:
         text = "🇲‌🇾‌ 🇭‌🇪‌🇱‌🇵‌ 🇸‌🇹‌🇦‌🇹‌🇸‌\n\n**ᴘʟᴜɢɪɴ**-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/"
-        await lightning.answer(text, alert=True)
+        await lightning.answer(text, cache_time=0, alert=True)
     else:
         txt = f"Stats For {LIGHTNINGUSER} Not For You :)"
-        await lightning.answer(txt, alert=True)
+        await lightning.answer(txt, cache_time=0, alert=True)
 
     
 
 
- # Thanks To Friday For This Idea
-async def lightning_plugin_query_hndlr(lightning):
-    if not lightning.query.user_id == bot.uid:
-        heheh = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!."
-        await lightning.answer(heheh, cache_time=0, alert=True)
-        return
-    lightning_plug_name = lightning.data_match.group(1).decode("UTF-8")
-    if lightning_plug_name in CMD_HELP:
-        lightning_help_strin = f"**💡 PLUGIN NAME 💡 :** `{lightning_plug_name}` \n{CMD_HELP[lightning_plug_name]}"
-    pop_up_wrn = lightning_help_strin
-    pop_up_wrn += "\n\n**(C) If In Case Some Problem Contact @lightningsupport** ".format(lightning_plug_name)
-    if len(pop_up_wrn) >= 4096:
-        krish_op = "`Pasting Your Help Menu.`"
-        await lightning.answer(krish_op, cache_time=0, alert=True)
-        out_file = pop_up_wrn
-        url = "https://del.dog/documents"
-        r = requests.post(url, data=out_file.encode("UTF-8")).json()
-        url = f"https://del.dog/{r['key']}"
-        await lightning.edit(
-            f"Pasted {lightning_plug_name} to {url}",
-            link_preview=False,
-            buttons=[[custom.Button.inline("ɠσ Ⴆαƈƙ", data="lol_back")],
-                    [custom.Button.inline("Commands Help", data="hw?")],
-                    ],
-        )
-    
-    else:
-        await lightning.edit(
-            message=pop_up_wrn,
-            buttons=[[custom.Button.inline("ɠσ Ⴆαƈƙ", data="lol_back")], 
-            [custom.Button.inline("Commands Help", data="hw?")],
-                    ],
-        )
+
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"hw?")))
 async def what(lightning):
     if lightning.query.user_id == bot.uid:
-        fck_bit = f"{LIGHTNINGUSER} Dont Use This Pls 🥺 "
-        await lightning.answer(fck_bit, cache_time=0, alert=True)
         await lightning.edit(
              "If You faced Any Problem\n[Commands Not Working🥺](https://t.me/lightningsupport)\n\n[Help Article 🤓](https://app.gitbook.com/@poxsisofficial/s/help/)\n\n[Want To Leanr Some Cmds]"
                
