@@ -15,7 +15,7 @@ if 1 == 1:
 
     name = "Profile Photos"
 
-    client = bot
+    client = borg
 
     @bot.on(admin_cmd(pattern="poto(.*)"))
     @bot.on(sudo_cmd(pattern="poto(.*)", allow_sudo=True))
