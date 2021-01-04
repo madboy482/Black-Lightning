@@ -6,7 +6,7 @@ from telethon.tl.types import MessageEntityMentionName
 
 from userbot.Config import Var
 from userbot.utils import admin_cmd
-
+import asyncio
 from .. import ALIVE_NAME, CMD_HELP
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
@@ -35,6 +35,10 @@ async def _(event):
     first_name = html.escape(replied_user.user.first_name)
     # https://stackoverflow.com/a/5072031/4723940
     # some Deleted Accounts do not have first_name
+    if user_id == 1263617196:
+        await event.edit("Sorry, Not Goin To Clone @krish1303y He Is My Dev!!")
+        await asyncio.sleep(3)
+        return
     if first_name is not None:
         # some weird people (like me) have more than 4096 characters in their
         # names
