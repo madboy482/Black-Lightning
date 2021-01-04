@@ -10,15 +10,15 @@ from userbot.utils import admin_cmd, sudo_cmd
 
 logger = logging.getLogger(__name__)
 
-
+from userbot import bot
 if 1 == 1:
 
     name = "Profile Photos"
 
-    client = borg
+    client = bot
 
-    @borg.on(admin_cmd(pattern="poto(.*)"))
-    @borg.on(sudo_cmd(pattern="poto(.*)", allow_sudo=True))
+    @bot.on(admin_cmd(pattern="poto(.*)"))
+    @bot.on(sudo_cmd(pattern="poto(.*)", allow_sudo=True))
     async def potocmd(event):
 
         """Gets the profile photos of replied users, channels or chats"""
@@ -46,7 +46,7 @@ if 1 == 1:
 
                 photo = await event.client.download_profile_photo(chat)
 
-                await borg.send_file(event.chat_id, photo)
+                await bot.send_file(event.chat_id, photo)
 
         else:
 
@@ -70,7 +70,7 @@ if 1 == 1:
 
                 send_photos = await event.client.download_media(photos[id - 1])
 
-                await borg.send_file(event.chat_id, send_photos)
+                await bot.send_file(event.chat_id, send_photos)
 
             else:
 
