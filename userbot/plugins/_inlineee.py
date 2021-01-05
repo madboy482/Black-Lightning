@@ -263,7 +263,7 @@ async def lightning_hands_button(lightning):
     builder = lightning.builder
     result = None
     query = lightning.text
-    if lightning.query.user_id == bot.uid and query.startswith("bot"):
+    if lightning.query.user_id == bot.uid and query.startswith("help"):
         rev_text = query[::-1]
         buttons = lightnings_menu_for_help(0, CMD_HELP, "fukhim")
         result = builder.article(
