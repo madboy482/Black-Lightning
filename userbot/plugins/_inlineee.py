@@ -571,7 +571,7 @@ async def hmm(lightning):
 
  
 @tgbot.on(
-        callbackquery.CallbackQuery(data=compile(b"help\[(.*)\[(\d*)\]\]\((.*)\)"))
+        callbackquery.CallbackQuery(data=compile(b"lightning_pugins_query_hndlr\[(.*)\[(\d*)\]\]\((.*)\)"))
     )
 async def lightning_pugins_query_hndlr(lightning):
         if not lightning.query.user_id == bot.uid:
