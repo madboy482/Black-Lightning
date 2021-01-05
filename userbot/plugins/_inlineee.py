@@ -14,17 +14,17 @@
 
 
 
-
 """Thanks To 
 @Midhun_xD
 @krish1303y
-@Kraken_The_BadASS
+
 @Shivam_Patel
 """
 
 
-"""Only friday and Hellbot Can Use This Inline WithOut Copyright (Just Give The Credits Pls)
+"""Only friday  Can Use This Inline WithOut Copyright (Just Give The Credits Pls)
 Thanks"""
+
 
 
 
@@ -284,7 +284,7 @@ async def lightning_hands_button(lightning):
     builder = lightning.builder
     result = None
     query = lightning.text
-    if lightning.query.user_id == bot.uid and query.startswith("help"):
+    if lightning.query.user_id == bot.uid and query.startswith("fuk"):
         rev_text = query[::-1]
         buttons = lightnings_menu_for_help(0, CMD_HELP, "fukhim")
         result = builder.article(
@@ -566,59 +566,48 @@ async def hmm(lightning):
         await lightning.answer(txt, alert=True)
 
 
-# Some Help Taken From Hellbot :)
-
-
- 
-@tgbot.on(
-        callbackquery.CallbackQuery(data=compile(b"lightning_pugins_query_hndlr\[(.*)\[(\d*)\]\]\((.*)\)"))
-    )
+# Some Inspiration From Telebot
 async def lightning_pugins_query_hndlr(lightning):
-        if not lightning.query.user_id == bot.uid:
-            return await lightning.answer(
-                "Get The Fuck Off !!! Not For You ™",
-                cache_time=0,
-                alert=True,
-            )
-        input_str = lightning.pattern_match.group(1) 
-        cmd_hndlr = Var.CMD_HDNLR if Var.CMD_HNDLR else r"\."
-        he_tried = lightning.data_match.group(1).decode("UTF-8")
-        commands = lightning.data_match.group(3).decode("UTF-8")
-        page = int(lightning.data_match.group(2).decode("UTF-8"))
-        result = f"**📗 File:** `{he_tried}`\n"   # Some Help taken From Hellbot
-        if CMD_HELP[he_tried]["info"]["info"] == "":
-            if not CMD_HELP[he_tried]["info"]["warning"] == "":
-                result += f"**🔺 Full Help:** {'✅' if CMD_HELP[he_tried]['info']['Full Help'] else '❗️'}\n"
-                result += f"**⚠️ Note ⚠️:** {CMD_HELP[he_tried]['info']['Note']}\n\n"
+        if lightning.query.user_id == bot.uid:
+            lightning_plug_name = lightning.data_match.group(1).decode("UTF-8")
+            lightning_help_strin = ""
+            lightning_help_strin += f"Commands Available in {lightning_plug_name} - \n"
+            try:
+                if lightning_plug_name in CMD_HELP:
+                    for i in CMD_HELP[lightning_plug_name]:
+                        lightning_help_strin += i
+                    lightning_help_strin += "\n"
+                else:
+                    for i in CMD_LIST[lightning_plug_name]:
+                        lightning_help_strin += i
+                        lightning_help_strin += "\n"
+            except BaseException:
+                await lightning.edit(
+                    f"{LIGHTNINGUSER}'s  {LIGHTNINGBOT} Has Some Internal Problem Please Restart Dynos Or Ask [Lightning](https://t.me/lightningsupport)")  
+            pass
+            if lightning_help_strin == "":
+                lightning_strike = "{} In Case In Problem.\nUse .help {}".format(
+                    lightning_plug_name, lightning_plug_name
+                ) # This Code Was Clashing My pm_permit 
             else:
-                he_tried = lightning.data_match.group(1).decode("UTF-8")
-                result += f"**🔺 Full Help:** {'✅' if CMD_HELP[he_tried]['info']['Full Help'] else '❗️'}\n\n"
+                lightning_strike = lightning_help_strin
+            lightning_strike += "\n Use .unload {} to remove this plugin\n\
+                If In Case Some Problem Contact @lightningsupport\n From  [Here](https://t.me/lightningsupport)".format(
+                lightning_plug_name
+            ) # Some Inspiration From Telelbot
+            if len(lightning_help_strin) >= 140:
+                lightning = "Check your saved messages!"
+                await lightning.answer(lightning, cache_time=0, alert=True)
+                lightning_help_strin += f"\n\nIm Here With Detailed Help via {LIGHTNINGBOT} Of This Plugin😉"
+                if bot is not None and lightning.query.user_id == bot.uid:
+                    heh = await bot.send_message("him", lightning_help_strin)
+                    await asyncio.sleep(60)
+                    await heh.delete()
+            else:
+                await lightning.answer(lightning_strike, cache_time=0, alert=True)
         else:
-            result += f"**🔺 Full Help:** {'✅' if CMD_HELP[he_tried]['info']['Full Help'] else '❗️'}\n"
-            if not CMD_HELP[he_tried]["info"]["warning"] == "":
-                result += f"**⚠️ Warning:** {CMD_HELP[he_tried]['info']['warning']}\n"
-            result += f"**ℹ️ Info:** {CMD_HELP[he_tried]['info']['info']}\n\n"
-
-        command = CMD_HELP[he_tried][f"〽️ Help For{input_str}"][commands]
-        if command["params"] is None:
-            result += f"**〽️ Help For{input_str}:** `{cmd_hndlr[:1]}{command['command']}`\n"
-        else:
-            result += f"**〽️ Help For{input_str}:** `{cmd_hndlr[:1]}{command['command']} {command['params']}`\n"
-
-        if command["example"] is None:
-            result += f"**💬 Explanation:** `{command['usage']}`\n\n"
-        else:
-            result += f"**💬 Explanation:** `{command['usage']}`\n"
-            result += f"**⌨️ For Example:** `{cmd_hndlr[:1]}{command['example']}`\n\n"
-
-        await lightning.edit(
-            result,
-            buttons=[
-                custom.Button.inline("Ⴆαƈƙ", data=f"backme[{page}]({he_tried})"),
-                custom.Button.inline("ѕтαтѕ", data="stta"),
-            ],
-            link_preview=False,
-        )
+            lightning_strike = f"Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
+            await lightning.answer(lightning_strike, cache_time=0, alert=True)
 
    
 
