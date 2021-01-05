@@ -250,7 +250,7 @@ async def inline_handler(lightning):
     builder = lightning.builder
     result = None
     query = lightning.text
-    if lightning.query.user_id == bot.uid and query.startswith("fuk"):
+    if lightning.query.user_id == bot.uid and query.startswith("Black"):
         rev_text = query[::-1]
         buttons = lightnings_menu_for_help(0, CMD_HELP, "fukhim")
         result = builder.article(
@@ -327,7 +327,7 @@ async def lightning_pugins_query_hndlr(lightning):
 
 @tgbot.on(
     events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"fukhim_prev\((.+?)\)")
+        data=re.compile(rb"fukhim_prev\((.+?)\)")
     )
 )
 async def lightning_pugins_query_hndlr(lightning):
