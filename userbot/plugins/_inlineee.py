@@ -1,14 +1,35 @@
-# Special Thanks To Starkgang in tg @Midhun_xD
-# Fixing inline was a task for @krish1303y
-# Kang With Credits
-# Made By @krish1303y, @Atank_ka_devata( Never Gonna Forgive Him 😑😑 nvm thx)   For Black Lightning  🔥🔥🔥
-# Thanks @Shivam_Patel Mujhe Samjhane Ke Liye 
-# Thanks @Shivam_Patel For Your kind Help Sir 😘😘❤️
-# Special Credits to @Shivam_Patel For Helping Us
+#    Copyright (C) 2020 KeinShin
+
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+
+
+"""Thanks To 
+@Midhun_xD
+@krish1303y
+@Kraken_The_BadASS
+@Shivam_Patel
+"""
+
+
+"""Only friday and Hellbot Can Use This Inline WithOut Copyright (Just Give The Credits Pls)
+Thanks"""
 
 
 
 import os
+
 import re
 import json
 from math import ceil
