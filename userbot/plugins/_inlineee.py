@@ -572,7 +572,7 @@ In Case Any Problem @lightningsupport \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {le
         events.callbackquery.CallbackQuery(  # pylint:disable=E0602
             data=re.compile(b"_lightning_plugins_(.*)")
    )
-)
+) # Thanks To Friday Userbot
 async def lightning_pugins_query_hndlr(lightning):
     if not lightning.query.user_id == bot.uid:
         how = "Not For  Bitch.🖕( ͡❛ ͜ʖ ͡❛)"
