@@ -17,7 +17,6 @@
 """Thanks To 
 @Midhun_xD
 @krish1303y
-
 @Shivam_Patel
 """
 
@@ -310,9 +309,6 @@ async def inline_handler(lightning):
         data=re.compile(b"fukhim_next\((.+?)\)")
     )
 )
-
-
-
 async def lightning_pugins_query_hndlr(lightning):
     if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
@@ -334,6 +330,17 @@ async def lightning_pugins_query_hndlr(lightning):
         data=re.compile(b"fukhim_prev\((.+?)\)")
     )
 )
+async def lightning_pugins_query_hndlr(lightning):
+    if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
+        lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
+        buttons = lightnings_menu_for_help(
+            lightning_page - 1, CMD_HELP, "fukhim"  # pylint:disable=E0602
+        )
+        # https://t.me/TelethonChat/115200
+        await lightning.edit(buttons=buttons)
+    else:
+        lightning_is_best = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
+        await lightning.answer(lightning_is_best, cache_time=0, alert=True)
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"what?")))
 async def what(lightning):
@@ -566,33 +573,34 @@ In Case Any Problem @lightningsupport \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {le
             data=re.compile(b"_lightning_plugins_(.*)")
    )
 )
-
 async def lightning_pugins_query_hndlr(lightning):
     if not lightning.query.user_id == bot.uid:
-        how = "Who The Fuck Are You? Get Your Own Friday."
+        how = "Not For Bitch.🖕( ͡❛ ͜ʖ ͡❛)"
         await lightning.answer(how, cache_time=0, alert=True)
         return
     light_pulu_name = lightning.data_match.group(1).decode("UTF-8")
     if light_pulu_name in CMD_HELP:
+        
+        
         light_help_string  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n{CMD_HELP[light_pulu_name]}"
-    lightning_is_best = light_help_string 
-    lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
-    if len(lightning_is_best) >= 4096:
-        keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
-        await lightning.answer(keinshin, cache_time=0, alert=True)
-        out_file = lightning_is_best
-        lig_url = "https://del.dog/documents"
-        r = requests.post(lig_url, data=out_file.encode("UTF-8")).json()
-        lig_url = f"https://del.dog/{r['key']}"
-        await lightning.edit(
-            f"Pasted {light_pulu_name} to {lig_url}",
-            link_preview=False,
-            buttons=[
+        lightning_is_best = light_help_string 
+        lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
+        if len(lightning_is_best) >= 4096:
+              keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
+              await lightning.answer(keinshin, cache_time=0, alert=True)
+              out_file = lightning_is_best
+              lig_url = "https://del.dog/documents"
+              r = requests.post(lig_url, data=out_file.encode("UTF-8")).json()
+              lig_url = f"https://del.dog/{r['key']}"
+              await lightning.edit(
+               f"Pasted {light_pulu_name} to {lig_url}",
+               link_preview=False,
+               buttons=[
                 [custom.Button.inline("🖕( ͡❛ ͜ʖ ͡❛)", data="op_krish")]
                 [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="lght_back")]],
-        )
-    else:
-        await lightning.edit(
+         )
+        else:
+           await lightning.edit(
             message=lightning_is_best,
             buttons=[
                 [custom.Button.inline("🖕( ͡❛ ͜ʖ ͡❛)", data="op_krish")]
