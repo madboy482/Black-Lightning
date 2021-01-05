@@ -240,47 +240,14 @@ else:
 
 
 
-def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
-    lightning_no_rows = 8
-    lightning_no_coulmns = 7
-    lightning_plugins = []
-    for p in lightning_plugs:
-        if not p.startswith("_"):
-            lightning_plugins.append(p)
-    lightning_plugins = sorted(lightning_plugins)
-    plugins = [
-        custom.Button.inline(
-            "{} {} {}".format("⨵", x, "⨵"), data="_lightning_plugins_{}".format(x)
-        )
-        for x in lightning_plugins
-    ]
-    pairs = list(zip(plugins[::lightning_no_coulmns], plugins[1::lightning_no_coulmns]))
-    if len(plugins) % lightning_no_coulmns == 1:
-        pairs.append((plugins[-1],))
-    max_fix = ceil(len(pairs) / lightning_no_rows)
-    lightning_plugins_pages = b_lac_krish % max_fix
-    if len(pairs) > lightning_no_rows:
-        pairs = pairs[
-            lightning_plugins_pages * lightning_no_rows : lightning_no_rows * (lightning_plugins_pages + 1)
-        ] + [
-            (
-                custom.Button.inline(
-                    "🗡яιgнт ρℓυgιи", data="{}_prev({})".format(lightning_lol, lightning_plugins_pages)
-                ),
-               # Thanks To Friday For This Idea
-               custom.Button.inline("Stats", data="stta"
-               ),
-               custom.Button.inline(
-                    "ℓєfт ρℓυgιи🗡", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
-                ),
-                
-            )
-        ]
-    return pairs
+
+
+
+
 
 
 @tgbot.on(events.InlineQuery)
-async def lightning_hands_button(lightning):
+async def inline_handler(lightning):
     builder = lightning.builder
     result = None
     query = lightning.text
@@ -294,7 +261,6 @@ async def lightning_hands_button(lightning):
             link_preview=False,
         )
         await lightning.answer([result])
-
     elif lightning.query.user_id == bot.uid and query == "Help":
         result = builder.article(
             title="Help",
@@ -359,11 +325,6 @@ async def lightning_pugins_query_hndlr(lightning):
         lightning_is_best = "Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
         await lightning.answer(lightning_is_best, cache_time=0, alert=True)
 
-@tgbot.on(
-        events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-            data=re.compile(b"_lightning_plugins_(.*)")
-   )
-)
 
 
 
@@ -566,51 +527,116 @@ async def hmm(lightning):
         await lightning.answer(txt, alert=True)
 
 
-# Some Inspiration From Telebot
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"op_krish")))
+async def hmm(lightning):
+    if lightning.query.user_id == bot.uid:
+        text = ".xnxx\n.picx\n.les\n🙄🙄🙄🙄"
+        await lightning.answer(text, alert=True)
+    else:
+        txt = f"For {LIGHTNINGUSER} Not For You :)"
+        await lightning.answer(txt, alert=True)        
+
+
+"""
+Thanks To Friday Userbot and @Midhun_xD For This idea
+
+"""
+import requests
+
+
+
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lght_back")))
+async def ho(event):
+    if event.query.user_id != bot.uid:
+        how = "Not For You Idiot 🖕( ͡❛ ͜ʖ ͡❛)."
+        await event.answer(how, cache_time=0, alert=True)
+        return
+    await event.answer("( ͡🔥 ͜ʖ ͡🔥)", cache_time=0, alert=False)
+    # This Is Copy of Above Code. (C) @SpEcHiDe
+    buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
+    ho = f"""Black Lightning Is Here With Stunning Help !\n
+In Case Any Problem @lightningsupport \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {len(CMD_LIST)}"""
+    await event.edit(message=ho, buttons=buttons)
+
+
+@tgbot.on(
+        events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+            data=re.compile(b"_lightning_plugins_(.*)")
+   )
+)
+
 async def lightning_pugins_query_hndlr(lightning):
-        if lightning.query.user_id == bot.uid:
-            lightning_plug_name = lightning.data_match.group(1).decode("UTF-8")
-            lightning_help_strin = ""
-            lightning_help_strin += f"Commands Available in {lightning_plug_name} - \n"
-            try:
-                if lightning_plug_name in CMD_HELP:
-                    for i in CMD_HELP[lightning_plug_name]:
-                        lightning_help_strin += i
-                    lightning_help_strin += "\n"
-                else:
-                    for i in CMD_LIST[lightning_plug_name]:
-                        lightning_help_strin += i
-                        lightning_help_strin += "\n"
-            except BaseException:
-                await lightning.edit(
-                    f"{LIGHTNINGUSER}'s  {LIGHTNINGBOT} Has Some Internal Problem Please Restart Dynos Or Ask [Lightning](https://t.me/lightningsupport)")  
-            pass
-            if lightning_help_strin == "":
-                lightning_strike = "{} In Case In Problem.\nUse .help {}".format(
-                    lightning_plug_name, lightning_plug_name
-                ) # This Code Was Clashing My pm_permit 
-            else:
-                lightning_strike = lightning_help_strin
-            lightning_strike += "\n Use .unload {} to remove this plugin\n\
-                If In Case Some Problem Contact @lightningsupport\n From  [Here](https://t.me/lightningsupport)".format(
-                lightning_plug_name
-            ) # Some Inspiration From Telelbot
-            if len(lightning_help_strin) >= 140:
-                lightning = "Check your saved messages!"
-                await lightning.answer(lightning, cache_time=0, alert=True)
-                lightning_help_strin += f"\n\nIm Here With Detailed Help via {LIGHTNINGBOT} Of This Plugin😉"
-                if bot is not None and lightning.query.user_id == bot.uid:
-                    heh = await bot.send_message("him", lightning_help_strin)
-                    await asyncio.sleep(60)
-                    await heh.delete()
-            else:
-                await lightning.answer(lightning_strike, cache_time=0, alert=True)
-        else:
-            lightning_strike = f"Oh C'mon You Think You Can Touch This? ಠ╭╮ಠ!"
-            await lightning.answer(lightning_strike, cache_time=0, alert=True)
-
-   
-
+    if not lightning.query.user_id == bot.uid:
+        how = "Who The Fuck Are You? Get Your Own Friday."
+        await lightning.answer(how, cache_time=0, alert=True)
+        return
+    light_pulu_name = lightning.data_match.group(1).decode("UTF-8")
+    if light_pulu_name in CMD_HELP:
+        light_help_string  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n{CMD_HELP[light_pulu_name]}"
+    lightning_is_best = light_help_string 
+    lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
+    if len(lightning_is_best) >= 4096:
+        keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
+        await lightning.answer(keinshin, cache_time=0, alert=True)
+        out_file = lightning_is_best
+        lig_url = "https://del.dog/documents"
+        r = requests.post(lig_url, data=out_file.encode("UTF-8")).json()
+        lig_url = f"https://del.dog/{r['key']}"
+        await lightning.edit(
+            f"Pasted {light_pulu_name} to {lig_url}",
+            link_preview=False,
+            buttons=[
+                [custom.Button.inline("🖕( ͡❛ ͜ʖ ͡❛)", data="op_krish")]
+                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="lght_back")]],
+        )
+    else:
+        await lightning.edit(
+            message=lightning_is_best,
+            buttons=[
+                [custom.Button.inline("🖕( ͡❛ ͜ʖ ͡❛)", data="op_krish")]
+                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="lght_back")],
+            ],
+        )
+        
 
 
     
+def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
+    lightning_no_rows = 8
+    lightning_no_coulmns = 7
+    lightning_plugins = []
+    for p in lightning_plugs:
+        if not p.startswith("_"):
+            lightning_plugins.append(p)
+    lightning_plugins = sorted(lightning_plugins)
+    plugins = [
+        custom.Button.inline(
+            "{} {} {}".format("⨵", x, "⨵"), data="_lightning_plugins_{}".format(x)
+        )
+        for x in lightning_plugins
+    ]
+    pairs = list(zip(plugins[::lightning_no_coulmns], plugins[1::lightning_no_coulmns]))
+    if len(plugins) % lightning_no_coulmns == 1:
+        pairs.append((plugins[-1],))
+    max_fix = ceil(len(pairs) / lightning_no_rows)
+    lightning_plugins_pages = b_lac_krish % max_fix
+    if len(pairs) > lightning_no_rows:
+        pairs = pairs[
+            lightning_plugins_pages * lightning_no_rows : lightning_no_rows * (lightning_plugins_pages + 1)
+        ] + [
+            (
+                custom.Button.inline(
+                    "🗡яιgнт ρℓυgιи ( ͡^ ͜ʖ ͡^) 👉", data="{}_prev({})".format(lightning_lol, lightning_plugins_pages)
+                ),
+               # Thanks To Friday For This Idea
+               custom.Button.inline("〽️Stats〽️ ( ͡^ ͜ʖ ͡^)", data="stta"
+               ),
+               custom.Button.inline(
+                    "☜ ( ͡^ ͜ʖ ͡^)ℓєfт ρℓυgιи ", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
+                ),
+                
+            )
+        ]
+    return pairs
