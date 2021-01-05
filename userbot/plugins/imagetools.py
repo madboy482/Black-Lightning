@@ -340,8 +340,8 @@ async def img(event):
     if not text:
         await event.edit("No input found!")
         return
-    if ";" in text:
-        search, result = text.split(";", 1)
+    if "," in text:
+        search, result = text.split(",", 1)
     else:
         event.edit("Invalid Input! Check help for more info!")
         return
