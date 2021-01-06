@@ -41,7 +41,7 @@ async def lightning_cmd_list(lightning):
                 await lightning.edit(input_str + "  ☹️ is not a valid plugin😞😞!")
                
     else:
-        lightning_help_strin = f"""Black"""
+        lightning_help_strin = "Black"
         lightningusername = Var.TG_BOT_USER_NAME_BF_HER
         try:
             results = await light.inline_query(  # pylint:disable=E0602
@@ -57,4 +57,7 @@ async def lightning_cmd_list(lightning):
             await lightning.edit(
                 f"Seems That Your {lightningusername} Is Wrong Check once"
                 )
-            
+            hehehe = f"[Seems That Your {lightningusername} Is Wrong Check once](https://telegra.ph/file/2a7e6966c5edddc4549c2.png)"    
+            await lightning.delete()
+            lightning.query.user_id == light.uid
+            await light.send_message(hehehe, lightning.query.user_id)               
