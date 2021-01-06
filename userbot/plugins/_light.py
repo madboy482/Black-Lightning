@@ -42,7 +42,6 @@ async def cmd_list(event):
                 await event.edit(input_str + "  ☹️ is not a valid plugin😞😞!")
         else:
             light_help_strin = """**Black Lightning Heres With The Detailed Help For CMDs** 😉😉 !\n If Faced Any Bug Please Give The Feed Back at @lightningsupport:"""
-        try:
             results = await bot.inline_query(  # pylint:disable=E0602
             lightningusername, light_help_strin
             )
@@ -50,12 +49,3 @@ async def cmd_list(event):
                 event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
             )
             await event.delete()
-        except BaseException: # Help Taken From Telebot
-            await event.edit(f"It Will   Wont Work {lightningusername} Is Wrong or Inline Is Turned Off")
-            await asyncio.sleep(2)
-            await event.edit(f"[It Will   Wont Work {lightningusername} Is Wrong Or Inline Is Turned Off](https://telegra.ph/file/ed8a9e7ee3e52cf5f2598.mp4)")
-
-
-
-
-
