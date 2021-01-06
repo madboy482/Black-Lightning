@@ -37,7 +37,7 @@ from userbot.thunderconfig import Config
 
 from telethon import Button, custom, events, functions
 
-from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, DETAIL_CMD_HELP, bot
+from userbot import ALIVE_NAME, CMD_HELP, COOL_CMD, DETAIL_CMD_HELP, bot
 
 from var import Var
 
@@ -253,10 +253,10 @@ async def inline_handler(lightning):
     query = lightning.text
     if lightning.query.user_id == bot.uid and query.startswith("**Black") or query.startswith("Black"):
         rev_text = query[::-1]
-        buttons = lightnings_menu_for_help(0, CMD_LIST, "helpme")
+        buttons = lightnings_menu_for_help(0, COOL_CMD, "helpme")
         result = builder.article(
             f"Help Menu",
-            text="\n**Black Lightning Heres With The Detailed Help For CMDs** 😉😉 !\n If Faced Any Bug Please Give The Feed Back at @lightningsupport:{}\n`Plugins`: {}".format(query, len(CMD_LIST)),
+            text="\n**Black Lightning Heres With The Detailed Help For CMDs** 😉😉 !\n If Faced Any Bug Please Give The Feed Back at @lightningsupport:{}\n`Plugins`: {}".format(query, len(COOL_CMD)),
             buttons=buttons,
             link_preview=False,
         )
@@ -318,7 +318,7 @@ async def lightning_pugins_query_hndlr(lightning):
     if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
         buttons = lightnings_menu_for_help(
-            lightning_page + 1, CMD_LIST, "helpme"  # pylint:disable=E0602
+            lightning_page + 1, COOL_CMD, "helpme"  # pylint:disable=E0602
         )
         # https://t.me/TelethonChat/115200
         await lightning.edit(buttons=buttons)
@@ -376,7 +376,7 @@ async def lightning_pugins_query_hndlr(lightning):
     if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
         buttons = lightnings_menu_for_help(
-            lightning_page - 1, CMD_LIST, "helpme"  # pylint:disable=E0602
+            lightning_page - 1, COOL_CMD, "helpme"  # pylint:disable=E0602
         )
         # https://t.me/TelethonChat/115200
         await lightning.edit(buttons=buttons)
@@ -441,7 +441,7 @@ async def krish1303y(lightning):
     # This Is Copy of Above Code. (C) @SpEcHiDe
     buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
     krish1303y = f"""Black Lightning  Listed The Plugins Read This Info Pls!\n
-{LIGHTNINGUSER}If You Faced Problem Regarding Pls Contact For Help  @lightningsupport \n**Btw**Currently Loaded Plugins: {len(CMD_LIST)}"""
+{LIGHTNINGUSER}If You Faced Problem Regarding Pls Contact For Help  @lightningsupport \n**Btw**Currently Loaded Plugins: {len(COOL_CMD)}"""
     await lightning.edit(message=krish1303y, buttons=buttons)
 
 
@@ -567,7 +567,7 @@ async def yes_ucan(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stta")))
 async def hmm(lightning):
     if lightning.query.user_id == bot.uid:
-        text = "🇲‌🇾‌ 🇭‌🇪‌🇱‌🇵‌ 🇸‌🇹‌🇦‌🇹‌🇸‌\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/\nTottal Plugs: {}".format(len(CMD_LIST))
+        text = "🇲‌🇾‌ 🇭‌🇪‌🇱‌🇵‌ 🇸‌🇹‌🇦‌🇹‌🇸‌\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/\nTottal Plugs: {}".format(len(COOL_CMD))
         await lightning.answer(text, alert=True)
     else:
         txt = f"Stats For {LIGHTNINGUSER} Not For You :)"
@@ -604,7 +604,7 @@ async def ho(event):
     # This Is Copy of Above Code. (C) @SpEcHiDe
     buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
     ho = f"""Black Lightning Is Here With Stunning Help !\n
-In Case Any Problem @lightningsupport \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {len(CMD_LIST)}"""
+In Case Any Problem @lightningsupport \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {len(COOL_CMD)}"""
     await event.edit(message=ho, buttons=buttons)
 
 
