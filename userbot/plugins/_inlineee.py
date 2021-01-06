@@ -255,7 +255,7 @@ async def inline_handler(lightning):
         rev_text = query[::-1]
         buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
         result = builder.article(
-            f"**Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n{LIGHTNINGUSER}Sir Like If Faced Any Bug Please Give The Feed Back at** @lightningsupport",
+            f"Help Menu",
             text="\n**Black Lightning Heres With The Detailed Help For CMDs** 😉😉 !\n If Faced Any Bug Please Give The Feed Back at @lightningsupport:{}\n`Plugins`: {}".format(query, len(CMD_LIST)),
             buttons=buttons,
             link_preview=False,
