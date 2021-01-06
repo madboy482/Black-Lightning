@@ -286,7 +286,7 @@ def lightning_cmd(pattern=None, command=None, **args):
 
     return events.NewMessage(**args)
 
-def lightning_cmd(pattern=None, command=None, **args):
+def admin_cmd(pattern=None, command=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
     stack = inspect.stack()
     previous_stack_frame = stack[1]
