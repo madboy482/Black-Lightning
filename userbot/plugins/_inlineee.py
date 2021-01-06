@@ -254,8 +254,8 @@ async def inline_handler(lightning):
         rev_text = query[::-1]
         buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
         result = builder.article(
-            f"Hey {LIGHTNINGUSER} Heres The Help Menu",
-            text="{}\nI Have Tottal  Loaded Plugins: {}".format(query, len(CMD_LIST)),
+            f"Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n{LIGHTNINGUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport",
+            text="Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n{LIGHTNINGUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport: {}".format(query, len(CMD_LIST)),
             buttons=buttons,
             link_preview=False,
         )
@@ -528,7 +528,7 @@ async def yes_ucan(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stta")))
 async def hmm(lightning):
     if lightning.query.user_id == bot.uid:
-        text = "🇲‌🇾‌ 🇭‌🇪‌🇱‌🇵‌ 🇸‌🇹‌🇦‌🇹‌🇸‌\n\n**ᴘʟᴜɢɪɴ**-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/"
+        text = f"🇲‌🇾‌ 🇭‌🇪‌🇱‌🇵‌ 🇸‌🇹‌🇦‌🇹‌🇸‌\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/\nTottals Plugs: {}".format(len(CMD_LIST))
         await lightning.answer(text, alert=True)
     else:
         txt = f"Stats For {LIGHTNINGUSER} Not For You :)"
