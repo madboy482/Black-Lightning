@@ -251,12 +251,12 @@ async def inline_handler(lightning):
     builder = lightning.builder
     result = None
     query = lightning.text
-    if lightning.query.user_id == bot.uid and query.startswith("**Black"):
+    if lightning.query.user_id == bot.uid and query.startswith("**Black") or query.startswith("Black"):
         rev_text = query[::-1]
         buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
         result = builder.article(
             f"**Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n{LIGHTNINGUSER}Sir Like If Faced Any Bug Please Give The Feed Back at** @lightningsupport",
-            text="\n**Black Lightning Heres With The Detailed Help For CMDs** 😉😉 !\n If Faced Any Bug Please Give The Feed Back at @lightningsupport:{}\n`Plugins`: {}".format(query, len(CMD_LIST)),
+            text="{}\n**Black Lightning Heres With The Detailed Help For CMDs** 😉😉 !\n If Faced Any Bug Please Give The Feed Back at @lightningsupport:{}\n`Plugins`: {}".format(query, len(CMD_LIST)),
             buttons=buttons,
             link_preview=False,
         )
@@ -303,7 +303,10 @@ async def inline_handler(lightning):
 
             ],
             )
-    await lightning.answer([result] if result else None)
+        await lightning.answer([result] if result else None)
+    else:
+        return
+    
 
 
 @tgbot.on(
