@@ -44,24 +44,15 @@ async def lightning_cmd_list(lightning):
     else:
         lightning_help_strin = "**Black Lightning Heres With The Detailed Help For CMDs** 😉😉 !\n If Faced Any Bug Please Give The Feed Back at @lightningsupport:"
         lightningusername = Var.TG_BOT_USER_NAME_BF_HER
-        try:
-            results = await light.inline_query(  # pylint:disable=E0602
-                lightningusername, lightning_help_strin
+            
+        results = await light.inline_query(  # pylint:disable=E0602
+                lightningusername, 
+                lightning_help_strin
+           )
+        await results[0].click(
+            lightning.chat_id, reply_to=lightning.reply_to_msg_id, hide_via=True
             )
-            await results[0].click(
-                lightning.chat_id, reply_to=lightning.reply_to_msg_id, hide_via=True
-            )
-            await lightning.delete()                                   
-        except BaseException:
-            await lightning.edit("`hmm`")
-            await asyncio.sleep(2)
-            await lightning.edit(
-                f"Seems That Your {lightningusername} Is Wrong Check once"
-                )
-            hehehe = f"[Seems That Your {lightningusername} Is Wrong Check once](https://telegra.ph/file/2a7e6966c5edddc4549c2.png)"    
-            await lightning.delete()
-            lightning.query.user_id == light.uid
-            await light.send_message(hehehe, lightning.query.user_id) 
+        await lightning.delete()
             
             
 @light.on(lightning_cmd(pattern="hardhelp ?(.*)"))
@@ -101,21 +92,11 @@ async def lightning_cmd_list(lightning):
     else:
         lightning_help_strin = "toch"
         lightningusername = Var.TG_BOT_USER_NAME_BF_HER
-        try:
-            results = await light.inline_query(  # pylint:disable=E0602
+        
+        results = await light.inline_query(  # pylint:disable=E0602
                 lightningusername, lightning_help_strin
             )
-            await results[0].click(
+        await results[0].click(
                 lightning.chat_id, reply_to=lightning.reply_to_msg_id, hide_via=True
             )
-            await lightning.delete()                                   
-        except BaseException:
-            await lightning.edit("`hmm`")
-            await asyncio.sleep(2)
-            await lightning.edit(
-                f"`Turn Your Inline For Help`"
-                )
-            hehehe = f"[Turn Your Inline For Help](https://telegra.ph/file/2a7e6966c5edddc4549c2.png)"    
-            await lightning.delete()
-            lightning.query.user_id == light.uid
-            await light.send_message(hehehe, lightning.query.user_id)           
+        await lightning.delete()
