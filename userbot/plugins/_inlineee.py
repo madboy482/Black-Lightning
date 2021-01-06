@@ -339,25 +339,33 @@ async def lightning_pugins_query_hndlr(lightning):
         return
     light_pulu_name = lightning.data_match.group(1).decode("UTF-8")
    
-    if light_pulu_name in CMD_HELP:
-        lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_HELP[light_pulu_name]}"
-        lightning_is_best = lightning_help_strin 
-        lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
-        if len(lightning_is_best) >= 4096:
-              keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
-              await lightning.answer(keinshin, cache_time=0, alert=True)
-              out_file = lightning_is_best
-              lig_url = "https://del.dog/documents"
-              r = requests.post(lig_url, data=out_file.encode("UTF-8")).json()
-              lig_url = f"https://del.dog/{r['key']}"
-              await lightning.edit(
+    try:
+        if light_pulu_name in CMD_HELP:
+           
+           lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_HELP[light_pulu_name]}"
+           lightning_is_best = lightning_help_strin 
+           lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
+        
+        else:
+            for light_pulu_name in CMD_LIST[light_pulu_name]:
+                lightning_help_strin = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_LIST[light_pulu_name]}"
+    except BaseException:
+         pass
+    if len(lightning_is_best) >= 4096:
+          keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
+          await lightning.answer(keinshin, cache_time=0, alert=True)
+          out_file = lightning_is_best
+          lig_url = "https://del.dog/documents"
+          r = requests.post(lig_url, data=out_file.encode("UTF-8")).json()
+          lig_url = f"https://del.dog/{r['key']}"
+          await lightning.edit(
                f"Pasted {light_pulu_name} to {lig_url}",
                link_preview=False,
                buttons=[
                 [custom.Button.inline("🇸‌🇵‌🇪‌🇨‌🇮‌🇦‌🇱‌", data="krish")],
                 [custom.Button.inline("Ⴆαƈƙ 💢", data="lghtback")]],
          )
-        else:
+    else:
            await lightning.edit(
             message=lightning_is_best,
             buttons=[
