@@ -1,12 +1,12 @@
 # Rewritten by @krish1303y
 import io
-from  userbot import CMD_LIST, ALIVE_NAME, bot as light
+from  userbot import COOL_CMD, ALIVE_NAME, bot as light
 from userbot.utils import lightning_cmd
 import asyncio
 from var import Var
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Pls Go To Heroku Vars Then in  `ALIVE_NAME`place You Telegram `Username` "
-            
+    
             
 
 
@@ -18,9 +18,9 @@ async def cmd_list(event):
         input_str = event.pattern_match.group(1)
         if lightningusername is None or input_str == "text":
             string = ""
-            for i in CMD_LIST:
+            for i in COOL_CMD:
                 string += "ℹ️ " + i + "\n"
-                for iter_list in CMD_LIST[i]:
+                for iter_list in COOL_CMD[i]:
                     string += "    `" + str(iter_list) + "`"
                     string += "\n"
                 string += "\n"
@@ -30,9 +30,9 @@ async def cmd_list(event):
             else:
                 await event.edit(string)
         elif input_str:
-            if input_str in CMD_LIST:
+            if input_str in COOL_CMD:
                 string = "Commands found in {}:\n".format(input_str)
-                for i in CMD_LIST[input_str]:
+                for i in COOL_CMD[input_str]:
                     string += "    " + i
                     string += "\n"
                 await event.edit(string)
@@ -66,9 +66,9 @@ async def cmd_list(event):
         input_str = event.pattern_match.group(1)
         if lightningusername is None or input_str == "text":
             string = ""
-            for i in CMD_LIST:
+            for i in COOL_CMD:
                 string += "ℹ️ " + i + "\n"
-                for iter_list in CMD_LIST[i]:
+                for iter_list in COOL_CMD[i]:
                     string += "    `" + str(iter_list) + "`"
                     string += "\n"
                 string += "\n"
@@ -78,9 +78,9 @@ async def cmd_list(event):
             else:
                 await event.edit(string)
         elif input_str:
-            if input_str in CMD_LIST:
+            if input_str in COOL_CMD:
                 string = "Some Articles{}:\n".format(input_str)
-                for i in CMD_LIST[input_str]:
+                for i in COOL_CMD[input_str]:
                     string += "    " + i
                     string += "\n"
                 await event.edit(string)
