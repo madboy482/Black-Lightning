@@ -639,13 +639,13 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
         ] + [
             (
                 custom.Button.inline(
-                    "🗡яιgнт ρℓυgιи ( ͡^ ͜ʖ ͡^) 👉", data="{}_prev({})".format(lightning_lol, lightning_plugins_pages)
+                    "🗡яιgнт ρℓυgιи", data="{}_prev({})".format(lightning_lol, lightning_plugins_pages)
                 ),
                # Thanks To Friday For This Idea
-               custom.Button.inline("〽️Stats〽️ ( ͡^ ͜ʖ ͡^)", data="stta"
+               custom.Button.inline("〽️Stats〽️", data="stta"
                ),
                custom.Button.inline(
-                    "☜ ( ͡^ ͜ʖ ͡^)ℓєfт ρℓυgιи ", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
+                    "ℓєfт ρℓυgιи ", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
                 ),
                 
             )
