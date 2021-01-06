@@ -388,7 +388,7 @@ async def lightning_pugins_query_hndlr(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"what?")))
 async def what(lightning):
     if lightning.query.user_id == bot.uid:
-        fck_bit = f"{LIGHTNINGUSER} Dont Use This Pls 🥺 "
+        fck_bit = f"{LIGHTNINGUSER}  Use The Buttons Bellow "
         await lightning.answer(fck_bit, alert=True)
     else:
         txt = f"Ohh C'mon You Think That This Is For You?\n Ok I Will Complain To {LIGHTNINGUSER}👀👀"
