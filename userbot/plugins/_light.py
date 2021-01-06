@@ -42,7 +42,7 @@ async def lightning_cmd_list(lightning):
                 await lightning.edit(input_str + "  ☹️ is not a valid plugin😞😞!")
                
     else:
-        lightning_help_strin = "**Hn"
+        lightning_help_strin = "**Black"
         lightningusername = Var.TG_BOT_USER_NAME_BF_HER
         try:
             results = await light.inline_query(  # pylint:disable=E0602
