@@ -351,15 +351,15 @@ async def lightning_pugins_query_hndlr(lightning):
                f"Pasted {light_pulu_name} to {lig_url}",
                link_preview=False,
                buttons=[
-                [custom.Button.inline("🖕( ͡❛ ͜ʖ ͡❛)", data="op_krish")]
-                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="lght_back")]],
+                [custom.Button.inline("( ͡❛ ͜ʖ ͡❛)", data="krish")]
+                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="lghtback")]],
          )
         else:
            await lightning.edit(
             message=lightning_is_best,
             buttons=[
-                [custom.Button.inline("🖕( ͡❛ ͜ʖ ͡❛)", data="op_krish")]
-                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="lght_back")],
+                [custom.Button.inline("( ͡❛ ͜ʖ ͡❛)", data="krish")]
+                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="lghtback")],
             ],
         )
 
@@ -572,7 +572,7 @@ async def hmm(lightning):
 
 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"op_krish")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"krish")))
 async def hmm(lightning):
     if lightning.query.user_id == bot.uid:
         text = ".xnxx\n.picx\n.les\n🙄🙄🙄🙄"
@@ -591,7 +591,7 @@ import requests
 
 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lght_back")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lghtback")))
 async def ho(event):
     if event.query.user_id != bot.uid:
         how = "Not For You Idiot 🖕( ͡❛ ͜ʖ ͡❛)."
