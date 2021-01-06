@@ -37,7 +37,7 @@ from userbot.thunderconfig import Config
 
 from telethon import Button, custom, events, functions
 
-from userbot import ALIVE_NAME, CMD_HELP, COOL_CMD, DETAIL_CMD_HELP, bot
+from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, DETAIL_CMD_HELP, bot
 
 from var import Var
 
@@ -256,7 +256,7 @@ async def inline_handler(lightning):
         buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
         result = builder.article(
             f"Help Menu",
-            text="\n**Black Lightning Heres With The Detailed Help For CMDs** 😉😉 !\n If Faced Any Bug Please Give The Feed Back at @lightningsupport:{}\n`Plugins`: {}".format(query, len(COOL_CMD)),
+            text="\n{}\n`Plugins`: {}".format(query, len(CMD_LIST)),
             buttons=buttons,
             link_preview=False,
         )
@@ -340,7 +340,7 @@ async def lightning_pugins_query_hndlr(lightning):
     light_pulu_name = lightning.data_match.group(1).decode("UTF-8")
    
     if light_pulu_name in CMD_HELP:
-        lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n{CMD_HELP[light_pulu_name]}"
+        lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_HELP[light_pulu_name]}"
         lightning_is_best = lightning_help_strin 
         lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
         if len(lightning_is_best) >= 4096:
@@ -441,7 +441,7 @@ async def krish1303y(lightning):
     # This Is Copy of Above Code. (C) @SpEcHiDe
     buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
     krish1303y = f"""Black Lightning  Listed The Plugins Read This Info Pls!\n
-{LIGHTNINGUSER}If You Faced Problem Regarding Pls Contact For Help  @lightningsupport \n**Btw**Currently Loaded Plugins: {len(COOL_CMD)}"""
+{LIGHTNINGUSER}If You Faced Problem Regarding Pls Contact For Help  @lightningsupport \n**Btw**Currently Loaded Plugins: {len(CMD_LIST)}"""
     await lightning.edit(message=krish1303y, buttons=buttons)
 
 
@@ -567,7 +567,7 @@ async def yes_ucan(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stta")))
 async def hmm(lightning):
     if lightning.query.user_id == bot.uid:
-        text = "🇲‌🇾‌ 🇭‌🇪‌🇱‌🇵‌ 🇸‌🇹‌🇦‌🇹‌🇸‌\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/\nTottal Plugs: {}".format(len(COOL_CMD))
+        text = "🇲‌🇾‌ 🇭‌🇪‌🇱‌🇵‌ 🇸‌🇹‌🇦‌🇹‌🇸‌\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/\nTottal Plugs: {}".format(len(CMD_LIST))
         await lightning.answer(text, alert=True)
     else:
         txt = f"Stats For {LIGHTNINGUSER} Not For You :)"
@@ -604,7 +604,7 @@ async def ho(event):
     # This Is Copy of Above Code. (C) @SpEcHiDe
     buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
     ho = f"""Black Lightning Is Here With Stunning Help !\n
-In Case Any Problem @lightningsupport \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {len(COOL_CMD)}"""
+In Case Any Problem @lightningsupport \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {len(CMD_LIST)}"""
     await event.edit(message=ho, buttons=buttons)
 
 
