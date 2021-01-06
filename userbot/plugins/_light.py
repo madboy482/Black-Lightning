@@ -1,6 +1,6 @@
 # Rewritten by @krish1303y
 import io
-from  userbot import COOL_CMD, ALIVE_NAME, bot as light
+from  userbot import CMD_LIST, ALIVE_NAME, bot as light
 from userbot.utils import lightning_cmd
 import asyncio
 from var import Var
@@ -18,9 +18,9 @@ async def cmd_list(event):
         input_str = event.pattern_match.group(1)
         if lightningusername is None or input_str == "text":
             string = ""
-            for i in COOL_CMD:
+            for i in CMD_LIST:
                 string += "ℹ️ " + i + "\n"
-                for iter_list in COOL_CMD[i]:
+                for iter_list in CMD_LIST[i]:
                     string += "    `" + str(iter_list) + "`"
                     string += "\n"
                 string += "\n"
@@ -30,10 +30,10 @@ async def cmd_list(event):
             else:
                 await event.edit(string)
         elif input_str:
-            if input_str in COOL_CMD:
+            if input_str in CMD_LIST:
                 string = "Commands found in {}:\n".format(input_str)
-                for i in COOL_CMD[input_str]:
-                    string += "    " + i
+                for i in CMD_LIST[input_str]:
+                    string += "\n    " + i
                     string += "\n"
                 await event.edit(string)
             else:
