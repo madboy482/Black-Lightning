@@ -36,7 +36,7 @@ from userbot.thunderconfig import Config
 from telethon.events import InlineQuery, callbackquery
 from telethon import Button, custom, events, functions
 
-from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, bot
+from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, bot, DETAIL_CMD_HELP
 
 from var import Var
 
@@ -582,6 +582,9 @@ async def lightning_pugins_query_hndlr(lightning):
     if light_pulu_name in CMD_HELP:
         lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n{CMD_HELP[light_pulu_name]}"
         lightning_is_best = lightning_help_strin 
+        lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
+    if light_pulu_name in DETAIL_CMD_HELP: 
+        lightning_help_strin = f"**DETAIL( ͡🔥 ͜ʖ ͡🔥): `{light_pulu_name}`\n{DETAIL_CMD_HELP[light_pulu_name]}"
         lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
         if len(lightning_is_best) >= 4096:
               keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
