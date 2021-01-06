@@ -261,8 +261,9 @@ async def inline_handler(lightning):
             link_preview=False,
         )
         await lightning.answer([result])
-    elif lightning.query.user_id == bot.uid and query.startswith("touch"):
+    elif lightning.query.user_id == bot.uid and query == "toch":
         result = builder.article(
+            title="Cool",
             text=f"**How If Face Problem \n{LIGHTNINGUSER}** \nChoose Your Problem For Help ",
             buttons=[
                 [custom.Button.inline("Help", data="what?")],
