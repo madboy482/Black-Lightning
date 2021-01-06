@@ -351,15 +351,15 @@ async def lightning_pugins_query_hndlr(lightning):
                f"Pasted {light_pulu_name} to {lig_url}",
                link_preview=False,
                buttons=[
-                [custom.Button.inline("( ͡❛ ͜ʖ ͡❛)", data="krish")]
-                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="lghtback")]],
+                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="krish")]
+                [custom.Button.inline("Back 💢", data="lghtback")]],
          )
         else:
            await lightning.edit(
             message=lightning_is_best,
             buttons=[
-                [custom.Button.inline("( ͡❛ ͜ʖ ͡❛)", data="krish")]
-                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="lghtback")],
+                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="krish")]
+                [custom.Button.inline("Back 💢", data="lghtback")],
             ],
         )
 
