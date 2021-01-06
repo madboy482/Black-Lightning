@@ -18,7 +18,7 @@ jobs:
 
         with:
 
-          find: "admin_cmd"
+          find: "lightning_cmd"
 
           replace: "lightning_cmd"
 
