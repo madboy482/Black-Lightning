@@ -253,7 +253,7 @@ async def inline_handler(lightning):
     query = lightning.text
     if lightning.query.user_id == bot.uid and query.startswith("**Black") or query.startswith("Black"):
         rev_text = query[::-1]
-        buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
+        buttons = lightnings_menu_for_help(0, CMD_LIST, "helpme")
         result = builder.article(
             f"Help Menu",
             text="\n**Black Lightning Heres With The Detailed Help For CMDs** 😉😉 !\n If Faced Any Bug Please Give The Feed Back at @lightningsupport:{}\n`Plugins`: {}".format(query, len(CMD_LIST)),
@@ -261,7 +261,7 @@ async def inline_handler(lightning):
             link_preview=False,
         )
         await lightning.answer([result])
-    elif lightning.query.user_id == bot.uid and query == "toch":
+    elif lightning.query.user_id == bot.uid and query == "**Cool":
         result = builder.article(
             title="Cool",
             text=f"**How If Face Problem \n{LIGHTNINGUSER}** \nChoose Your Problem For Help ",
@@ -318,7 +318,7 @@ async def lightning_pugins_query_hndlr(lightning):
     if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
         buttons = lightnings_menu_for_help(
-            lightning_page + 1, CMD_HELP, "helpme"  # pylint:disable=E0602
+            lightning_page + 1, CMD_LIST, "helpme"  # pylint:disable=E0602
         )
         # https://t.me/TelethonChat/115200
         await lightning.edit(buttons=buttons)
@@ -376,7 +376,7 @@ async def lightning_pugins_query_hndlr(lightning):
     if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
         buttons = lightnings_menu_for_help(
-            lightning_page - 1, CMD_HELP, "helpme"  # pylint:disable=E0602
+            lightning_page - 1, CMD_LIST, "helpme"  # pylint:disable=E0602
         )
         # https://t.me/TelethonChat/115200
         await lightning.edit(buttons=buttons)
