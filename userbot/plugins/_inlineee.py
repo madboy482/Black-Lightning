@@ -277,6 +277,7 @@ async def inline_handler(lightning):
                 ], 
             ],
         )
+        await lightning.answer([result])
     elif lightning.query.user_id == bot.uid and query.startswith("**Hello Sir"):
         result = builder.photo(
             file=LIGHTNING_WARNING,
@@ -301,7 +302,7 @@ async def inline_handler(lightning):
 
             ],
             )
-    await lightning.answer([result])
+    await lightning.answer([result] if result else None)
 
 
 @tgbot.on(
