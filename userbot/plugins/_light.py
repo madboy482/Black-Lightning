@@ -25,7 +25,8 @@ async def lightning_cmd_list(lightning):
                 with io.BytesIO(str.encode(string)) as out_file:
                     out_file.name = "Some_cmds.txt"  # Some Help Here From Telebot
                 await light.send_message(lightning.chat_id, out_file, force_document=True, allow_cache=False, caption="**Some Help :)**", reply_to=reply_to_id,)
-                await lightning.delete()
+                await asyncio.sleep(5)
+                
             else:
                 await lightning.edit(string)
         elif input_str:
