@@ -334,15 +334,11 @@ async def lightning_pugins_query_hndlr(lightning):
         await lightning.answer(how, cache_time=0, alert=True)
         return
     light_pulu_name = lightning.data_match.group(1).decode("UTF-8")
-    detail_help = lightning.data_match.group(2).decode("UTF-8")
+   
     if light_pulu_name in CMD_HELP:
         lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n{CMD_HELP[light_pulu_name]}"
         lightning_is_best = lightning_help_strin 
         lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
-    if detail_help in DETAIL_CMD_HELP: 
-        lightning_help_strin = f"**DETAIL( ͡🔥 ͜ʖ ͡🔥): `{detail_help}`\n{DETAIL_CMD_HELP[detail_help]}"
-        lightning_is_best = lightning_help_strin 
-        lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(detail_help)
         if len(lightning_is_best) >= 4096:
               keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
               await lightning.answer(keinshin, cache_time=0, alert=True)
