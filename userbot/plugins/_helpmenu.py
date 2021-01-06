@@ -46,13 +46,13 @@ async def lightning_cmd_list(lightning):
         lightningusername = Var.TG_BOT_USER_NAME_BF_HER
         try:
             results = await light.inline_query(  # pylint:disable=E0602
-                lightningusername, lightning_help_strin
+                Var.TG_BOT_USER_NAME_BF_HER, lightning_help_strin
             )
             await results[0].click(
                 lightning.chat_id, reply_to=lightning.reply_to_msg_id, hide_via=True
             )
             await lightning.delete()                                   
-        except:
+        except BaseException:
             await lightning.edit("`hmm`")
             await asyncio.sleep(2)
             await lightning.edit(
