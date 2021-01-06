@@ -253,10 +253,10 @@ async def inline_handler(lightning):
     query = lightning.text
     if lightning.query.user_id == bot.uid and query.startswith("**Black") or query.startswith("Black"):
         rev_text = query[::-1]
-        buttons = lightnings_menu_for_help(0, CMD_LIST, "helpme")
+        buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
         result = builder.article(
             f"Help Menu",
-            text="\n{}\n`Plugins`: {}".format(query, len(CMD_LIST)),
+            text="\n{}\n`Plugins`: {}".format(query, len(CMD_HELP)),
             buttons=buttons,
             link_preview=False,
         )
@@ -318,7 +318,7 @@ async def lightning_pugins_query_hndlr(lightning):
     if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
         buttons = lightnings_menu_for_help(
-            lightning_page + 1, CMD_LIST, "helpme"  # pylint:disable=E0602
+            lightning_page + 1, CMD_HELP, "helpme"  # pylint:disable=E0602
         )
         # https://t.me/TelethonChat/115200
         await lightning.edit(buttons=buttons)
@@ -376,7 +376,7 @@ async def lightning_pugins_query_hndlr(lightning):
     if lightning.query.user_id == bot.uid:  # pylint:disable=E0602
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
         buttons = lightnings_menu_for_help(
-            lightning_page - 1, CMD_LIST, "helpme"  # pylint:disable=E0602
+            lightning_page - 1, CMD_HELP, "helpme"  # pylint:disable=E0602
         )
         # https://t.me/TelethonChat/115200
         await lightning.edit(buttons=buttons)
