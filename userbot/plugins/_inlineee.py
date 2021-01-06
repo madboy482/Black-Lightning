@@ -431,18 +431,6 @@ async def lightning_is_better(lightning):
 
 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_back_it")))
-async def krish1303y(lightning):
-    if lightning.query.user_id != bot.uid:
-        fck_bit = "What You Think That This Back Button You Can Touch Bitch🖕!!!!"
-        await lightning.answer(fck_bit, cache_time=0, alert=True)
-        return
-    await lightning.answer("Back", cache_time=0, alert=False)
-    # This Is Copy of Above Code. (C) @SpEcHiDe
-    buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
-    krish1303y = f"""Black Lightning  Listed The Plugins Read This Info Pls!\n
-{LIGHTNINGUSER}If You Faced Problem Regarding Pls Contact For Help  @lightningsupport \n**Btw**Currently Loaded Plugins: {len(CMD_LIST)}"""
-    await lightning.edit(message=krish1303y, buttons=buttons)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"he_sucks")))
@@ -604,7 +592,7 @@ async def ho(event):
     # This Is Copy of Above Code. (C) @SpEcHiDe
     buttons = lightnings_menu_for_help(0, CMD_LIST, "helpme")
     ho = f"""Black Lightning Is Here With Stunning Help !\n
-In Case Any Problem @lightningsupport \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {len(CMD_HELP)}"""
+In Case Any Problem @lightningsupport \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {len(CMD_LIST)}"""
     await event.edit(message=ho, buttons=buttons)
 
 
