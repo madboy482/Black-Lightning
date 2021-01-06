@@ -22,7 +22,7 @@
 """
 
 
-"""Only friday  Can Use This Inline WithOut Copyright (Just Give The Credits Pls)
+"""Only friday and DC (Can Use Without Credits) Can Use This Inline WithOut Copyright (Just Give The Credits Pls)
 Thanks"""
 
 
