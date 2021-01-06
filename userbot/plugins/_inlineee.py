@@ -251,12 +251,12 @@ async def inline_handler(lightning):
     builder = lightning.builder
     result = None
     query = lightning.text
-    if lightning.query.user_id == bot.uid and query.startswith("Black Lightning"):
+    if lightning.query.user_id == bot.uid and query.startswith("Black"):
         rev_text = query[::-1]
         buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
         result = builder.article(
             f"Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n{LIGHTNINGUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport",
-            text="Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n{LIGHTNINGUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport: {}".format(query, len(CMD_LIST)),
+            text="Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\nSir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport: {}".format(query, len(CMD_LIST)),
             buttons=buttons,
             link_preview=False,
         )
