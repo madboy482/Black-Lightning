@@ -602,9 +602,9 @@ async def ho(event):
         return
     await event.answer("( ͡🔥 ͜ʖ ͡🔥)", cache_time=0, alert=False)
     # This Is Copy of Above Code. (C) @SpEcHiDe
-    buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
+    buttons = lightnings_menu_for_help(0, CMD_LIST, "helpme")
     ho = f"""Black Lightning Is Here With Stunning Help !\n
-In Case Any Problem @lightningsupport \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {len(CMD_LIST)}"""
+In Case Any Problem @lightningsupport \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {len(CMD_HELP)}"""
     await event.edit(message=ho, buttons=buttons)
 
 
