@@ -9,7 +9,7 @@ from datetime import datetime
 import qrcode
 from bs4 import BeautifulSoup
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
 def progress(current, total):
@@ -20,7 +20,7 @@ def progress(current, total):
     )
 
 
-@borg.on(admin_cmd(pattern="getqr"))
+@borg.on(lightning_cmd(pattern="getqr"))
 async def _(event):
     if event.fwd_from:
         return
@@ -68,7 +68,7 @@ async def _(event):
     await event.edit(qr_contents)
 
 
-@borg.on(admin_cmd(pattern="makeqr ?(.*)"))
+@borg.on(lightning_cmd(pattern="makeqr ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

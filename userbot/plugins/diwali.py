@@ -6,10 +6,10 @@
 import asyncio
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd("hdd"))
+@borg.on(lightning_cmd("hdd"))
 async def _(event):
     if event.fwd_from:
         return
@@ -1268,7 +1268,7 @@ async def _(event):
         await event.edit(animation_chars[i % 6])
 
 
-@borg.on(admin_cmd("diwali"))
+@borg.on(lightning_cmd("diwali"))
 async def _(event):
     if event.fwd_from:
         return
@@ -1289,7 +1289,7 @@ async def _(event):
         await event.edit(animation_chars[i % 20])
 
 
-@borg.on(admin_cmd("dosto"))
+@borg.on(lightning_cmd("dosto"))
 async def _(event):
     if event.fwd_from:
         return

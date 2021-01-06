@@ -3,7 +3,7 @@ import time
 from userbot import ALIVE_NAME, CMD_HELP, Lastupdate
 from userbot.Config import Var
 from userbot.plugins import telever
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 
 
 # Functions
@@ -54,7 +54,7 @@ pm_caption += "➥ **Check Stats By Doing** `.stat`. \n\n"
 pm_caption += "[🇮🇳 Deploy 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤Userbot 🇮🇳](https://telegra.ph/FRIDAY-06-15)"
 
 
-@borg.on(admin_cmd(pattern=r"fralive"))
+@borg.on(lightning_cmd(pattern=r"fralive"))
 @borg.on(sudo_cmd(pattern=r"fralive", allow_sudo=True))
 async def friday(alive):
     await alive.get_chat()

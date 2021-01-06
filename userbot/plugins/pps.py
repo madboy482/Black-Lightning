@@ -14,7 +14,7 @@ from telethon.tl.functions.channels import *
 from telethon.tl.functions.photos import *
 from telethon.tl.types import *
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +23,7 @@ if 1 == 1:
     name = "Profile Photos"
     client = borg
 
-    @borg.on(admin_cmd(pattern="PPS(.*)"))
+    @borg.on(lightning_cmd(pattern="PPS(.*)"))
     async def PPScmd(event):
         #        """Gets the profile photos of replied users, channels or chats"""
         id = "".join(event.raw_text.split(maxsplit=2)[1:])

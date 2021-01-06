@@ -17,7 +17,7 @@ import os
 from glitch_this import ImageGlitcher
 from telethon.tl.types import MessageMediaPhoto
 
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 
 glitcher = ImageGlitcher()
 DURATION = 200  # Set this to however many centiseconds each frame should be visible for
@@ -28,7 +28,7 @@ if not os.path.isdir(sedpath):
     os.makedirs(sedpath)
 
 
-@borg.on(admin_cmd(pattern=r"glitch"))
+@borg.on(lightning_cmd(pattern=r"glitch"))
 @borg.on(sudo_cmd(pattern=r"glitch", allow_sudo=True))
 async def glitch(event):
     sed = await event.get_reply_message()

@@ -10,7 +10,7 @@ from asyncio import create_subprocess_exec as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
 
 from userbot.Config import Var
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 if not os.path.isdir("./SAVED"):
     os.makedirs("./SAVED")
@@ -18,7 +18,7 @@ if not os.path.isdir(Var.TEMP_DOWNLOAD_DIRECTORY):
     os.makedirs(Var.TEMP_DOWNLOAD_DIRECTORY)
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="pips(?: |$)(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="pips(?: |$)(.*)"))
 async def pipcheck(pip):
     pipmodule = pip.pattern_match.group(1)
     if pipmodule:
@@ -65,7 +65,7 @@ async def pipcheck(pip):
         await pip.edit("`Use .help system to see an example`")
 
 
-@borg.on(admin_cmd(pattern="suicide$"))
+@borg.on(lightning_cmd(pattern="suicide$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -101,7 +101,7 @@ async def _(event):
         await event.edit(OUTPUT)
 
 
-@borg.on(admin_cmd(pattern="plugins$"))
+@borg.on(lightning_cmd(pattern="plugins$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -137,7 +137,7 @@ async def _(event):
         await event.edit(OUTPUT)
 
 
-@borg.on(admin_cmd(pattern="date$"))
+@borg.on(lightning_cmd(pattern="date$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -173,7 +173,7 @@ async def _(event):
         await event.edit(OUTPUT)
 
 
-@borg.on(admin_cmd(pattern="env$"))
+@borg.on(lightning_cmd(pattern="env$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -209,7 +209,7 @@ async def _(event):
         await event.edit(OUTPUT)
 
 
-@borg.on(admin_cmd(pattern="fast$"))
+@borg.on(lightning_cmd(pattern="fast$"))
 async def _(event):
     await event.edit("calculating...")
     if event.fwd_from:
@@ -246,7 +246,7 @@ async def _(event):
         await event.edit(OUTPUT)
 
 
-@borg.on(admin_cmd(pattern="fortune$"))
+@borg.on(lightning_cmd(pattern="fortune$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -282,7 +282,7 @@ async def _(event):
         await event.edit(OUTPUT)
 
 
-@borg.on(admin_cmd(pattern="qquote$"))
+@borg.on(lightning_cmd(pattern="qquote$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -318,7 +318,7 @@ async def _(event):
         await event.edit(OUTPUT)
 
 
-@borg.on(admin_cmd(pattern="fakeid$"))
+@borg.on(lightning_cmd(pattern="fakeid$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -354,7 +354,7 @@ async def _(event):
         await event.edit(OUTPUT)
 
 
-@borg.on(admin_cmd(pattern="kwot$"))
+@borg.on(lightning_cmd(pattern="kwot$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -390,7 +390,7 @@ async def _(event):
         await event.edit(OUTPUT)
 
 
-@borg.on(admin_cmd(pattern="qpro$"))
+@borg.on(lightning_cmd(pattern="qpro$"))
 async def _(event):
     if event.fwd_from:
         return

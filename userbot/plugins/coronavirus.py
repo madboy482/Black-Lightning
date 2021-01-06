@@ -3,10 +3,10 @@ Syntax: .corona <country>"""
 
 from covid import Covid
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="corona (.*)"))
+@borg.on(lightning_cmd(pattern="corona (.*)"))
 async def _(event):
 
     covid = Covid()

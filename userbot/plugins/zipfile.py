@@ -3,10 +3,10 @@ import os
 import time
 import zipfile
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="compress ?(.*)"))
+@borg.on(lightning_cmd(pattern="compress ?(.*)"))
 async def _(event):
 
     if event.fwd_from:

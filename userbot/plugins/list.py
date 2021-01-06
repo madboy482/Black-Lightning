@@ -9,10 +9,10 @@ By:- @Zero_cool7870
 
 import os
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="ls ?(.*)"))
+@borg.on(lightning_cmd(pattern="ls ?(.*)"))
 async def lst(event):
     if event.fwd_from:
         return

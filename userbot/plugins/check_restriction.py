@@ -6,10 +6,10 @@
 .cr (.*)"""
 from telethon.tl.types import Channel, Chat, User
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="cr (.*)"))
+@borg.on(lightning_cmd(pattern="cr (.*)"))
 async def _(event):
     if event.fwd_from:
         return

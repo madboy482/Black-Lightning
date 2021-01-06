@@ -5,10 +5,10 @@
 Syntax: .ud Query"""
 import urbandict
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd("ud (.*)"))
+@borg.on(lightning_cmd("ud (.*)"))
 async def _(event):
     if event.fwd_from:
         return

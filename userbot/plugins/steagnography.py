@@ -4,14 +4,14 @@ from cryptosteganography import CryptoSteganography
 from telethon.tl.types import MessageMediaPhoto
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 
 sedpath = "./fridaydevs/"
 if not os.path.isdir(sedpath):
     os.makedirs(sedpath)
 
 
-@borg.on(admin_cmd(pattern=r"stegano ?(.*)"))
+@borg.on(lightning_cmd(pattern=r"stegano ?(.*)"))
 @borg.on(sudo_cmd(pattern=r"stegano ?(.*)", allow_sudo=True))
 async def hmm(event):
     if not event.reply_to_msg_id:
@@ -45,7 +45,7 @@ async def hmm(event):
             os.remove(files)
 
 
-@borg.on(admin_cmd(pattern=r"unstegano"))
+@borg.on(lightning_cmd(pattern=r"unstegano"))
 @borg.on(sudo_cmd(pattern=r"unstegano", allow_sudo=True))
 async def hmm(event):
     if not event.reply_to_msg_id:

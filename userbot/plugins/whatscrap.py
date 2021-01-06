@@ -1,8 +1,8 @@
 """Syntax: .whatscrapp as reply to a message copied from @WhatsCRApp"""
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="whatscrapp"))
+@borg.on(lightning_cmd(pattern="whatscrapp"))
 async def _(event):
     if event.fwd_from:
         return

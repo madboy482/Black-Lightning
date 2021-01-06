@@ -21,7 +21,7 @@ from PIL import Image, ImageDraw, ImageFont
 from pySmartDL import SmartDL
 from telethon.tl import functions
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 
@@ -44,7 +44,7 @@ TELEGRAPH_MEDIA_LINKS = [
 ]
 
 
-@borg.on(admin_cmd(pattern="survivorpfp ?(.*)"))
+@borg.on(lightning_cmd(pattern="survivorpfp ?(.*)"))
 async def autopic(event):
     while True:
         piclink = random.randint(0, len(TELEGRAPH_MEDIA_LINKS) - 1)

@@ -1,10 +1,10 @@
 import asyncio
 import random
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd("bigoof"))
+@borg.on(lightning_cmd("bigoof"))
 async def _(event):
     if event.fwd_from:
         return
@@ -28,7 +28,7 @@ async def _(event):
         await event.edit(animation_chars[i % 7])
 
 
-@borg.on(admin_cmd(pattern="g1 ?(.*)"))
+@borg.on(lightning_cmd(pattern="g1 ?(.*)"))
 async def payf(event):
     paytext = event.pattern_match.group(1)
     pay = "{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
@@ -156,7 +156,7 @@ async def payf(event):
     await event.edit(pay)
 
 
-@borg.on(admin_cmd(pattern="uff ?(.*)"))
+@borg.on(lightning_cmd(pattern="uff ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -182,7 +182,7 @@ async def _(event):
         await event.edit(animation_chars[i % 13])
 
 
-@borg.on(admin_cmd(pattern="ctext ?(.*)"))
+@borg.on(lightning_cmd(pattern="ctext ?(.*)"))
 async def payf(event):
     paytext = event.pattern_match.group(1)
     pay = "{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
@@ -202,7 +202,7 @@ async def payf(event):
     await event.edit(pay)
 
 
-@borg.on(admin_cmd(pattern="ftext ?(.*)"))
+@borg.on(lightning_cmd(pattern="ftext ?(.*)"))
 async def payf(event):
     paytext = event.pattern_match.group(1)
     pay = "{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
@@ -222,7 +222,7 @@ async def payf(event):
     await event.edit(pay)
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="kf$(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="kf$(.*)"))
 async def _(event):
     r = random.randint(0, 3)
     logger.debug(r)
@@ -233,7 +233,7 @@ async def _(event):
         await event.edit("╭━━━╮\n┃╭━━╯\n┃╰━━╮\n┃╭━━╯\n┃┃\n╰╯")
 
 
-@borg.on(admin_cmd(pattern="f (.*)"))
+@borg.on(lightning_cmd(pattern="f (.*)"))
 async def payf(e):
     paytext = e.pattern_match.group(1)
     pay = "{}\n{}\n{}\n{}\n{}\n{}\n{}".format(

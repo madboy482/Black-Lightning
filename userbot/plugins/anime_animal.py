@@ -3,7 +3,7 @@ MADE BY @Stark_TVL
 bug fixed by @Melloxd
 """
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 M = (
     "┈┈╱▔▔▔▔▔▔▔▔▔▔▔▏\n"
@@ -17,7 +17,7 @@ M = (
 )
 
 
-@borg.on(admin_cmd(pattern=r"spong"))
+@borg.on(lightning_cmd(pattern=r"spong"))
 async def kek(admin):
     await borg.edit(M)
 
@@ -33,7 +33,7 @@ async def kek(admin):
     )
 
 
-@borg.on(admin_cmd(pattern=r"dog"))
+@borg.on(lightning_cmd(pattern=r"dog"))
 async def dog(dog):
     await dog.edit(D)
     P = (
@@ -82,21 +82,21 @@ H = (
 )
 
 
-@borg.on(admin_cmd(pattern=r"fox"))
+@borg.on(lightning_cmd(pattern=r"fox"))
 async def fox(fox):
     await fox.edit(F)
 
 
-@borg.on(admin_cmd(pattern=r"elephant"))
+@borg.on(lightning_cmd(pattern=r"elephant"))
 async def elephant(elephant):
     await elephant.edit(E)
 
 
-@borg.on(admin_cmd(pattern=r"homer"))
+@borg.on(lightning_cmd(pattern=r"homer"))
 async def homer(homer):
     await homer.edit(H)
 
 
-@borg.on(admin_cmd(pattern=r"pig"))
+@borg.on(lightning_cmd(pattern=r"pig"))
 async def pig(pig):
     await pig.edit(P)

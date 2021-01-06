@@ -7,7 +7,7 @@ from telethon import events
 from telethon.tl import functions, types
 
 from userbot import ALIVE_NAME
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 global USER_night  # pylint:disable=E0602
 global night_time  # pylint:disable=E0602
@@ -46,7 +46,7 @@ async def set_not_night(event):
         night_time = None  # pylint:disable=E0602
 
 
-@borg.on(admin_cmd(pattern=r"night ?(.*)"))
+@borg.on(lightning_cmd(pattern=r"night ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

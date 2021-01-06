@@ -6,10 +6,10 @@ Available Commands:
 
 import asyncio
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd("gulli"))
+@borg.on(lightning_cmd("gulli"))
 async def _(event):
     if event.fwd_from:
         return

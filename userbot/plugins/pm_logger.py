@@ -10,7 +10,7 @@ from telethon import events
 
 from userbot import BOTLOG, BOTLOG_CHATID, bot
 from userbot.thunderconfig import Config
-from userbot.utils import admin_cmd, register
+from userbot.utils import lightning_cmd, register
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.WARN
@@ -60,7 +60,7 @@ async def monito_p_m_s(event):
                 print(e)
 
 
-@borg.on(admin_cmd(pattern="elog ?(.*)"))
+@borg.on(lightning_cmd(pattern="elog ?(.*)"))
 async def set_no_log_p_m(event):
     if Config.PM_LOGGR_BOT_API_ID is not None:
         event.pattern_match.group(1)
@@ -73,7 +73,7 @@ async def set_no_log_p_m(event):
                 await event.delete()
 
 
-@borg.on(admin_cmd(pattern="nlog ?(.*)"))
+@borg.on(lightning_cmd(pattern="nlog ?(.*)"))
 async def set_no_log_p_m(event):
     if Config.PM_LOGGR_BOT_API_ID is not None:
         event.pattern_match.group(1)

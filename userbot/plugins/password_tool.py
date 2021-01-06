@@ -17,12 +17,12 @@ from random import *
 
 from password_strength import PasswordStats
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="passcheck (.*)"))
+@borg.on(lightning_cmd(pattern="passcheck (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -41,7 +41,7 @@ async def _(event):
         )
 
 
-@borg.on(admin_cmd(pattern=r"passgen"))
+@borg.on(lightning_cmd(pattern=r"passgen"))
 async def hi(event):
     if event.fwd_from:
         return

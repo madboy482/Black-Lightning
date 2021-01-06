@@ -3,11 +3,11 @@ import asyncio
 import io
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
 # @command(pattern="^.cmds", outgoing=True)
-@borg.on(admin_cmd(pattern=r"cmds"))
+@borg.on(lightning_cmd(pattern=r"cmds"))
 async def install(event):
     if event.fwd_from:
         return

@@ -7,10 +7,10 @@ from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
 from userbot import CMD_HELP
 from userbot.plugins import BOTLOG, BOTLOG_CHATID
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import lightning_cmd, edit_or_reply, sudo_cmd
 
 
-@bot.on(admin_cmd(pattern="spam (.*)"))
+@bot.on(lightning_cmd(pattern="spam (.*)"))
 @bot.on(sudo_cmd(pattern="spam (.*)", allow_sudo=True))
 async def spammer(e):
     if e.fwd_from:
@@ -158,7 +158,7 @@ async def spammer(e):
         await edit_or_reply(e, "try again something went wrong or check `.info spam`")
 
 
-@bot.on(admin_cmd(pattern="bigspam (.*)"))
+@bot.on(lightning_cmd(pattern="bigspam (.*)"))
 async def bigspam(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         message = e.text
@@ -173,7 +173,7 @@ async def bigspam(e):
             )
 
 
-@bot.on(admin_cmd("wspam (.*)"))
+@bot.on(lightning_cmd("wspam (.*)"))
 @bot.on(sudo_cmd(pattern="wspam (.*)", allow_sudo=True))
 async def tmeme(e):
     wspam = str("".join(e.text.split(maxsplit=1)[1:]))
@@ -196,7 +196,7 @@ async def tmeme(e):
             )
 
 
-@bot.on(admin_cmd(pattern="mspam (.*)"))
+@bot.on(lightning_cmd(pattern="mspam (.*)"))
 async def tiny_pic_spam(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         message = e.text
@@ -212,7 +212,7 @@ async def tiny_pic_spam(e):
             )
 
 
-@bot.on(admin_cmd("delayspam (.*)"))
+@bot.on(lightning_cmd("delayspam (.*)"))
 async def spammer(e):
     spamDelay = float(e.pattern_match.group(1).split(" ", 2)[0])
     counter = int(e.pattern_match.group(1).split(" ", 2)[1])
@@ -227,7 +227,7 @@ async def spammer(e):
         )
 
 
-@bot.on(admin_cmd(pattern="spam (.*)"))
+@bot.on(lightning_cmd(pattern="spam (.*)"))
 @bot.on(sudo_cmd(pattern="spam (.*)", allow_sudo=True))
 async def spammer(e):
     if e.fwd_from:
@@ -375,7 +375,7 @@ async def spammer(e):
         await edit_or_reply(e, "try again something went wrong or check `.info spam`")
 
 
-@bot.on(admin_cmd(pattern="bigspam (.*)"))
+@bot.on(lightning_cmd(pattern="bigspam (.*)"))
 async def bigspam(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         message = e.text
@@ -390,7 +390,7 @@ async def bigspam(e):
             )
 
 
-@bot.on(admin_cmd("wspam (.*)"))
+@bot.on(lightning_cmd("wspam (.*)"))
 @bot.on(sudo_cmd(pattern="wspam (.*)", allow_sudo=True))
 async def tmeme(e):
     wspam = str("".join(e.text.split(maxsplit=1)[1:]))
@@ -413,7 +413,7 @@ async def tmeme(e):
             )
 
 
-@bot.on(admin_cmd(pattern="mspam (.*)"))
+@bot.on(lightning_cmd(pattern="mspam (.*)"))
 async def tiny_pic_spam(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         message = e.text
@@ -429,7 +429,7 @@ async def tiny_pic_spam(e):
             )
 
 
-@bot.on(admin_cmd("delayspam (.*)"))
+@bot.on(lightning_cmd("delayspam (.*)"))
 async def spammer(e):
     spamDelay = float(e.pattern_match.group(1).split(" ", 2)[0])
     counter = int(e.pattern_match.group(1).split(" ", 2)[1])

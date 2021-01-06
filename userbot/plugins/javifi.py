@@ -1,7 +1,7 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import ALIVE_NAME
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 naam = str(ALIVE_NAME)
 
@@ -10,7 +10,7 @@ bluebot = "@ceowhitehatcracks"
 freebot = "@ceowhitehatcracks"
 
 
-@borg.on(admin_cmd("jav ?(.*)"))
+@borg.on(lightning_cmd("jav ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

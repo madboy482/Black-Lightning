@@ -5,7 +5,7 @@ from telethon.tl.types import ChatBannedRights
 
 import userbot.plugins.sql_helper.antiflood_sql as sql
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 CHAT_FLOOD = sql.__load_flood_settings()
 # warn mode for anti flood
@@ -14,7 +14,7 @@ ANTI_FLOOD_WARN_MODE = ChatBannedRights(
 )
 
 
-@borg.on(admin_cmd(incoming=True))
+@borg.on(lightning_cmd(incoming=True))
 async def _(event):
     # logger.info(CHAT_FLOOD)
     if not CHAT_FLOOD:
@@ -58,7 +58,7 @@ because he reached the defined flood limit.""".format(
         )
 
 
-@borg.on(admin_cmd(pattern="setflood (.*)"))
+@borg.on(lightning_cmd(pattern="setflood (.*)"))
 async def _(event):
     if event.fwd_from:
         return

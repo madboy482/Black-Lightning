@@ -11,7 +11,7 @@ FONT_FILE_TO_USE = "Fonts/digital.ttf"
 
 
 @command(pattern="^.seconddp", outgoing=True)
-# @borg.on(admin_cmd(pattern=r"seconddp"))
+# @borg.on(lightning_cmd(pattern=r"seconddp"))
 async def seconddp(event):
     downloaded_file_name = "userbot/original_pic.png"
     downloader = SmartDL(

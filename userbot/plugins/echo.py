@@ -16,10 +16,10 @@ from userbot.plugins.sql_helper.echo_sql import (
     is_echo,
     remove_echo,
 )
-from userbot.utils import admin_cmd, edit_or_reply
+from userbot.utils import lightning_cmd, edit_or_reply
 
 
-@borg.on(admin_cmd(pattern="echoadd$"))
+@borg.on(lightning_cmd(pattern="echoadd$"))
 async def echo(krish):
     if krish.fwd_from:
         return
@@ -45,7 +45,7 @@ async def echo(krish):
         await edit_or_reply(krish, "Reply To A User's Message to echo his messages")
 
 
-@borg.on(admin_cmd(pattern="rmecho$"))
+@borg.on(lightning_cmd(pattern="rmecho$"))
 async def echo(krish):
     if krish.fwd_from:
         return
@@ -68,7 +68,7 @@ async def echo(krish):
         await edit_or_reply(krish, "Reply To A User's Message to echo his messages")
 
 
-@borg.on(admin_cmd(pattern="listecho$"))
+@borg.on(lightning_cmd(pattern="listecho$"))
 async def echo(krish):
     if krish.fwd_from:
         return

@@ -12,7 +12,7 @@ from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 
 from .. import LOGS, TEMP_DOWNLOAD_DIRECTORY
-from ..utils import admin_cmd, edit_or_reply
+from ..utils import lightning_cmd, edit_or_reply
 
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
@@ -32,12 +32,12 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 
-from userbot.utils import admin_cmd, edit_or_reply
+from userbot.utils import lightning_cmd, edit_or_reply
 
 from .. import LOGS, TEMP_DOWNLOAD_DIRECTORY
 
 
-@borg.on(admin_cmd(pattern="userinfo(?: |$)(.*)"))
+@borg.on(lightning_cmd(pattern="userinfo(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -128,7 +128,7 @@ async def get_full_user(event):
     return None, "No input is found"
 
 
-@borg.on(admin_cmd(pattern="whois(?: |$)(.*)"))
+@borg.on(lightning_cmd(pattern="whois(?: |$)(.*)"))
 async def who(event):
     cat = await edit_or_reply(
         event, "`Sit tight while I steal some data from This guuyyy...`"
@@ -242,7 +242,7 @@ async def fetch_info(replied_user, event):
     return photo, caption
 
 
-@borg.on(admin_cmd(pattern="link(?: |$)(.*)"))
+@borg.on(lightning_cmd(pattern="link(?: |$)(.*)"))
 async def permalink(mention):
     """ For .link command, generates a link to the user's PM with a custom text. """
     user, custom = await get_user_from_event(mention)

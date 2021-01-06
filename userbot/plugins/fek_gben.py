@@ -4,10 +4,10 @@
 
 import asyncio
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="fgben ?(.*)"))
+@borg.on(lightning_cmd(pattern="fgben ?(.*)"))
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit("Preparing to gban this nub nibba....")
@@ -101,7 +101,7 @@ async def _(event):
         )
 
 
-@borg.on(admin_cmd(pattern="fungben ?(.*)"))
+@borg.on(lightning_cmd(pattern="fungben ?(.*)"))
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit(

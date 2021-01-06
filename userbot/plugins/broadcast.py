@@ -9,12 +9,12 @@ from userbot.plugins.sql_helper.broadcast_sql import (
     get_all_chnnl,
     rm_channel,
 )
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 loggy_grp = Var.PRIVATE_GROUP_ID
 
 
-@borg.on(admin_cmd(pattern="badd ?(.*)"))
+@borg.on(lightning_cmd(pattern="badd ?(.*)"))
 async def _(event):
     input_chnnl = event.pattern_match.group(1)
     sed = 0
@@ -56,7 +56,7 @@ async def _(event):
         await borg.send_message(loggy_grp, f"Added {input_chnnl} To DB")
 
 
-@borg.on(admin_cmd(pattern="brm ?(.*)"))
+@borg.on(lightning_cmd(pattern="brm ?(.*)"))
 async def _(event):
     input_chnnl = event.pattern_match.group(1)
     all_chnnl = get_all_chnnl()
@@ -81,7 +81,7 @@ async def _(event):
         )
 
 
-@borg.on(admin_cmd(pattern="broadcast"))
+@borg.on(lightning_cmd(pattern="broadcast"))
 async def _(event):
     await event.edit("**Fine. Broadcasting in Progress. Kindly Wait !**")
     sedpath = Var.TMP_DOWNLOAD_DIRECTORY
@@ -137,7 +137,7 @@ async def _(event):
     )
 
 
-@borg.on(admin_cmd(pattern="bforward"))
+@borg.on(lightning_cmd(pattern="bforward"))
 async def _(event):
     all_chnnl = get_all_chnnl()
     if len(all_chnnl) == 0:
@@ -170,7 +170,7 @@ async def _(event):
     )
 
 
-@borg.on(admin_cmd(pattern="bstat"))
+@borg.on(lightning_cmd(pattern="bstat"))
 async def _(event):
     total_chnnl = get_all_chnnl()
     chnnl_list = ""

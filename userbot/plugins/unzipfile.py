@@ -14,7 +14,7 @@ from telethon.tl.types import DocumentAttributeVideo
 
 from userbot import CMD_HELP
 from userbot.Config import Var
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 thumb_image_path = Var.TEMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
 extracted = Var.TEMP_DOWNLOAD_DIRECTORY + "extracted/"
@@ -22,7 +22,7 @@ if not os.path.isdir(extracted):
     os.makedirs(extracted)
 
 
-@borg.on(admin_cmd(pattern="unzip"))
+@borg.on(lightning_cmd(pattern="unzip"))
 async def _(event):
     if event.fwd_from:
         return

@@ -24,7 +24,7 @@ from youtube_dl.utils import (
     XAttrMetadataError,
 )
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
 async def progress(current, total, event, start, type_of_ps, file_name=None):
@@ -86,7 +86,7 @@ def time_formatter(milliseconds: int) -> str:
     return tmp[:-2]
 
 
-@borg.on(admin_cmd(pattern="yt(a|v) (.*)"))
+@borg.on(lightning_cmd(pattern="yt(a|v) (.*)"))
 async def download_video(v_url):
     """ For .ytdl command, download media from YouTube and many other sites. """
     url = v_url.pattern_match.group(2)

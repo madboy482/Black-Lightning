@@ -2,10 +2,10 @@ from geopy.geocoders import Nominatim
 from telethon.tl import types
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="gps ?(.*)"))
+@borg.on(lightning_cmd(pattern="gps ?(.*)"))
 async def gps(event):
     if event.fwd_from:
         return

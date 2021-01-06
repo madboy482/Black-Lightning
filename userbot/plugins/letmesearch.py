@@ -20,10 +20,10 @@ Syntax:
 
 import requests
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="lmg (.*)"))
+@borg.on(lightning_cmd(pattern="lmg (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -42,7 +42,7 @@ async def _(event):
         await event.edit("Something went wrong. Please try again later.")
 
 
-@borg.on(admin_cmd(pattern="lmy (.*)"))
+@borg.on(lightning_cmd(pattern="lmy (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -63,7 +63,7 @@ async def _(event):
         await event.edit("Something went wrong. Please try again later.")
 
 
-@borg.on(admin_cmd(pattern="ddg (.*)"))
+@borg.on(lightning_cmd(pattern="ddg (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -84,7 +84,7 @@ async def _(event):
         await event.edit("Something went wrong. Please try again later.")
 
 
-@borg.on(admin_cmd(pattern="lmalt (.*)"))
+@borg.on(lightning_cmd(pattern="lmalt (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -103,7 +103,7 @@ async def _(event):
         await event.edit("Something went wrong. Please try again later.")
 
 
-@borg.on(admin_cmd(pattern="lmvar (.*)"))
+@borg.on(lightning_cmd(pattern="lmvar (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -124,7 +124,7 @@ async def _(event):
         await event.edit("Something went wrong. Please try again later.")
 
 
-@borg.on(admin_cmd(pattern="lmlog (.*)"))
+@borg.on(lightning_cmd(pattern="lmlog (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -143,7 +143,7 @@ async def _(event):
         await event.edit("Something went wrong. Please try again later.")
 
 
-@borg.on(admin_cmd(pattern="dyno(.*)"))
+@borg.on(lightning_cmd(pattern="dyno(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -162,7 +162,7 @@ async def _(event):
         await event.edit("Something went wrong. Please try again later.")
 
 
-@borg.on(admin_cmd(pattern="lmkp (.*)"))
+@borg.on(lightning_cmd(pattern="lmkp (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -181,7 +181,7 @@ async def _(event):
         await event.edit("Something went wrong. Please try again later.")
 
 
-@borg.on(admin_cmd(pattern="gem (.*)"))
+@borg.on(lightning_cmd(pattern="gem (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -200,7 +200,7 @@ async def _(event):
         await event.edit("Something went wrong. Please try again later.")
 
 
-@borg.on(admin_cmd(pattern="archive (.*)"))
+@borg.on(lightning_cmd(pattern="archive (.*)"))
 async def _(event):
     if event.fwd_from:
         return

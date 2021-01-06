@@ -1,5 +1,5 @@
 from userbot import ALIVE_NAME, CMD_HELP
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import lightning_cmd, edit_or_reply, sudo_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
 
@@ -8,7 +8,7 @@ USERID = bot.uid
 mention = f"[{DEFAULTUSER}](tg://user?id={USERID})"
 
 
-@borg.on(admin_cmd(pattern="carry (.*)"))
+@borg.on(lightning_cmd(pattern="carry (.*)"))
 @borg.on(sudo_cmd(pattern="carry (.*)", allow_sudo=True))
 async def kraken(carry):
     name = carry.pattern_match.group(1)
@@ -18,7 +18,7 @@ async def kraken(carry):
     )
 
 
-@borg.on(admin_cmd(pattern="ded (.*)"))
+@borg.on(lightning_cmd(pattern="ded (.*)"))
 @borg.on(sudo_cmd(pattern="ded (.*)", allow_sudo=True))
 async def kraken(ded):
     name = ded.pattern_match.group(1)
@@ -41,7 +41,7 @@ async def kraken(ded):
     )
 
 
-@borg.on(admin_cmd(pattern="killer (.*)"))
+@borg.on(lightning_cmd(pattern="killer (.*)"))
 @borg.on(sudo_cmd(pattern="killer (.*)", allow_sudo=True))
 async def kraken(killer):
     name = killer.pattern_match.group(1)
@@ -71,7 +71,7 @@ A = (
 )
 
 
-@borg.on(admin_cmd(pattern="sthink (.*)"))
+@borg.on(lightning_cmd(pattern="sthink (.*)"))
 @borg.on(sudo_cmd(pattern="sthink (.*)", allow_sudo=True))
 async def kraken(think):
     name = think.pattern_match.group(1)
@@ -96,7 +96,7 @@ async def kraken(think):
     await edit_or_reply(think, B)
 
 
-@borg.on(admin_cmd(pattern="sfrog (.*)"))
+@borg.on(lightning_cmd(pattern="sfrog (.*)"))
 @borg.on(sudo_cmd(pattern="sfrog (.*)", allow_sudo=True))
 async def kraken(frogsay):
     name = frogsay.pattern_match.group(1)
@@ -121,7 +121,7 @@ async def kraken(frogsay):
     await edit_or_reply(frogsay, C)
 
 
-@borg.on(admin_cmd(pattern="sdead (.*)"))
+@borg.on(lightning_cmd(pattern="sdead (.*)"))
 @borg.on(sudo_cmd(pattern="sdead (.*)", allow_sudo=True))
 async def kraken(deadfrog):
     name = deadfrog.pattern_match.group(1)
@@ -146,7 +146,7 @@ async def kraken(deadfrog):
     await edit_or_reply(deadfrog, D)
 
 
-@borg.on(admin_cmd(pattern="strump (.*)"))
+@borg.on(lightning_cmd(pattern="strump (.*)"))
 @borg.on(sudo_cmd(pattern="strump (.*)", allow_sudo=True))
 async def kraken(trumpsay):
     name = trumpsay.pattern_match.group(1)
@@ -171,7 +171,7 @@ async def kraken(trumpsay):
     await edit_or_reply(trumpsay, E)
 
 
-@borg.on(admin_cmd(pattern="schina (.*)"))
+@borg.on(lightning_cmd(pattern="schina (.*)"))
 @borg.on(sudo_cmd(pattern="schina (.*)", allow_sudo=True))
 async def kraken(ckmkb):
     name = ckmkb.pattern_match.group(1)
@@ -197,13 +197,13 @@ async def kraken(ckmkb):
     await edit_or_reply(ckmkb, F)
 
 
-@borg.on(admin_cmd(pattern=r"sshit$"))
+@borg.on(lightning_cmd(pattern=r"sshit$"))
 @borg.on(sudo_cmd(pattern="sshit$", allow_sudo=True))
 async def kraken(shit):
     await edit_or_reply(shit, A)
 
 
-@borg.on(admin_cmd(pattern=r"elove$"))
+@borg.on(lightning_cmd(pattern=r"elove$"))
 @borg.on(sudo_cmd(pattern="elove$", allow_sudo=True))
 async def kakashi(event):
     await edit_or_reply(
@@ -490,85 +490,85 @@ T = (
 )
 
 
-@borg.on(admin_cmd(pattern=r"monster$"))
+@borg.on(lightning_cmd(pattern=r"monster$"))
 @borg.on(sudo_cmd(pattern="monster$", allow_sudo=True))
 async def bluedevilmonster(monster):
     await edit_or_reply(monster, G)
 
 
-@borg.on(admin_cmd(pattern=r"pig$"))
+@borg.on(lightning_cmd(pattern=r"pig$"))
 @borg.on(sudo_cmd(pattern="pig$", allow_sudo=True))
 async def bluedevilpig(pig):
     await edit_or_reply(pig, H)
 
 
-@borg.on(admin_cmd(pattern=r"gun$"))
+@borg.on(lightning_cmd(pattern=r"gun$"))
 @borg.on(sudo_cmd(pattern="gun$", allow_sudo=True))
 async def bluedevilgun(gun):
     await edit_or_reply(gun, I)
 
 
-@borg.on(admin_cmd(pattern=r"dog$"))
+@borg.on(lightning_cmd(pattern=r"dog$"))
 @borg.on(sudo_cmd(pattern="dog$", allow_sudo=True))
 async def bluedevildog(dog):
     await edit_or_reply(dog, J)
 
 
-@borg.on(admin_cmd(pattern=r"hello$"))
+@borg.on(lightning_cmd(pattern=r"hello$"))
 @borg.on(sudo_cmd(pattern="hello$", allow_sudo=True))
 async def bluedevilhello(hello):
     await edit_or_reply(hello, K)
 
 
-@borg.on(admin_cmd(pattern=r"hmf$"))
+@borg.on(lightning_cmd(pattern=r"hmf$"))
 @borg.on(sudo_cmd(pattern="hmf$", allow_sudo=True))
 async def bluedevilhmf(hmf):
     await edit_or_reply(hmf, L)
 
 
-@borg.on(admin_cmd(pattern=r"couple$"))
+@borg.on(lightning_cmd(pattern=r"couple$"))
 @borg.on(sudo_cmd(pattern="couple$", allow_sudo=True))
 async def bluedevilcouple(couple):
     await edit_or_reply(couple, M)
 
 
-@borg.on(admin_cmd(pattern=r"sup$"))
+@borg.on(lightning_cmd(pattern=r"sup$"))
 @borg.on(sudo_cmd(pattern="sup$", allow_sudo=True))
 async def bluedevilsupreme(supreme):
     await edit_or_reply(supreme, N)
 
 
-@borg.on(admin_cmd(pattern=r"india$"))
+@borg.on(lightning_cmd(pattern=r"india$"))
 @borg.on(sudo_cmd(pattern="india$", allow_sudo=True))
 async def bluedevilindia(india):
     await edit_or_reply(india, O)
 
 
-@borg.on(admin_cmd(pattern=r"wc$"))
+@borg.on(lightning_cmd(pattern=r"wc$"))
 @borg.on(sudo_cmd(pattern="wc$", allow_sudo=True))
 async def bluedevilwelcome(welcome):
     await edit_or_reply(welcome, P)
 
 
-@borg.on(admin_cmd(pattern=r"snk$"))
+@borg.on(lightning_cmd(pattern=r"snk$"))
 @borg.on(sudo_cmd(pattern="snk$", allow_sudo=True))
 async def bluedevilsnake(snake):
     await edit_or_reply(snake, Q)
 
 
-@borg.on(admin_cmd(pattern=r"bye$"))
+@borg.on(lightning_cmd(pattern=r"bye$"))
 @borg.on(sudo_cmd(pattern="bye$", allow_sudo=True))
 async def bluedevilbye(bye):
     await edit_or_reply(bye, R)
 
 
-@borg.on(admin_cmd(pattern=r"shitos$"))
+@borg.on(lightning_cmd(pattern=r"shitos$"))
 @borg.on(sudo_cmd(pattern="shitos$", allow_sudo=True))
 async def bluedevilshitos(shitos):
     await edit_or_reply(shitos, S)
 
 
-@borg.on(admin_cmd(pattern=r"dislike$"))
+@borg.on(lightning_cmd(pattern=r"dislike$"))
 @borg.on(sudo_cmd(pattern="dislike$", allow_sudo=True))
 async def bluedevildislike(dislike):
     await edit_or_reply(dislike, T)

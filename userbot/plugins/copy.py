@@ -1,8 +1,8 @@
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 from userbot import CMD_HELP
 
 
-@borg.on(admin_cmd(pattern="cop"))
+@borg.on(lightning_cmd(pattern="cop"))
 async def _(event):
     if event.fwd_from:
         return

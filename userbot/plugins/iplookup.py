@@ -1,11 +1,11 @@
 import json
 import urllib.request
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 from userbot import CMD_HELP
 
 
-@borg.on(admin_cmd(pattern="iplookup (.*)"))
+@borg.on(lightning_cmd(pattern="iplookup (.*)"))
 async def _(event):
     if event.fwd_from:
         return

@@ -4,7 +4,7 @@ import asyncio
 
 from telethon.tl.types import InputMediaUploadedPhoto
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 from userbot.plugins.sql_helper.ghdb_sql import (
     add_channel,
     get_all_channels,
@@ -17,7 +17,7 @@ logs_id = Var.PRIVATE_GROUP_ID
 # Keep all credits pls, made with great effort by @HeisenbergTheDanger
 
 
-@borg.on(admin_cmd(pattern="forward ?(.*)"))
+@borg.on(lightning_cmd(pattern="forward ?(.*)"))
 async def forw(event):
     if event.fwd_from:
         return
@@ -65,7 +65,7 @@ async def forw(event):
             await event.edit("Set up log channel for checking errors.")
 
 
-@borg.on(admin_cmd(pattern="broadcast ?(.*)"))
+@borg.on(lightning_cmd(pattern="broadcast ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -181,7 +181,7 @@ async def _(event):
 # Written by @HeisenbergTheDanger
 
 
-@borg.on(admin_cmd(pattern="addchannel ?(.*)"))
+@borg.on(lightning_cmd(pattern="addchannel ?(.*)"))
 async def add_ch(event):
     if event.fwd_from:
         return
@@ -220,7 +220,7 @@ async def add_ch(event):
         await event.delete()
 
 
-@borg.on(admin_cmd(pattern="rmchannel ?(.*)"))
+@borg.on(lightning_cmd(pattern="rmchannel ?(.*)"))
 async def remove_ch(event):
     if event.fwd_from:
         return
@@ -248,7 +248,7 @@ async def remove_ch(event):
         await event.delete()
 
 
-@borg.on(admin_cmd(pattern="listchannels"))
+@borg.on(lightning_cmd(pattern="listchannels"))
 async def list(event):
     if event.fwd_from:
         return
@@ -273,7 +273,7 @@ async def list(event):
         await event.edit(msg)
 
 
-@borg.on(admin_cmd(pattern="search ?(.*)"))
+@borg.on(lightning_cmd(pattern="search ?(.*)"))
 async def search(event):
     channel_id = event.pattern_match.group(1)
     try:

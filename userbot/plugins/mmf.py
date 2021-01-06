@@ -7,14 +7,14 @@ import textwrap
 
 from PIL import Image, ImageDraw, ImageFont
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 from var import Var
 
 # how a lazy guy ports.
 client = borg
 
 
-@borg.on(admin_cmd("memify ?(.*)"))
+@borg.on(lightning_cmd("memify ?(.*)"))
 async def handler(event):
     if event.fwd_from:
         return

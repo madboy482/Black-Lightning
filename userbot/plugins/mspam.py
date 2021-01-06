@@ -1,7 +1,7 @@
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@bot.on(admin_cmd(pattern="mspam (.*)"))
+@bot.on(lightning_cmd(pattern="mspam (.*)"))
 async def tiny_pic_spam(e):
 
     sender = await e.get_sender()

@@ -10,7 +10,7 @@ import urllib
 import requests
 from telethon.tl import functions
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 AUTOPFP_PACK = os.environ.get("AUTOPFP_PACK", None)
 if AUTOPFP_PACK is None:
@@ -65,7 +65,7 @@ async def animepp():
     urllib.request.urlretrieve(fy, "donottouch.jpg")
 
 
-@borg.on(admin_cmd(pattern="ppr ?(.*)"))
+@borg.on(lightning_cmd(pattern="ppr ?(.*)"))
 async def main(event):
     await event.edit(
         "**Starting Profile Pic Runner by @Sur_vivor..**"

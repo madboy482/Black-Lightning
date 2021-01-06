@@ -10,10 +10,10 @@
 
 import asyncio
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd("unoob"))
+@borg.on(lightning_cmd("unoob"))
 async def _(event):
 
     if event.fwd_from:
@@ -44,7 +44,7 @@ async def _(event):
         await asyncio.sleep(animation_interval)
 
 
-@borg.on(admin_cmd("menoob"))
+@borg.on(lightning_cmd("menoob"))
 async def _(event):
 
     if event.fwd_from:
@@ -75,7 +75,7 @@ async def _(event):
         await asyncio.sleep(animation_interval)
 
 
-@borg.on(admin_cmd("upro"))
+@borg.on(lightning_cmd("upro"))
 async def _(event):
 
     if event.fwd_from:
@@ -105,7 +105,7 @@ async def _(event):
         await asyncio.sleep(animation_interval)
 
 
-@borg.on(admin_cmd("mepro"))
+@borg.on(lightning_cmd("mepro"))
 async def _(event):
 
     if event.fwd_from:

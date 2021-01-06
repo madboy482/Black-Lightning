@@ -1,9 +1,9 @@
 import asyncio
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="undlt"))
+@borg.on(lightning_cmd(pattern="undlt"))
 async def _(event):
     if event.fwd_from:
         return

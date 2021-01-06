@@ -49,7 +49,7 @@ from datetime import datetime
 from pathlib import Path
 
 
-from userbot.utils import admin_cmd, load_module, remove_plugin
+from userbot.utils import lightning_cmd, load_module, remove_plugin
 
 DELETE_TIMEOUT = 5
 
@@ -61,7 +61,7 @@ LIGHTNINGBOT = Var.TG_BOT_TOKEN_BF_HER
 
 
 
-@borg.on(admin_cmd(pattern="install"))
+@borg.on(lightning_cmd(pattern="install"))
 async def install(lightning):
     if lightning.fwd_from:
         return
@@ -94,7 +94,7 @@ async def install(lightning):
     await lightning.delete()
 
 
-@borg.on(admin_cmd(pattern=r"unload (?P<krish_blac>\w+)$"))
+@borg.on(lightning_cmd(pattern=r"unload (?P<krish_blac>\w+)$"))
 async def unload(lightning):
     if lightning.fwd_from:
         return
@@ -108,7 +108,7 @@ async def unload(lightning):
         )
 
 
-@borg.on(admin_cmd(pattern=r"load (?P<krish_blac>\w+)$"))
+@borg.on(lightning_cmd(pattern=r"load (?P<krish_blac>\w+)$"))
 async def load(lightning):
     if lightning.fwd_from:
         return
@@ -136,7 +136,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 
 
-@borg.on(admin_cmd(pattern="xnxx?(.*)"))
+@borg.on(lightning_cmd(pattern="xnxx?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -161,7 +161,7 @@ async def _(event):
             await event.client.send_file(event.chat_id, response.message)
 
 
-@borg.on(admin_cmd(pattern="picx?(.*)"))
+@borg.on(lightning_cmd(pattern="picx?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -186,7 +186,7 @@ async def _(event):
             await event.client.send_file(event.chat_id, response.message)
 
 
-@borg.on(admin_cmd(pattern="les?(.*)"))
+@borg.on(lightning_cmd(pattern="les?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

@@ -6,14 +6,14 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import ALIVE_NAME
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 naam = str(ALIVE_NAME)
 
 bot = "@MissRose_bot"
 
 
-@borg.on(admin_cmd("fstat ?(.*)"))
+@borg.on(lightning_cmd("fstat ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

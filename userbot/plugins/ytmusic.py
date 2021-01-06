@@ -5,10 +5,10 @@ import wget
 from youtubesearchpython import SearchVideos
 
 from userbot.Config import Var
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import lightning_cmd, edit_or_reply, sudo_cmd
 
 
-@borg.on(admin_cmd(pattern="ytmusic ?(.*)"))
+@borg.on(lightning_cmd(pattern="ytmusic ?(.*)"))
 @borg.on(sudo_cmd(pattern="ytmusic ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

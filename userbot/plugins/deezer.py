@@ -1,7 +1,7 @@
 import re
 
 from userbot import bot
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 IF_EMOJI = re.compile(
     "["
@@ -25,7 +25,7 @@ def deEmojify(inputString: str) -> str:
     return re.sub(IF_EMOJI, "", inputString)
 
 
-@borg.on(admin_cmd(pattern="deezer(?: |$)(.*)"))
+@borg.on(lightning_cmd(pattern="deezer(?: |$)(.*)"))
 async def nope(doit):
     ok = doit.pattern_match.group(1)
     if not ok:

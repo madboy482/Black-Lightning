@@ -8,7 +8,7 @@ from telethon.events import ChatAction
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.types import MessageEntityMentionName
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
 async def get_full_user(event):
@@ -53,7 +53,7 @@ async def get_user_from_id(user, event):
     return user_obj
 
 
-@borg.on(admin_cmd(pattern="gban ?(.*)"))
+@borg.on(lightning_cmd(pattern="gban ?(.*)"))
 async def gben(userbot):
     dc = userbot
     sender = await dc.get_sender()
@@ -117,7 +117,7 @@ async def gben(userbot):
     )
 
 
-@borg.on(admin_cmd(pattern="ungben ?(.*)"))
+@borg.on(lightning_cmd(pattern="ungben ?(.*)"))
 async def gunben(userbot):
     dc = userbot
     sender = await dc.get_sender()

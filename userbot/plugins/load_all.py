@@ -6,10 +6,10 @@ from pathlib import Path
 
 from telethon.tl.types import InputMessagesFilterDocument
 
-from ..utils import admin_cmd, load_module
+from ..utils import lightning_cmd, load_module
 
 
-@borg.on(admin_cmd(pattern=r"installall$"))
+@borg.on(lightning_cmd(pattern=r"installall$"))
 async def install(event):
     if event.fwd_from:
         return

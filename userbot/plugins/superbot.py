@@ -4,10 +4,10 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 import asyncio 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 from userbot import CMD_HELP
 
-@borg.on(admin_cmd(pattern="supbot?(.*)"))
+@borg.on(lightning_cmd(pattern="supbot?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -63,7 +63,7 @@ async def _(event):
 
 
 
-@borg.on(admin_cmd("command ?(.*)"))
+@borg.on(lightning_cmd("command ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

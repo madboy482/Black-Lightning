@@ -10,10 +10,10 @@ import asyncio
 
 from telethon import events
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern=r"fdance"))
+@borg.on(lightning_cmd(pattern=r"fdance"))
 async def _(event):
 
     if event.fwd_from:

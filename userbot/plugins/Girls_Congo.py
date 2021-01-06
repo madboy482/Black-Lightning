@@ -1,7 +1,7 @@
 import random
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import lightning_cmd, edit_or_reply, sudo_cmd
 
 RUNSREACTS = [
     "`Congratulations and BRAVO SIS!`",
@@ -17,7 +17,7 @@ RUNSREACTS = [
 ]
 
 
-@borg.on(admin_cmd(pattern="Gcongo"))
+@borg.on(lightning_cmd(pattern="Gcongo"))
 @borg.on(sudo_cmd(pattern="Gcongo", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

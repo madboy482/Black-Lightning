@@ -17,7 +17,7 @@ from var import Var
 # Parse config file to get the API key
 config = configparser.ConfigParser()
 config.read("pokebot.cfg")
-from userbot import admin_cmd
+from userbot import lightning_cmd
 TOKEN = Var.TG_BOT_TOKEN_BF_HER
 
 # Declare bot
@@ -65,7 +65,7 @@ def join_action(message):
 
 
 # Message handler for when a user will /catch a pokemon
-@bot.on(admin_cmd("pokecatch ?(.*)"))
+@bot.on(lightning_cmd("pokecatch ?(.*)"))
 def send_catch_action(message):
     db = TinyDbInterface()
     global active
@@ -101,7 +101,7 @@ def send_catch_action(message):
 
 
 # Message handler for when a user will /check all pokemon
-@bot.on(admin_cmd("pokedex ?(.*)"))
+@bot.on(lightning_cmd("pokedex ?(.*)"))
 def send_pokedex_action(message):
     pokedex = ''
     db = TinyDbInterface()
@@ -128,7 +128,7 @@ def send_pokedex_action(message):
 
 
 # Message handler for when a user will /join the pokemon ...quest? .......
-@bot.on(admin_cmd("pokespawn ?(.*)"))
+@bot.on(lightning_cmd("pokespawn ?(.*)"))
 def force_appear(message):
     db = TinyDbInterface()
     global curPokemon

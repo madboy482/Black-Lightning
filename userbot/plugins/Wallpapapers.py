@@ -7,7 +7,7 @@ import urllib
 import requests
 from telethon.tl import functions
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 AUTOPFP_PACK = os.environ.get("AUTOPFP_PACK", None)
 if AUTOPFP_PACK is None:
@@ -62,7 +62,7 @@ async def animepp():
     urllib.request.urlretrieve(fy, "donottouch.jpg")
 
 
-@borg.on(admin_cmd(pattern="wallpapers ?(.*)"))
+@borg.on(lightning_cmd(pattern="wallpapers ?(.*)"))
 async def main(event):
     await event.edit("**uploading wallpapers \ndone check ur DP.**")
     while True:

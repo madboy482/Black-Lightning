@@ -1,7 +1,7 @@
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="ttf ?(.*)"))
+@borg.on(lightning_cmd(pattern="ttf ?(.*)"))
 async def get(event):
     name = event.text[5:]
     m = await event.get_reply_message()

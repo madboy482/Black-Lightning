@@ -6,10 +6,10 @@ built by @r4v4n4 , isse bhi loot lo betichod"""
 
 import asyncio
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern=r"isro"))
+@borg.on(lightning_cmd(pattern=r"isro"))
 async def _(event):
 
     if event.fwd_from:

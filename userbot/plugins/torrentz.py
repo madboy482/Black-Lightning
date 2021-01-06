@@ -6,11 +6,11 @@ import cfscrape  # https://github.com/Anorov/cloudflare-scrape
 import requests
 from bs4 import BeautifulSoup
 
-from userbot.utils import admin_cmd, humanbytes
+from userbot.utils import lightning_cmd, humanbytes
 
 
 @borg.on(
-    admin_cmd(pattern="movie (torrentz2\.eu|idop\.se) (.*)")  # pylint:disable=E0602
+    lightning_cmd(pattern="movie (torrentz2\.eu|idop\.se) (.*)")  # pylint:disable=E0602
 )
 async def _(event):
     if event.fwd_from:

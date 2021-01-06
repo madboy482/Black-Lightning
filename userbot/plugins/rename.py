@@ -7,14 +7,14 @@ import os
 import time
 from datetime import datetime
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 from userbot import CMD_HELP
 from userbot.Config import Var
 
 thumb_image_path = Var.TEMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
 
 
-@borg.on(admin_cmd(pattern="rnupload (.*)"))
+@borg.on(lightning_cmd(pattern="rnupload (.*)"))
 async def _(event):
     if event.fwd_from:
         return

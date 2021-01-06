@@ -15,7 +15,7 @@ from userbot.tweet import (
     moditweet,
     sunnytweet,
 )
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 EMOJI_PATTERN = re.compile(
     "["
@@ -93,7 +93,7 @@ async def purge():
 
 
 # @register(outgoing=True, pattern=r"^\.trump(?: |$)(.*)")
-@borg.on(admin_cmd(outgoing=True, pattern="trump ?(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="trump ?(.*)"))
 async def trump(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -115,7 +115,7 @@ async def trump(event):
 
 
 # @register(outgoing=True, pattern=r"^\.johnny(?: |$)(.*)")
-@borg.on(admin_cmd(outgoing=True, pattern="johnny ?(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="johnny ?(.*)"))
 async def johnny(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -137,7 +137,7 @@ async def johnny(event):
 
 
 # @register(outgoing=True, pattern=r"^\.bhau(?: |$)(.*)")
-@borg.on(admin_cmd(outgoing=True, pattern="bhau ?(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="bhau ?(.*)"))
 async def bhau(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -159,7 +159,7 @@ async def bhau(event):
 
 
 # @register(outgoing=True, pattern=r"^\.sunny(?: |$)(.*)")
-@borg.on(admin_cmd(outgoing=True, pattern="sunny ?(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="sunny ?(.*)"))
 async def sunny(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -181,7 +181,7 @@ async def sunny(event):
 
 
 # @register(outgoing=True, pattern=r"^\.joker(?: |$)(.*)")
-@borg.on(admin_cmd(outgoing=True, pattern="joker ?(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="joker ?(.*)"))
 async def j(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -203,7 +203,7 @@ async def j(event):
 
 
 # @register(outgoing=True, pattern=r"^\.modi(?: |$)(.*)")
-@borg.on(admin_cmd(outgoing=True, pattern="modi ?(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="modi ?(.*)"))
 async def modi(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -225,7 +225,7 @@ async def modi(event):
 
 
 # @register(outgoing=True, pattern=r"^\.mia(?: |$)(.*)")
-@borg.on(admin_cmd(outgoing=True, pattern="mia ?(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="mia ?(.*)"))
 async def mia(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -247,7 +247,7 @@ async def mia(event):
 
 
 # @register(outgoing=True, pattern=r"^\.cmm(?: |$)(.*)")
-@borg.on(admin_cmd(outgoing=True, pattern="cmm ?(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="cmm ?(.*)"))
 async def cmm(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -269,7 +269,7 @@ async def cmm(event):
 
 
 # @register(outgoing=True, pattern="^.type(?: |$)(.*)")
-@borg.on(admin_cmd(outgoing=True, pattern="type ?(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="type ?(.*)"))
 async def type(animu):
     # """Generate random waifu sticker with the text!"""
 
@@ -318,7 +318,7 @@ async def type(animu):
 # @register(outgoing=True, pattern="^.waifu(?: |$)(.*)")
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="waifu ?(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="waifu ?(.*)"))
 async def waifu(danish):
     # """Generate random waifu sticker with the text!"""
 
@@ -343,7 +343,7 @@ async def waifu(danish):
 
 
 # @register(outgoing=True, pattern=r"\.tweet(?: |$)(.*)")
-@borg.on(admin_cmd(outgoing=True, pattern="tweet ?(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="tweet ?(.*)"))
 async def tweet(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -372,7 +372,7 @@ async def tweet(event):
     await purge()
 
 
-@borg.on(admin_cmd(pattern="tweetme(?: |$)(.*)"))
+@borg.on(lightning_cmd(pattern="tweetme(?: |$)(.*)"))
 async def tweetme(okie):
     # """Creates random anime sticker!"""
     what = okie.pattern_match.group(1)

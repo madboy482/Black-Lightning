@@ -3,10 +3,10 @@ Syntax: .filext EXTENSION"""
 import requests
 from bs4 import BeautifulSoup
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="filext (.*)"))
+@borg.on(lightning_cmd(pattern="filext (.*)"))
 async def _(event):
     if event.fwd_from:
         return

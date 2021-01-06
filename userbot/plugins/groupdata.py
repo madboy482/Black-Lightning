@@ -20,10 +20,10 @@ from telethon.tl.types import ChannelParticipantsAdmins, MessageActionChannelMig
 from telethon.utils import get_input_location
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd, errors_handler
+from userbot.utils import lightning_cmd, errors_handler
 
 
-@borg.on(admin_cmd(pattern="leave$"))
+@borg.on(lightning_cmd(pattern="leave$"))
 async def leave(e):
     await e.edit("`Legend is leaving this chat.....!Goodbye aren't forever..` ")
     time.sleep(3)
@@ -33,7 +33,7 @@ async def leave(e):
         await e.edit("`Sar This is Not A Chat`")
 
 
-@borg.on(admin_cmd(pattern="chinfo(?: |$)(.*)", outgoing=True))
+@borg.on(lightning_cmd(pattern="chinfo(?: |$)(.*)", outgoing=True))
 async def info(event):
     await event.edit("`Weit lemme analyze the chat`")
     chat = await get_chatinfo(event)
@@ -304,7 +304,7 @@ async def fetch_info(chat, event):
     return caption
 
 
-@borg.on(admin_cmd(pattern="adminlist", outgoing=True))
+@borg.on(lightning_cmd(pattern="adminlist", outgoing=True))
 @errors_handler
 async def get_admin(show):
     """ For .admins command, list all of the admins of the chat. """
@@ -326,7 +326,7 @@ async def get_admin(show):
     await show.edit(mentions, parse_mode="html")
 
 
-@borg.on(admin_cmd(pattern=r"users ?(.*)", outgoing=True))
+@borg.on(lightning_cmd(pattern=r"users ?(.*)", outgoing=True))
 async def get_users(show):
     if not show.is_group:
         await show.edit("Are you sure this is a group?")

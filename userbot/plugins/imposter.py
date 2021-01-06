@@ -2,12 +2,12 @@ import asyncio
 
 from userbot import ALIVE_NAME, CMD_HELP
 
-from ..utils import admin_cmd, edit_or_reply, sudo_cmd
+from ..utils import lightning_cmd, edit_or_reply, sudo_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "cat"
 
 
-@bot.on(admin_cmd(pattern="imp(|n) (.*)", outgoing=True))
+@bot.on(lightning_cmd(pattern="imp(|n) (.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="imp(|n) (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -94,7 +94,7 @@ async def _(event):
         await event.client.send_file(event.chat_id, "CAADAQADQAADnjOcH-WOkB8DEctJAg")
 
 
-@bot.on(admin_cmd(pattern="timp(|n) (.*)", outgoing=True))
+@bot.on(lightning_cmd(pattern="timp(|n) (.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="timp(|n) (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

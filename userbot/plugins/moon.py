@@ -13,10 +13,10 @@ Available Commands:
 
 import asyncio
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern=r"smoon"))
+@borg.on(lightning_cmd(pattern=r"smoon"))
 async def _(event):
 
     if event.fwd_from:
@@ -51,7 +51,7 @@ async def _(event):
         await event.edit(animation_chars[i % 8])
 
 
-@borg.on(admin_cmd(pattern=r"tmoon"))
+@borg.on(lightning_cmd(pattern=r"tmoon"))
 async def _(event):
 
     if event.fwd_from:

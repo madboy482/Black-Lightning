@@ -10,7 +10,7 @@ from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
 def progress(current, total):
@@ -21,7 +21,7 @@ def progress(current, total):
     )
 
 
-@borg.on(admin_cmd(pattern="gs (.*)"))
+@borg.on(lightning_cmd(pattern="gs (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -53,7 +53,7 @@ async def _(event):
     )
 
 
-@borg.on(admin_cmd(pattern="grs"))
+@borg.on(lightning_cmd(pattern="grs"))
 async def _(event):
     if event.fwd_from:
         return

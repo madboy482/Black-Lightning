@@ -7,7 +7,7 @@ import os
 
 import aria2p
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 cmd = "aria2c --enable-rpc --rpc-listen-all=false --rpc-listen-port 6800  --max-connection-per-server=10 --rpc-max-request-size=1024M --seed-time=0.01 --min-split-size=10M --follow-torrent=mem --split=10 --daemon=true"
 
@@ -18,7 +18,7 @@ aria2 = aria2p.API(aria2p.Client(host="http://localhost", port=6800, secret=""))
 EDIT_SLEEP_TIME_OUT = 10
 
 
-@borg.on(admin_cmd(pattern="fdownload ?(.*)"))
+@borg.on(lightning_cmd(pattern="fdownload ?(.*)"))
 async def magnet_download(event):
     if event.fwd_from:
         return

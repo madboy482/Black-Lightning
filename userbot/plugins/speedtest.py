@@ -5,10 +5,10 @@ from datetime import datetime
 
 import speedtest
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd("speedtest ?(.*)"))
+@borg.on(lightning_cmd("speedtest ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

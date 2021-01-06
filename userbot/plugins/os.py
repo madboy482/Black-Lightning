@@ -1,9 +1,9 @@
 import asyncio
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern=r"macos"))
+@borg.on(lightning_cmd(pattern=r"macos"))
 async def _(event):
 
     if event.fwd_from:
@@ -37,7 +37,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@borg.on(admin_cmd(pattern=r"windows"))
+@borg.on(lightning_cmd(pattern=r"windows"))
 async def _(event):
 
     if event.fwd_from:
@@ -71,7 +71,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@borg.on(admin_cmd(pattern=r"linux"))
+@borg.on(lightning_cmd(pattern=r"linux"))
 async def _(event):
 
     if event.fwd_from:
@@ -105,7 +105,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@borg.on(admin_cmd(pattern=r"stock"))
+@borg.on(lightning_cmd(pattern=r"stock"))
 async def _(event):
 
     if event.fwd_from:
@@ -139,7 +139,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@borg.on(admin_cmd(pattern=r"os"))
+@borg.on(lightning_cmd(pattern=r"os"))
 async def _(event):
 
     if event.fwd_from:

@@ -5,7 +5,7 @@ import time
 
 from userbot import ALIVE_NAME, Lastupdate
 from userbot.plugins import currentversion
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 
 FRI_IMAGE = os.environ.get("FRI_IMAGE", None)
 if FRI_IMAGE is None:
@@ -64,7 +64,7 @@ pm_caption += (
 )
 
 
-@borg.on(admin_cmd(pattern=r"falive"))
+@borg.on(lightning_cmd(pattern=r"falive"))
 @borg.on(sudo_cmd(pattern=r"falive", allow_sudo=True))
 async def friday(falive):
     await falive.get_chat()

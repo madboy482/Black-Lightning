@@ -15,13 +15,13 @@ from urllib import parse
 
 import requests
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 BASE_URL = "https://headp.at/pats/{}"
 PAT_IMAGE = "pat.jpg"
 
 
-@borg.on(admin_cmd(pattern="pat ?(.*)", outgoing=True))
+@borg.on(lightning_cmd(pattern="pat ?(.*)", outgoing=True))
 async def lastfm(event):
     if event.fwd_from:
         return

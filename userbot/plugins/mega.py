@@ -34,7 +34,7 @@ from pySmartDL import SmartDL
 
 from userbot import CMD_HELP, LOGS
 from userbot.Config import Var
-from userbot.utils import admin_cmd, humanbytes, time_formatter
+from userbot.utils import lightning_cmd, humanbytes, time_formatter
 
 TEMP_DOWNLOAD_DIRECTORY = Var.TEMP_DOWNLOAD_DIRECTORY
 
@@ -54,7 +54,7 @@ async def subprocess_run(megadl, cmd):
     return stdout.decode().strip(), stderr.decode().strip(), exitCode
 
 
-@borg.on(admin_cmd(outgoing=True, pattern=r"mega(?: |$)(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern=r"mega(?: |$)(.*)"))
 async def mega_downloader(megadl):
     await megadl.edit("`Collecting information...`")
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):

@@ -1,10 +1,10 @@
 """.admin Plugin for @UniBorg"""
 from telethon.tl.types import ChannelParticipantsAdmins
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd("warn1"))
+@borg.on(lightning_cmd("warn1"))
 async def _(event):
     if event.fwd_from:
         return
@@ -26,10 +26,10 @@ async def _(event):
 """.admin Plugin for @UniBorg"""
 from telethon.tl.types import ChannelParticipantsAdmins
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd("warn2"))
+@borg.on(lightning_cmd("warn2"))
 async def _(event):
     if event.fwd_from:
         return
@@ -51,10 +51,10 @@ async def _(event):
 """.admin Plugin for @UniBorg"""
 from telethon.tl.types import ChannelParticipantsAdmins
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd("warn3"))
+@borg.on(lightning_cmd("warn3"))
 async def _(event):
     if event.fwd_from:
         return
@@ -74,10 +74,10 @@ async def _(event):
 """.admin Plugin for @UniBorg"""
 from telethon.tl.types import ChannelParticipantsAdmins
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd("warn0"))
+@borg.on(lightning_cmd("warn0"))
 async def _(event):
     if event.fwd_from:
         return
@@ -97,10 +97,10 @@ async def _(event):
 """.admin Plugin for @UniBorg"""
 from telethon.tl.types import ChannelParticipantsAdmins
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd("ocb"))
+@borg.on(lightning_cmd("ocb"))
 async def _(event):
     if event.fwd_from:
         return
@@ -117,7 +117,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd("fw"))
+@borg.on(lightning_cmd("fw"))
 async def _(event):
     if event.fwd_from:
         return

@@ -7,7 +7,7 @@ import urllib
 import requests
 from telethon.tl import functions
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 COLLECTION_STRINGZ = ["hacker-background"]
 
@@ -40,7 +40,7 @@ async def animepp():
     urllib.request.urlretrieve(fy, "donottouch.jpg")
 
 
-@borg.on(admin_cmd(pattern="hacker ?(.*)"))
+@borg.on(lightning_cmd(pattern="hacker ?(.*)"))
 async def main(event):
 
     await event.edit(

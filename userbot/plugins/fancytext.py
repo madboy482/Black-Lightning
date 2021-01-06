@@ -5,10 +5,10 @@
 
 import asyncio
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="mst ?(.*)"))
+@borg.on(lightning_cmd(pattern="mst ?(.*)"))
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit("mst hu bbro ")
@@ -16,7 +16,7 @@ async def _(event):
         await event.edit("╔═╦═╗╔══╗╔══╗\n║║║║║║══╣╚╗╔╝\n║║║║║╠══║─║║─\n╚╩═╩╝╚══╝─╚╝─")
 
 
-@borg.on(admin_cmd(pattern="gmg ?(.*)"))
+@borg.on(lightning_cmd(pattern="gmg ?(.*)"))
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit("good morning ")
@@ -24,7 +24,7 @@ async def _(event):
         await event.edit("╔══╗╔═╦═╗\n║╔═╣║║║║║\n║╚╗║║║║║║\n╚══╝╚╩═╩╝")
 
 
-@borg.on(admin_cmd(pattern="good ?(.*)"))
+@borg.on(lightning_cmd(pattern="good ?(.*)"))
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit(
@@ -32,7 +32,7 @@ async def _(event):
         )
 
 
-@borg.on(admin_cmd(pattern="hhlo ?(.*)"))
+@borg.on(lightning_cmd(pattern="hhlo ?(.*)"))
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit("hello,how r u")
@@ -40,7 +40,7 @@ async def _(event):
         await event.edit("╔╗╔╗╔╗─╔═╗\n║╚╝║║║─║║║\n║╔╗║║╚╗║║║\n╚╝╚╝╚═╝╚═╝")
 
 
-@borg.on(admin_cmd(pattern="sry ?(.*)"))
+@borg.on(lightning_cmd(pattern="sry ?(.*)"))
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit("i'm sorry")
@@ -52,7 +52,7 @@ async def _(event):
         )
 
 
-@borg.on(admin_cmd(pattern="thnq ?(.*)"))
+@borg.on(lightning_cmd(pattern="thnq ?(.*)"))
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit("thanks for your help")
@@ -62,13 +62,13 @@ async def _(event):
         )
 
 
-@borg.on(admin_cmd(pattern="ok ?(.*)"))
+@borg.on(lightning_cmd(pattern="ok ?(.*)"))
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit("▒▐█▀▀█▌▒▐█▒▐▀\n▒▐█▄▒█▌▒▐██▌░\n▒▐██▄█▌▒▐█▒▐▄")
 
 
-@borg.on(admin_cmd(pattern="smile ?(.*)"))
+@borg.on(lightning_cmd(pattern="smile ?(.*)"))
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit("how sad ")
@@ -78,7 +78,7 @@ async def _(event):
         )
 
 
-@borg.on(admin_cmd(pattern="lal ?(.*)"))
+@borg.on(lightning_cmd(pattern="lal ?(.*)"))
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit("╔╗─╔═╗╔╗─\n║╚╗║╬║║╚╗\n╚═╝╚═╝╚═╝")

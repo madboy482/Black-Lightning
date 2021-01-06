@@ -8,14 +8,14 @@ import asyncio
 import random
 
 from userbot import ALIVE_NAME
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "@pyforub"
 
 sawan = bot.uid
 
 
-@bot.on(admin_cmd(pattern=r"plove$", outgoing=True))
+@bot.on(lightning_cmd(pattern=r"plove$", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -60,7 +60,7 @@ async def _(event):
         )
 
 
-@bot.on(admin_cmd(pattern=r"psad$", outgoing=True))
+@bot.on(lightning_cmd(pattern=r"psad$", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return

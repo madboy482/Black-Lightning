@@ -18,7 +18,7 @@ from faker.providers import internet
 from userbot import CMD_HELP
 
 
-@borg.on(admin_cmd(pattern=r"fakegen"))
+@borg.on(lightning_cmd(pattern=r"fakegen"))
 async def hi(event):
     if event.fwd_from:
         return

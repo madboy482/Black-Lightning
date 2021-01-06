@@ -38,7 +38,7 @@ KANGING_STR = [
 lightning = Var.CUSTOM_STICKER_PACK_NAME
 
 
-@bot.on(admin_cmd(outgoing=True, pattern="kang"))
+@bot.on(lightning_cmd(outgoing=True, pattern="kang"))
 @bot.on(sudo_cmd(pattern="kang", allow_sudo=True))
 async def kang(args):
     """ For .kang command, kangs stickers or creates new ones. """
@@ -293,7 +293,7 @@ async def resize_photo(photo):
     return image
 
 
-@bot.on(admin_cmd(outgoing=True, pattern="stkrinfo"))
+@bot.on(lightning_cmd(outgoing=True, pattern="stkrinfo"))
 @bot.on(sudo_cmd(pattern="stkrinfo", allow_sudo=True))
 async def get_pack_info(event):
     if not event.is_reply:

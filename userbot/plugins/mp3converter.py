@@ -6,10 +6,10 @@ import os
 import time
 from datetime import datetime
 
-from userbot.utils import admin_cmd, progress
+from userbot.utils import lightning_cmd, progress
 
 
-@borg.on(admin_cmd(pattern="convert (.*)"))  # pylint:disable=E0602
+@borg.on(lightning_cmd(pattern="convert (.*)"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return

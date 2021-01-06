@@ -22,10 +22,10 @@ from datetime import datetime
 import requests
 
 from userbot.Config import Var
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd("rmbg ?(.*)"))
+@borg.on(lightning_cmd("rmbg ?(.*)"))
 async def _(event):
     HELP_STR = (
         "`.rmbg` as reply to a media, or give a link as an argument to this command"

@@ -3,10 +3,10 @@
 
 import asyncio
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="eye"))
+@borg.on(lightning_cmd(pattern="eye"))
 async def _(event):
 
     if event.fwd_from:

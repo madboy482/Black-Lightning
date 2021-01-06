@@ -13,10 +13,10 @@ import aiohttp
 import magic
 import requests
 
-from uniborg.util import admin_cmd, progress
+from uniborg.util import lightning_cmd, progress
 
 
-@borg.on(admin_cmd(pattern="verystream ?(.*)", allow_sudo=True))
+@borg.on(lightning_cmd(pattern="verystream ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

@@ -22,7 +22,7 @@ from youtube_dl.utils import (
     XAttrMetadataError,
 )
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 from userbot.utils import progress
 
 try:
@@ -91,7 +91,7 @@ def time_formatter(milliseconds: int) -> str:
     return tmp[:-2]
 
 
-@borg.on(admin_cmd(pattern="vsong (.*)"))
+@borg.on(lightning_cmd(pattern="vsong (.*)"))
 async def download_video(v_url):
     pro = v_url
     sender = await pro.get_sender()

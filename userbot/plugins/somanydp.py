@@ -11,7 +11,7 @@ FONT_FILE_TO_USE = "Fonts/digital.ttf"
 
 
 @command(pattern="^.somanydp", outgoing=True)
-# @borg.on(admin_cmd(pattern=r"somanydp"))
+# @borg.on(lightning_cmd(pattern=r"somanydp"))
 async def somanydp(event):
     downloaded_file_name = "userbot/original_pic.png"
     downloader = SmartDL(

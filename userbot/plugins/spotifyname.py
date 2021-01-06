@@ -20,7 +20,7 @@ from telethon import events
 from telethon.tl.functions.account import UpdateProfileRequest
 
 from userbot.Config import Var
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 # =================== CONSTANT ===================
 SPO_BIO_ENABLED = "```Spotify Current Music to Name enabled.```"
@@ -114,7 +114,7 @@ async def dirtyfix():
     await update_spotify_info()
 
 
-@borg.on(admin_cmd(pattern=f"ensp", allow_sudo=True))
+@borg.on(lightning_cmd(pattern=f"ensp", allow_sudo=True))
 @borg.on(events.NewMessage(pattern=r"\.ensp ?(.*)", outgoing=True))
 async def set_biostgraph(setstbio):
     setrecursionlimit(700000)
@@ -127,7 +127,7 @@ async def set_biostgraph(setstbio):
         await setstbio.edit(SPO_BIO_RUNNING)
 
 
-@borg.on(admin_cmd(pattern=f"disp", allow_sudo=True))
+@borg.on(lightning_cmd(pattern=f"disp", allow_sudo=True))
 @borg.on(events.NewMessage(pattern=r"\.disp ?(.*)", outgoing=True))
 async def set_biodgraph(setdbio):
     global SPOTIFYCHECK

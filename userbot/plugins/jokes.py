@@ -5,10 +5,10 @@ import random
 from telethon.tl.types import ChannelParticipantsAdmins
 
 from userbot import LOGS
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="join"))
+@borg.on(lightning_cmd(pattern="join"))
 async def _(event):
     if event.fwd_from:
         return
@@ -25,7 +25,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern="pay"))
+@borg.on(lightning_cmd(pattern="pay"))
 async def _(event):
     if event.fwd_from:
         return
@@ -42,7 +42,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern="climb"))
+@borg.on(lightning_cmd(pattern="climb"))
 async def _(event):
     if event.fwd_from:
         return
@@ -59,7 +59,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern="aag"))
+@borg.on(lightning_cmd(pattern="aag"))
 async def _(event):
     if event.fwd_from:
         return
@@ -76,7 +76,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern="push"))
+@borg.on(lightning_cmd(pattern="push"))
 async def _(event):
     if event.fwd_from:
         return
@@ -93,7 +93,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern="work"))
+@borg.on(lightning_cmd(pattern="work"))
 async def _(event):
     if event.fwd_from:
         return
@@ -110,7 +110,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern="suckit"))
+@borg.on(lightning_cmd(pattern="suckit"))
 async def _(event):
     if event.fwd_from:
         return
@@ -127,7 +127,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern="ohh"))
+@borg.on(lightning_cmd(pattern="ohh"))
 async def _(event):
     if event.fwd_from:
         return
@@ -144,7 +144,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern="lovestory"))
+@borg.on(lightning_cmd(pattern="lovestory"))
 async def _(event):
     if event.fwd_from:
         return
@@ -173,7 +173,7 @@ async def _(event):
         await event.edit(animation_chars[i % 103])
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="bf"))
+@borg.on(lightning_cmd(outgoing=True, pattern="bf"))
 async def pressf(f):
     """Pays respects"""
     args = f.text.split()
@@ -196,7 +196,7 @@ async def pressf(f):
         await f.edit("`" + out + "`")
 
 
-@borg.on(admin_cmd(pattern="session$"))
+@borg.on(lightning_cmd(pattern="session$"))
 async def _(event):
     if event.fwd_from:
         return

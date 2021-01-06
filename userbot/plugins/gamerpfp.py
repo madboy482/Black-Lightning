@@ -10,7 +10,7 @@ import urllib
 import requests
 from telethon.tl import functions
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 COLLECTION_STRING = [
     "star-wars-wallpaper-1080p",
@@ -38,7 +38,7 @@ async def animepp():
     urllib.request.urlretrieve(fy, "donottouch.jpg")
 
 
-@borg.on(admin_cmd(pattern="gamerpfp ?(.*)"))
+@borg.on(lightning_cmd(pattern="gamerpfp ?(.*)"))
 async def main(event):
     await event.edit("**Starting Gamer Profile Pic.**")  # Owner @NihiNivi
     while True:

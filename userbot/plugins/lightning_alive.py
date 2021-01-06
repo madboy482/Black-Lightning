@@ -8,7 +8,7 @@ import os
 from telethon import __version__ 
 from userbot import ALIVE_NAME, TG_CHANNEL, TG_GRUP
 from userbot.thunderconfig import Config
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 LIGHTNING_ALV_IMG = os.environ.get("LIGHTNING_ALV_IMG", None)
 if LIGHTNING_ALV_IMG is None:
@@ -67,7 +67,7 @@ lightning_cap += "`𝘓𝘐𝘚𝘌𝘕𝘊𝘌`                  : [AGPL-3.0  �
 lightning_cap += "`𝘾𝙊𝙋𝙔𝙍𝙄𝙂𝙃𝙏`:              [KeinShin](https://t.me//krish1303y)\n"
 
 
-@borg.on(admin_cmd(pattern=r"alive"))
+@borg.on(lightning_cmd(pattern=r"alive"))
 @borg.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
 async def lightning(alive):
     await alive.get_chat()

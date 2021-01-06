@@ -11,10 +11,10 @@ from datetime import datetime
 
 from pySmartDL import SmartDL
 
-from userbot.utils import admin_cmd, humanbytes, progress
+from userbot.utils import lightning_cmd, humanbytes, progress
 
 
-@borg.on(admin_cmd(pattern="dwl ?(.*)"))
+@borg.on(lightning_cmd(pattern="dwl ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

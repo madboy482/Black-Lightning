@@ -2,10 +2,10 @@
 to know how many users have seen your message
 Syntax: .fwd as reply to any message"""
 from userbot.Config import Var
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="frwd"))
+@borg.on(lightning_cmd(pattern="frwd"))
 async def _(event):
     if event.fwd_from:
         return

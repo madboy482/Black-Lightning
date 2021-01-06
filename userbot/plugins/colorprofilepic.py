@@ -9,7 +9,7 @@ from pySmartDL import SmartDL
 from telethon.tl import functions
 
 from userbot import ALIVE_NAME
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 FONT_FILE_TO_USE = "Fonts/digital.ttf"
 
@@ -17,7 +17,7 @@ FONT_FILE_TO_USE = "Fonts/digital.ttf"
 DEFAULTUSER = str(ALIVE_NAME)
 
 
-@borg.on(admin_cmd(pattern="cpp ?(.*)"))
+@borg.on(lightning_cmd(pattern="cpp ?(.*)"))
 async def autopic(event):
 
     await event.edit("colour profile pic have been enabled")

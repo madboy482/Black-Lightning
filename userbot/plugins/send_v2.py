@@ -9,10 +9,10 @@ DELETE_TIMEOUT = 3
 lightningsss_image_path = "./resources/541200.png"
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
 from userbot import bot 
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 from userbot.utils import edit_or_reply as eor
 
-@bot.on(admin_cmd(pattern=r"send (?P<krish>\w+)", outgoing=True))
+@bot.on(lightning_cmd(pattern=r"send (?P<krish>\w+)", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"send (?P<krish>\w+)", allow_sudo=True))
 async def send(event):
     if event.fwd_from:

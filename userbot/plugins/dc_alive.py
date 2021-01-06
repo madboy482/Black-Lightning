@@ -2,7 +2,7 @@ import asyncio
 import os
 
 from userbot import ALIVE_NAME
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 
 PM_IMG = Config.ALIVE_PIC
 version = "4.5"
@@ -40,7 +40,7 @@ pm_caption += "➾ **Spammer Go Away Im His Assitant"
 pm_caption += f"➾ **ᴍʏ ᴍᴀsᴛᴇʀ** ☞ [{DEFAULTUSER}](tg://user?id={ghanti})\n"
 
 
-@borg.on(admin_cmd(pattern=r"dalive"))
+@borg.on(lightning_cmd(pattern=r"dalive"))
 @borg.on(sudo_cmd(pattern=r"dalive", allow_sudo=True))
 async def amireallyalive(yes):
     await yes.get_chat()

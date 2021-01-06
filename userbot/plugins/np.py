@@ -7,10 +7,10 @@ Credits to @mariodevs
 
 import asyncio
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd("nope"))
+@borg.on(lightning_cmd("nope"))
 async def _(event):
     if event.fwd_from:
         return

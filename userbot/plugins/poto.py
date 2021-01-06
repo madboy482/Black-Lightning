@@ -6,7 +6,7 @@
 import logging
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +17,7 @@ if 1 == 1:
 
     client = borg
 
-    @bot.on(admin_cmd(pattern="poto(.*)"))
+    @bot.on(lightning_cmd(pattern="poto(.*)"))
     @bot.on(sudo_cmd(pattern="poto(.*)", allow_sudo=True))
     async def potocmd(event):
 

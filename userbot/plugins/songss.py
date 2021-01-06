@@ -7,10 +7,10 @@ import asyncio
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="gaana ?(.*)"))
+@borg.on(lightning_cmd(pattern="gaana ?(.*)"))
 async def FindMusicPleaseBot(gaana):
 
     song = gaana.pattern_match.group(1)

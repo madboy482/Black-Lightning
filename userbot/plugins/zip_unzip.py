@@ -10,13 +10,13 @@ import zipfile
 from datetime import datetime
 
 from userbot.Config import Var
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 extracted = Var.TEMP_DOWNLOAD_DIRECTORY + "extracted/"
 thumb_image_path = Var.TEMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
 
 
-@borg.on(admin_cmd("zip"))
+@borg.on(lightning_cmd("zip"))
 async def _(event):
     if event.fwd_from:
         return

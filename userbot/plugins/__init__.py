@@ -1,6 +1,6 @@
 from userbot import topfunc
 from userbot.thunderconfig import Config
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 from var import Var
 
 idgen = topfunc.id_generator

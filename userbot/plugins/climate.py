@@ -16,7 +16,7 @@ from pytz import country_timezones as c_tz
 from pytz import timezone as tz
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd, edit_or_reply, errors_handler, sudo_cmd
+from userbot.utils import lightning_cmd, edit_or_reply, errors_handler, sudo_cmd
 
 logging.basicConfig(
     format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s", level=logging.WARNING
@@ -40,7 +40,7 @@ async def get_tz(con):
         return
 
 
-@bot.on(admin_cmd(outgoing=True, pattern="climate( (.*)|$)"))
+@bot.on(lightning_cmd(outgoing=True, pattern="climate( (.*)|$)"))
 @bot.on(sudo_cmd(pattern="climate( (.*)|$)", allow_sudo=True))
 @errors_handler
 async def get_weather(weather):
@@ -139,7 +139,7 @@ async def get_weather(weather):
     )
 
 
-@bot.on(admin_cmd(outgoing=True, pattern="setcity(?: |$)(.*)"))
+@bot.on(lightning_cmd(outgoing=True, pattern="setcity(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="setcity(?: |$)(.*)", allow_sudo=True))
 @errors_handler
 async def set_default_city(city):
@@ -188,7 +188,7 @@ async def set_default_city(city):
     await edit_or_reply(city, f"`Set default city as {cityname}, {fullc_n}.`")
 
 
-@bot.on(admin_cmd(pattern="wttr ?(.*)"))
+@bot.on(lightning_cmd(pattern="wttr ?(.*)"))
 @bot.on(sudo_cmd(pattern="wttr ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

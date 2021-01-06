@@ -6,12 +6,12 @@ credit: @r4v4n4"""
 
 import string
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 msg_cache = {}
 
 
-@borg.on(admin_cmd(pattern=r"fpost\s+(.*)"))
+@borg.on(lightning_cmd(pattern=r"fpost\s+(.*)"))
 async def _(event):
     await event.delete()
     text = event.pattern_match.group(1)

@@ -3,13 +3,13 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 telegraph = Telegraph()
 mee = telegraph.create_account(short_name="yohohehe")
 
 
-@borg.on(admin_cmd(pattern="recognize ?(.*)"))
+@borg.on(lightning_cmd(pattern="recognize ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -49,7 +49,7 @@ async def _(event):
             await event.edit("sorry, I couldnt find it")
 
 
-@borg.on(admin_cmd(pattern="purl ?(.*)"))
+@borg.on(lightning_cmd(pattern="purl ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -76,7 +76,7 @@ async def _(event):
         )
 
 
-@borg.on(admin_cmd(pattern="limits ?(.*)"))
+@borg.on(lightning_cmd(pattern="limits ?(.*)"))
 async def _(event):
     bot = "@SpamBot"
     if event.fwd_from:
@@ -95,7 +95,7 @@ async def _(event):
                 await event.edit("**Error:** `unblock` @spambot `and retry!")
 
 
-@borg.on(admin_cmd(pattern="sgm ?(.*)", allow_sudo=True))
+@borg.on(lightning_cmd(pattern="sgm ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -125,7 +125,7 @@ async def _(event):
         )
 
 
-@borg.on(admin_cmd(pattern="reader ?(.*)", allow_sudo=True))
+@borg.on(lightning_cmd(pattern="reader ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

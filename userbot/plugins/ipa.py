@@ -8,10 +8,10 @@ from pathlib import Path
 
 from telethon.tl.types import InputMessagesFilterDocument
 
-from userbot.utils import admin_cmd, load_module
+from userbot.utils import lightning_cmd, load_module
 
 
-@borg.on(admin_cmd("ipa (.*)"))
+@borg.on(lightning_cmd("ipa (.*)"))
 async def install(event):
     if event.fwd_from:
         return

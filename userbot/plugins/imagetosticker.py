@@ -4,10 +4,10 @@ QuotLy: Avaible commands: .imagetostkr
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="imagetostkr ?(.*)"))
+@borg.on(lightning_cmd(pattern="imagetostkr ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

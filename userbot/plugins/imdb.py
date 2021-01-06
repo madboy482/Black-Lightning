@@ -11,11 +11,11 @@ import re
 import bs4
 import requests
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
 # kanged from Blank-x ;---;
-@borg.on(admin_cmd("imdb (.*)", outgoing=True))
+@borg.on(lightning_cmd("imdb (.*)", outgoing=True))
 async def imdb(e):
     try:
         movie_name = e.pattern_match.group(1)

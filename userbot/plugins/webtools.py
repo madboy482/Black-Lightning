@@ -5,10 +5,10 @@ from iplookup import iplookup
 from selenium import webdriver
 from youtube_search import YoutubeSearch
 
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import lightning_cmd, edit_or_reply, sudo_cmd
 
 
-@borg.on(admin_cmd(pattern="wshot ?(.*)"))
+@borg.on(lightning_cmd(pattern="wshot ?(.*)"))
 @borg.on(sudo_cmd(pattern="wshot ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -27,7 +27,7 @@ async def _(event):
     )
 
 
-@borg.on(admin_cmd(pattern="lp ?(.*)"))
+@borg.on(lightning_cmd(pattern="lp ?(.*)"))
 @borg.on(sudo_cmd(pattern="lp ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -55,7 +55,7 @@ async def _(event):
         await tfbro.edit(f"Something Went Wrong. MayBe Website Wrong.")
 
 
-@borg.on(admin_cmd(pattern="bin ?(.*)"))
+@borg.on(lightning_cmd(pattern="bin ?(.*)"))
 @borg.on(sudo_cmd(pattern="bin ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -78,7 +78,7 @@ async def _(event):
         await tfsir.edit("Not a Valid Bin Or Don't Have Enough Info.")
 
 
-@borg.on(admin_cmd(pattern="iban ?(.*)"))
+@borg.on(lightning_cmd(pattern="iban ?(.*)"))
 @borg.on(sudo_cmd(pattern="iban ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -103,7 +103,7 @@ async def _(event):
         await tfhm.edit(f"Invalid IBAN Or Doesn't Have Enough Info")
 
 
-@borg.on(admin_cmd(pattern="gitdl ?(.*)"))
+@borg.on(lightning_cmd(pattern="gitdl ?(.*)"))
 @borg.on(sudo_cmd(pattern="gitdl ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -128,7 +128,7 @@ async def _(event):
         )
 
 
-@borg.on(admin_cmd(pattern="yts ?(.*)"))
+@borg.on(lightning_cmd(pattern="yts ?(.*)"))
 @borg.on(sudo_cmd(pattern="yts ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

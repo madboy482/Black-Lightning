@@ -5,7 +5,7 @@ import sys
 import git
 
 from userbot.thunderconfig import Config
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 # -- Constants -- #
 IS_SELECTED_DIFFERENT_BRANCH = (
@@ -33,7 +33,7 @@ RESTARTING_APP = "`Re-starting heroku application`"
 # -- Constants End -- #
 
 
-@borg.on(admin_cmd("update ?(.*)", outgoing=True))
+@borg.on(lightning_cmd("update ?(.*)", outgoing=True))
 async def updater(message):
     try:
         repo = git.Repo()

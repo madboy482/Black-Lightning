@@ -29,7 +29,7 @@ from oauth2client.file import Storage
 from telethon import events
 
 from userbot.Config import Var
-from userbot.utils import admin_cmd, humanbytes, progress
+from userbot.utils import lightning_cmd, humanbytes, progress
 
 # Path to token json file, it should be in same directory as script
 G_DRIVE_TOKEN_FILE = Var.TEMP_DOWNLOAD_DIRECTORY + "/auth_token.txt"
@@ -46,7 +46,7 @@ G_DRIVE_F_PARENT_ID = None
 G_DRIVE_DIR_MIME_TYPE = "application/vnd.google-apps.folder"
 
 
-@borg.on(admin_cmd(pattern="gdrive ?(.*)", allow_sudo=True))
+@borg.on(lightning_cmd(pattern="gdrive ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -130,7 +130,7 @@ async def _(event):
 
 
 @borg.on(
-    admin_cmd(
+    lightning_cmd(
         pattern="dfolder https?://drive\.google\.com/drive/u/\d/folders/([-\w]{25,})",
         allow_sudo=True,
     )
@@ -152,7 +152,7 @@ async def _(event):
         )
 
 
-@borg.on(admin_cmd(pattern="gclear", allow_sudo=True))
+@borg.on(lightning_cmd(pattern="gclear", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -161,7 +161,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern="gdir ?(.*)", allow_sudo=True))
+@borg.on(lightning_cmd(pattern="gdir ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -200,7 +200,7 @@ async def _(event):
         await mone.edit(f"directory {input_str} does not seem to exist")
 
 
-@borg.on(admin_cmd(pattern="drive (delete|get) ?(.*)", allow_sudo=True))
+@borg.on(lightning_cmd(pattern="drive (delete|get) ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -236,7 +236,7 @@ async def _(event):
     await mone.edit(response_from_svc)
 
 
-@borg.on(admin_cmd(pattern="sdrive ?(.*)", allow_sudo=True))
+@borg.on(lightning_cmd(pattern="sdrive ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

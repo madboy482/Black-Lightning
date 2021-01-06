@@ -23,7 +23,7 @@ handler = Var.CMD_HNDLR if Var.CMD_HNDLR else r"\."
 sudo_hndlr = Var.SUDO_HNDLR if Var.SUDO_HNDLR else "!"
 
 
-def admin_cmd(**args):
+def lightning_cmd(**args):
     args["func"] = lambda e: e.via_bot_id is None
 
     pattern = args.get("pattern", None)

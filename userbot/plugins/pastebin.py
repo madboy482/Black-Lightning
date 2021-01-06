@@ -6,7 +6,7 @@ import requests
 from requests import exceptions, get
 
 from userbot.Config import Var
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 logging.basicConfig(
     format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s", level=logging.WARNING
@@ -27,7 +27,7 @@ BOTLOG_CHATID = Var.PRIVATE_GROUP_ID
 BOTLOG = True
 
 
-@borg.on(admin_cmd(pattern="paste ?(.*)"))
+@borg.on(lightning_cmd(pattern="paste ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -73,7 +73,7 @@ async def _(event):
         await event.edit("Pasted to dogbin : [dog]({}) in {} seconds".format(url, ms))
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="getpaste(?: |$)(.*)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="getpaste(?: |$)(.*)"))
 async def get_dogbin_content(dog_url):
     """ For .getpaste command, fetches the content of a dogbin URL. """
     textx = await dog_url.get_reply_message()
@@ -125,7 +125,7 @@ async def get_dogbin_content(dog_url):
         )
 
 
-@borg.on(admin_cmd(pattern="neko ?(.*)"))
+@borg.on(lightning_cmd(pattern="neko ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

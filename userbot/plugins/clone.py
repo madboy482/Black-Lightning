@@ -5,7 +5,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 
 from userbot.Config import Var
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 import asyncio
 from .. import ALIVE_NAME, CMD_HELP
 
@@ -18,7 +18,7 @@ else:
     BOTLOG_CHATID = Var.PRIVATE_GROUP_ID
 
 
-@borg.on(admin_cmd(pattern="clone ?(.*)"))
+@borg.on(lightning_cmd(pattern="clone ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -72,7 +72,7 @@ async def _(event):
         )
 
 
-@borg.on(admin_cmd(pattern="revert$"))
+@borg.on(lightning_cmd(pattern="revert$"))
 async def _(event):
     if event.fwd_from:
         return

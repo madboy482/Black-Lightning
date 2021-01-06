@@ -1,9 +1,9 @@
 import asyncio
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="phub"))
+@borg.on(lightning_cmd(pattern="phub"))
 async def _(event):
 
     if event.fwd_from:
@@ -34,7 +34,7 @@ async def _(event):
         await event.edit(animation_chars[i % 10])
 
 
-@borg.on(admin_cmd(pattern=r"amore"))
+@borg.on(lightning_cmd(pattern=r"amore"))
 async def _(event):
 
     if event.fwd_from:
@@ -67,7 +67,7 @@ async def _(event):
 import asyncio
 
 
-@borg.on(admin_cmd(pattern=r"sexy"))
+@borg.on(lightning_cmd(pattern=r"sexy"))
 async def _(event):
 
     if event.fwd_from:

@@ -7,10 +7,10 @@ By: @Zero_cool7870
 import os
 import subprocess
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern=r"getc"))
+@borg.on(lightning_cmd(pattern=r"getc"))
 async def get_media(event):
     if event.fwd_from:
         return
@@ -40,7 +40,7 @@ async def get_media(event):
     await event.edit("Downloaded " + output + " files.")
 
 
-@borg.on(admin_cmd(pattern=r"geta"))
+@borg.on(lightning_cmd(pattern=r"geta"))
 async def get_media(event):
     if event.fwd_from:
         return

@@ -1,10 +1,10 @@
 """.admin Plugin for @UniBorg"""
 from telethon.tl.types import ChannelParticipantsAdmins
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd("join"))
+@borg.on(lightning_cmd("join"))
 async def _(event):
     if event.fwd_from:
         return
@@ -21,7 +21,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd("pay"))
+@borg.on(lightning_cmd("pay"))
 async def _(event):
     if event.fwd_from:
         return

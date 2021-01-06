@@ -13,7 +13,7 @@ from telethon import events
 
 import userbot.plugins.sql_helper.blacklist_sql as sql
 from userbot.Config import Var
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
 @borg.on(events.NewMessage(incoming=True))
@@ -32,7 +32,7 @@ async def on_new_message(event):
             break
 
 
-@borg.on(admin_cmd("addblacklist ((.|\n)*)"))
+@borg.on(lightning_cmd("addblacklist ((.|\n)*)"))
 async def on_add_black_list(event):
     text = event.pattern_match.group(1)
     to_blacklist = list(
@@ -47,7 +47,7 @@ async def on_add_black_list(event):
     )
 
 
-@borg.on(admin_cmd("listblacklist"))
+@borg.on(lightning_cmd("listblacklist"))
 async def on_view_blacklist(event):
     all_blacklisted = sql.get_chat_blacklist(event.chat_id)
     OUT_STR = "Blacklists in the Current Chat:\n"
@@ -72,7 +72,7 @@ async def on_view_blacklist(event):
         await event.edit(OUT_STR)
 
 
-@borg.on(admin_cmd("rmblacklist ((.|\n)*)"))
+@borg.on(lightning_cmd("rmblacklist ((.|\n)*)"))
 async def on_delete_blacklist(event):
     text = event.pattern_match.group(1)
     to_unblacklist = list(

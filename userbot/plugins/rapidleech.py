@@ -18,13 +18,13 @@ from bs4 import BeautifulSoup
 from telethon.utils import get_inner_text
 
 from userbot.Config import Var
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 logger.info(Var.OPEN_LOAD_LOGIN)
 # https://t.me/RoseSupport/33801
 
 
-@borg.on(admin_cmd(pattern="rl"))
+@borg.on(lightning_cmd(pattern="rl"))
 async def _(event):
     if event.fwd_from:
         return

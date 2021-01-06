@@ -8,10 +8,10 @@ from googletrans import LANGUAGES
 from langdetect import detect
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import lightning_cmd, edit_or_reply, sudo_cmd
 
 
-@borg.on(admin_cmd("tr ?(.*)"))
+@borg.on(lightning_cmd("tr ?(.*)"))
 @borg.on(sudo_cmd("tr ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

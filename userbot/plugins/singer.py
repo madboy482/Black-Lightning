@@ -4,10 +4,10 @@ by @quiec
 """
 from PyLyrics import *
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="singer (.*)"))
+@borg.on(lightning_cmd(pattern="singer (.*)"))
 async def _(event):
     if event.fwd_from:
         return

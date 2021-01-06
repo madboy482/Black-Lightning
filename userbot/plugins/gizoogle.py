@@ -3,10 +3,10 @@ import re
 import bs4
 import requests
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="giz ?(.*)"))
+@borg.on(lightning_cmd(pattern="giz ?(.*)"))
 async def gizoogle(event):
     if event.fwd_from:
         return

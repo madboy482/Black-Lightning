@@ -8,10 +8,10 @@ import shutil
 from re import findall
 
 from userbot.google_imgs import googleimagesdownload
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="img ?(.*)"))
+@borg.on(lightning_cmd(pattern="img ?(.*)"))
 async def img_sampler(event):
     await event.edit("`Processing...`")
     reply = await event.get_reply_message()

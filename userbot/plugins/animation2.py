@@ -2,12 +2,12 @@ import asyncio
 from collections import deque
 
 from userbot import ALIVE_NAME
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
 
 
-@borg.on(admin_cmd(pattern=r"lul$"))
+@borg.on(lightning_cmd(pattern=r"lul$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -18,7 +18,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@borg.on(admin_cmd(pattern=r"nothappy$"))
+@borg.on(lightning_cmd(pattern=r"nothappy$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -29,7 +29,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="clock$"))
+@borg.on(lightning_cmd(outgoing=True, pattern="clock$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -40,7 +40,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@borg.on(admin_cmd(pattern=r"muah$"))
+@borg.on(lightning_cmd(pattern=r"muah$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -51,7 +51,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@borg.on(admin_cmd(pattern="heart$"))
+@borg.on(lightning_cmd(pattern="heart$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -62,7 +62,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@borg.on(admin_cmd(pattern="gym$", outgoing=True))
+@borg.on(lightning_cmd(pattern="gym$", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -73,7 +73,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@borg.on(admin_cmd(pattern=f"earth$", outgoing=True))
+@borg.on(lightning_cmd(pattern=f"earth$", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -84,7 +84,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="moon$"))
+@borg.on(lightning_cmd(outgoing=True, pattern="moon$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -95,7 +95,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@borg.on(admin_cmd(pattern=r"candy$"))
+@borg.on(lightning_cmd(pattern=r"candy$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -106,7 +106,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@borg.on(admin_cmd(pattern=f"smoon$", outgoing=True))
+@borg.on(lightning_cmd(pattern=f"smoon$", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -128,7 +128,7 @@ async def _(event):
         await event.edit(animation_chars[i % 8])
 
 
-@borg.on(admin_cmd(pattern=f"tmoon$", outgoing=True))
+@borg.on(lightning_cmd(pattern=f"tmoon$", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -174,7 +174,7 @@ async def _(event):
         await event.edit(animation_chars[i % 32])
 
 
-@borg.on(admin_cmd(pattern=f"clown$", outgoing=True))
+@borg.on(lightning_cmd(pattern=f"clown$", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -204,7 +204,7 @@ async def _(event):
         await event.edit(animation_chars[i % 16])
 
 
-@borg.on(admin_cmd(pattern=f"human$", outgoing=True))
+@borg.on(lightning_cmd(pattern=f"human$", outgoing=True))
 @borg.on(sudo_cmd(pattern="human$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -235,7 +235,7 @@ async def _(event):
         await event.edit(animation_chars[i % 16])
 
 
-@borg.on(admin_cmd(pattern=f"music$", outgoing=True))
+@borg.on(lightning_cmd(pattern=f"music$", outgoing=True))
 @borg.on(sudo_cmd(pattern="music$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -261,7 +261,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@borg.on(admin_cmd(pattern=f"squ$", outgoing=True))
+@borg.on(lightning_cmd(pattern=f"squ$", outgoing=True))
 @borg.on(sudo_cmd(pattern="squ$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -312,7 +312,7 @@ async def _(event):
     await asyncio.sleep(6)
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="kiler( (.*)|$)"))
+@borg.on(lightning_cmd(outgoing=True, pattern="kiler( (.*)|$)"))
 @borg.on(sudo_cmd(pattern="kiler( (.*)|$)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

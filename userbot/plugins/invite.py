@@ -10,7 +10,7 @@ import os
 
 from userbot import *
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 FULL_SUDO = os.environ.get("FULL_SUDO", None)
 from telethon.tl import functions
@@ -64,7 +64,7 @@ def user_full_name(user):
     return full_name
 
 
-@borg.on(admin_cmd(pattern="add ?(.*)"))
+@borg.on(lightning_cmd(pattern="add ?(.*)"))
 @borg.on(sudo_cmd(pattern="add ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

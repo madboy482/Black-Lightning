@@ -18,10 +18,10 @@ from telethon.tl.types import (
     UserStatusRecently,
 )
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="unbanall ?(.*)"))
+@borg.on(lightning_cmd(pattern="unbanall ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -51,7 +51,7 @@ async def _(event):
         await event.edit("{}: {} unbanned".format(event.chat_id, p))
 
 
-@borg.on(admin_cmd(pattern="ikuck ?(.*)"))
+@borg.on(lightning_cmd(pattern="ikuck ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

@@ -12,7 +12,7 @@ import urllib
 
 from telethon.tl import functions
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 OFFLINE_TAG = "[OFFLINE]"
 ONLINE_TAG = "[ONLINE]"
@@ -21,7 +21,7 @@ PROFILE_IMAGE = os.environ.get(
 )
 
 
-@borg.on(admin_cmd(pattern="offline"))  # pylint:disable=E0602
+@borg.on(lightning_cmd(pattern="offline"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
@@ -63,7 +63,7 @@ async def _(event):
         await event.edit(str(e))
 
 
-@borg.on(admin_cmd(pattern="online"))  # pylint:disable=E0602
+@borg.on(lightning_cmd(pattern="online"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return

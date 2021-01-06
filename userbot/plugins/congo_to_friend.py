@@ -1,7 +1,7 @@
 import random
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 RUNSREACTS = [
     "`Aur Bata Bsdk Kar Liya Tunee Party De Chal!`",
@@ -17,7 +17,7 @@ RUNSREACTS = [
 ]
 
 
-@borg.on(admin_cmd(pattern="chalbsdk"))
+@borg.on(lightning_cmd(pattern="chalbsdk"))
 async def _(event):
     if event.fwd_from:
         return

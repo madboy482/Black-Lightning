@@ -1,13 +1,13 @@
 # Rewritten by @krish1303y
 import io
 from  userbot import CMD_LIST, ALIVE_NAME, bot as light
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 import asyncio
 from var import Var
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Pls Go To Heroku Vars Then in  `ALIVE_NAME`place You Telegram `Username` "
 
-@light.on(admin_cmd(pattern="help ?(.*)"))
+@light.on(lightning_cmd(pattern="help ?(.*)"))
 async def lightning_cmd_list(lightning):
     if not lightning.text[0].isalpha() and lightning.text[0] not in ("/", "#", "@", "!"):
         lightningusername = Var.TG_BOT_USER_NAME_BF_HER

@@ -2,11 +2,11 @@
 import asyncio
 import time
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
 @borg.on(
-    admin_cmd(
+    lightning_cmd(
         pattern="^.webupload ?(.+?|) (?:--)(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)"
     )
 )

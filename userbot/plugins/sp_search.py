@@ -8,10 +8,10 @@ By: @Zero_cool7870
 import json
 import os
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="sch ?(.*)", allow_sudo=True))
+@borg.on(lightning_cmd(pattern="sch ?(.*)", allow_sudo=True))
 async def sp_search(event):
     search_str = event.pattern_match.group(1)
 

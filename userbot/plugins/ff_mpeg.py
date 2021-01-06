@@ -5,12 +5,12 @@ import os
 import time
 from datetime import datetime
 
-from userbot.utils import admin_cmd, progress
+from userbot.utils import lightning_cmd, progress
 
 FF_MPEG_DOWN_LOAD_MEDIA_PATH = "uniborg.media.ffmpeg"
 
 
-@borg.on(admin_cmd("ffmpegsave"))
+@borg.on(lightning_cmd("ffmpegsave"))
 async def ff_mpeg_trim_cmd(event):
     if event.fwd_from:
         return
@@ -42,7 +42,7 @@ async def ff_mpeg_trim_cmd(event):
         )
 
 
-@borg.on(admin_cmd("ffmpegtrim"))
+@borg.on(lightning_cmd("ffmpegtrim"))
 async def ff_mpeg_trim_cmd(event):
     if event.fwd_from:
         return

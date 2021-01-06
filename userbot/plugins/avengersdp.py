@@ -11,7 +11,7 @@ import urllib
 import requests
 from telethon.tl import functions
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 COLLECTION_STRING = [
     "avengers-logo-wallpaper",
@@ -50,7 +50,7 @@ async def animepp():
     urllib.request.urlretrieve(fy, "donottouch.jpg")
 
 
-@borg.on(admin_cmd(pattern="avengersdp ?(.*)"))
+@borg.on(lightning_cmd(pattern="avengersdp ?(.*)"))
 async def main(event):
 
     await event.edit(

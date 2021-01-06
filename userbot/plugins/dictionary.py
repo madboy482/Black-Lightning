@@ -3,10 +3,10 @@ Syntax: .meaning <word>"""
 
 import requests
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd("meaning (.*)"))
+@borg.on(lightning_cmd("meaning (.*)"))
 async def _(event):
     if event.fwd_from:
         return

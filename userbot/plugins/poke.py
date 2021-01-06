@@ -3,14 +3,14 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import ALIVE_NAME
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 naam = str(ALIVE_NAME)
 
 bot = "@inhumanDexBot"
 
 
-@borg.on(admin_cmd("poke ?(.*)"))
+@borg.on(lightning_cmd("poke ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

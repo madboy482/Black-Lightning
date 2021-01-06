@@ -1,9 +1,9 @@
 import base64
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="bencode ?(.*)"))
+@borg.on(lightning_cmd(pattern="bencode ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -17,7 +17,7 @@ async def _(event):
         await event.edit("SOM3THING W3NT WRONG !")
 
 
-@borg.on(admin_cmd(pattern="bdecode ?(.*)"))
+@borg.on(lightning_cmd(pattern="bdecode ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

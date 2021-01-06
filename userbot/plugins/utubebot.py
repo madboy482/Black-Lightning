@@ -2,7 +2,7 @@ import asyncio
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot.utils import admin_cmd, edit_or_reply
+from userbot.utils import lightning_cmd, edit_or_reply
 
 SEARCH_STRING = "<code>Ok weit, searching....</code>"
 NOT_FOUND_STRING = "<code>Sorry !I am unable to find any results to your query</code>"
@@ -10,7 +10,7 @@ SENDING_STRING = "<code>Ok I found something related to that.....</code>"
 BOT_BLOCKED_STRING = "<code>Please unblock @utubebot and try again</code>"
 
 
-@borg.on(admin_cmd(pattern="yt (.*)"))
+@borg.on(lightning_cmd(pattern="yt (.*)"))
 async def fetcher(event):
     if event.fwd_from:
         return

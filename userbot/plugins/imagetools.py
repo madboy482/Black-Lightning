@@ -23,7 +23,7 @@ from telethon.tl.types import MessageMediaPhoto
 import pybase64
 from userbot import CMD_HELP, bot
 from userbot.function import convert_to_image, crop_vid, runcmd, deEmojify, lightning_convert_to_img
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 from telegraph import exceptions, upload_file
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 lovepath = "./keinshin/"
@@ -48,7 +48,7 @@ async def phcomment(text1, text2, text3):
 
 
 
-@borg.on(admin_cmd(pattern=r"cit"))
+@borg.on(lightning_cmd(pattern=r"cit"))
 @borg.on(sudo_cmd(pattern=r"cit", allow_sudo=True))
 async def lightning(event):
     if not event.reply_to_msg_id:
@@ -97,7 +97,7 @@ async def lightning(event):
             os.remove(files)
 
 
-@borg.on(admin_cmd(pattern=r"toon"))
+@borg.on(lightning_cmd(pattern=r"toon"))
 @borg.on(sudo_cmd(pattern=r"toon", allow_sudo=True))
 async def lightning(event):
     life = Config.DEEP_API_KEY
@@ -129,7 +129,7 @@ async def lightning(event):
         os.remove(img)
 
 
-@borg.on(admin_cmd(pattern=r"nst"))
+@borg.on(lightning_cmd(pattern=r"nst"))
 @borg.on(sudo_cmd(pattern=r"nst", allow_sudo=True))
 async def lightning(event):
     life = Config.DEEP_API_KEY
@@ -164,7 +164,7 @@ async def lightning(event):
         os.remove(img)
 
 
-@borg.on(admin_cmd(pattern=r"thug"))
+@borg.on(lightning_cmd(pattern=r"thug"))
 @borg.on(sudo_cmd(pattern=r"thug", allow_sudo=True))
 async def fuck_thugs(event):
     if not event.reply_to_msg_id:
@@ -202,7 +202,7 @@ async def fuck_thugs(event):
             os.remove(files)
 
 
-@borg.on(admin_cmd(pattern=r"tig"))
+@borg.on(lightning_cmd(pattern=r"tig"))
 @borg.on(sudo_cmd(pattern=r"tig", allow_sudo=True))
 async def lolmetrg(event):
     await event.edit("`Triggered This Image`")
@@ -228,7 +228,7 @@ async def lolmetrg(event):
             os.remove(files)
 
 
-@borg.on(admin_cmd(pattern=r"spin ?(.*)"))
+@borg.on(lightning_cmd(pattern=r"spin ?(.*)"))
 @borg.on(sudo_cmd(pattern=r"spin ?(.*)", allow_sudo=True))
 async def spinshit(message):
     reply = await message.get_reply_message()
@@ -278,7 +278,7 @@ async def spinshit(message):
     rmtree(path, ignore_errors=True)
 
 
-@borg.on(admin_cmd(pattern=r"jail"))
+@borg.on(lightning_cmd(pattern=r"jail"))
 @borg.on(sudo_cmd(pattern=r"jail", allow_sudo=True))
 async def lightning(event):
     if not event.reply_to_msg_id:
@@ -307,7 +307,7 @@ async def lightning(event):
             os.remove(files)
 
 
-@borg.on(admin_cmd(pattern=r"greyscale"))
+@borg.on(lightning_cmd(pattern=r"greyscale"))
 @borg.on(sudo_cmd(pattern=r"greyscale", allow_sudo=True))
 async def lightning(event):
     if not event.reply_to_msg_id:
@@ -333,7 +333,7 @@ async def lightning(event):
 # Plugin By - XlayerCharon[XCB]
 # TG ~>>//@CharonCB21
 # @code-rgb
-@borg.on(admin_cmd(pattern=r"fgs ?(.*)"))
+@borg.on(lightning_cmd(pattern=r"fgs ?(.*)"))
 @borg.on(sudo_cmd(pattern=r"fgs ?(.*)", allow_sudo=True))
 async def img(event):
     text = event.pattern_match.group(1)
@@ -362,7 +362,7 @@ async def img(event):
         os.remove(ok)
 
 
-@borg.on(admin_cmd(pattern=r"lg"))
+@borg.on(lightning_cmd(pattern=r"lg"))
 @borg.on(sudo_cmd(pattern=r"lg", allow_sudo=True))
 async def lightninnnnnnnnnnnnn(event):
     await event.edit("`Prooooooccccesssssssinggggg.....`")
@@ -392,7 +392,7 @@ async def lightninnnnnnnnnnnnn(event):
         os.remove("tgs.tgs")
 
 
-@borg.on(admin_cmd(pattern="ph(?: |$)(.*)"))
+@borg.on(lightning_cmd(pattern="ph(?: |$)(.*)"))
 async def lightningbot(lightnig):
     input_str = lightnig.pattern_match.group(1)
     input_str = deEmojify(input_str)

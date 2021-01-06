@@ -12,7 +12,7 @@ from PIL import Image
 from userbot import ALIVE_NAME, CMD_HELP, StartTime, topfunc
 from userbot.Config import Var
 from userbot.thunderconfig import Config
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import lightning_cmd, edit_or_reply, sudo_cmd
 
 ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
 if ALIVE_PIC is None:
@@ -78,7 +78,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="salive"))
+@borg.on(lightning_cmd(outgoing=True, pattern="salive"))
 @borg.on(sudo_cmd(pattern=r"salive", allow_sudo=True))
 async def amireallyalive(salive):
     """ For .alive command, check if the bot is running.  """
@@ -163,7 +163,7 @@ pm_caption += "🔥CREATOR🔥    : [Nub Here](https://t.me/krish1303y)\n\n"
 pm_caption += "    [✨REPO✨](https://github.com/KeinShin/Black-Lightningt) 🔹 [📜License📜](https://github.com/KeinShin/Black-Lightning/blob/master/LICENSE)"
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="halive$"))
+@borg.on(lightning_cmd(outgoing=True, pattern="halive$"))
 @borg.on(sudo_cmd(pattern="halive$", allow_sudo=True))
 async def amireallyalive(halive):
     await halive.get_chat()
@@ -177,7 +177,7 @@ async def amireallyalive(halive):
 # Credits To catbot And Sandi
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="calive$"))
+@borg.on(lightning_cmd(outgoing=True, pattern="calive$"))
 @borg.on(sudo_cmd(pattern="calive$", allow_sudo=True))
 async def amireallyalive(calive):
     if calive.fwd_from:

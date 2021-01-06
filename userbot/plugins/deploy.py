@@ -7,13 +7,13 @@ Available Commands:
 
 import asyncio
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 from userbot import AUTONAME
 
 DEFAULTUSER = str(AUTONAME) if AUTONAME else "Black Lighntnig"
 
 
-@borg.on(admin_cmd(pattern=r"deploy"))
+@borg.on(lightning_cmd(pattern=r"deploy"))
 async def _(event):
 
     if event.fwd_from:

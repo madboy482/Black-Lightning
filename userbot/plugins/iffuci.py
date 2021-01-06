@@ -6,7 +6,7 @@ from datetime import datetime
 
 import requests
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
 def progress(current, total):
@@ -17,7 +17,7 @@ def progress(current, total):
     )
 
 
-@borg.on(admin_cmd(pattern="iffuci ?(.*)"))
+@borg.on(lightning_cmd(pattern="iffuci ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

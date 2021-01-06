@@ -1,10 +1,10 @@
 # By STARKTM1
 import asyncio
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern=r"plane"))
+@borg.on(lightning_cmd(pattern=r"plane"))
 async def _(event):
     if event.fwd_from:
         return

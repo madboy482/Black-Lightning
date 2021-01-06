@@ -8,7 +8,7 @@ from datetime import datetime
 import requests
 
 from userbot.Config import Var
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 
 logging.basicConfig(
     format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s", level=logging.WARNING
@@ -23,7 +23,7 @@ def progress(current, total):
     )
 
 
-@borg.on(admin_cmd("paste ?(.*)"))
+@borg.on(lightning_cmd("paste ?(.*)"))
 @borg.on(sudo_cmd("paste ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

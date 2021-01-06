@@ -22,7 +22,7 @@ from telethon import events
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 from userbot import CMD_HELP, ALIVE_NAME
 
 
@@ -1372,14 +1372,14 @@ async def download_video(v_url):
         await v_url.delete()
 
 
-@borg.on(admin_cmd(pattern=r"hola"))
+@borg.on(lightning_cmd(pattern=r"hola"))
 async def hi(event):
     if event.fwd_from:
         return
     await event.edit("╔┓┏╦━╦┓╔┓╔━━╗\n║┗┛║┗╣┃║┃║X X  ║\n║┏┓║┏╣┗╣┗╣╰╯║\n╚┛┗╩━╩━╩━╩━━╝")
 
 
-@borg.on(admin_cmd(pattern=r"plus"))
+@borg.on(lightning_cmd(pattern=r"plus"))
 async def hi(event):
     if event.fwd_from:
         return
@@ -1388,7 +1388,7 @@ async def hi(event):
     )
 
 
-@borg.on(admin_cmd(pattern=r"yes"))
+@borg.on(lightning_cmd(pattern=r"yes"))
 async def hi(event):
     if event.fwd_from:
         return
@@ -1397,7 +1397,7 @@ async def hi(event):
     )
 
 
-@borg.on(admin_cmd(pattern=r"lool"))
+@borg.on(lightning_cmd(pattern=r"lool"))
 async def hi(event):
     if event.fwd_from:
         return
@@ -1406,7 +1406,7 @@ async def hi(event):
     )
 
 
-@borg.on(admin_cmd(pattern=r"android"))
+@borg.on(lightning_cmd(pattern=r"android"))
 async def hi(event):
     if event.fwd_from:
         return
@@ -1415,7 +1415,7 @@ async def hi(event):
     )
 
 
-@borg.on(admin_cmd(pattern=r"hmm"))
+@borg.on(lightning_cmd(pattern=r"hmm"))
 async def hi(event):
     if event.fwd_from:
         return
@@ -1424,7 +1424,7 @@ async def hi(event):
     )
 
 
-@borg.on(admin_cmd(pattern=r"happybirthday"))
+@borg.on(lightning_cmd(pattern=r"happybirthday"))
 async def hi(event):
     if event.fwd_from:
         return
@@ -1433,7 +1433,7 @@ async def hi(event):
     )
 
 
-@borg.on(admin_cmd(pattern=r"WTF"))
+@borg.on(lightning_cmd(pattern=r"WTF"))
 async def hi(event):
     if event.fwd_from:
         return
@@ -1442,7 +1442,7 @@ async def hi(event):
     )
 
 
-@borg.on(admin_cmd(pattern=r"lmao"))
+@borg.on(lightning_cmd(pattern=r"lmao"))
 async def hi(event):
     if event.fwd_from:
         return
@@ -1468,7 +1468,7 @@ async def spammer(e):
             )
 
 
-@borg.on(admin_cmd(pattern=r"nah"))
+@borg.on(lightning_cmd(pattern=r"nah"))
 async def hi(event):
     if event.fwd_from:
         return

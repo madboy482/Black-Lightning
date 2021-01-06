@@ -189,7 +189,7 @@ def load_module(shortname):
         mod.borg = bot
         mod.userbot = bot
         # auto-load
-        mod.admin_cmd = admin_cmd
+        mod.lightning_cmd = lightning_cmd
         mod.sudo_cmd = sudo_cmd
         mod.edit_or_reply = edit_or_reply
         mod.eor = eor
@@ -222,7 +222,7 @@ def remove_plugin(shortname):
         raise ValueError
 
 
-def admin_cmd(pattern=None, command=None, **args):
+def lightning_cmd(pattern=None, command=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
     stack = inspect.stack()
     previous_stack_frame = stack[1]

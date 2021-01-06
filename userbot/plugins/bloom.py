@@ -16,12 +16,12 @@ from PIL import Image, ImageDraw, ImageFont
 from pySmartDL import SmartDL
 from telethon.tl import functions
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 
 
-@borg.on(admin_cmd(pattern="bloom ?(.*)"))
+@borg.on(lightning_cmd(pattern="bloom ?(.*)"))
 async def autopic(event):
     await event.edit("Bloom colour profile pic have been enabled by my master")
     downloaded_file_name = "userbot/original_pic.png"

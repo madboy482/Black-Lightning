@@ -2,10 +2,10 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import bot
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="itos ?(.*)"))
+@borg.on(lightning_cmd(pattern="itos ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -38,7 +38,7 @@ async def _(event):
         await bot.send_read_acknowledge(conv.chat_id)
 
 
-@borg.on(admin_cmd(pattern="stoi ?(.*)"))
+@borg.on(lightning_cmd(pattern="stoi ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

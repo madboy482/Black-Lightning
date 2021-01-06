@@ -1,7 +1,7 @@
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="ftext ?(.*)"))
+@borg.on(lightning_cmd(pattern="ftext ?(.*)"))
 async def payf(event):
     input_str = event.pattern_match.group(1)
     if input_str:

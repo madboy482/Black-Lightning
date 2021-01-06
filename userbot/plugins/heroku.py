@@ -6,13 +6,13 @@ import heroku3
 import requests
 
 from userbot.function.heroku_helper import HerokuHelper
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import lightning_cmd, edit_or_reply, sudo_cmd
 
 Heroku = heroku3.from_key(Var.HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
 
 
-@borg.on(admin_cmd(pattern="(logs|log)"))
+@borg.on(lightning_cmd(pattern="(logs|log)"))
 @borg.on(sudo_cmd(pattern="(logs|log)", allow_sudo=True))
 async def giblog(event):
     herokuHelper = HerokuHelper(Var.HEROKU_APP_NAME, Var.HEROKU_API_KEY)
@@ -24,7 +24,7 @@ async def giblog(event):
     )
 
 
-@borg.on(admin_cmd(pattern="(rerun|restarts)"))
+@borg.on(lightning_cmd(pattern="(rerun|restarts)"))
 @borg.on(sudo_cmd(pattern="(restart|restarts)", allow_sudo=True))
 async def restart_me(event):
     herokuHelper = HerokuHelper(Var.HEROKU_APP_NAME, Var.HEROKU_API_KEY)
@@ -32,7 +32,7 @@ async def restart_me(event):
     herokuHelper.restart()
 
 
-@borg.on(admin_cmd(pattern="usage$"))
+@borg.on(lightning_cmd(pattern="usage$"))
 @borg.on(sudo_cmd(pattern="usage$", allow_sudo=True))
 async def dyno_usage(dyno):
     """
@@ -96,7 +96,7 @@ async def dyno_usage(dyno):
 
 
 @borg.on(
-    admin_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", outgoing=True)
+    lightning_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", outgoing=True)
 )
 @borg.on(
     sudo_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", allow_sudo=True)
@@ -189,7 +189,7 @@ async def variable(var):
             return await edit_or_reply(var, f"**{variable}**  `is not exists`")
 
 
-@borg.on(admin_cmd(pattern="shp ?(.*)"))
+@borg.on(lightning_cmd(pattern="shp ?(.*)"))
 async def lel(event):
     cpass, npass = event.pattern_match.group(1).split(" ", 1)
     await event.edit("`Changing You Pass`")
@@ -198,7 +198,7 @@ async def lel(event):
     await event.edit(f"`Done !, Changed You Pass to {npass}")
 
 
-@borg.on(admin_cmd(pattern="acolb (.*)"))
+@borg.on(lightning_cmd(pattern="acolb (.*)"))
 async def sf(event):
     hmm = event.pattern_match.group(1)
     app = Heroku.app(Var.HEROKU_APP_NAME)
@@ -206,14 +206,14 @@ async def sf(event):
     await event.edit("`Sent Invitation To Accept Your Collab`")
 
 
-@borg.on(admin_cmd(pattern="tfa (.*)"))
+@borg.on(lightning_cmd(pattern="tfa (.*)"))
 async def l(event):
     hmm = event.pattern_match.group(1)
     app = Heroku.app(Var.HEROKU_APP_NAME)
     transfer = app.create_transfer(recipient_id_or_name=hmm)
 
 
-@borg.on(admin_cmd(pattern="kd (.*)"))
+@borg.on(lightning_cmd(pattern="kd (.*)"))
 async def killdyno(event):
     app = Heroku.app(Var.HEROKU_APP_NAME)
     await event.edit("`Dyno Is Off. Manually Turn it On Later`")

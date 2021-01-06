@@ -17,10 +17,10 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="cs"))
+@borg.on(lightning_cmd(pattern="cs"))
 async def _(event):
     score_page = "http://static.cricinfo.com/rss/livescores.xml"
     page = urllib.request.urlopen(score_page)

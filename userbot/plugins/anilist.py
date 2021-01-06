@@ -10,7 +10,7 @@ import re
 import requests
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
 async def callAPI(search_str):
@@ -77,7 +77,7 @@ async def formatJSON(outData):
         return msg
 
 
-@borg.on(admin_cmd(pattern="anilist ?(.*)"))
+@borg.on(lightning_cmd(pattern="anilist ?(.*)"))
 async def anilist(event):
     if event.fwd_from:
         return

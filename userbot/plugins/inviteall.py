@@ -8,7 +8,7 @@ from telethon.tl.functions.channels import GetFullChannelRequest
 from telethon.tl.functions.messages import GetFullChatRequest
 
 from userbot import *
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
 async def get_chatinfo(event):
@@ -67,7 +67,7 @@ def user_full_name(user):
     return full_name
 
 
-@borg.on(admin_cmd(pattern=r"allinvite ?(.*)"))
+@borg.on(lightning_cmd(pattern=r"allinvite ?(.*)"))
 async def get_users(event):
     sender = await event.get_sender()
     me = await event.client.get_me()

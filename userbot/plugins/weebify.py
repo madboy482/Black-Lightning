@@ -4,7 +4,7 @@ By :- @PhycoNinja13b
 Modified by :- @kirito6969
 .weeb <text> """
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 normiefont = [
     "a",
@@ -64,7 +64,7 @@ weebyfont = [
 ]
 
 
-@borg.on(admin_cmd(pattern="weeb ?(.*)"))
+@borg.on(lightning_cmd(pattern="weeb ?(.*)"))
 async def weebify(event):
 
     args = event.pattern_match.group(1)

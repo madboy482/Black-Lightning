@@ -2,10 +2,10 @@
 Syntax: .decide"""
 import requests
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd("decide"))
+@borg.on(lightning_cmd("decide"))
 async def _(event):
     if event.fwd_from:
         return

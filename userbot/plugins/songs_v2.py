@@ -18,7 +18,7 @@ from telethon.tl.functions.messages import ImportChatInviteRequest
 from telethon.tl.types import InputMessagesFilterMusic
 
 from userbot import CMD_HELP, bot
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 try:
 
@@ -40,7 +40,7 @@ def bruh(name):
 # @register(outgoing=True, pattern="^.netase(?: |$)(.*)")
 
 
-@borg.on(admin_cmd("song2 ?(.*)"))
+@borg.on(lightning_cmd("song2 ?(.*)"))
 async def WooMai(netase):
 
     if netase.fwd_from:
@@ -90,7 +90,7 @@ async def WooMai(netase):
     await netase.delete()
 
 
-@borg.on(admin_cmd("songs ?(.*)"))
+@borg.on(lightning_cmd("songs ?(.*)"))
 async def _(event):
 
     try:

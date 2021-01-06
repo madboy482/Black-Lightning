@@ -1,14 +1,14 @@
 import os.path
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 
 sedpath = "./chsaiujwal/"
 if not os.path.isdir(sedpath):
     os.makedirs(sedpath)
 
 
-@borg.on(admin_cmd("savepass ?(.*)"))
+@borg.on(lightning_cmd("savepass ?(.*)"))
 @borg.on(sudo_cmd("savepass ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -46,7 +46,7 @@ async def _(event):
     )
 
 
-@borg.on(admin_cmd(pattern=r"viewpass"))
+@borg.on(lightning_cmd(pattern=r"viewpass"))
 async def hi(event):
     if event.fwd_from:
         return

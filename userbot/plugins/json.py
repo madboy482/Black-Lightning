@@ -2,10 +2,10 @@
 Syntax: .json"""
 import io
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd("json"))
+@borg.on(lightning_cmd("json"))
 async def _(event):
     if event.fwd_from:
         return

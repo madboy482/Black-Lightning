@@ -1,7 +1,7 @@
-from userbot.utils import admin_cmd, load_module, remove_plugin
+from userbot.utils import lightning_cmd, load_module, remove_plugin
 
 
-@borg.on(admin_cmd(pattern="load ?(.*)", outgoing=True))
+@borg.on(lightning_cmd(pattern="load ?(.*)", outgoing=True))
 async def load(event):
     if event.fwd_from:
         return
@@ -19,7 +19,7 @@ async def load(event):
         )
 
 
-@borg.on(admin_cmd(pattern="unload ?(.*)", outgoing=True))
+@borg.on(lightning_cmd(pattern="unload ?(.*)", outgoing=True))
 async def unload(event):
     if event.fwd_from:
         return

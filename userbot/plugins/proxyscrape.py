@@ -9,7 +9,7 @@ import os
 
 from pySmartDL import SmartDL
 
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 
 STARK_HTTP = "https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=all"
 HTTP_TXT = "**Proxy Info** \nType: __HTTPS__ \nTimeOut: __10000__ \nCountry: __All__ \nSsl: All \nAnonymity: __All__ \n[Click Here To View Or Download File Manually](https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=all) \nUploaded By [thunder](https://github.com/starkgang/thunderUserBot) \n**Here Is Your Proxy** 👇"
@@ -20,7 +20,7 @@ SOCKS5_TXT = "**Proxy Info** \nType: __SOCKS4__ \nTimeOut: __10000__ \nCountry: 
 sedpng = "https://soon.proxyscrape.com/asset/img/service/downloadicon.svg"
 
 
-@borg.on(admin_cmd(pattern="http$"))
+@borg.on(lightning_cmd(pattern="http$"))
 @borg.on(sudo_cmd(pattern="http$", allow_sudo=True))
 async def starkxD(event):
     await event.get_chat()
@@ -37,8 +37,8 @@ async def starkxD(event):
     )
 
 
-@borg.on(admin_cmd(pattern="socks4$"))
-@borg.on(admin_cmd(pattern="socks4$", allow_sudo=True))
+@borg.on(lightning_cmd(pattern="socks4$"))
+@borg.on(lightning_cmd(pattern="socks4$", allow_sudo=True))
 async def starkgang(event):
     await event.get_chat()
     file_name = "proxy_socks4.txt"
@@ -56,8 +56,8 @@ async def starkgang(event):
     )
 
 
-@borg.on(admin_cmd(pattern="socks5$"))
-@borg.on(admin_cmd(pattern="socks5$", allow_sudo=True))
+@borg.on(lightning_cmd(pattern="socks5$"))
+@borg.on(lightning_cmd(pattern="socks5$", allow_sudo=True))
 async def thunder(event):
     await event.get_chat()
     file_name = "proxy_socks5.txt"

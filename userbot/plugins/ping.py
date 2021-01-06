@@ -2,12 +2,12 @@ import asyncio
 from datetime import datetime
 
 from .. import ALIVE_NAME, CMD_HELP
-from ..utils import admin_cmd, edit_or_reply, sudo_cmd
+from ..utils import lightning_cmd, edit_or_reply, sudo_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Black Lightning"
 
 
-@borg.on(admin_cmd(pattern=f"pingy$", outgoing=True))
+@borg.on(lightning_cmd(pattern=f"pingy$", outgoing=True))
 @borg.on(sudo_cmd(pattern=f"pingy$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -56,7 +56,7 @@ async def _(event):
     )
 
 
-@borg.on(admin_cmd(pattern="king$"))
+@borg.on(lightning_cmd(pattern="king$"))
 @borg.on(sudo_cmd(pattern="king$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

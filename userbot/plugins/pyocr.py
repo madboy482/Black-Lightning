@@ -8,10 +8,10 @@ import os
 import pytesseract
 
 from userbot.Config import Var
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern="read$"))
+@borg.on(lightning_cmd(pattern="read$"))
 async def _(event):
     global images
     if event.fwd_from:

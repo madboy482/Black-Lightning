@@ -3,12 +3,12 @@
 import asyncio
 
 from .. import ALIVE_NAME
-from ..utils import admin_cmd
+from ..utils import lightning_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
 
 
-@borg.on(admin_cmd(pattern="hbty$"))
+@borg.on(lightning_cmd(pattern="hbty$"))
 async def _(event):
     if event.fwd_from:
         return

@@ -7,10 +7,10 @@ from telethon.tl.functions.users import GetFullUserRequest
 swapi = os.environ.get("SPAMWATCH_API_KEY", None)
 
 
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 
 
-@borg.on(admin_cmd(pattern=f"ustat(?: |$)(.*)"))
+@borg.on(lightning_cmd(pattern=f"ustat(?: |$)(.*)"))
 @borg.on(sudo_cmd(pattern=f"ustat(?: |$)(.*)", allow_sudo=True))
 async def _(event):
     sender = await event.get_sender()

@@ -3,10 +3,10 @@
 import asyncio
 from collections import deque
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern=r"lul"))
+@borg.on(lightning_cmd(pattern=r"lul"))
 async def _(event):
     if event.fwd_from:
         return

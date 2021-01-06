@@ -1,11 +1,11 @@
 from telethon.tl.types import ChannelParticipantsAdmins
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern=r"tagall", outgoing=True))
-@borg.on(admin_cmd(pattern=r"tagall", allow_sudo=True))
+@borg.on(lightning_cmd(pattern=r"tagall", outgoing=True))
+@borg.on(lightning_cmd(pattern=r"tagall", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -16,8 +16,8 @@ async def _(event):
     await event.edit(mentions)
 
 
-@borg.on(admin_cmd(pattern=r"admin", outgoing=True))
-@borg.on(admin_cmd(pattern=r"admin", allow_sudo=True))
+@borg.on(lightning_cmd(pattern=r"admin", outgoing=True))
+@borg.on(lightning_cmd(pattern=r"admin", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

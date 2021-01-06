@@ -7,10 +7,10 @@ import asyncio
 
 from telethon.tl.functions.users import GetFullUserRequest
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern=r"trap"))
+@borg.on(lightning_cmd(pattern=r"trap"))
 async def _(event):
     if event.fwd_from:
         return

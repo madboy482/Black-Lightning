@@ -6,11 +6,11 @@ import asyncio
 
 from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
 from userbot.thunderconfig import Config
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import lightning_cmd, edit_or_reply, sudo_cmd
 
 
 # @command(outgoing=True, pattern=r"^.gmute ?(\d+)?")
-@borg.on(admin_cmd(pattern=r"gmute ?(\d+)?", outgoing=True))
+@borg.on(lightning_cmd(pattern=r"gmute ?(\d+)?", outgoing=True))
 @borg.on(sudo_cmd(pattern=r"gmute ?(\d+)?", allow_sudo=True))
 async def startgmute(event):
     private = False
@@ -77,7 +77,7 @@ async def startgmute(event):
 
 
 # @command(outgoing=True, pattern=r"^.ungmute ?(\d+)?")
-@borg.on(admin_cmd(pattern=r"ungmute ?(\d+)?", outgoing=True))
+@borg.on(lightning_cmd(pattern=r"ungmute ?(\d+)?", outgoing=True))
 @borg.on(sudo_cmd(pattern=r"ungmute ?(\d+)?", allow_sudo=True))
 async def endgmute(event):
     private = False

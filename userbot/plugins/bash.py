@@ -3,10 +3,10 @@ import io
 import time
 
 from userbot import CMD_HELP
-from userbot.utils import admin_cmd, sudo_cmd
+from userbot.utils import lightning_cmd, sudo_cmd
 
 
-@borg.on(admin_cmd(pattern="bash ?(.*)"))
+@borg.on(lightning_cmd(pattern="bash ?(.*)"))
 @borg.on(sudo_cmd(pattern="bash ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

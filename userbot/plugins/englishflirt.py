@@ -6,10 +6,10 @@
 import asyncio
 import random
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern=r"rflirt$", outgoing=True))
+@borg.on(lightning_cmd(pattern=r"rflirt$", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return

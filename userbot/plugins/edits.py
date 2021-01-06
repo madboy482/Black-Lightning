@@ -12,10 +12,10 @@ Available Commands:
 import asyncio
 from collections import deque
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 
 
-@borg.on(admin_cmd(pattern=r"candy"))
+@borg.on(lightning_cmd(pattern=r"candy"))
 async def _(event):
     if event.fwd_from:
         return
@@ -26,7 +26,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@borg.on(admin_cmd(pattern=r"nothappy"))
+@borg.on(lightning_cmd(pattern=r"nothappy"))
 async def _(event):
     if event.fwd_from:
         return
@@ -37,7 +37,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@borg.on(admin_cmd(pattern=r"heart"))
+@borg.on(lightning_cmd(pattern=r"heart"))
 async def _(event):
     if event.fwd_from:
         return
@@ -48,7 +48,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@borg.on(admin_cmd(pattern=r"tlol"))
+@borg.on(lightning_cmd(pattern=r"tlol"))
 async def _(event):
     if event.fwd_from:
         return
@@ -59,7 +59,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@borg.on(admin_cmd(pattern=r"lol"))
+@borg.on(lightning_cmd(pattern=r"lol"))
 async def _(event):
     if event.fwd_from:
         return

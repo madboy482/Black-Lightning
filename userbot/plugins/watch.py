@@ -7,7 +7,7 @@
 
 from justwatch import JustWatch
 
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
 def get_stream_data(query):
@@ -75,7 +75,7 @@ def get_provider(url):
     return url
 
 
-@borg.on(admin_cmd(pattern="watch (.*)"))
+@borg.on(lightning_cmd(pattern="watch (.*)"))
 async def _(event):
     if event.fwd_from:
         return

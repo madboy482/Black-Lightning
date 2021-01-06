@@ -1,11 +1,11 @@
 import asyncio
 
 from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
-from userbot.utils import admin_cmd
+from userbot.utils import lightning_cmd
 
 
 # @command(outgoing=True, pattern=r"^.gmute ?(\d+)?")
-@borg.on(admin_cmd(pattern=r"fmute ?(\d+)?"))
+@borg.on(lightning_cmd(pattern=r"fmute ?(\d+)?"))
 async def startgmute(event):
     private = False
     if event.fwd_from:
@@ -38,7 +38,7 @@ async def startgmute(event):
 
 
 # @command(outgoing=True, pattern=r"^.ungmute ?(\d+)?")
-@borg.on(admin_cmd(pattern=r"unfmute ?(\d+)?"))
+@borg.on(lightning_cmd(pattern=r"unfmute ?(\d+)?"))
 async def endgmute(event):
     private = False
     if event.fwd_from:

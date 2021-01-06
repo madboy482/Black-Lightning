@@ -7,11 +7,11 @@ import asyncio
 
 from telethon.tl.functions.users import GetFullUserRequest
 
-from uniborg.util import admin_cmd
+from uniborg.util import lightning_cmd
 from userbot import CMD_HELP
 
 
-@borg.on(admin_cmd(pattern=r"system"))
+@borg.on(lightning_cmd(pattern=r"system"))
 async def _(event):
     if event.fwd_from:
         return
