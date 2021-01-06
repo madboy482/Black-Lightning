@@ -585,6 +585,7 @@ async def lightning_pugins_query_hndlr(lightning):
         lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
     if light_pulu_name in DETAIL_CMD_HELP: 
         lightning_help_strin = f"**DETAIL( ͡🔥 ͜ʖ ͡🔥): `{light_pulu_name}`\n{DETAIL_CMD_HELP[light_pulu_name]}"
+        lightning_is_best = lightning_help_strin 
         lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
         if len(lightning_is_best) >= 4096:
               keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
