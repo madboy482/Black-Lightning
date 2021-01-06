@@ -85,7 +85,7 @@
     "ALIVE_MSG": {
       "description": "Set Custom awake Message When entering .awake command.",
       "value": "",
-      "required": true
+      "required": false
     },
     "CHROME_BIN": {
     "description": "Leave as such, Google Chrome (or) Chromium binary location for selenium based modules.",
