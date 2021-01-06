@@ -39,7 +39,7 @@ else:
 
 INT_PLUG = ""
 LOAD_PLUG = {}
-
+COOL_CMD = {}
 # PaperPlaneExtended Support Vars
 ENV = os.environ.get("ENV", False)
 """ PPE initialization. """
