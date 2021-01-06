@@ -34,10 +34,10 @@ import re
 import json
 from math import ceil
 from userbot.thunderconfig import Config
-from telethon.events import InlineQuery, callbackquery
+
 from telethon import Button, custom, events, functions
 
-from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, bot, DETAIL_CMD_HELP
+from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, DETAIL_CMD_HELP, bot
 
 from var import Var
 
@@ -255,8 +255,8 @@ async def inline_handler(lightning):
         rev_text = query[::-1]
         buttons = lightnings_menu_for_help(0, CMD_HELP, "helpme")
         result = builder.article(
-            f"Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n{LIGHTNINGUSER}Sir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport",
-            text="Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\nSir Like If Faced Any Bug Please Give The Feed Back at @lightningsupport: {}".format(query, len(CMD_LIST)),
+            f"**Black Lightning Heres With The Detailed Help For This CMD 😉😉 !\n{LIGHTNINGUSER}Sir Like If Faced Any Bug Please Give The Feed Back at** @lightningsupport",
+            text="**Black Lightning Heres With The Detailed Help For CMDs** 😉😉 !\n If Faced Any Bug Please Give The Feed Back at @lightningsupport:{}\n`Plugins`: {}".format(query, len(CMD_LIST)),
             buttons=buttons,
             link_preview=False,
         )
@@ -324,7 +324,48 @@ async def lightning_pugins_query_hndlr(lightning):
         await lightning.answer(lightning_is_best, cache_time=0, alert=True)
 
 
-
+@tgbot.on(
+        events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+            data=re.compile(b"_lightning_plugins_(.*)")
+   )
+) # Thanks To Friday Userbot
+async def lightning_pugins_query_hndlr(lightning):
+    if not lightning.query.user_id == bot.uid:
+        how = "Not For  Bitch.🖕( ͡❛ ͜ʖ ͡❛)"
+        await lightning.answer(how, cache_time=0, alert=True)
+        return
+    light_pulu_name = lightning.data_match.group(1).decode("UTF-8")
+    detail_help = lightning.data_match.group(2).decode("UTF-8")
+    if light_pulu_name in CMD_HELP:
+        lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n{CMD_HELP[light_pulu_name]}"
+        lightning_is_best = lightning_help_strin 
+        lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
+    if detail_help in DETAIL_CMD_HELP: 
+        lightning_help_strin = f"**DETAIL( ͡🔥 ͜ʖ ͡🔥): `{detail_help}`\n{DETAIL_CMD_HELP[detail_help]}"
+        lightning_is_best = lightning_help_strin 
+        lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(detail_help)
+        if len(lightning_is_best) >= 4096:
+              keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
+              await lightning.answer(keinshin, cache_time=0, alert=True)
+              out_file = lightning_is_best
+              lig_url = "https://del.dog/documents"
+              r = requests.post(lig_url, data=out_file.encode("UTF-8")).json()
+              lig_url = f"https://del.dog/{r['key']}"
+              await lightning.edit(
+               f"Pasted {light_pulu_name} to {lig_url}",
+               link_preview=False,
+               buttons=[
+                [custom.Button.inline("🖕( ͡❛ ͜ʖ ͡❛)", data="op_krish")]
+                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="lght_back")]],
+         )
+        else:
+           await lightning.edit(
+            message=lightning_is_best,
+            buttons=[
+                [custom.Button.inline("🖕( ͡❛ ͜ʖ ͡❛)", data="op_krish")]
+                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="lght_back")],
+            ],
+        )
 
 
 @tgbot.on(
@@ -568,47 +609,7 @@ In Case Any Problem @lightningsupport \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {le
     await event.edit(message=ho, buttons=buttons)
 
 
-@tgbot.on(
-        events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-            data=re.compile(b"_lightning_plugins_(.*)")
-   )
-) # Thanks To Friday Userbot
-async def lightning_pugins_query_hndlr(lightning):
-    if not lightning.query.user_id == bot.uid:
-        how = "Not For  Bitch.🖕( ͡❛ ͜ʖ ͡❛)"
-        await lightning.answer(how, cache_time=0, alert=True)
-        return
-    light_pulu_name = lightning.data_match.group(1).decode("UTF-8")
-    if light_pulu_name in CMD_HELP:
-        lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n{CMD_HELP[light_pulu_name]}"
-        lightning_is_best = lightning_help_strin 
-        lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
-    if light_pulu_name in DETAIL_CMD_HELP: 
-        lightning_help_strin = f"**DETAIL( ͡🔥 ͜ʖ ͡🔥): `{light_pulu_name}`\n{DETAIL_CMD_HELP[light_pulu_name]}"
-        lightning_is_best = lightning_help_strin 
-        lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
-        if len(lightning_is_best) >= 4096:
-              keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
-              await lightning.answer(keinshin, cache_time=0, alert=True)
-              out_file = lightning_is_best
-              lig_url = "https://del.dog/documents"
-              r = requests.post(lig_url, data=out_file.encode("UTF-8")).json()
-              lig_url = f"https://del.dog/{r['key']}"
-              await lightning.edit(
-               f"Pasted {light_pulu_name} to {lig_url}",
-               link_preview=False,
-               buttons=[
-                [custom.Button.inline("🖕( ͡❛ ͜ʖ ͡❛)", data="op_krish")]
-                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="lght_back")]],
-         )
-        else:
-           await lightning.edit(
-            message=lightning_is_best,
-            buttons=[
-                [custom.Button.inline("🖕( ͡❛ ͜ʖ ͡❛)", data="op_krish")]
-                [custom.Button.inline("( ͡🔥 ͜ʖ ͡🔥)", data="lght_back")],
-            ],
-        )
+
         
 
 
@@ -623,9 +624,9 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
     lightning_plugins = sorted(lightning_plugins)
     plugins = [
         custom.Button.inline(
-            "{} {} {}".format("⨵", x, "⨵"), data="_lightning_plugins_{}".format(x)
+            "{} {} {}".format("⨵", plugs_x, "⨵"), data="_lightning_plugins_{}".format(plugs_x)
         )
-        for x in lightning_plugins
+        for plugs_x in lightning_plugins
     ]
     pairs = list(zip(plugins[::lightning_no_coulmns], plugins[1::lightning_no_coulmns]))
     if len(plugins) % lightning_no_coulmns == 1:
