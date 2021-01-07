@@ -1,6 +1,6 @@
 from userbot import CMD_HELP, bot
 from userbot.utils import lightning_cmd, sudo_cmd
-
+import asyncio
 @bot.on(sudo_cmd(pattern="detailed ?(.*)", allow_sudo=True))
 @bot.on(lightning_cmd(pattern="detailed ?(.*)"))
 async def _(event):
