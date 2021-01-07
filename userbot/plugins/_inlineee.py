@@ -360,12 +360,12 @@ async def lightning_pugins_query_hndlr(lightning):
     if light_pulu_name in CMD_LIST:
                 lightning_help_strin = "Commands found in {}:\n".format(light_pulu_name)
                 for i in CMD_LIST[light_pulu_name]:
-                    lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_LIST[light_pulu_name]}\n\n{CMD_HELP[light_pulu_name]}"
+                    lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n `{CMD_LIST[light_pulu_name]}`"
                     lightning_help_strin += "\n    " + i
                     lightning_help_strin += "\n"
                 
     else:
-           lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_LIST[light_pulu_name]}"
+           lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n`{CMD_LIST[light_pulu_name]}`"
            lightning_is_best = lightning_help_strin 
            lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
     lightning_help_strin = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_LIST[light_pulu_name]}"
