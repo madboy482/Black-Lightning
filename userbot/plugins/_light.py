@@ -1,6 +1,7 @@
 # Rewritten by @krish1303y
 import io
 from  userbot import CMD_LIST, ALIVE_NAME, bot as light
+from userbot import CMD_HELP
 from userbot.utils import lightning_cmd
 import asyncio
 from var import Var
