@@ -63,7 +63,7 @@ async def _(event):
     )
     await event.delete()
     await borg.send_message(
-        event.chat_id, "**LET US BE AS ONE**", reply_to=reply_message
+        event.chat_id, "**How Are You?**", reply_to=reply_message
     )
     if BOTLOG:
         await event.client.send_message(
