@@ -1,6 +1,6 @@
 import asyncio
 
-from userbot import ALIVE_NAME
+from userbot import ALIVE_NAME, CMD_HELP
 from userbot.utils import lightning_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Cat"
@@ -203,3 +203,21 @@ async def timer_blankx(e):
         "`Tesla Wireless Charging (beta) Completed...\nDevice Detected: Nokia 1100 (Space Grey Varient)\nBattery Percentage:` [100%](https://telegra.ph/file/a45aa7450c8eefed599d9.mp4) ",
         link_preview=True,
     )
+
+
+CMD_HELP.update(
+    {
+     "animation1": "`.stupid`\
+     \nUSAGE: Cool Provke plugin.\
+     \n\nanimation1: .bomb\
+     \nUSAGE: Cool Animation plugin.\
+     \nanimation1: .hypno`\
+     \nUSAGE: Hynotising plugin.\
+     \n\nanimation1: .gangasta\
+     \nUSAGE: Cool Animation plugin.\
+     \n\nanimation1: .charging\
+     \n**USAGE**:  Cool Animation\
+     \n\nanimaton1: .ding\
+     \n\n**USAGE**: Ding Ding Dong...."
+    }
+)

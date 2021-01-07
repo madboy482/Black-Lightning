@@ -1480,3 +1480,23 @@ async def action(event):
     msg_str = msg_str.replace("'", "")
     msg_str = msg_str.replace('"', "")
     await event.edit("**" + msg_str + "**")
+
+
+
+from userbot import CMD_HELP
+
+CMD_HELP.update(
+    {
+     "anime": "`.action`\
+     \n**USAGE**: Gives Top 10 anime names\
+     \n\nanime: .slice\
+     \n**USAGE**: Gives To 10 sliced anime name\
+     \nanime: `.adventure` `username\
+     \n**USAGE**: Gives You To Adventurous Anime.\
+     \n\nanime: `.isekai`\
+     \n**USAGE**: isekai Anime List.\
+     \n\nanime: `.romance`\
+     \n**USAGE**:  Romantic Anime"
+     
+    }
+)

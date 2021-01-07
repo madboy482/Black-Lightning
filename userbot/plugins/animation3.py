@@ -1,7 +1,7 @@
 import asyncio
 from collections import deque
 
-from userbot import ALIVE_NAME
+from userbot import ALIVE_NAME, CMD_HELP
 from userbot.utils import lightning_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Cat"

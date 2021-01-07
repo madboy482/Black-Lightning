@@ -43,3 +43,8 @@ async def _(event):
                 await event.edit(
                     f"**Antivirus scan was completed. I got dem final results.**\n {response.message.message}"
                 )
+
+
+from userbot import CMD_HELP
+
+CMD_HELP.update({"antivirus": ".waifu : Reply To User Message To Scan Him/Her"})

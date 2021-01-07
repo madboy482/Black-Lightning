@@ -71,3 +71,15 @@ async def main(event):
         os.system("rm -rf donottouch.jpg")
 
         await asyncio.sleep(600)  # Edit this to your required needs
+
+
+
+from userbot import CMD_HELP
+
+CMD_HELP.update(
+    {
+     "animedp": "`.animedp`\
+     \n**USAGE**: Simultaneous Anime DPs"
+     
+    }
+)

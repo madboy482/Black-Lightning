@@ -2,7 +2,7 @@
 # If you steal this without credits You will be the geyest gey ever in the world that you will suck cat's dick.
 import asyncio
 
-from .. import ALIVE_NAME
+from .. import ALIVE_NAME, CMD_HELP
 from ..utils import lightning_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
@@ -40,3 +40,12 @@ async def _(event):
         await event.edit(
             animation_chars[i % 17], link_preview=True
         )  # By @NOOB_GUY_OP for Dark CObra
+
+
+CMD_HELP.update(
+    {
+     "HBD": "`.hbty`\
+     \n**USAGE**: For Wishing Hapoy Birthday"
+     
+    }
+)
