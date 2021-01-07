@@ -18,9 +18,9 @@ async def cmd_list(event):
         input_str = event.pattern_match.group(1)
         if lightningusername is None or input_str == "text":
             string = ""
-            for i in CMD_LIST:
+            for i in CMD_HELP:
                 string += "ℹ️ " + i + "\n"
-                for iter_list in CMD_LIST[i]:
+                for iter_list in CMD_HELP[i]:
                     string += "    `" + str(iter_list) + "`"
                     string += "\n"
                 string += "\n"
@@ -30,9 +30,9 @@ async def cmd_list(event):
             else:
                 await event.edit(string)
         elif input_str:
-            if input_str in CMD_LIST:
+            if input_str in CMD_HELP:
                 string = "Commands found in {}:\n".format(input_str)
-                for i in CMD_LIST[input_str]:
+                for i in CMD_HELP[input_str]:
                     string += "\n    " + i
                     string += "\n"
                 await event.edit(string)
