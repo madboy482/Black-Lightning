@@ -17,7 +17,7 @@ import re
 
 from telethon import Button, custom, events
 from telethon.tl.functions.users import GetFullUserRequest
-
+from userbot.utils import assistant_cmd
 from userbot import bot
 from userbot.plugins.sql_helper.blacklist_assistant import (
     add_nibba_in_db,
@@ -31,8 +31,7 @@ from userbot.plugins.sql_helper.idadder_sql import (
     get_all_users,
 )
 
-
-@tgbot.on(events.NewMessage(pattern="^/start"))
+@assistant_cmd("start", is_args=False)
 async def start(event):
     starkbot = await tgbot.get_me()
     bot_id = starkbot.first_name
@@ -205,6 +204,7 @@ async def starkisnoob(event):
         event.raw_text
         user_id, reply_message_id = his_userid(msg.id)
     if is_he_added(user_id):
+        user_id, reply_message_id = his_userid(msg.id)
         await event.reply("Already Blacklisted")
     elif not is_he_added(user_id):
         add_nibba_in_db(user_id)
