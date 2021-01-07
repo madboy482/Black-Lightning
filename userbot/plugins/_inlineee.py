@@ -353,6 +353,15 @@ async def lightning_pugins_query_hndlr(lightning):
                 lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
     except BaseException:
          pass
+    lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_LIST[light_pulu_name]}"
+    if lightning_help_strin == "":
+           lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_LIST[light_pulu_name]}"
+           lightning_is_best = lightning_help_strin 
+           lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
+    else:
+           lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_LIST[light_pulu_name]}"
+           lightning_is_best = lightning_help_strin 
+           lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)
     lightning_help_strin = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_LIST[light_pulu_name]}"
     lightning_is_best = lightning_help_strin 
     lightning_is_best += "\n\n**In Case Any Problem @lightningsupport** ".format(light_pulu_name)    
