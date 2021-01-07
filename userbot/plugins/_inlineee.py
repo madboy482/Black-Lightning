@@ -363,7 +363,7 @@ async def lightning_pugins_query_hndlr(lightning):
                     lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_LIST[light_pulu_name]}"
                     lightning_help_strin += "\n    " + i
                     lightning_help_strin += "\n"
-                await lightning.edit(lightning_help_strin)
+                
     else:
            lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_LIST[light_pulu_name]}"
            lightning_is_best = lightning_help_strin 
