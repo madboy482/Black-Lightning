@@ -1,10 +1,7 @@
 
 <h2 align="center"><b>Owner: <a href="https://telegram.dog/krish1303y">B乛LAC丨ᗩᑎᗰᗝᒪ ᔕᖇIᐯᗩᔕ丅ᗩᐯᗩ 🇮🇳 ⁪⁬⁮⁮⁮#ƈʏɮɛʀlєgєnds</a></b></h2>
 <br>
-<p align="center">
-   <a href="https://github.com/KeinShin/Black-Lightning"><img src="https://telegra.ph/file/07d55d71944a852ac6d5e.jpg" alt="BLACK LIGHTNING" width=400px></a>
-   <br>
-   <br>
+<p align="center"><a href="https://t.me/lightningsupport"><img src="https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"></a></p> 
 </p>
 <h1>BLACK LIGHTNING</h1>
 <b>A Powerful, Smart And Simple Userbot In Telethon.</b>
