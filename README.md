@@ -1,9 +1,26 @@
-# Logo
-<a href="https://t.me/lightningsupport"><img src="Note:- I Assembled Many Bot To Make This All Credits Goes To Thier Respected Owner"></a>
-<p align="center"><a href="https://t.me/lightningsupport"><img src="https://telegra.ph/file/07d55d71944a852ac6d5e.jpg"></a></p> 
-<h1 align="center"><b>Black Lightning-USERBOT 🇮🇳 </b></h1>
-<h4 align="center">A Powerful, Smart And Simple Userbot In Telethon.</h4>
 
+<h2 align="center"><b>Owner: <a href="https://telegram.dog/krish1303y">B乛LAC丨ᗩᑎᗰᗝᒪ ᔕᖇIᐯᗩᔕ丅ᗩᐯᗩ 🇮🇳 ⁪⁬⁮⁮⁮#ƈʏɮɛʀlєgєnds</a></b></h2>
+<br>
+<p align="center">
+   <a href="https://github.com/KeinShin/Black-Lightning"><img src="https://telegra.ph/file/07d55d71944a852ac6d5e.jpg" alt="BLACK LIGHTNING" width=400px></a>
+   <br>
+   <br>
+</p>
+<h1>BLACK LIGHTNING</h1>
+<b>A Powerful, Smart And Simple Userbot In Telethon.</b>
+<br>
+<br>
+
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)]( https://github.com/KeinShin/Black-Lightning)
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg?&style=flat-square)]( https://github.com/KeinShin/Black-Lightning#copyright--license)
+[![Stars](https://img.shields.io/github/stars/KeinShin/Black-Lightning?&style=flat-square)]( https://github.com/KeinShin/Black-Lightning/stargazers)
+[![Forks](https://img.shields.io/github/forks/KeinShin/Black-Lightning?&style=flat-square)]( https://github.com/KeinShin/Black-Lightning/network/members)
+[![Issues Open](https://img.shields.io/github/issues/KeinShin/Black-Lightning?&style=flat-square)]( https://github.com/KeinShin/Black-Lightning/issues)
+[![Issues Closed](https://img.shields.io/github/issues-closed/KeinShin/Black-Lightning?&style=flat-square)]( https://github.com/KeinShin/Black-Lightning/issues?q=is:closed)
+[![PR Open](https://img.shields.io/github/issues-pr/KeinShin/Black-Lightning?&style=flat-square)]( https://github.com/KeinShin/Black-Lightning/pulls)
+[![PR Closed](https://img.shields.io/github/issues-pr-closed/KeinShin/Black-Lightning?&style=flat-square)]( https://github.com/KeinShin/Black-Lightning/pulls?q=is:closed)
+![Repo Size](https://img.shields.io/github/repo-size/KeinShin/Black-Lightning?style=flat-square)
+<br>
 
 
 # Credits 
@@ -35,10 +52,8 @@ Thx To  Friday And Dark Cobra Bot :") And Big Big Thx To 🔱╚»★𝙍𝘿�
 
 
 # Support
-
-<a href="https://t.me/blackBlack Lightning support"><img src="https://img.shields.io/badge/Join-Telegram%20Channel-red.svg?logo=Telegram"></a>
-
-<a href="https://t.me/blackBlack Lightning support"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram"></a>
+<a href="https://t.me/blacklightningot"><img src="https://img.shields.io/badge/Join-Support%20Channel-red.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/lightningsupport"><img src="https://img.shields.io/badge/Join-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
 
 ## Tottal CMDs -: CMDS Are More Than 470 :D
 
@@ -81,6 +96,12 @@ Thx To  Friday And Dark Cobra Bot :") And Big Big Thx To 🔱╚»★𝙍𝘿�
 ## Note-: 
 
 This is a userbot made for telegram. I made this userbot with help of all other userbots available in telegram. All credits goes to its Respective Owners.......
+
+# Requirements 
+* Python 3.8 or Higher
+* Telegram [API Keys](https://my.telegram.org/apps)
+* String [Gernate from here](https://repl.it/@Anmol10H/Lightning-Repl#main.py)
+
 
 # How To
 
@@ -133,8 +154,6 @@ python3 -m Black-Lightning
     
 [+] The Lightning Bot will not work without setting the mandatory vars.
 ```
-
-
 
 
 
