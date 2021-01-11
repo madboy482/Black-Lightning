@@ -1,6 +1,4 @@
 
-# Created By @krish1303y Inspired By Hellbot
-# Some Modifcations By @krish1303y
 
 import asyncio
 import os
