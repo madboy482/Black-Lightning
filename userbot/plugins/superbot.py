@@ -1,4 +1,4 @@
-# Created By @krish1303y For Black Lightning
+# Created By @keinshin For Black Lightning
 # Makes Your Bot Super Bot Something Like Livegram but Better
 
 from telethon import events

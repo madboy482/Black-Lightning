@@ -1,4 +1,4 @@
-#    @krish1303y a.k.a KeinShin
+#    @keinshin a.k.a KeinShin
 #    Copyright (C) 2020 KeinShin
 
 #    This program is free software: you can redistribute it and/or modify
@@ -279,7 +279,7 @@ async def krish_op(event):
         if not lightning_sql.is_approved(chats.id):
             lightning_sql.approve(chats.id, "**Heya Sir**")
             await borg.send_message(
-                chats, f"**Good To See You @krish1303y. How Can I Disapprove You Come In Sir**😄😄"
+                chats, f"**Good To See You @keinshin. How Can I Disapprove You Come In Sir**😄😄"
             )
             print("Dev Here")
 @bot.on(

@@ -1,4 +1,4 @@
-# Modifed by @krish1303y 
+# Modifed by @keinshin 
 # Kang With Credits Or Lund Lega Bsdk
 
 

@@ -16,7 +16,7 @@
 
 """Thanks To 
 @Midhun_xD
-@krish1303y
+@keinshin
 @Shivam_Patel
 @NOOBIzBack
 """

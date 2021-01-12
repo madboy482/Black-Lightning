@@ -1,4 +1,4 @@
-# Rewritten by @krish1303y
+# Rewritten by @keinshin
 import io
 from  userbot import CMD_LIST, ALIVE_NAME, bot as light
 from userbot import CMD_HELP

@@ -1,7 +1,7 @@
 # Thanks To @Errored_Bachha
 
-# Created by @krish1303y
-# Ported To Assitant By @krish1303y
+# Created by @keinshin
+# Ported To Assitant By @keinshin
 
 import asyncio
 import logging

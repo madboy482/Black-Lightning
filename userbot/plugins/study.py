@@ -1,7 +1,7 @@
 """night Plugin for Sensible_userbot
 Syntax: .study REASON"""
 
-# this is plugin is by @krish1303y for Black Lightning
+# this is plugin is by @keinshin for Black Lightning
 # kang with credits
 
 import asyncio
