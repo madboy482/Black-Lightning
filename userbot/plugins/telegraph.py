@@ -1,7 +1,7 @@
 """@telegraph Utilities Fix by @Kraken_The_BadASS
 Available Commands:
-.telegraph media as reply to a media
-.telegraph text as reply to a large text"""
+.tgm  as reply to a media
+.tgm text as reply to a large text"""
 import os
 from datetime import datetime
 
@@ -15,7 +15,7 @@ r = telegraph.create_account(short_name=Config.TELEGRAPH_SHORT_NAME)
 auth_url = r["auth_url"]
 
 
-@borg.on(lightning_cmd("telegraph (media|text) ?(.*)"))
+@borg.on(lightning_cmd("tg (m|t) ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
