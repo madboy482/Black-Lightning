@@ -43,7 +43,7 @@ if LIGHTNING_PM is None:
     CUSTOM_LIGHTNING_PM_PIC = "https://telegra.ph/file/53aed76a90e38779161b1.jpg"
 else:
     CUSTOM_LIGHTNING_PM_PIC = LIGHTNING_PM
-FUCK_OFF_WARN = f"Blocked You Bitch You Spammed {LIGHTNINGUSER} IDC Why You Are Here Just Fuck Off 🖕"
+FUCK_OFF_WARN = f"**Blocked You As You Spammed {LIGHTNINGUSER}'s DM\n\n **IDC**"
 
 
 
