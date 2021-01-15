@@ -207,17 +207,17 @@ async def timer_blankx(e):
 
 CMD_HELP.update(
     {
-     "animation1": "`.stupid`\
-     \nUSAGE: Cool Provke plugin.\
-     \n\nanimation1: .bomb\
-     \nUSAGE: Cool Animation plugin.\
-     \nanimation1: .hypno`\
-     \nUSAGE: Hynotising plugin.\
-     \n\nanimation1: .gangasta\
-     \nUSAGE: Cool Animation plugin.\
-     \n\nanimation1: .charging\
-     \n**USAGE**:  Cool Animation\
-     \n\nanimaton1: .ding\
-     \n\n**USAGE**: Ding Ding Dong...."
+     "| | ᴀɴɪᴍᴀᴛɪᴏɴ𝟷 | |": "`.stupid`\
+     \n**USAGE**: `Cool Provke plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ𝟷 |: `.bomb`\
+     \n**USAGE**: `Cool Animation plugin.`\
+     \n| ᴀɴɪᴍᴀᴛɪᴏɴ𝟷 |: `.hypno`\
+     \n**USAGE**: `Hynotising plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ𝟷 |: `.gangasta`\
+     \n**USAGE**: `Cool Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ𝟷 |: `.charging`\
+     \n**USAGE**:  `Cool Animation`\
+     \n\nanimaton1: `.ding`\
+     \n\n**USAGE**: `Ding Ding Dong....`"
     }
 )
