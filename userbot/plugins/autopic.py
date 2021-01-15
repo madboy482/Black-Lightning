@@ -43,3 +43,9 @@ async def autopic(event):
             await asyncio.sleep(60)
         except:
             return
+
+from userbot import CMD_HELP
+
+CMD_HELP.update( {
+    ".autopic": "**USAGE** Auto Profile Pic ."
+})

@@ -52,3 +52,12 @@ async def main(event):
         await event.client(functions.photos.UploadProfilePhotoRequest(file))
         os.system("rm -rf donottouch.jpg")
         await asyncio.sleep(120)  # Edit this to your required needs
+
+
+
+from userbot import CMD_HELP
+
+
+CMD_HELP.update( {
+    "autopfp": "**USAGE** batman Profile Pic ."
+})

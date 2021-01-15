@@ -143,3 +143,10 @@ async def apkr(e):
         await e.edit("No result found in search. Please enter **Valid app name**")
     except Exception as err:
         await e.edit("Exception Occured:- " + str(err))
+
+
+from userbot import CMD_HELP
+
+CMD_HELP.update({"app": "**USAGE** : Fetch App Deatils For Paystore\
+\n\n **COMMAND**:  `.app` `appname`\
+\n\n **COMMAND - 2 : `.appr`  `to fetch app details with Xpl0iter request link.`.    "})

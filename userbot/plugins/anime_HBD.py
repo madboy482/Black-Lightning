@@ -45,7 +45,7 @@ async def _(event):
 CMD_HELP.update(
     {
      "HBD": "`.hbty`\
-     \n**USAGE**: For Wishing Hapoy Birthday"
+     \n**USAGE**: For Wishing Happy Birthday"
      
     }
 )

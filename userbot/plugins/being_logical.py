@@ -577,3 +577,13 @@ async def _(event):
         await event.edit(
             '`"If we put solar panels above parking lots, then our cars wouldn\'t get hot and we would have a lot of clean energy."`'
         )
+
+
+from userbot import CMD_HELP
+
+CMD_HELP.update( {
+"being_logical": "Say something interesting...\
+\n\n**Syntax**: `.belo`\
+\nby @Deonnn\
+\n\nQuotes credits: Being logical Channel"
+ })

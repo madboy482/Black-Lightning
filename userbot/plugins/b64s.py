@@ -29,3 +29,13 @@ async def _(event):
         await event.edit(f"**DECODED STRING** : `{sample_strings}`")
     except:
         await event.edit("Can't Decoded Probably Due To Invalid String")
+
+
+
+from userbot import CMD_HELP
+
+CMD_HELP.update( {
+    ".bdecode": "\
+    \n\**USAGE** Auto Profile Pic ."
+})
+

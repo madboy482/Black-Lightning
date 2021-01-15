@@ -7,7 +7,7 @@ from telethon.errors import FloodWaitError
 from telethon.tl import functions
 
 from uniborg.util import lightning_cmd
-from userbot import ALIVE_NAME
+from userbot import ALIVE_NAME, CMD_HELP
 
 DEL_TIME_OUT = 60
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Lightning"
@@ -39,4 +39,7 @@ async def _(event):
         #     "Successfully Changed Profile Name"
         # )
         await asyncio.sleep(DEL_TIME_OUT)
-    await event.edit(f"Auto Name has been started Master")
+        await event.edit(f"Auto Name has been started Master")
+
+
+CMD_HELP.update( {".autoname": "Auto Profile Updation Commands"})

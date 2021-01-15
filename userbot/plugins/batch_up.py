@@ -28,3 +28,13 @@ async def batch_upload(event):
         await event.edit("Directory Not Found.")
         return
     await event.edit("Successfull.")
+
+from userbot import CMD_HELP
+
+
+CMD_HELP.update( {
+    "Files Batch Uploader": "Plugin for userbot.\
+\n\n**USAGE**:- `.upb` \
+\n\n**Note**:- set TEMP_DIR in Your ENV Vars First.\
+\nBy:-@Zero_cool7870"
+})

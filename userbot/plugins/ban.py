@@ -194,3 +194,16 @@ async def get_user_from_id(user, event):
         return None
 
     return user_obj
+
+
+from userbot import CMD_HELP
+
+CMD_HELP.update(
+    {
+        "ascii": "__**PLUGIN NAME :** ascii__\
+      \n\n** CMD ** `.ascii` reply to any image file:\
+      \n**USAGE : **Makes an image ascii style, try out your own.\
+      \n\n** CMD ** `.line` reply to any image file:\
+      \n**USAGE : **Makes an image line style."
+    }
+    )

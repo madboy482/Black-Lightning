@@ -16,7 +16,7 @@ async def _(event):
 
         return
 
-    await event.edit("LAKHU CHU 1 MINUTE !...")
+    await event.edit("1 Min Pls!...")
 
     await asyncio.sleep(2)
 
@@ -599,3 +599,13 @@ async def _(event):
         await event.edit(
             '`"As thou hast given him power over all flesh, that he should give eternal life to as many as thou hast given him.  <John 17:2>."`'
         )
+
+
+from userbot import CMD_HELP
+
+CMD_HELP.update( {
+    "being_bibical":"`.bbl` \
+\n\nSyntax: `.bbl` `Say something from the Holy Bible..`\
+\n\nby @Mayur_Karaniya\
+\n\nQuotes credits: Being Biblical Channel : @BeingBiblical"
+})

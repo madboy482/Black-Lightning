@@ -68,3 +68,9 @@ async def main(event):
         os.system("rm -rf donottouch.jpg")
 
         await asyncio.sleep(1000)  # Edit this to your required needs
+
+
+
+CMD_HELP.update( {
+    ".avengersdp": "**USAGE** Auto Avangers Profile Pic ."
+})
