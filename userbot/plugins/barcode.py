@@ -62,3 +62,13 @@ async def _(event):
     await event.edit("Created BarCode in {} seconds".format(ms))
     await asyncio.sleep(5)
     await event.delete()
+
+
+from userbot import CMD_HELP
+CMD_HELP.update(
+    {
+     "| | barcode | |": "`.barcode`\
+\n\nBarCode Generator\
+\n\n**Command** -  `.barcode` `(your text)``"
+    }
+)

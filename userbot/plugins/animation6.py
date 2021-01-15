@@ -246,3 +246,24 @@ async def payf(e):
         paytext * 1,
     )
     await e.edit(pay)
+
+
+from userbot import CMD_HELP
+CMD_HELP.update(
+    {
+     "| | ᴀɴɪᴍᴀᴛɪᴏɴ6 | |": "`.g1`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ6 |: `.f`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ6 |: `.kf`\
+     \n**USAGE**: `Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ6 |: `.ftext` / `text`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ6 |: `.ctext` / `text`\
+     \n**USAGE**:  `Ascii Maker Plugin`\
+     \n\nanimaton1: `.uff`\
+     \n\n**USAGE**: `uff Animation`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ6 |: `.bigoof`\
+     \n**USAGE**: ` Oof Animation plugin.`"
+    }
+)

@@ -127,7 +127,7 @@ async def _(event):
         "⬜⬜⬛⬜⬜\n⬜⬜⬛⬜⬜\n⬜⬜🔴⬜⬜",
         "⬜⬜⬛⬜⬜\n⬜⬛⬜⬜⬜\n🔴⬜⬜⬜⬜",
         "🔴⬛⬛⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
-        "⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜\n⬜  [CAT IS BEST](https://github.com/Sur-vivor/CatUserbot) ⬜\n⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜",
+        "⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜\n⬜  [Hehe](https://github.com/KeinShin/Black-Lightning) ⬜\n⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜",
     ]
     if event.fwd_from:
         return
@@ -203,3 +203,17 @@ async def timer_blankx(e):
         "`Tesla Wireless Charging (beta) Completed...\nDevice Detected: Nokia 1100 (Space Grey Varient)\nBattery Percentage:` [100%](https://telegra.ph/file/a45aa7450c8eefed599d9.mp4) ",
         link_preview=True,
     )
+
+
+
+from userbot import CMD_HELP
+CMD_HELP.update(
+    {
+     "| | animations | |": "`.charging`\
+     \n**USAGE**: ` Charging Phone Plugin`\
+     \n\n| anime_animation |: `.gangasta`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| anime_animation |: `.call`\
+     \n**USAGE**: `Fake Telegram Call Prank.`"
+    }
+)

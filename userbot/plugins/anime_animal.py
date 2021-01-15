@@ -100,3 +100,21 @@ async def homer(homer):
 @borg.on(lightning_cmd(pattern=r"pig"))
 async def pig(pig):
     await pig.edit(P)
+
+
+
+from userbot import CMD_HELP
+CMD_HELP.update(
+    {
+     "| | animals | |": "`.pig`\
+     \n**USAGE**: ` Pig Face.`\
+     \n\n| animals |: `.homer`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| animals |: `.spong`\
+     \n**USAGE**: `Spongebob face creator.`\
+     \n\n| animals |: `.elephant`\
+     \n**USAGE**: `Elephant Art  plugin.`\
+     \n\n| animals |: `.fox` / `text`\
+     \n**USAGE**:  `Fox Ascii Maker Plugin`"
+    }
+)

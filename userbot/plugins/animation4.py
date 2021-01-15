@@ -347,3 +347,33 @@ async def hi(event):
     await event.edit(
         "¸.•°*”˜˜”*°•.¸☆ ★ ☆¸.•°*”˜˜”*°\n╔╗╔╦══╦═╦═╦╗╔╗ ★ ★ \n║╚╝║══║═║═║╚╝║ ☆¸.•° \n║╔╗║╔╗║╔╣╔╩╗╔╝ ★\n╚╝╚╩╝╚╩╝╚╝═╚╝★Birthday!★"
     )
+from userbot import CMD_HELP
+
+CMD_HELP.update(
+    {
+     "| | ᴀɴɪᴍᴀᴛɪᴏɴ4 | |": "`.snake`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ4 |: `.human`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ4 |: `.squ`\
+     \n**USAGE**: `Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ4 |: `.music`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ4 |: `.nakal`\
+     \n**USAGE**:  ` Abusive Animation`\
+     \n\nanimaton1: `.isro`\
+     \n\n**USAGE**: `Rocket Animation`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ4 |: `.repe`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ4 |: `.virus`\
+     \n**USAGE**:  ` Fake Deploy Animation`\
+     \n\nanimaton1: `.mc`\
+     \n\n**USAGE**: `Plane Animation`\
+     \n\nanimaton1: `.loveu`\
+     \n\n**USAGE**: `Greet Animation`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ4 |: `.fleaveme`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ4 |: `.hbty | .hbday`\
+     \n**USAGE**:  `Happy Birthday Greet Animation`"
+    }
+)

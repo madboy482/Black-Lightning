@@ -237,3 +237,32 @@ async def _(event):
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 5])
+
+
+from userbot import CMD_HELP
+CMD_HELP.update(
+    {
+     "| | ᴀɴɪᴍᴀᴛɪᴏɴ5 | |": "`.fdance`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ5 |: `.theart`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ5 |: `.gsg`\
+     \n**USAGE**: `Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ5 |: `.hart`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ5 |: `.raped`\
+     \n**USAGE**:  ` Abusive Animation`\
+     \n\nanimaton1: `.dhab`\
+     \n\n**USAGE**: `Animation`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ5 |: `.herber`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ5 |: `.monky`\
+     \n**USAGE**:  ` Monkey Animation`\
+     \n\nanimaton1: `.fnl`\
+     \n\n**USAGE**: `Animation`\
+     \n\nanimaton1: `.kein`\
+     \n\n**USAGE**: `Up Down Animation`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ5 |: `.dabba`\
+     \n**USAGE**: ` Animation plugin.`"
+    }
+)

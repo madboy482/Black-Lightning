@@ -4,7 +4,7 @@ from collections import deque
 from userbot import ALIVE_NAME, CMD_HELP
 from userbot.utils import lightning_cmd
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Cat"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Light"
 
 
 @borg.on(lightning_cmd(pattern=r"star$", outgoing=True))
@@ -302,3 +302,33 @@ async def _(event):
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 8])
+
+
+CMD_HELP.update(
+    {
+     "| | ᴀɴɪᴍᴀᴛɪᴏɴ3 | |": "`.star`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ3 |: `.box`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ3 |: `.rain`\
+     \n**USAGE**: `Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ3 |: `.clol`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ3 |: `.deploy`\
+     \n**USAGE**:  ` Fake Deploy Animation`\
+     \n\nanimaton1: `.jio`\
+     \n\n**USAGE**: `Fake Network Connect Animation`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ3 |: `.solarsystem`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ3 |: `.police`\
+     \n**USAGE**:  ` Fake Deploy Animation`\
+     \n\nanimaton1: `.plane`\
+     \n\n**USAGE**: `Plane Animation`\
+     \n\nanimaton1: `.loveu`\
+     \n\n**USAGE**: `Greet Animation`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ3 |: `.fleaveme`\
+     \n**USAGE**: ` Animation plugin.`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ3 |: `.dump`\
+     \n**USAGE**:  `Garbage Animation`"
+    }
+)
