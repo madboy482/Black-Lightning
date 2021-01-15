@@ -16,7 +16,7 @@
 
 """Thanks To 
 @Midhun_xD
-@krish1303y
+@keinshin
 @Shivam_Patel
 @NOOBIzBack
 """
@@ -284,7 +284,7 @@ async def inline_handler(lightning):
             file=LIGHTNING_WARNING,
             text=WARNING,
             buttons=[
-                [custom.Button.inline("Wanna Spam Some Porn Images?😉", data="lightning_is_here_cant_spam")],
+                [custom.Button.inline("Wanna Spam Something?😉", data="lightning_is_here_cant_spam")],
                 [
                     custom.Button.inline(
                         "My Friend❤️❤️",
@@ -294,7 +294,7 @@ async def inline_handler(lightning):
                 [custom.Button.inline("Requesting🙏", data="fck_ask")],
                 [
                     custom.Button.inline(
-                        "Fuck Lemme In🖕", 
+                        "Lemme In :)", 
                         data="lol_u_think_so",
                         
                     )

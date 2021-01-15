@@ -1,4 +1,4 @@
-# Changes Fixed By @krish1303y
+# Changes Fixed By @keinshin
 # Credits To Team DC
 import asyncio
 from userbot import ALIVE_NAME

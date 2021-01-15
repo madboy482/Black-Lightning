@@ -1,4 +1,4 @@
-#    @krish1303y a.k.a KeinShin
+#    @keinshin a.k.a KeinShin
 #    Copyright (C) 2020 KeinShin
 
 #    This program is free software: you can redistribute it and/or modify
@@ -43,7 +43,7 @@ if LIGHTNING_PM is None:
     CUSTOM_LIGHTNING_PM_PIC = "https://telegra.ph/file/53aed76a90e38779161b1.jpg"
 else:
     CUSTOM_LIGHTNING_PM_PIC = LIGHTNING_PM
-FUCK_OFF_WARN = f"Blocked You Bitch You Spammed {LIGHTNINGUSER} IDC Why You Are Here Just Fuck Off 🖕"
+FUCK_OFF_WARN = f"**Blocked You As You Spammed {LIGHTNINGUSER}'s DM\n\n **IDC**"
 
 
 
@@ -279,7 +279,7 @@ async def krish_op(event):
         if not lightning_sql.is_approved(chats.id):
             lightning_sql.approve(chats.id, "**Heya Sir**")
             await borg.send_message(
-                chats, f"**Good To See You @krish1303y. How Can I Disapprove You Come In Sir**😄😄"
+                chats, f"**Good To See You @keinshin. How Can I Disapprove You Come In Sir**😄😄"
             )
             print("Dev Here")
 @bot.on(

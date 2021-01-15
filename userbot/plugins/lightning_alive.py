@@ -1,6 +1,4 @@
 
-# Created By @krish1303y Inspired By Hellbot
-# Some Modifcations By @krish1303y
 
 import asyncio
 import os
@@ -54,16 +52,16 @@ TG = str(TG_GRUP) if TG_GRUP else "Not  Yet😁😁"
 TG_CHANN = str(TG_CHANNEL) if TG_CHANNEL else "Not Yet😁😁"
 
 
+from userbot import CMD_LIST
 
-lightning_cap = "**вℓα¢к ℓιgнтηιηg 𝙸𝚂 🅾🅽🅻🅸🅽🅴**\n\n"
-lightning_cap += f"**𝕄𝕪 𝔹𝕠𝕤𝕤**            : {DEFAULTUSER}\n"
-lightning_cap += f"⚔️⚔️`{DEFAULTUSER}'s⚔️⚔️ ɢʀօʊք`   : {TG}\n"  
-lightning_cap += f"⚔️⚔️`{DEFAULTUSER}'s⚔️⚔️ ƈɦǟռռɛʟ` : {TG_CHANN}\n\n"
+lightning_cap = "**вℓα¢к ℓιgнтηιηg 𝙸𝚂 `ɘᴎi|ᴎO`**\n\n"
+lightning_cap += f"**†rïdεη† ﾚïgh†'š mαš†εr**          : {DEFAULTUSER}\n"
+lightning_cap += f"⚔️⚔️ {DEFAULTUSER}'s⚔️⚔️ ɢʀօʊք   : {TG}\n"  
+lightning_cap += f"⚔️⚔️{DEFAULTUSER}'s⚔️⚔️ ƈɦǟռռɛʟ : {TG_CHANN}\n\n"
 lightning_cap += f"`тєℓєтнσи νєяѕισи`       : {__version__}\n"
 lightning_cap += "`ρყƚԋσɳ ʋҽɾʂισɳ`           : 3.9.0\n\n"
 lightning_cap += "`ֆʊքքօʀƭ ƈɦǟռռɛʟ`          : [ᴊᴏɪɴ](https://t.me/blacklightningot)\n"
 lightning_cap += "`ֆʊքքօʀƭ ɢʀօʊք`            : [ᴊᴏɪɴ](https://t.me/lightningsupport)\n"
-lightning_cap += "`𝘓𝘐𝘚𝘌𝘕𝘊𝘌`                  : [AGPL-3.0  ʟɪᴄᴇɴꜱᴇ](https://github.com/KeinShin/Black-Lightning/blob/master/License)\n"
 lightning_cap += "`𝘾𝙊𝙋𝙔𝙍𝙄𝙂𝙃𝙏`:              [KeinShin](https://t.me//krish1303y)\n"
 
 

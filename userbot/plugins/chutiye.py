@@ -1,4 +1,4 @@
-# By @krish1303y for Black Lightning
+# By @keinshin for Black Lightning
 # If you steal this without credits You will be the geyest gey ever in the world that you will suck my dick.
 import asyncio
 

@@ -36,7 +36,7 @@ async def _(event):
     # https://stackoverflow.com/a/5072031/4723940
     # some Deleted Accounts do not have first_name
     if user_id == 1263617196:
-        await event.edit("Sorry, Not Goin To Clone @krish1303y He Is My Dev!!")
+        await event.edit("Sorry, Not Goin To Clone @keinshin He Is My Dev!!")
         await asyncio.sleep(3)
         return
     if first_name is not None:

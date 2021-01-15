@@ -18,9 +18,9 @@ jobs:
 
         with:
 
-          find: "lightning_cmd"
+          find: "@krish1303y"
 
-          replace: "lightning_cmd"
+          replace: "@keinshin"
 
       - name: Create Pull Request
 
@@ -28,12 +28,12 @@ jobs:
 
         with:
 
-          commit_message: 'Replace That Dependencies'
+          commit_message: 'Replaced New Username'
 
           commit_options: '--no-verify'
 
           repository: .
 
-          commit_user_name: KeinShin
+          commit_user_name: Kei
 
           commit_user_email: poxsisofficial@gmail.com

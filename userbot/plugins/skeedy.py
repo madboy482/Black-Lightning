@@ -1,4 +1,4 @@
-# Created By @krish1303y For Black Lightning
+# Created By @keinshin For Black Lightning
 # For Setting Remainder In TG
 
 from telethon import events
