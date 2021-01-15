@@ -12,6 +12,7 @@ import requests
 from telethon.tl import functions
 
 from userbot.utils import lightning_cmd
+from userbot import CMD_HELP
 
 COLLECTION_STRING = [
     "avengers-logo-wallpaper",
