@@ -211,7 +211,7 @@ CMD_HELP.update(
      \n**USAGE**: `Cool Provke plugin.`\
      \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ𝟷 |: `.bomb`\
      \n**USAGE**: `Cool Animation plugin.`\
-     \n| ᴀɴɪᴍᴀᴛɪᴏɴ𝟷 |: `.hypno`\
+     \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ𝟷 |: `.hypno`\
      \n**USAGE**: `Hynotising plugin.`\
      \n\n| ᴀɴɪᴍᴀᴛɪᴏɴ𝟷 |: `.gangasta`\
      \n**USAGE**: `Cool Animation plugin.`\
