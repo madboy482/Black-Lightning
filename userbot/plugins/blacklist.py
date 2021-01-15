@@ -89,9 +89,14 @@ async def on_delete_blacklist(event):
 from userbot import CMD_HELP
 CMD_HELP.update(
     {
-     "Available Commands:\
-\n\n**Command**- `.addblacklist` `(username)`\
-\n\n**USAGE** - `Adds The Username in black lists in that chat / group  \n\n**Command** - listblacklist\n**USAGE** - `Lists The Users Who You Black Listed`\n\n**COMMAND** - `.rmblacklist` (`username`)\n**USAGE** - `Removes The User From Black List`"
+     "Available Commands": 
+     
+     "\n\n**Command**- `.addblacklist` `(username)`\
+     \n\n**USAGE** - `Adds The Username in black lists in that chat  group`\
+     \n\n**Command** - listblacklist\
+     \n**USAGE** - `Lists The Users Who You Black Listed`\
+     \n\n**COMMAND** - `.rmblacklist` (`username`)\
+     \n**USAGE** - `Removes The User From Black List`"
     }
 
 
