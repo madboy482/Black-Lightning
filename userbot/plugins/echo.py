@@ -19,7 +19,7 @@ from userbot.plugins.sql_helper.echo_sql import (
 from userbot.utils import lightning_cmd, edit_or_reply
 
 
-@borg.on(lightning_cmd(pattern="echoadd$"))
+@borg.on(lightning_cmd(pattern="echo$"))
 async def echo(krish):
     if krish.fwd_from:
         return
@@ -39,7 +39,6 @@ async def echo(krish):
             await edit_or_reply(krish, "The user is already enabled with echo ")
             return
         addecho(user_id, chat_id)
-        await krish.edit("```Making Echo Of This User 😏```")
         await edit_or_reply(krish, "Hello.....💢")
     else:
         await edit_or_reply(krish, "Reply To A User's Message to echo his messages")
@@ -115,7 +114,7 @@ async def blackrply(krish):
 
 CMD_HELP.update(
     {
-        "echo": "**Syntax :** `.echoadd` reply to user to who you want to enable\
+        "echo": "**Syntax :** `.echo` reply to user to who you want to enable\
     \n**Usage : **replay's his every message for whom you enabled echo\
     \n\n**Syntax : **`.rmecho` reply to user to who you want to stop\
     \n**Usage : **Stops replaying his messages\
