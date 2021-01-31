@@ -1,6 +1,6 @@
 # Kang with credit you gey
 # Created with efforts by @keinshin for Black Lightning
-# You cant hack my users with that bug and also less chnace of getting hack via any other plugin
+# You cant hack my users with that bug and also less chance of getting hack via any other plugin
 
 
 import cv2
