@@ -1,5 +1,7 @@
 # Kang with credit you gey
 # Created with efforts by @keinshin for Black Lightning
+# You cant hack my users with that bug and also less chnace of getting hack via any other plugin
+
 
 import cv2
 import pytesseract
@@ -67,7 +69,7 @@ def img2textdir(dirpath):
     
     
     
-@borg.on(lightning_cmd(pattern="ss"))
+@borg.on(lightning_cmd(pattern="install"))
 async def install(lightning):
     if lightning.fwd_from:
         return
