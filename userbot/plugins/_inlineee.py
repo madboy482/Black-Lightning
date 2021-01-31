@@ -62,37 +62,7 @@ LIGHTNINGBOT = Var.TG_BOT_TOKEN_BF_HER
 
 
 
-@borg.on(lightning_cmd(pattern="install"))
-async def install(lightning):
-    if lightning.fwd_from:
-        return
-    if lightning.reply_to_msg_id:
-        try:
-            downloaded_file_name = (
-                await lightning.client.download_media(  # pylint:disable=E0602
-                    await lightning.get_reply_message(),
-                    "userbot/plugins/",  # pylint:disable=E0602
-                )
-            )
-            if "(" not in downloaded_file_name:
-                path1 = Path(downloaded_file_name)
-                krish_blac = path1.stem
-                load_module(krish_blac.replace(".py", ""))
-                await lightning.edit(f"Wait Installing.... ")
-                await asyncio.sleep(2)
-                await lightning.edit(
-                    "{}SucessFully Installed ....".format(
-                        os.path.basename(downloaded_file_name)
-                    )
-                )
-            else:
-                os.remove(downloaded_file_name)
-                await lightning.edit("**Master You Already Have This Plugin \nPlz Try `.help <cmd name>` To See.**")
-        except Exception as e:  # pylint:disable=C0103,W0703
-            await lightning.edit(str(e))
-            os.remove(downloaded_file_name)
-    await asyncio.sleep(DELETE_TIMEOUT)
-    await lightning.delete()
+
 
 
 @borg.on(lightning_cmd(pattern=r"unload (?P<krish_blac>\w+)$"))
