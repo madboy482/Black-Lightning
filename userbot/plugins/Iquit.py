@@ -10,6 +10,8 @@ from userbot.utils import lightning_cmd
 
 @borg.on(lightning_cmd("iquit", outgoing=True))
 async def leave(e):
+    if e.fwd_from:
+         return
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
             "`I am leaving this chat😒..koi ni hai yaha apna I hate you all🙄..huh!!`"
