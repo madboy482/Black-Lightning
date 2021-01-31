@@ -82,9 +82,10 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
 # @register(outgoing=True, pattern="^.setgpic$")
 @borg.on(lightning_cmd(pattern=r"setgpic"))
-@errors_handler
 async def set_group_photo(gpic):
     """ For .setgpic command, changes the picture of a group """
+    if gpic.fwd_from:
+        return
     if not gpic.is_group:
         await gpic.edit("`I don't think this is a group.`")
         return
@@ -121,8 +122,10 @@ async def set_group_photo(gpic):
 
 # @register(outgoing=True, pattern="^.promote(?: |$)(.*)")
 @borg.on(lightning_cmd(pattern=r"promote(?: |$)(.*)"))
-@errors_handler
+
 async def promote(promt):
+    if promt.fwd_from:
+        return
     """ For .promote command, promotes the replied/tagged person """
     # Get targeted chat
     chat = await promt.get_chat()
@@ -176,8 +179,10 @@ async def promote(promt):
 
 # @register(outgoing=True, pattern="^.demote(?: |$)(.*)")
 @borg.on(lightning_cmd(pattern=r"demote(?: |$)(.*)"))
-@errors_handler
+
 async def demote(dmod):
+    if dmod.fwd_from:
+        return
     """ For .demote command, demotes the replied/tagged person """
     # Admin right check
     chat = await dmod.get_chat()
@@ -230,8 +235,10 @@ async def demote(dmod):
 
 # @register(outgoing=True, pattern="^.ban(?: |$)(.*)")
 @borg.on(lightning_cmd(pattern=r"ban(?: |$)(.*)"))
-@errors_handler
+
 async def ban(bon):
+    if bon.fwd_from:
+        return
     """ For .ban command, bans the replied/tagged person """
     # Here laying the sanity check
     chat = await bon.get_chat()
@@ -285,8 +292,10 @@ async def ban(bon):
 
 # @register(outgoing=True, pattern="^.unban(?: |$)(.*)")
 @borg.on(lightning_cmd(pattern=r"unban(?: |$)(.*)"))
-@errors_handler
+
 async def nothanos(unbon):
+    if unbon.fwd_from:
+        return
     """ For .unban command, unbans the replied/tagged person """
     # Here laying the sanity check
     chat = await unbon.get_chat()
@@ -325,8 +334,10 @@ async def nothanos(unbon):
 
 # @register(outgoing=True, pattern="^.mute(?: |$)(.*)")
 @borg.on(lightning_cmd(pattern=r"mute(?: |$)(.*)"))
-@errors_handler
+
 async def spider(spdr):
+    if spdr.fwd_from:
+        return
     """
     This function is basically muting peeps
     """
@@ -387,9 +398,11 @@ async def spider(spdr):
 
 # @register(outgoing=True, pattern="^.unmute(?: |$)(.*)")
 @borg.on(lightning_cmd(pattern=r"unmute(?: |$)(.*)"))
-@errors_handler
+
 async def unmoot(unmot):
-    """ For .unmute command, unmute the replied/tagged person """
+    if unmot.fwd_from:
+         return
+            #  """ For .unmute command, unmute the replied/tagged person """
     # Admin or creator check
     chat = await unmot.get_chat()
     admin = chat.admin_rights
@@ -437,8 +450,10 @@ async def unmoot(unmot):
 
 
 @register(incoming=True)
-@errors_handler
+
 async def muter(moot):
+    if moot.fwd_from:
+        return
     """ Used for deleting the messages of muted people """
     try:
         from userbot.modules.sql_helper.gmute_sql import is_gmuted
@@ -471,8 +486,10 @@ async def muter(moot):
 
 # @register(outgoing=True, pattern="^.ungmute(?: |$)(.*)")
 @borg.on(lightning_cmd(pattern=r"ungmute(?: |$)(.*)"))
-@errors_handler
+
 async def ungmoot(un_gmute):
+    if un_gmute.fwd_from:
+        return
     """ For .ungmute command, ungmutes the target in the userbot """
     # Admin or creator check
     chat = await un_gmute.get_chat()
@@ -518,8 +535,10 @@ async def ungmoot(un_gmute):
 
 # @register(outgoing=True, pattern="^.gmute(?: |$)(.*)")
 @borg.on(lightning_cmd(pattern=r"gmute(?: |$)(.*)"))
-@errors_handler
+
 async def gspider(gspdr):
+    if gspdr.fwd_from:
+        return
     """ For .gmute command, globally mutes the replied/tagged person """
     # Admin or creator check
     chat = await gspdr.get_chat()
@@ -565,9 +584,11 @@ async def gspider(gspdr):
 
 # @register(outgoing=True, pattern="^.delusers(?: |$)(.*)")
 @borg.on(lightning_cmd(pattern=r"delusers(?: |$)(.*)"))
-@errors_handler
+
 async def rm_deletedacc(show):
     """ For .delusers command, list all the ghost/deleted accounts in a chat. """
+    if show.fwd_from:
+        return
     if not show.is_group:
         await show.edit("`I don't think this is a group.`")
         return
@@ -757,6 +778,9 @@ async def kick(usr):
 @borg.on(lightning_cmd(pattern=r"users ?(.*)"))
 @errors_handler
 async def get_users(show):
+  
+    if show.fwd_from:
+         return
     """ For .users command, list all of the users in a chat. """
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "this chat"
@@ -803,6 +827,8 @@ async def get_user_from_event(event):
     """ Get the user from argument or replied message. """
     args = event.pattern_match.group(1).split(" ", 1)
     extra = None
+    if event.fwd_from:
+         return
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         user_obj = await event.client.get_entity(previous_message.from_id)
