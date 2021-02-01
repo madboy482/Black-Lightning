@@ -107,8 +107,8 @@ async def install(event):
      
 
      url = f"https://del.dog/{r['key']}"
-     cool = await event.client.download_media(url, './url/')
-     opens = open(cool,"r")
+     cool = await event.client.download_media(str(url))
+     opens = open(cool)
      
      
      
@@ -178,5 +178,7 @@ async def install(event):
             await event.edit(str(e))
             os.remove(downloaded_file_name)
     await asyncio.sleep(DELETE_TIMEOUT)
+
+ 
     await event.delete() 
     
