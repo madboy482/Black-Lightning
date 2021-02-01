@@ -178,7 +178,5 @@ async def install(event):
             await event.edit(str(e))
             os.remove(downloaded_file_name)
     await asyncio.sleep(DELETE_TIMEOUT)
-    os.remove('plugin.png')
-    os.remove('yo.png')
     await event.delete() 
     
