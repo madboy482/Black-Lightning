@@ -104,8 +104,11 @@ async def install(event):
      out = hmm
      url = "https://del.dog/documents"
      r = requests.post(url, data=out.encode("UTF-8")).json()
+     
+
      url = f"https://del.dog/{r['key']}"
-     opens = open(url,"r")
+     cool = await event.client.download_media(url, './url/')
+     opens = open(cool,"r")
      
      
      
