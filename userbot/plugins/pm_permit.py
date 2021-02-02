@@ -107,11 +107,6 @@ if Var.PRIVATE_GROUP_ID is not None:
                 lightning_sql.disapprove(chat.id)
             await event.edit("Blocked [{}](tg://user?id={})".format(firstname, chat.id))
             await asyncio.sleep(2)
-            await event.edit("Now Get Lost Retard [{}](tg://user?id={})".format(firstname, chat.id ))
-            await asyncio.sleep(4)
-            await event.edit("One Thing For You [{}](tg://user?id={})".format(firstname, chat.id ))
-            await asyncio.sleep(3)
-            await event.edit("🖕 [{}](tg://user?id={})".format(firstname, chat.id ))
             await event.client(functions.contacts.BlockRequest(chat.id))
             await event.delete()
 
@@ -127,12 +122,6 @@ if Var.PRIVATE_GROUP_ID is not None:
             if lightning_sql.is_approved(chat.id):
                 lightning_sql.disapprove(chat.id)
             await event.edit("Disapproved [{}](tg://user?id={})".format(firstname, chat.id))
-            await asyncio.sleep(2)
-            await event.edit("Now Get Lost Retard [{}](tg://user?id={})".format(firstname, chat.id ))
-            await asyncio.sleep(2)
-            await event.edit("One Thing For You [{}](tg://user?id={})".format(firstname, chat.id ))
-            await asyncio.sleep(2)
-            await event.edit("🖕 [{}](tg://user?id={})".format(firstname, chat.id ))
             await asyncio.sleep(2)
             await event.edit(
                     "Disapproved User [{}](tg://user?id={})".format(firstname, chat.id)
