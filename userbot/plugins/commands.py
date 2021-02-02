@@ -8,7 +8,7 @@ from userbot.utils import lightning_cmd
 async def install(event):
     if event.fwd_from:
         return
-    cmd = "ls userbot/modules"
+    cmd = "ls userbot/plugins"
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
