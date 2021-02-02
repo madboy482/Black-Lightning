@@ -74,7 +74,7 @@ async def install(event):
     if event.fwd_from:
         return
     await event.edit("`Checking Codes..`")
-    yo = await event.client.download_media(await event.get_reply_message())
+    yo = await event.client.download_media(await event.get_reply_message(), "./path/)
     dd = open(yo, "r")
     hmm = dd.read()
     dd.close()
@@ -95,9 +95,9 @@ async def install(event):
     """ Who know we can use upper one too """
     secureee = f"{hmm}"
     secure =  str(secureee.find("if event.fwd_from:"))
-    sete = str(secureee.find("borg.me.phone"))
+#     sete = str(secureee.find("borg.me.phone"))
     
-    sss = str(secureee.find("000webhostapp.com"))
+#     sss = str(secureee.find("000webhostapp.com"))
     if len(secure) == "5" or "4096":
      await event.edit("`Big File might take time to check`")#hehe
      out = hmm
@@ -115,34 +115,34 @@ async def install(event):
      
      sssss =  str(ok.find("if event.fwd_from:"))
      
-     dd = str(ok.find("borg.me.phone"))
-     sss = str(ok.find("000webhostapp.com"))   
+#      dd = str(ok.find("borg.me.phone"))
+#      sss = str(ok.find("000webhostapp.com"))   
      opens.close()
      if sssss not in ok:
             await event.edit(f"**Alert**\n\n**Not a secure plugin can't install**") 
 
             return
 
-     if dd in ok:
-         await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
+#      if dd in ok:
+#          await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
  
-         return
-     if sss in ok:
-        await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
+#          return
+#      if sss in ok:
+#         await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
          
         
-        return
+#         return
     if secure not in secureee:
         await event.edit(f"**Alert**\n\n**Not a secure plugin can't install**") 
 
         return
-    if sete in secureee:
-        await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
+#     if sete in secureee:
+#         await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
 
-        return
-    if sss in secureee:
-        await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
-        return
+#         return
+#     if sss in secureee:
+#         await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
+#         return
     
     if event.reply_to_msg_id:
         try:
