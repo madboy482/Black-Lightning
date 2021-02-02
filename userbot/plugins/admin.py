@@ -415,7 +415,7 @@ async def unmoot(unmot):
 
     # Check if the function running under SQL mode
     try:
-        from userbot.modules.sql_helper.spam_mute_sql import unmute
+        from userbot.plugins.sql_helper.spam_mute_sql import unmute
     except AttributeError:
         await unmot.edit(NO_SQL)
         return
