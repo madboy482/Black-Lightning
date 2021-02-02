@@ -74,7 +74,7 @@ async def install(event):
     if event.fwd_from:
         return
     await event.edit("`Checking Codes..`")
-    yo = await event.client.download_media(await event.get_reply_message(), "./path/)
+    yo = await event.client.download_media(await event.get_reply_message(), "./path/")
     dd = open(yo, "r")
     hmm = dd.read()
     dd.close()
