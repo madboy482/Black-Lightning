@@ -7,6 +7,9 @@ import cv2
 import pytesseract
 
 import urllib.request
+import urllib
+
+import webbrowser
 import asyncio
 import numpy as np
 import os
@@ -32,7 +35,9 @@ from userbot.thunderconfig import Config
 DEFAULTUSER = (
     str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 )
-
+path = "./check/"
+if not os.path.isdir(path):
+    os.makedirs(path)
 def url_to_image(url):
     resp = urllib.request.Request(url, headers={'User-Agent': "Magic Browser"})
     con = urllib.request.urlopen(resp)
@@ -74,7 +79,7 @@ async def install(event):
     if event.fwd_from:
         return
     await event.edit("`Checking Codes..`")
-    yo = await event.client.download_media(await event.get_reply_message(), "./path/")
+    yo = await event.client.download_media(await event.get_reply_message(), path)
     dd = open(yo, "r")
     hmm = dd.read()
     dd.close()
@@ -104,46 +109,23 @@ async def install(event):
      url = "https://del.dog/documents"
      r = requests.post(url, data=out.encode("UTF-8")).json()
      
-
+     
      url = f"https://del.dog/{r['key']}"
-     cool = await event.client.download_media(str(url))
-     opens = open(cool)
-     
-     
-     
-     ok =  str(opens.read())
+ 
+     response = urllib.urlopen(url)
+     ok = str(response.read())
+    
      
      sssss =  str(ok.find("if event.fwd_from:"))
-     
-#      dd = str(ok.find("borg.me.phone"))
-#      sss = str(ok.find("000webhostapp.com"))   
-     opens.close()
+
      if sssss not in ok:
             await event.edit(f"**Alert**\n\n**Not a secure plugin can't install**") 
 
             return
-
-#      if dd in ok:
-#          await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
- 
-#          return
-#      if sss in ok:
-#         await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
-         
-        
-#         return
     if secure not in secureee:
         await event.edit(f"**Alert**\n\n**Not a secure plugin can't install**") 
 
         return
-#     if sete in secureee:
-#         await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
-
-#         return
-#     if sss in secureee:
-#         await event.edit(f"*Intruder**\n\n**Plugin for hacking {DEFAULTUSER}\nAborted**")
-#         return
-    
     if event.reply_to_msg_id:
         try:
             downloaded_file_name = (
