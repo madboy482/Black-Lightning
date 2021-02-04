@@ -78,11 +78,11 @@ Thx To  Friday And Dark Cobra Bot :") And Big Big Thx To 🔱╚»★𝙍𝘿�
 
 11. Can Give u Cricket Scores (Credits Given In Plugins)
 
-12. And If Are GOinn To Sleep Do ```.night``` The Bot WIll Auto Reply Messages With A Good Night Message ( Some Thing Like Afk But Different)
+12. And If You Are Goinn To Sleep Do ```.night``` The Bot WIll Auto Reply Messages With A Good Night Message ( Some Thing Like Afk But Different)
 
 13. Afk Feature When You Are Goin Offline
 
-14. And If Are GOinn For Study  Do ```.study``` The Bot WIll Auto Reply Messages With A Good Study Message ( Some Thing Like Afk But Different)
+14. And If You Are Goinn For Study  Do ```.study``` The Bot WIll Auto Reply Messages With A Good Study Message ( Some Thing Like Afk But Different)
 
 15. And 5 types Of Hack CMDs
 
