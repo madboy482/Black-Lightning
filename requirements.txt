@@ -166,3 +166,4 @@ tinydb==3.2.1
 pyTelegramBotAPI==2.1.5
 pygments==2.7.1
 pandas==1.2.1
+python-magic
