@@ -1,7 +1,9 @@
-# Kang with credit you gey
-# Created with efforts by @keinshin for Black Lightning
-# You cant hack my users with that bug and also less chnace of getting hack via any other plugin
+# You Gey Kang With Credits Or Suck My Dick  
+# by @keinshin you noob
+# keep Credits
 
+
+# Created By @keinshin
 
 import cv2
 import pytesseract
@@ -103,7 +105,7 @@ async def install(event):
 #     sete = str(secureee.find("borg.me.phone"))
     
 #     sss = str(secureee.find("000webhostapp.com"))
-    if len(secure) == "5" or "4096":
+    if len(secureee) == "4096":
      await event.edit("`Big File might take time to check`")#hehe
      out = hmm
      url = "https://del.dog/documents"
@@ -112,7 +114,7 @@ async def install(event):
      
      url = f"https://del.dog/{r['key']}"
  
-     response = urllib.urlopen(url)
+    with urllib.request.urlopen(url) as response:
      ok = str(response.read())
     
      
@@ -126,31 +128,30 @@ async def install(event):
         await event.edit(f"**Alert**\n\n**Not a secure plugin can't install**") 
 
         return
-    if event.reply_to_msg_id:
-        try:
-            downloaded_file_name = (
-                await event.client.download_media(  # pylint:disable=E0602
-                    await event.get_reply_message(),
-                    "userbot/plugins/",  # pylint:disable=E0602
+    try:
+        downloaded_file_name = (
+            await event.client.download_media(  # pylint:disable=E0602
+                await event.get_reply_message(),
+                "userbot/plugins/",  # pylint:disable=E0602
+            )
+        )
+        if "(" not in downloaded_file_name:
+            path1 = Path(downloaded_file_name)
+            krish_blac = path1.stem
+            load_module(krish_blac.replace(".py", ""))
+            await event.edit(f"Wait Installing.... ")
+            await asyncio.sleep(2)
+            await event.edit(
+                "{}SucessFully Installed ....".format(
+                    os.path.basename(downloaded_file_name)
                 )
             )
-            if "(" not in downloaded_file_name:
-                path1 = Path(downloaded_file_name)
-                krish_blac = path1.stem
-                load_module(krish_blac.replace(".py", ""))
-                await event.edit(f"Wait Installing.... ")
-                await asyncio.sleep(2)
-                await event.edit(
-                    "{}SucessFully Installed ....".format(
-                        os.path.basename(downloaded_file_name)
-                    )
-                )
-            else:
-                os.remove(downloaded_file_name)
-                await event.edit("**Master You Already Have This Plugin \nPlz Try `.help <cmd name>` To See.**")
-        except Exception as e:  # pylint:disable=C0103,W0703
-            await event.edit(str(e))
+        else:
             os.remove(downloaded_file_name)
+            await event.edit("**Master You Already Have This Plugin \nPlz Try `.help <cmd name>` To See.**")
+    except Exception as e:  # pylint:disable=C0103,W0703
+        await event.edit(str(e))
+        os.remove(downloaded_file_name)
     await asyncio.sleep(DELETE_TIMEOUT)
 
  
