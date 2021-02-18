@@ -1,9 +1,3 @@
-# You Gey Kang With Credits Or Suck My Dick  
-# by @keinshin you noob
-# keep Credits
-
-
-# Created By @keinshin
 
 import cv2
 import pytesseract
@@ -80,54 +74,6 @@ def img2textdir(dirpath):
 async def install(event):
     if event.fwd_from:
         return
-    await event.edit("`Checking Codes..`")
-    yo = await event.client.download_media(await event.get_reply_message(), path)
-    dd = open(yo, "r")
-    hmm = dd.read()
-    dd.close()
-
-    """ In Case  """
-
-    # pygments.highlight(f"{hmm}", Python3Lexer(), ImageFormatter(font_name="DejaVu Sans Mono", line_numbers=True), "yo.png")
-    
-    
-    # # await event.client.send_file(event.chat_id, "yo.png", force_document=False, reply_to=event.reply_to_msg_id)
-    # plugin = cv2.imread('yo.png')
-    
-    # grey = cv2.cvtColor(plugin, cv2.COLOR_BGR2GRAY)
-    # cv2.imwrite('plugin.png', grey)
-
-    # ddd  = img2text('plugin.png')
-    # hmm = f"{ddd}"
-    """ Who know we can use upper one too """
-    secureee = f"{hmm}"
-    secure =  str(secureee.find("if event.fwd_from:"))
-#     sete = str(secureee.find("borg.me.phone"))
-    
-#     sss = str(secureee.find("000webhostapp.com"))
-    if len(secureee) == "4096":
-     await event.edit("`Big File might take time to check`")#hehe
-     out = hmm
-     url = "https://del.dog/documents"
-     r = requests.post(url, data=out.encode("UTF-8")).json()
-     
-     
-     url = f"https://del.dog/{r['key']}"
- 
-    with urllib.request.urlopen(url) as response:
-     ok = str(response.read())
-    
-     
-     sssss =  str(ok.find("if event.fwd_from:"))
-
-     if sssss not in ok:
-            await event.edit(f"**Alert**\n\n**Not a secure plugin can't install**") 
-
-            return
-    if secure not in secureee:
-        await event.edit(f"**Alert**\n\n**Not a secure plugin can't install**") 
-
-        return
     try:
         downloaded_file_name = (
             await event.client.download_media(  # pylint:disable=E0602
@@ -148,7 +94,7 @@ async def install(event):
             )
         else:
             os.remove(downloaded_file_name)
-            await event.edit("**Master You Already Have This Plugin \nPlz Try `.help <cmd name>` To See.**")
+            await event.edit("**Master You Already Have This Plugin .**")
     except Exception as e:  # pylint:disable=C0103,W0703
         await event.edit(str(e))
         os.remove(downloaded_file_name)
