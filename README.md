@@ -26,17 +26,17 @@
 * [FridayUserBot](https://github.com/DevsExpo/FridayUserbot)
 * [Jarvisuserbot](https://github.com/Jarvis-Works/JarvisUserbot)
 * [CatUserBot](https://github.com/sandy1709/catuserbot)
-* [@Uniborg](https://github.com/SpEcHiDe/UniBorg)
-* [@CipherX1-ops](https://t.me/CipherX1-ops)
-* [@Hellboi-Danish](https://t.me/Hellboi-Danish)
+* [TeleBot](https://github.com/xditya/TeleBot)
+* [Uniborg](https://github.com/SpEcHiDe/UniBorg)
+* [CipherX1-ops](https://t.me/CipherX1-ops)
+* [Hellboi-Danish](https://t.me/Hellboi-Danish)
 
 
 # Support
 <a href="https://t.me/blacklightningot"><img src="https://img.shields.io/badge/Join-Support%20Channel-red.svg?style=for-the-badge&logo=Telegram"></a>
 <a href="https://t.me/lightningsupport"><img src="https://img.shields.io/badge/Join-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
 
-## Tottal CMDs -: CMDS Are More Than 470 :D
-
+## Total Commands = CMDS Are More Than 470 :D
 # About ɮʟǟƈᏦ ʟɨɢɦƭռɨռɢ
 
 1. Can Do Many This Such As Download ANy Video From Youtube and Other Sites
@@ -89,23 +89,13 @@ This is a userbot made for telegram. I made this userbot with help of all other 
 
 <a href="https://app.gitbook.com/@poxsisofficial/s/blackBlack Lightning /"><img src="https://img.shields.io/badge/Read%20More-GitBook-red.svg"></a>
 
-
-
-
-
 # Deploy
 
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/KeinShin/Black-Lightning)
 
-
-
-
 # String
 
 [![Run on Repl.it](https://repl.it/badge/github/KeinShin/Black-Lightning&theme=midnight-purple)](https://repl.it/@Anmol10H/Lightning-Repl#main.py)
-
-
-
 
 # The Normal Way
 
