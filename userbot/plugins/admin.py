@@ -460,7 +460,7 @@ async def muter(moot):
         from userbot.plugins.sql_helper.mute_sql import is_muted
     except AttributeError:
         return
-    muted = is_muted(moot.chat_id)
+    muted = is_muted(moot.sender_id,moot.chat_id)
     gmuted = is_gmuted(moot.sender_id)
     rights = ChatBannedRights(
         until_date=None,
