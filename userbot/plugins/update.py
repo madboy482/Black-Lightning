@@ -3,7 +3,8 @@ import os
 import sys
 
 import git
-
+from git import Repo
+from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from userbot.thunderconfig import Config
 from userbot.utils import lightning_cmd
 
@@ -32,8 +33,7 @@ HEROKU_GIT_REF_SPEC = "HEAD:refs/heads/master"
 RESTARTING_APP = "`Re-starting heroku application`"
 # -- Constants End -- #
 
-
-@borg.on(lightning_cmd("updatenow ?(.*)", outgoing=True))
+@borg.on(lightning_cmd("update ?(.*)", outgoing=True))
 async def updater(message):
     try:
         repo = git.Repo()
@@ -67,24 +67,25 @@ async def updater(message):
     )
 
     if not changelog:
-        await message.edit("`Updation in Progress......`")
-        await asyncio.sleep(5)
-
-    message_one = NEW_BOT_UP_DATE_FOUND.format(
-        branch_name=active_branch_name, changelog=changelog
-    )
-    message_two = NEW_UP_DATE_FOUND.format(branch_name=active_branch_name)
-
-    if len(message_one) > 4095:
-        with open("change.log", "w+", encoding="utf8") as out_file:
-            out_file.write(str(message_one))
-        await tgbot.send_message(
-            message.chat_id, document="change.log", caption=message_two
+        await message.edit("`No Update Awaible still want to check just restart bot`")
+        return
+    if message.text[8:] != "now":
+        message_one = NEW_BOT_UP_DATE_FOUND.format(
+            branch_name=active_branch_name, changelog=changelog
         )
-        os.remove("change.log")
-    else:
-        await message.edit(message_one)
+        message_two = NEW_UP_DATE_FOUND.format(branch_name=active_branch_name)
 
+        if len(message_one) > 4095:
+            with open("change.log", "w+", encoding="utf8") as out_file:
+                out_file.write(str(message_one))
+            await tgbot.send_message(
+                message.chat_id, document="change.log", caption=message_two
+            )
+            os.remove("change.log")
+        else:
+            await message.edit(message_one)
+        await message.respond(f'Do `.update now` to update if any doker or requirements are changed else restart the bot')
+        return
     temp_upstream_remote.fetch(active_branch_name)
     repo.git.reset("--hard", "FETCH_HEAD")
 
