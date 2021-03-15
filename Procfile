@@ -1,1 +1,1 @@
-userbot: python3 -m userbot
+worker: python3 amaanrun.py
