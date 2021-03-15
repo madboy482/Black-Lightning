@@ -33,7 +33,7 @@ HEROKU_GIT_REF_SPEC = "HEAD:refs/heads/master"
 RESTARTING_APP = "`Re-starting heroku application`"
 # -- Constants End -- #
 
-@borg.on(lightning_cmd("update ?(.*)", outgoing=True))
+@borg.on(lightning_cmd("update", outgoing=True))
 async def updater(message):
     try:
         repo = git.Repo()
