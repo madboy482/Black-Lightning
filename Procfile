@@ -1,1 +1,1 @@
-worker: python3 amaanrun.py
+worker: python3 amaansh1vamrun.py
