@@ -5,6 +5,7 @@ Syntax: .screencapture <Website URL>"""
 import io
 
 import requests
+from userbot import CMD_HELP
 
 from userbot.utils import lightning_cmd
 
