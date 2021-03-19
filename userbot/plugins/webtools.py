@@ -1,6 +1,8 @@
 # @FridayoT
 
 import requests
+import os 
+import asyncio
 from iplookup import iplookup
 from selenium import webdriver
 from youtube_search import YoutubeSearch
@@ -19,8 +21,7 @@ from userbot.utils import lightning_cmd, edit_or_reply, sudo_cmd
 async def wshot(message):
     king= message.text
     amaan=king[7:]
-    link_match = match(r"\bhttps?://.*\.\S+", amaan)
-    if not link_match:
+    
         await message.edit("`I need a valid link to take screenshots from.`")
         return
     link = link_match.group()
