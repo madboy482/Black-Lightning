@@ -1,8 +1,0 @@
-*.pyc
-__pycache__/
-__pycache__/*
-PokemonRarityGuide.jpg
-pokebot.cfg
-users.json
-user_dex.png
-users copy 2.json
