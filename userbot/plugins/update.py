@@ -20,10 +20,10 @@ BOT_IS_UP_TO_DATE = "**The ßﾚαςκ ﾚïgh†ηïηg †** is up-to-date sur
 NEW_BOT_UP_DATE_FOUND = (
     "New Update Found For {branch_name}\n"
     "ChangeLog: \n\n{changelog}\n"
-    "UPdating Your ßﾚαςκ ﾚïgh†ηïηg ..."
+    "UPdate Your ßﾚαςκ ﾚïgh†ηïηg ..."
 )
 NEW_UP_DATE_FOUND = (
-    "New update found for {branch_name}\n" "`updating your   ßﾚαςκ ﾚïgh†ηïηg...`"
+    "New update found for {branch_name}\n" "`UPdating your   ßﾚαςκ ﾚïgh†ηïηg...`"
 )
 REPO_REMOTE_NAME = "temponame"
 IFFUCI_ACTIVE_BRANCH_NAME = "master"
@@ -142,7 +142,7 @@ async def deploy_start(tgbot, message, refspec, remote):
     await message.edit(RESTARTING_APP)
     await asyncio.sleep(2)
     await message.edit(
-        "**UPdateD Your `ßﾚαςκ ﾚïgh†ηïηg` UserBoT sur!!!\nNow WaiT FoR 15-20 mins Modules Are LoaDinG AFTer ThaT TYPe 'awake' to check if I am On**🚶😏"
+        "**UPdatinG Your `ßﾚαςκ ﾚïgh†ηïηg` UserBoT sur!!!\nPlease WaiT FoR 20-25 mins Modules Are LoaDinG AFTer ThaT TYPe 'awake' to check if I am On**🤗😅"
     )
     await remote.push(refspec=refspec)
     await tgbot.disconnect()
