@@ -152,6 +152,8 @@ if ENV:
 
     class Config(object):
         LOGGER = True
+        CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
+        GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
         # Get this value from my.telegram.org! Please do not steal
         LOCATION = os.environ.get("LOCATION", None)
         OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
