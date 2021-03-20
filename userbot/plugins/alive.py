@@ -190,7 +190,7 @@ async def amireallyalive(calive):
     if calive.fwd_from:
         return
     reply_to_id = await reply_id(calive)
-    uptime = await topfunc.get_readable_time((time.time() - StartTime))
+    uptime = await get_readable_time((time.time() - StartTime))
     _, check_sgnirts = check_data_base_heal_th()
     if PM_IMG:
         pm_caption = f"**{ALIVE_MSG}**\n\n"
