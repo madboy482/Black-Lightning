@@ -23,7 +23,7 @@ NEW_BOT_UP_DATE_FOUND = (
     "UPdate Your ßﾚαςκ ﾚïgh†ηïηg ..."
 )
 NEW_UP_DATE_FOUND = (
-    "New update found for {branch_name}\n" "`UPdating your   ßﾚαςκ ﾚïgh†ηïηg...`"
+    "New UPdate Founded Sir🤩 {branch_name}\n" "`UPdating your   ßﾚαςκ ﾚïgh†ηïηg...`"
 )
 REPO_REMOTE_NAME = "temponame"
 IFFUCI_ACTIVE_BRANCH_NAME = "master"
