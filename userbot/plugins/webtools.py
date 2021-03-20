@@ -16,6 +16,9 @@ from userbot import CMD_HELP
 from userbot.utils import lightning_cmd, edit_or_reply, sudo_cmd
 from userbot import Config 
 from userbot.Config import Var
+from userbot.thunderconfig import Config
+from var import Var
+from userbot.utils import lightning_cmd
 
 
 
