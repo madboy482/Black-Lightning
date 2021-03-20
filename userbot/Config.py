@@ -45,8 +45,6 @@ class Var(object):
     LESS_SPAMMY = os.environ.get("LESS_SPAMMY", None)
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     CUSTOM_ALIVE = os.environ.get("CUSTOM_ALIVE", None)
-    CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
-    GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     TG_BOT_TOKEN_BF_HER = os.environ.get("TG_BOT_TOKEN_BF_HER", None)
     TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
@@ -187,6 +185,9 @@ if ENV:
         #
         NO_SONGS = bool(os.environ.get("NO_SONGS", False))
         #
+        CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
+        GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
+
         # DO NOT EDIT BELOW THIS LINE IF YOU DO NOT KNOW WHAT YOU ARE DOING
         # TG API limit. A message can have maximum 4096 characters!
         MAX_MESSAGE_SIZE_LIMIT = 4095
