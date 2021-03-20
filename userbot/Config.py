@@ -277,4 +277,5 @@ else:
 
     class Config(object):
         DB_URI = None
+        chrome_options.binary_location =CHROME_BIN
         # Add your extra vars if any here
