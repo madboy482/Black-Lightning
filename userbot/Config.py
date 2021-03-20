@@ -36,6 +36,8 @@ class Var(object):
     # custom vars
     CUSTOM_ALIVE = os.environ.get("CUSTOM_ALIVE", None)
     CUSTOM_ALIVE_EMOJI = os.environ.get("CUSTOM_ALIVE_EMOJI", None)
+    CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
+    GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
     SUDO_HNDLR = os.environ.get("SUDO_HNDLR", "\.")
     OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
     ALIVE_PHOTTO = os.environ.get("ALIVE_PHOTTO", None)
@@ -138,7 +140,11 @@ class Var(object):
 
 
 class Development(Var):
+
     LOGGER = True
+    CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
+    GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
+
     # Here for later purposes
 
 
@@ -163,6 +169,8 @@ if ENV:
         TMP_DOWNLOAD_DIRECTORY = os.environ.get(
             "TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/"
         )
+        CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
+        GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
         # This is required for the speech to text module. Get your USERNAME
         # from
         # https://console.bluemix.net/docs/services/speech-to-text/getting-started.html
