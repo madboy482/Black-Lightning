@@ -186,7 +186,7 @@ if ENV:
         NO_SONGS = bool(os.environ.get("NO_SONGS", False))
         #
         CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
-        GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
+        GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", "/usr/bin/google-chrome")
 
         # DO NOT EDIT BELOW THIS LINE IF YOU DO NOT KNOW WHAT YOU ARE DOING
         # TG API limit. A message can have maximum 4096 characters!
@@ -277,4 +277,4 @@ else:
 
     class Config(object):
         DB_URI = None
-        chrome_options.binary_location = Config.GOOGLE_CHROME_BIN        # Add your extra vars if any here
+        # Add your extra vars if any here
