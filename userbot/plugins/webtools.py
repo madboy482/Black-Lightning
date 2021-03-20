@@ -32,7 +32,7 @@ async def wshot(message):
     link = link_match.group()
     await message.edit("`Processing ...`")
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.binary_location = Config.GOOGLE_CHROME_BIN
+    chrome_options.binary_location = Config.CHROME_BIN
     chrome_options.add_argument("--ignore-certificate-errors")
     chrome_options.add_argument("--test-type")
     chrome_options.add_argument("--headless")
@@ -68,7 +68,7 @@ async def wshot(message):
     reply = await message.get_reply_message()
     if message.reply_to_msg_id:
         message_id = message.reply_to_msg_id
-    file_path = os.path.join(Config.TEMP_DOWNLOAD_DIRECTORY , "webss.png")
+    file_path = os.path.join(Config.TEMP_DOWNLOAD_DIRECTORY , "wshot.png")
     async with aiofiles.open(file_path, "wb") as out_file:
         await out_file.write(im_png)
     await asyncio.gather(
