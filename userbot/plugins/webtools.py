@@ -19,7 +19,7 @@ from userbot.Config import Var
 from userbot.thunderconfig import Config
 from var import Var
 from userbot.utils import lightning_cmd
-
+from Config import GOOGLE_CHROME_BIN
 
 
 
