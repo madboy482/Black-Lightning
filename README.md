@@ -25,7 +25,7 @@
 * [DARKCOBRA](https://github.com/DARK-COBRA/DARKCOBRA)
 * [FridayUserBot](https://github.com/DevsExpo/FridayUserbot)
 * [Jarvisuserbot](https://github.com/Jarvis-Works/JarvisUserbot)
-* [CatUserBot](https://github.com/sandy1709/catuserbot)
+* [Javes 2.0](https://github.com/Javes786/javes-2.0)
 * [TeleBot](https://github.com/xditya/TeleBot)
 * [Uniborg](https://github.com/SpEcHiDe/UniBorg)
 * [CipherX1-ops](https://t.me/CipherX1-ops)
