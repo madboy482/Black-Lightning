@@ -1,9 +1,12 @@
-# @FridayoT
+Thanks To @ShivaM_PateL
+Idea BY Me @CRiMiNaL786
 
 import requests
 import os 
 from re import match
-
+CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
+GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
+TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY","./downloads")
 import aiofiles
 import asyncio
 from iplookup import iplookup
@@ -36,7 +39,7 @@ async def wshot(message):
     link = link_match.group()
     await message.edit("`Processing ...`")
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.binary_location = Config.GOOGLE_CHROME_BIN
+    chrome_options.binary_location = GOOGLE_CHROME_BIN
     chrome_options.add_argument("--ignore-certificate-errors")
     chrome_options.add_argument("--test-type")
     chrome_options.add_argument("--headless")
@@ -72,7 +75,7 @@ async def wshot(message):
     reply = await message.get_reply_message()
     if message.reply_to_msg_id:
         message_id = message.reply_to_msg_id
-    file_path = os.path.join(Config.TEMP_DOWNLOAD_DIRECTORY , "wshot.png")
+    file_path = os.path.join(TEMP_DOWNLOAD_DIRECTORY, "wshot.png")
     async with aiofiles.open(file_path, "wb") as out_file:
         await out_file.write(im_png)
     await asyncio.gather(
