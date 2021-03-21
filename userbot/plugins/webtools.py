@@ -14,12 +14,14 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 from userbot import CMD_HELP
 from userbot.utils import lightning_cmd, edit_or_reply, sudo_cmd
-from userbot import Config 
 from userbot.Config import Var
 from userbot.thunderconfig import Config
 from var import Var
 from userbot.utils import lightning_cmd
-from userbot.Config import GOOGLE_CHROME_BIN
+
+
+    GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
+
 
 
 
