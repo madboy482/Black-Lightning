@@ -1,5 +1,5 @@
-Thanks To @ShivaM_PateL
-Idea BY Me @CRiMiNaL786
+#Thanks To @ShivaM_PateL
+#Idea BY Me @CRiMiNaL786
 
 import requests
 import os 
