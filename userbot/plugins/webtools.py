@@ -20,8 +20,6 @@ from var import Var
 from userbot.utils import lightning_cmd
 
 
-    GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
-
 
 
 
