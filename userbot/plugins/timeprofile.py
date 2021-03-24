@@ -2,7 +2,6 @@
 
 import asyncio
 import time
-from logging import *
 
 from telethon.errors import FloodWaitError
 from telethon.tl import functions
@@ -15,8 +14,6 @@ from userbot import ALIVE_NAME, CMD_HELP
 
 DEL_TIME_OUT = 60
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "вℓα¢к ℓιgнтηιηg"
-
-logger = logging.getLogger("[вℓα¢к ℓιgнтηιηg Bot]")
 
 @cipherx.on(cipherx_on_cmd(pattern="cipher"))
 @cipherx.on(sudo_cmd(pattern="cipher", allow_sudo=True))
