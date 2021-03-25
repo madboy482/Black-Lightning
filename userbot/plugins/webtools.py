@@ -1,5 +1,6 @@
-#Thanks To @ShivaM_PateL
-#Idea BY Me @CRiMiNaL786
+Made by @Midhun_xD real owner @Midhun_xD 
+#ported To javes 3.0 @ShivaM_PateL
+#nothing BY Me @CRiMiNaL786
 
 import requests
 import os 
