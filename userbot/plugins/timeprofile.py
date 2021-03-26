@@ -52,7 +52,7 @@ async def _(event):
             await asyncio.sleep(ex.seconds)
 
         await asyncio.sleep(DEL_TIME_OUT)
-        await sed.edit("**вℓα¢к ℓιgнтηιηg ᴀᴜᴛᴏ ɴᴀᴍᴇ ʜᴀs ʙᴇᴇɴ sᴛᴀʀᴛᴇᴅ**")
+    await sed.edit("**вℓα¢к ℓιgнтηιηg ᴀᴜᴛᴏ ɴᴀᴍᴇ ʜᴀs ʙᴇᴇɴ sᴛᴀʀᴛᴇᴅ**")
 
 
 CMD_HELP.update(
