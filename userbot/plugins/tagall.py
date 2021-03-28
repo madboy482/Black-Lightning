@@ -13,7 +13,7 @@ async def _(event):
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, 75):
         mentions += f" \n [{x.first_name}](tg://user?id={x.id})"
-    await event.edit(mentions)
+    await event.reply(mentions)
 
 
 @borg.on(lightning_cmd(pattern=r"admin", outgoing=True))
@@ -30,7 +30,7 @@ async def _(event):
         reply_message = await event.get_reply_message()
         await reply_message.reply(mentions)
     else:
-        await event.edit(mentions)
+        await event.reply(mentions)
 
 
 CMD_HELP.update(
